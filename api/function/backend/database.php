@@ -455,23 +455,29 @@ function create_chat()
         return false;
     }
 }
-function get_chat($user_id, $user_id2): array
+
+function send_message($chat_id, $message) : bool
 {
     $mysql = new mysqli(servername, username, password, dbname);
-    return $mysql->query("SELECT * FROM `chats` WHERE `user_id` = '$user_id' AND `user_id2` = '$user_id2'")->fetch_assoc();
-}
-function send_message($chat_id, $user_id, $message): bool
-{
-    $mysql = new mysqli(servername, username, password, dbname);
-    $date = date('Y-m-d H:i:s');
-    $result = $mysql->query("INSERT INTO `messages`(`chat_id`, `user_id`, `message`, `date`) VALUES ('$chat_id','$user_id','$message','$date')");
-    if($result){
-        return true;
+
+    // Проверка на успешное соединение с БД
+    if ($mysql->connect_error) {
+        die("Ошибка соединения с БД: " . $mysql->connect_error);
     }
-    else{
+
+    $user_id = get_user_info($_COOKIE['auth_token'])['id'];
+    $date = date('Y-m-d H:i:s');
+
+    $stmt = $mysql->prepare("INSERT INTO `messages` (`user_id`, `message_text`, `chat_id`, `date`) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("isss", $user_id, $message, $chat_id, $date);
+
+    if ($stmt->execute()) {
+        return true;
+    } else {
         return false;
     }
 }
+
 
 function get_info_domain($domain) : array{
     $mysql = new mysqli(servername, username, password, dbname);
@@ -517,4 +523,10 @@ function delete_domain($zone_id): bool
     else{
         return false;
     }
+}
+function get_chat(): array
+{
+    $mysql = new mysqli(servername, username, password, dbname);
+    $user_id = get_user_info($_COOKIE['auth_token'])['id'];
+    return $mysql->query("SELECT * FROM `chats` WHERE `user_1` = '$user_id'")->fetch_assoc();
 }

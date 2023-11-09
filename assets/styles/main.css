@@ -26,7 +26,11 @@ body {
     color: var(--color-text);
 
 }
-
+.non_message_container{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 .td_affiliate {
     width: 100%;
 
@@ -1795,7 +1799,8 @@ input[type="checkbox"] {
     max-height: 700px;
     overflow-y: auto;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    justify-content: end;
 
 }
 

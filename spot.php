@@ -588,9 +588,11 @@ $coin_fullName = strtolower(get_coin_info($coin)['full_name']);
         color: #B7BDC6;
     }
 </style>
-<script type="text/javascript" src="assets/scripts/tradingview.com_tv.js"></script>
+<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+
+
 <script type="text/javascript">
-    new TradingView.widget({
+    const widget = new TradingView.widget({
         "autosize": true,
         "symbol": "<?=$coin?>USDT",
         "interval": "D",
@@ -602,6 +604,15 @@ $coin_fullName = strtolower(get_coin_info($coin)['full_name']);
         "hide_side_toolbar": false,
         "allow_symbol_change": true,
         "container_id": "tradingview_f1662"
+    });
+
+    widget.onChartReady(function() {
+        var order = widget.chart().createOrderLine()
+            .setText("Buy Line")
+            .setLineLength(3)
+            .setLineStyle(0)
+            .setQuantity("221.235 USDT");
+        order.setPrice(7000);
     });
 </script>
 <script>
