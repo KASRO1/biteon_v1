@@ -4,37 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48de03d6-5035-48b3-82d5-9edc4dfb2797" name="Changes" comment="Сделал чат">
-      <change afterPath="$PROJECT_DIR$/api/ajax/close_orders_market.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/support.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/support.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/function/backend/course.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/course.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/function/backend/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/function/frontend/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/frontend/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cross-rates.php" beforeDir="false" afterPath="$PROJECT_DIR$/cross-rates.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deposit.php" beforeDir="false" afterPath="$PROJECT_DIR$/deposit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/heat-map.php" beforeDir="false" afterPath="$PROJECT_DIR$/heat-map.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market-cap.php" beforeDir="false" afterPath="$PROJECT_DIR$/market-cap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market-screener.php" beforeDir="false" afterPath="$PROJECT_DIR$/market-screener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p2p.php" beforeDir="false" afterPath="$PROJECT_DIR$/p2p.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings_2fa.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_2fa.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings_affiliate.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_affiliate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings_gift.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_gift.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings_kyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_kyc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_password.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spot.php" beforeDir="false" afterPath="$PROJECT_DIR$/spot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staking.php" beforeDir="false" afterPath="$PROJECT_DIR$/staking.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/support.php" beforeDir="false" afterPath="$PROJECT_DIR$/support.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swap.php" beforeDir="false" afterPath="$PROJECT_DIR$/swap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/technical-analysis.php" beforeDir="false" afterPath="$PROJECT_DIR$/technical-analysis.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet.php" beforeDir="false" afterPath="$PROJECT_DIR$/wallet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/withdraw.php" beforeDir="false" afterPath="$PROJECT_DIR$/withdraw.php" afterDir="false" />
-    </list>
+    <list default="true" id="48de03d6-5035-48b3-82d5-9edc4dfb2797" name="Changes" comment="Почти сделал маркет" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,7 +117,7 @@
       <workItem from="1699633447591" duration="596000" />
       <workItem from="1699716113035" duration="4949000" />
       <workItem from="1699730658436" duration="4096000" />
-      <workItem from="1699785693205" duration="8576000" />
+      <workItem from="1699785693205" duration="8909000" />
     </task>
     <task id="LOCAL-00001" summary="last">
       <option name="closed" value="true" />
@@ -189,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699572878205</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Почти сделал маркет">
+      <option name="closed" value="true" />
+      <created>1699819864860</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1699819864860</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,7 +188,8 @@
     <MESSAGE value="last" />
     <MESSAGE value="last1" />
     <MESSAGE value="Сделал чат" />
-    <option name="LAST_COMMIT_MESSAGE" value="Сделал чат" />
+    <MESSAGE value="Почти сделал маркет" />
+    <option name="LAST_COMMIT_MESSAGE" value="Почти сделал маркет" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
