@@ -12,18 +12,31 @@ function get_price_coin($coin){
     $output = json_decode($output);
     return $output->data->priceUsd;
 }
-function get_assets_coin($coin){
-    $coin = str_replace(' ', '-', $coin);
+
+/**
+ * @throws Exception
+ */
+function get_assets_coin($pair) {
+    $coin = str_replace('_', '', $pair);
     $coin = strtolower($coin);
-    $url = "https://api.coincap.io/v2/assets/".$coin;
+    $url = "https://testnet.binancefuture.com/fapi/v1/ticker/24hr?symbol=".urlencode($coin);
+
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
-    $output = curl_exec($ch); 
-    curl_close($ch);      
-    $output = json_decode($output);
-    return $output->data;
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+    try {
+        $output = curl_exec($ch);
+        if ($output === false) {
+            throw new Exception(curl_error($ch), curl_errno($ch));
+        }
+    } finally {
+        curl_close($ch);
+    }
+
+    return json_decode($output, true);
 }
+
 function get_trades_coin($coin){
     $coin = str_replace(' ', '-', $coin);
     $coin = strtolower($coin);

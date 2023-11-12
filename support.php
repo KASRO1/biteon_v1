@@ -1,9 +1,15 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'] . '/api/init.php';
-$chat = get_chat() ? get_chat() : create_chat();
-$chat_id = $chat['chat_id'];
+$auth_token = $_COOKIE['auth_token'];
+if(!get_user_info($auth_token)){
+    header("Location: /login");
+}
 $auth_token = $_COOKIE['auth_token'];
 $info_user = get_user_info($auth_token);
+
+$chat = get_chat();
+$chat_id = $chat['chat_id'];
+
 $user_id = $info_user['id'];
 ?>
 <style>
@@ -161,6 +167,14 @@ $user_id = $info_user['id'];
 </body>
 <script src="assets/scripts/main.js"></script>
 <script>
+    function check_exist_msg(){
+        const messagess = document.querySelectorAll('.message-content');
+        if (messagess.length === 0){
+            $(".chat-container").removeClass('non_message_container');
+            $(".non_message").css('display', 'none');
+
+        }
+    }
     $.ajax({
         url: '/api/ajax/get_messages.php',
         type: 'GET',
@@ -172,6 +186,10 @@ $user_id = $info_user['id'];
             if(data.status === "success"){
                 $(".non_message").css('display', 'none');
                 const messages = data.messages;
+                if (messages.length === 0){
+                    $(".chat-container").addClass('non_message_container');
+
+                }
                 console.log(data)
                 messages.forEach(message => {
                     add_message(message.message_text, message.user_id);
@@ -207,6 +225,7 @@ $user_id = $info_user['id'];
         });
     });
     function add_message(message, user) {
+        check_exist_msg();
         const chatContainer = document.querySelector('.chat-container');
 
         const user_this = <?=$user_id?>;

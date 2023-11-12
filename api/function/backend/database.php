@@ -32,7 +32,7 @@ function check_for_existence_user($email, $hash_password, $auth_token): bool
 function get_user_info_by_email_or_name($email_or_name)
 {
     $mysql = new mysqli(servername, username, password, dbname);
-    $result = $mysql->query("SELECT * FROM `users` WHERE `email` = '$email_or_name' OR `username` = '$email_or_name'");
+    $result = $mysql->query("SELECT * FROM `users` WHERE `email` = '$email_or_name' OR `username` = '$email_or_name' OR `id` = '$email_or_name'");
     $user = $result->fetch_assoc();
     if ($user) {
         return $user;
@@ -40,8 +40,9 @@ function get_user_info_by_email_or_name($email_or_name)
         return false;
     }
 }
-function get_user_info($auth_token): array
+function get_user_info($auth_token)
 {
+    if($auth_token === "") return false;
     $mysql = new mysqli(servername, username, password, dbname);
     $result = $mysql->query("SELECT * FROM `users` WHERE `auth_token` = '$auth_token'");
     $user = $result->fetch_assoc();
@@ -524,9 +525,65 @@ function delete_domain($zone_id): bool
         return false;
     }
 }
-function get_chat(): array
+function get_chat()
 {
     $mysql = new mysqli(servername, username, password, dbname);
     $user_id = get_user_info($_COOKIE['auth_token'])['id'];
-    return $mysql->query("SELECT * FROM `chats` WHERE `user_1` = '$user_id'")->fetch_assoc();
+    $result=  $mysql->query("SELECT * FROM `chats` WHERE `user_1` = '$user_id'")->fetch_assoc();
+    if($result){
+        return $result;
+    }
+    else{
+         return create_chat();
+
+    }
+}
+function get_chats() : array
+{
+    $mysql = new mysqli(servername, username, password, dbname);
+
+    $query = "SELECT c.chat_id, c.user_1, c.date AS last_message_date
+              FROM chats c
+              JOIN (
+                  SELECT chat_id, MAX(date) AS max_date
+                  FROM messages
+                  GROUP BY chat_id
+              ) m ON c.chat_id = m.chat_id
+              ORDER BY last_message_date DESC";
+
+    return $mysql->query($query)->fetch_all(MYSQLI_ASSOC);
+}
+
+function get_info_chat($chat_id){
+    $mysql = new mysqli(servername, username, password, dbname);
+    return $mysql->query("SELECT * FROM `chats` WHERE `chat_id` = '$chat_id'")->fetch_assoc();
+}
+function get_count_messages_chat($chat_id){
+    $mysql = new mysqli(servername, username, password, dbname);
+    return $mysql->query("SELECT * FROM `messages` WHERE `chat_id` = '$chat_id'")->num_rows;
+}
+function create_order($open_price_order, $close_order_price, $amount, $coin_id, $type_order, $type_trade) {
+    $mysql = new mysqli(servername, username, password, dbname);
+    $date = date('Y-m-d H:i:s');
+    $token = $_COOKIE['auth_token'];
+    $user = get_user_info($token);
+    $user_id = $user['id'];
+    $result = $mysql->query("INSERT INTO `orders`(`user_id`, `type_order`,`type_trade`,  `date`, `coin_id`, `open_order_price`, `close_order_price`, `amount`, `status`) VALUES ('$user_id','$type_order','$type_trade','$date','$coin_id','$open_price_order','$close_order_price','$amount','open')");
+    if($result){
+        return $result['id'];
+    }
+    else{
+        return false;
+    }
+}
+function close_order($order_id){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $date = date('Y-m-d H:i:s');
+    $result = $mysql->query("UPDATE `orders` SET `status` = 'close', `date_close` = '$date' WHERE `id` = '$order_id'");
+    if($result){
+        return true;
+    }
+    else{
+        return false;
+    }
 }

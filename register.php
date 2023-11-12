@@ -52,7 +52,7 @@
                     </div>
                     <button type="submit" class="btn">Sign in</button>
 
-                    <p>Already have an account? <a href="log-in">Sign in now</a></p>
+                    <p>Already have an account? <a href="login">Sign in now</a></p>
                 </div>
             </form>
         </section>

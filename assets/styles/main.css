@@ -27,18 +27,18 @@ body {
 
 }
 .non_message_container{
-    justify-content: center;
+    justify-content: center !important;
     align-items: center;
     text-align: center;
 }
 .td_affiliate {
     width: 100%;
 
-    border-spacing: 0px;
+    border-spacing: 0;
 }
 
 .td_affiliate tbody td {
-    padding: 15px 0px 10px 15px;
+    padding: 15px 0 10px 15px;
     font-size: 12px;
     line-height: 26px;
     color: white;
@@ -1105,7 +1105,14 @@ header h3 {
 
 .marker {
     color: #3ADCFF;
+    background: rgb(20, 31, 42);;
+    width: 15px;
+    cursor: pointer;
+    height: 15px;
+    border-radius: 100%;
+    border: 3px solid #3ADCFF;
 }
+
 
 .instructions h1 {
     font-size: 15px;
@@ -4209,7 +4216,10 @@ input:focus {
     align-items: center;
 
 }
+.spot_header_current_pair img{
+    height: 30px;
 
+}
 .spot_header_24h_change h4 {
     color: #F6465D;
 }

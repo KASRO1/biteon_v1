@@ -498,3 +498,48 @@ function render_assets_spot()
     }
     return $result;
 }
+
+
+function render_list_chats(){
+    $chats = get_chats();
+    $result = "";
+
+    foreach ($chats as $value) {
+        $chat_id = $value['chat_id'];
+        if (get_count_messages_chat($chat_id) === 0) {
+            continue;
+        }
+        $user_id = $value['user_1'];
+        $user = get_user_info_by_email_or_name($user_id);
+
+        $username = $user['username'];
+        $result .= "
+        <a href='support?chat_id=$chat_id'>$username</a>
+    ";
+    }
+    return $result;
+}
+function render_messages_chat($chat_id){
+    $messages = get_messages($chat_id);
+
+    $auth_token = $_COOKIE['auth_token'];
+    $user = get_user_info($auth_token);
+    $user_id_this = $user['id'];
+    $result = "";
+    foreach ($messages as $value) {
+        $message = $value['message_text'];
+        $user_id = $value['user_id'];
+        if($user_id == $user_id_this){
+            $class = "right";
+        }
+        else{
+            $class = "left";
+        }
+
+
+        $result .= "
+<div class='chat_message_content__item__text $class'><div>$message</div></div>
+    ";
+    }
+    return $result;
+}

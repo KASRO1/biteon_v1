@@ -2,7 +2,7 @@
 require($_SERVER['DOCUMENT_ROOT'] . '/api/init.php');
 $auth_token = $_COOKIE['auth_token'];
 if (!get_user_info($auth_token)) {
-    header("Location: /log-in");
+    header("Location: /login");
 }
 $user_info = get_user_info($auth_token);
 if ($_GET['pair']) {
@@ -11,7 +11,21 @@ if ($_GET['pair']) {
     $pair = 'BTC_USDT';
 }
 $coin = explode('_', $pair)[0];
-$coin_fullName = strtolower(get_coin_info($coin)['full_name']);
+$coin_info = get_coin_info($coin);
+$coin_fullName = strtolower($coin_info['full_name']);
+
+$coin_id = $coin_info['id_coin'];
+$assets_coin = get_assets_coin($pair);
+
+$volume_24h = number_format($assets_coin['quoteVolume'], 2);
+$change_24h = number_format($assets_coin['priceChangePercent'], 2);
+$high_24h = number_format($assets_coin['highPrice'], 2);
+$low_24h = number_format($assets_coin['lowPrice'], 2);
+$amount_24h = $assets_coin['count'];
+$last_price =  number_format($assets_coin['lastPrice'], 2);
+
+$balance_coin = get_balance_coin_this_user($coin_id);
+$balance_coin_usdt = get_balance_coin_this_user(192);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,28 +65,28 @@ $coin_fullName = strtolower(get_coin_info($coin)['full_name']);
         <section class="spot_header_sec">
             <div class="spot_header_content">
                 <div class="spot_header_current_pair">
-                    <img src="assets/images/icons/crypto/btc.svg" alt="">
-                    <h2>BTC/USDT</h2>
+                    <img src="assets/coin_icons/<?=strtolower($coin)?>.svg" alt="">
+                    <h2><?=$pair?></h2>
                 </div>
                 <div class="spot_header_current_cost">
-                    <h2>26541.83</h2>
-                    <p>≈$26541.83</p>
+                    <h2><?=$last_price?></h2>
+                    <p>≈$<?=$last_price?></p>
                 </div>
                 <div class="spot_header_24h_change">
                     <p>24h Change</p>
-                    <h4>-0.359%</h4>
+                    <h4><?=$change_24h?> %</h4>
                 </div>
                 <div class="spot_header_24h_high">
                     <p>24h High</p>
-                    <h4>26541.83</h4>
+                    <h4><?=$high_24h?></h4>
                 </div>
                 <div class="spot_header_24h_low">
                     <p>24h Low</p>
-                    <h4>26541.83</h4>
+                    <h4><?=$low_24h?><h4>
                 </div>
                 <div class="spot_header_24h_volume">
-                    <p>24h Volume(BTC)</p>
-                    <h4>26541.83</h4>
+                    <p>24h Volume(<?=$coin?>)</p>
+                    <h4><?=$volume_24h?></h4>
                 </div>
                 <div class="spot_header_24h_amount">
                     <p>24h Amount (USDT)</p>
@@ -161,9 +175,10 @@ $coin_fullName = strtolower(get_coin_info($coin)['full_name']);
                     </div>
 
                     <div class="spot_content_user_control_market" id="market">
+                        <form method="post" id="market_buy_form">
                         <div class="spot_content_user_control_market_buy">
                             <div class="">
-                                <p>Available 0.0000000 <span class="text-white">USDT</span></p>
+                                <p>Available <?=$balance_coin_usdt?> <span class="text-white">USDT</span></p>
                             </div>
                             <div class="spot_content_market_price">
                                 Market Price
@@ -186,21 +201,22 @@ $coin_fullName = strtolower(get_coin_info($coin)['full_name']);
 
                             </div>
                             <div class="per_purchase">
-                                <p>Get per purchase: 0.0000000 <span class="text-white">USDT</span></p>
+                                <p>Get per purchase: 0 <span class="text-white">USDT</span></p>
                             </div>
                             <div>
-                                <button class="button_spot buy">Buy BTC</button>
+                                <button type="submit" class="button_spot buy">Buy BTC</button>
                             </div>
                         </div>
+                        </form>
                         <div class="spot_content_user_control_market_sell">
                             <div class="">
-                                <p>Available 0.0000000 <span class="text-white">USDT</span></p>
+                                <p>Available <?=$balance_coin?> <span class="text-white"><?=$coin?></span></p>
                             </div>
                             <div class="spot_content_market_price">
                                 Market Price
                             </div>
                             <div class="spot_content_market_amount">
-                                <input type="text" placeholder="Amount"> <span>USDT</span>
+                                <input type="text" placeholder="Amount"> <span><?=$coin?></span>
                             </div>
 
                             <div>
@@ -606,14 +622,8 @@ $coin_fullName = strtolower(get_coin_info($coin)['full_name']);
         "container_id": "tradingview_f1662"
     });
 
-    widget.onChartReady(function() {
-        var order = widget.chart().createOrderLine()
-            .setText("Buy Line")
-            .setLineLength(3)
-            .setLineStyle(0)
-            .setQuantity("221.235 USDT");
-        order.setPrice(7000);
-    });
+
+
 </script>
 <script>
     $("#spot_table").DataTable({
@@ -689,7 +699,7 @@ tradeWs.onmessage = function(event) {
 
         setTimeout(() => {
             updateTable(table2, recentTrades2Buy);
-        }, 200); 
+        }, 200);
 
         setTimeout(() => {
             updateTable(table3, recentTrades3Sell);
@@ -746,6 +756,26 @@ tradeWs.onmessage = function(event) {
             table.appendChild(newRow);
         });
     }
+
+    const order_buy_market_form = document.getElementById("market_buy_form");
+    order_buy_market_form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        $.ajax({
+            url: "/api/ajax/close_orders_market.php",
+            type: "POST",
+            data: formData,
+            success: function(data) {
+                console.log(data);
+            },
+            error: function(data) {
+                console.log(data);
+            },
+            cache: false,
+            contentType: false,
+            processData: false
+        }
+    });
 </script>
 
 

@@ -2,7 +2,7 @@
 require($_SERVER['DOCUMENT_ROOT'] . '/api/init.php');
 $auth_token = $_COOKIE['auth_token'];
 if (!get_user_info($auth_token)) {
-    header("Location: /log-in");
+    header("Location: /login");
 }
 $user_info = get_user_info($auth_token);
 

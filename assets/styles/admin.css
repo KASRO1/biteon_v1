@@ -184,7 +184,7 @@ header {
     border-radius: 7px;
 
     width: 100%;
-    height: fit-content;
+    height: 90%;
 }
 
 .loader {
@@ -437,7 +437,7 @@ h3 {
 }
 
 .content_card_main {
-    height: 90%;
+    height: 100%;
 }
 
 .content_container_static_el {
@@ -682,7 +682,9 @@ aside li div {
     font-weight: 700;
     line-height: normal;
 }
-
+.chat {
+    height: 100%;
+}
 .chat_aside_header {
     border-bottom: 1px dashed rgba(42, 68, 95, 0.39);
 }
