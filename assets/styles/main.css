@@ -2766,6 +2766,7 @@ input {
     border: none;
     color: white;
     border-radius: unset;
+    flex: 1;
 
 }
 
@@ -4227,6 +4228,7 @@ input:focus {
 .spot_header_24h_change h4 {
     color: #F6465D;
 }
+
 
 .spot_header_current_cost h2 {
     color: #F6465D;

@@ -22,7 +22,7 @@ $change_24h = number_format($assets_coin['priceChangePercent'], 2);
 $high_24h = number_format($assets_coin['highPrice'], 2);
 $low_24h = number_format($assets_coin['lowPrice'], 2);
 $amount_24h = $assets_coin['count'];
-$last_price =  number_format($assets_coin['lastPrice'], 2);
+$last_price = number_format($assets_coin['lastPrice'], 2);
 $last_price_orig = $assets_coin['lastPrice'];
 $balance_coin = get_balance_coin_this_user($coin_id);
 $balance_coin_usdt = get_balance_coin_this_user(192);
@@ -41,7 +41,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
     <link rel="stylesheet" href="assets/fonts/stylesheet.css">
 
 
-    <link rel="stylesheet" href="/assets/DataTables/datatables.css" />
+    <link rel="stylesheet" href="/assets/DataTables/datatables.css"/>
     <script src="/assets/DataTables/datatables.js"></script>
     <link rel="stylesheet" href="assets/styles/custom-select.css">
 
@@ -59,133 +59,135 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
 </style>
 
 <body class="swap">
-    <?= render_header() ?>
+<?= render_header() ?>
 
-    <main id="status_main" class="spot_main">
-        <section class="spot_header_sec">
-            <div class="spot_header_content">
-                <div class="spot_header_current_pair">
-                    <img src="assets/coin_icons/<?=strtolower($coin)?>.svg" alt="">
-                    <h2><?=$pair?></h2>
-                </div>
-                <div class="spot_header_current_cost">
-                    <h2><?=$last_price?></h2>
-                    <p>≈$<?=$last_price?></p>
-                </div>
-                <div class="spot_header_24h_change">
-                    <p>24h Change</p>
-                    <h4><?=$change_24h?> %</h4>
-                </div>
-                <div class="spot_header_24h_high">
-                    <p>24h High</p>
-                    <h4><?=$high_24h?></h4>
-                </div>
-                <div class="spot_header_24h_low">
-                    <p>24h Low</p>
-                    <h4><?=$low_24h?><h4>
-                </div>
-                <div class="spot_header_24h_volume">
-                    <p>24h Volume(<?=$coin?>)</p>
-                    <h4><?=$volume_24h?></h4>
-                </div>
-                <div class="spot_header_24h_amount">
-                    <p>24h Amount (USDT)</p>
-                    <h4>250,209,831.41</h4>
-                </div>
+<main id="status_main" class="spot_main">
+    <section class="spot_header_sec">
+        <div class="spot_header_content">
+            <div class="spot_header_current_pair">
+                <img src="assets/coin_icons/<?= strtolower($coin) ?>.svg" alt="">
+                <h2><?= $pair ?></h2>
             </div>
-        </section>
-        <section class="spot_content">
-            <div class="spot_content_actual_kurs">
-                <table id="spot_table">
-                    <thead>
+            <div class="spot_header_current_cost">
+                <h2 id="cost_change"><?= $last_price ?></h2>
+                <p>≈$<span id="cost_change_usd"><?= $last_price ?><span></p>
+            </div>
+            <div class="spot_header_24h_change">
+                <p>24h Change</p>
+                <h4 id="24h_change"><?= $change_24h ?> %</h4>
+            </div>
+            <div class="spot_header_24h_high">
+                <p>24h High</p>
+                <h4 id="24h_high"><?= $high_24h ?></h4>
+            </div>
+            <div class="spot_header_24h_low">
+                <p>24h Low</p>
+                <h4 id="24h_low"><?= $low_24h ?><h4>
+            </div>
+            <div class="spot_header_24h_volume">
+                <p>24h Volume(<?= $coin ?>)</p>
+                <h4 id="24h_volume"><?= $volume_24h ?></h4>
+            </div>
+            <div class="spot_header_24h_amount">
+                <p>24h Amount (USDT)</p>
+                <h4 id="24h_amount">250,209,831.41</h4>
+            </div>
+        </div>
+    </section>
+    <section class="spot_content">
+        <div class="spot_content_actual_kurs">
+            <table id="spot_table">
+                <thead>
+                <tr>
+                    <th>Currency</th>
+                    <th>Last</th>
+                    <th>Change</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <?= render_assets_spot() ?>
+                </tbody>
+
+            </table>
+            <div class="order_book_container">
+                <div class="order_book_header">
+                    Order Book
+                </div>
+                <div class="order_book_content">
+                    <table class="book_table" style="text-align: left;">
+
                         <tr>
-                            <th>Currency</th>
-                            <th>Last</th>
-                            <th>Change</th>
-
-
+                            <th>Price(USDT)</th>
+                            <th>Size(BTC)</th>
+                            <th>Total(USDT)</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <?= render_assets_spot() ?>
-                    </tbody>
 
-                </table>
-                <div class="order_book_container">
-                    <div class="order_book_header">
-                        Order Book
-                    </div>
-                    <div class="order_book_content">
-                        <table class="book_table" style="text-align: left;">
+                        <tbody id="order_book">
 
-                            <tr>
-                                <th>Price(USDT)</th>
-                                <th>Size(BTC)</th>
-                                <th>Total(USDT)</th>
-                            </tr>
+                        </tbody>
 
-                            <tbody id="order_book">
+                    </table>
+                </div>
+                <div class="order_book_content">
+                    <table class="book_table" style="text-align: left;">
 
-                            </tbody>
-
-                        </table>
-                    </div>
-                    <div class="order_book_content">
-                        <table class="book_table" style="text-align: left;">
-
-                            <tr style="padding: 5px 16px;
+                        <tr style="padding: 5px 16px;
     margin: 5px 0;
     background-color: #e1e8f50a;
     border-top: 1px solid #f4f9ff1a;
     border-bottom: 1px solid #f4f9ff1a;">
-                                <th style="font-weight: 600; font-size: 16px;" class="text_success">36455.88 </th>
-                                <th style="font-weight: 400; font-size: 14px;">36449.78 USD</th>
-                                <th></th>
-                            </tr>
+                            <th style="font-weight: 600; font-size: 16px;" class="text_success">36455.88</th>
+                            <th style="font-weight: 400; font-size: 14px;">36449.78 USD</th>
+                            <th></th>
+                        </tr>
 
-                            <tbody id="order_book1">
+                        <tbody id="order_book1">
 
-                            </tbody>
+                        </tbody>
 
-                        </table>
-                    </div>
+                    </table>
                 </div>
             </div>
-            <div class="spot_content_user_panel">
-                <div class="spot_content_user_panel_chart">
-                    <div class="tradingview-widget-container">
-                        <div id="tradingview_f1662"></div>
+        </div>
+        <div class="spot_content_user_panel">
+            <div class="spot_content_user_panel_chart">
+                <div class="tradingview-widget-container">
+                    <div id="tradingview_f1662"></div>
 
 
-
-                    </div>
                 </div>
-                <div class="spot_content_user_panel_control">
+            </div>
+            <div class="spot_content_user_panel_control">
 
-                    <div class="spot_content_user_panel_control_header">
-                        <button class="spot_content_user_control" onclick="switcher_type_trade(this,'limit')">
-                            Limit
-                        </button>
-                        <button class="spot_content_user_control active" onclick="switcher_type_trade(this,'market')">
-                            Market
-                        </button>
-                        <button class="spot_content_user_control" onclick="switcher_type_trade(this,'trigger')">
-                            Trigger Order
-                        </button>
-                    </div>
+                <div class="spot_content_user_panel_control_header">
+                    <button class="spot_content_user_control" onclick="switcher_type_trade(this,'limit')">
+                        Limit
+                    </button>
+                    <button class="spot_content_user_control active" onclick="switcher_type_trade(this,'market')">
+                        Market
+                    </button>
+                    <button class="spot_content_user_control" onclick="switcher_type_trade(this,'trigger')">
+                        Trigger Order
+                    </button>
+                </div>
 
-                    <div class="spot_content_user_control_market" id="market">
+                <div class="spot_content_user_control_market" id="market">
 
-                        <div class="spot_content_user_control_market_buy">
-                            <form method="post" class="spot_content_user_control_market_sell" id="market_buy_form">
+                    <div class="spot_content_user_control_market_buy">
+                        <form method="post" class="spot_content_user_control_market_sell" id="market_buy_form">
                             <div class="">
-                                <p>Available <?=$balance_coin_usdt?> <span class="text-white">USDT</span></p>
+                                <p>Available <span class="balance_usdt"><?= $balance_coin_usdt ?></span> <span
+                                            class="text-white">USDT</span></p>
                             </div>
                             <div class="spot_content_market_price">
                                 Market Price
                             </div>
                             <div class="spot_content_market_amount" id="input_buy_market">
-                                <input type="text" name="amount" placeholder="Amount"> <span>USDT</span>
+                                <input type="text" id="input_buy_market"
+                                       oninput="validateInput_numbers(this); calculate('USDT','<?= $coin ?>', this.value, 'span', document.getElementById('from_course_buy_market')); "
+                                       name="amount" placeholder="Amount"> <span>USDT</span>
                             </div>
 
                             <div>
@@ -202,24 +204,29 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
 
                             </div>
                             <div class="per_purchase">
-                                <p>Get per purchase: 0 <span class="text-white">USDT</span></p>
+                                <p>Get per purchase: <span id="from_course_buy_market">0</span> <span
+                                            class="text-white"><?= $coin ?></span>
+                                </p>
                             </div>
                             <div>
-                                <button type="submit" class="button_spot buy">Buy BTC</button>
+                                <button type="submit" class="button_spot buy">Buy <?= $coin ?></button>
                             </div>
-                            </form>
-                        </div>
+                        </form>
+                    </div>
 
-                        <div class="spot_content_user_control_market_sell">
-                            <form method="post" class="spot_content_user_control_market_sell" id="market_sell_form">
+                    <div class="spot_content_user_control_market_sell">
+                        <form method="post" class="spot_content_user_control_market_sell" id="market_sell_form">
                             <div class="">
-                                <p>Available <?=$balance_coin?> <span class="text-white"><?=$coin?></span></p>
+                                <p>Available <span class="balance_coin"><?= $balance_coin ?></span> <span
+                                            class="text-white"><?= $coin ?></span></p>
                             </div>
                             <div class="spot_content_market_price">
                                 Market Price
                             </div>
-                            <div class="spot_content_market_amount">
-                                <input type="text" placeholder="Amount"> <span><?=$coin?></span>
+                            <div class="spot_content_market_amount" id="input_sell_market">
+                                <input type="text" name="amount"
+                                       oninput="validateInput_numbers(this); calculate('<?= $coin ?>','USDT', this.value, 'span', document.getElementById('from_course_sell_market')); "
+                                       placeholder="Amount"> <span><?= $coin ?></span>
                             </div>
 
                             <div>
@@ -236,226 +243,234 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
 
                             </div>
                             <div class="per_purchase">
-                                <p>Get per purchase: 0.0000000 <span class="text-white">USDT</span></p>
+                                <p>Get per purchase: <span id="from_course_sell_market">0</span> <span
+                                            class="text-white">USDT</span></p>
                             </div>
                             <div>
-                                <button class="button_spot sell">Sell BTC</button>
+                                <button type="submit" class="button_spot sell">Sell BTC</button>
                             </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="spot_content_user_control_market" id="limit">
-                        <div class="spot_content_user_control_market_buy">
-                            <div class="">
-                                <p>Available 0.0000000 <span class="text-white">USDT</span></p>
-                            </div>
-
-                            <div class="spot_content_market_amount">
-                                <input type="text" placeholder="Price"> <span>USDT</span>
-                            </div>
-                            <div class="spot_content_market_amount">
-                                <input type="text" placeholder="Size"> <span>USDT</span>
-                            </div>
-
-                            <div>
-                                <div class="range-container">
-                                    <input type="range" id="myRange" class="myrange" min="0" max="4" step="1">
-                                    <div class="range-markers markers">
-                                        <div class="marker"></div>
-                                        <div class="marker"></div>
-                                        <div class="marker"></div>
-                                        <div class="marker"></div>
-                                        <div class="marker"></div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="per_purchase">
-                                <div class="spot_content_market_amount">
-                                    <input type="text" placeholder="Amount"> <span>USDT</span>
-                                </div>
-                            </div>
-
-                            <div>
-                                <button class="button_spot buy">Buy BTC</button>
-                            </div>
-                        </div>
-                        <div class="spot_content_user_control_market_sell">
-                            <div class="">
-                                <p>Available 0.0000000 <span class="text-white">USDT</span></p>
-                            </div>
-
-                            <div class="spot_content_market_amount">
-                                <input type="text" placeholder="Price"> <span>USDT</span>
-                            </div>
-                            <div class="spot_content_market_amount">
-                                <input type="text" placeholder="Size"> <span>USDT</span>
-                            </div>
-
-                            <div>
-                                <div class="range-container">
-                                    <input type="range" id="myRange" class="myrange" min="0" max="4" step="1">
-                                    <div class="range-markers markers">
-                                        <div class="marker"></div>
-                                        <div class="marker"></div>
-                                        <div class="marker"></div>
-                                        <div class="marker"></div>
-                                        <div class="marker"></div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="per_purchase">
-                                <div class="spot_content_market_amount">
-                                    <input type="text" placeholder="Amount"> <span>USDT</span>
-                                </div>
-                            </div>
-
-                            <div>
-                                <button class="button_spot sell">Sell BTC</button>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="spot_content_user_control_market" id="trigger">
-                        <div class="spot_content_user_control_market_buy">
-                            <div class="">
-                                <p>Available 0.0000000 <span class="text-white">USDT</span></p>
-                            </div>
-
-                            <div class="spot_content_market_amount">
-                                <input type="text" placeholder="Price"> <span>USDT</span>
-                            </div>
-                            <div class="trigger_select">
-                                <div class="spot_content_market_amount">
-                                    <input type="text" placeholder="Price"> <span>USDT</span>
-
-                                </div>
-                                <div id="select-type_trade1"></div>
-                            </div>
-
-                            <div>
-                                <div class="range-container">
-                                    <input type="range" id="myRange" class="myrange" min="0" max="4" step="1">
-                                    <div class="range-markers markers">
-                                        <div class="marker"></div>
-                                        <div class="marker"></div>
-                                        <div class="marker"></div>
-                                        <div class="marker"></div>
-                                        <div class="marker"></div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="per_purchase">
-                                <div class="spot_content_market_amount">
-                                    <input type="text" placeholder="Amount"> <span>USDT</span>
-                                </div>
-                            </div>
-
-                            <div>
-                                <button class="button_spot buy">Buy BTC</button>
-                            </div>
-                        </div>
-                        <div class="spot_content_user_control_market_sell">
-                            <div class="">
-                                <p>Available 0.0000000 <span class="text-white">USDT</span></p>
-                            </div>
-
-                            <div class="spot_content_market_amount">
-                                <input type="text" placeholder="Stop"> <span>USDT</span>
-                            </div>
-                            <div class="trigger_select">
-                                <div class="spot_content_market_amount">
-                                    <input type="text" placeholder="Price"> <span>USDT</span>
-
-                                </div>
-                                <div id="select-type_trade"></div>
-                            </div>
-
-                            <div>
-                                <div class="range-container">
-                                    <input type="range" id="myRange" class="myrange" min="0" max="4" step="1">
-                                    <div class="range-markers markers">
-                                        <div class="marker"></div>
-                                        <div class="marker"></div>
-                                        <div class="marker"></div>
-                                        <div class="marker"></div>
-                                        <div class="marker"></div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="per_purchase">
-                                <div class="spot_content_market_amount">
-                                    <input type="text" placeholder="Amount"> <span>USDT</span>
-                                </div>
-                            </div>
-
-                            <div>
-                                <button class="button_spot sell">Sell BTC</button>
-                            </div>
-                        </div>
-
+                        </form>
                     </div>
                 </div>
-                <div class="order_book_container">
-                    <div class="order_book_header">
-                        Trades
-                    </div>
-                    <div class="order_book_content">
-                        <table class="book_table" style="text-align: left;">
+                <div class="spot_content_user_control_market" id="limit">
+                    <div class="spot_content_user_control_market_buy">
+                        <form class="spot_content_user_control_market_buy" id="limit_buy_form">
+                            <div class="">
+                                <p>Available <span class="balance_coin"><?= $balance_coin ?></span> <span
+                                            class="text-white">USDT</span></p>
+                            </div>
 
-                            <tr>
-                                <th>Total(USDT)</th>
-                                <th>Size(BTC)</th>
-                                <th>Time</th>
-                            </tr>
-                            <tbody id="trades_table"></tbody>
+                            <div class="spot_content_market_amount">
+                                <input type="text" name="price" placeholder="Price"> <span>USDT</span>
+                            </div>
+                            <div class="spot_content_market_amount">
+                                <input type="text" name="size" placeholder="Size"> <span>USDT</span>
+                            </div>
 
-                        </table>
+                            <div>
+                                <div class="range-container">
+                                    <input type="range" id="myRange" class="myrange" min="0" max="4" step="1">
+                                    <div class="range-markers markers">
+                                        <div class="marker"></div>
+                                        <div class="marker"></div>
+                                        <div class="marker"></div>
+                                        <div class="marker"></div>
+                                        <div class="marker"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="per_purchase">
+                                <div class="spot_content_market_amount">
+                                    <input type="text" placeholder="Amount"> <span>USDT</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <button type="submit" class="button_spot buy">Buy BTC</button>
+                            </div>
+                        </form>
                     </div>
+                    <div class="spot_content_user_control_market_sell">
+                        <div class="">
+                            <p>Available 0.0000000 <span class="text-white">USDT</span></p>
+                        </div>
+
+                        <div class="spot_content_market_amount">
+                            <input type="text" placeholder="Price"> <span>USDT</span>
+                        </div>
+                        <div class="spot_content_market_amount">
+                            <input type="text" placeholder="Size"> <span>USDT</span>
+                        </div>
+
+                        <div>
+                            <div class="range-container">
+                                <input type="range" id="myRange" class="myrange" min="0" max="4" step="1">
+                                <div class="range-markers markers">
+                                    <div class="marker"></div>
+                                    <div class="marker"></div>
+                                    <div class="marker"></div>
+                                    <div class="marker"></div>
+                                    <div class="marker"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="per_purchase">
+                            <div class="spot_content_market_amount">
+                                <input type="text" placeholder="Amount"> <span>USDT</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button class="button_spot sell">Sell BTC</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="spot_content_user_control_market" id="trigger">
+                    <div class="spot_content_user_control_market_buy">
+                        <div class="">
+                            <p>Available 0.0000000 <span class="text-white">USDT</span></p>
+                        </div>
+
+                        <div class="spot_content_market_amount">
+                            <input type="text" placeholder="Price"> <span>USDT</span>
+                        </div>
+                        <div class="trigger_select">
+                            <div class="spot_content_market_amount">
+                                <input type="text" placeholder="Price"> <span>USDT</span>
+
+                            </div>
+                            <div id="select-type_trade1"></div>
+                        </div>
+
+                        <div>
+                            <div class="range-container">
+                                <input type="range" id="myRange" class="myrange" min="0" max="4" step="1">
+                                <div class="range-markers markers">
+                                    <div class="marker"></div>
+                                    <div class="marker"></div>
+                                    <div class="marker"></div>
+                                    <div class="marker"></div>
+                                    <div class="marker"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="per_purchase">
+                            <div class="spot_content_market_amount">
+                                <input type="text" placeholder="Amount"> <span>USDT</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button class="button_spot buy">Buy BTC</button>
+                        </div>
+                    </div>
+                    <div class="spot_content_user_control_market_sell">
+                        <div class="">
+                            <p>Available 0 <span class="text-white">USDT</span></p>
+                        </div>
+
+                        <div class="spot_content_market_amount">
+                            <input type="text" placeholder="Stop"> <span>USDT</span>
+                        </div>
+                        <div class="trigger_select">
+                            <div class="spot_content_market_amount">
+                                <input type="text" placeholder="Price"> <span>USDT</span>
+
+                            </div>
+                            <div id="select-type_trade"></div>
+                        </div>
+
+                        <div>
+                            <div class="range-container">
+                                <input type="range" id="myRange" class="myrange" min="0" max="4" step="1">
+                                <div class="range-markers markers">
+                                    <div class="marker"></div>
+                                    <div class="marker"></div>
+                                    <div class="marker"></div>
+                                    <div class="marker"></div>
+                                    <div class="marker"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="per_purchase">
+                            <div class="spot_content_market_amount">
+                                <input type="text" placeholder="Amount"> <span>USDT</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button class="button_spot sell">Sell BTC</button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+            <div class="order_book_container">
+                <div class="order_book_header">
+                    Trades
+                </div>
+                <div class="order_book_content">
+                    <table class="book_table" style="text-align: left;">
 
-        </section>
-        <section>
-            <div class="spot_content_user_panel_control_header">
-                <button class="spot_content_user_control" onclick="switcher_type_trade(this,'limit')" control-id="ControlID-2">
-                    My Open Orders
-                </button>
-                <button class="spot_content_user_control active" onclick="switcher_type_trade(this,'market')" control-id="ControlID-3">
-                    My Trading History
-                </button>
-                <div class="order_book_container">
+                        <tr>
+                            <th>Total(USDT)</th>
+                            <th>Size(BTC)</th>
+                            <th>Time</th>
+                        </tr>
+                        <tbody id="trades_table"></tbody>
 
-                    <div class="order_book_content">
-                        <table class="book_table" style="text-align: left;">
-
-                            <tbody>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Pair</th>
-                                    <th>Side</th>
-                                    <th>Type</th>
-                                    <th>Amount</th>
-                                </tr>
-
-                                <tr class="adrr">
-                                    <td class="th_succefly">26541.83</td>
-                                    <td>≈$26541.83</td>
-                                    <td>16.9 15:10</td>
-                                    <td>16.9 15:10</td>
-                                    <td>16.9 15:10</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    </table>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
 
+    </section>
+    <section>
+        <div class="spot_content_user_panel_control_header">
+            <button class="spot_content_user_control" onclick="switcher_type_trade(this,'limit')"
+                    control-id="ControlID-2">
+                My Open Orders
+            </button>
+            <button class="spot_content_user_control active" onclick="switcher_type_trade(this,'market')"
+                    control-id="ControlID-3">
+                My Trading History
+            </button>
+            <div class="order_book_container">
+
+                <div class="order_book_content">
+                    <table class="book_table" style="text-align: left;">
+
+                        <tbody>
+                        <tr>
+                            <th>Date</th>
+                            <th>Pair</th>
+                            <th>Side</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                        </tr>
+
+                        <tr class="adrr">
+                            <td class="th_succefly">26541.83</td>
+                            <td>≈$26541.83</td>
+                            <td>16.9 15:10</td>
+                            <td>16.9 15:10</td>
+                            <td>16.9 15:10</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<div style="display: none" id="__DATA__">
+    <?= $assets_coin ?>
+</div>
 </body>
 <script>
     function switcher_type_trade(this_el, el) {
@@ -512,7 +527,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
     ranges.forEach((range, index) => {
         const markers = markersLists[index].querySelectorAll(".marker");
 
-        range.addEventListener("input", function() {
+        range.addEventListener("input", function () {
             const currentIndex = parseInt(range.value);
 
             markers.forEach((marker, i) => {
@@ -558,8 +573,8 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
         height: 600px;
     }
 
-    table.dataTable>thead>tr>th,
-    table.dataTable>thead>tr>td {
+    table.dataTable > thead > tr > th,
+    table.dataTable > thead > tr > td {
         border: none;
     }
 
@@ -576,29 +591,29 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
         border: none;
     }
 
-    table.dataTable thead>tr>th.sorting:before,
-    table.dataTable thead>tr>th.sorting_asc:before,
-    table.dataTable thead>tr>th.sorting_desc:before,
-    table.dataTable thead>tr>th.sorting_asc_disabled:before,
-    table.dataTable thead>tr>th.sorting_desc_disabled:before,
-    table.dataTable thead>tr>td.sorting:before,
-    table.dataTable thead>tr>td.sorting_asc:before,
-    table.dataTable thead>tr>td.sorting_desc:before,
-    table.dataTable thead>tr>td.sorting_asc_disabled:before,
-    table.dataTable thead>tr>td.sorting_desc_disabled:before {
+    table.dataTable thead > tr > th.sorting:before,
+    table.dataTable thead > tr > th.sorting_asc:before,
+    table.dataTable thead > tr > th.sorting_desc:before,
+    table.dataTable thead > tr > th.sorting_asc_disabled:before,
+    table.dataTable thead > tr > th.sorting_desc_disabled:before,
+    table.dataTable thead > tr > td.sorting:before,
+    table.dataTable thead > tr > td.sorting_asc:before,
+    table.dataTable thead > tr > td.sorting_desc:before,
+    table.dataTable thead > tr > td.sorting_asc_disabled:before,
+    table.dataTable thead > tr > td.sorting_desc_disabled:before {
         display: none;
     }
 
-    table.dataTable thead>tr>th.sorting:after,
-    table.dataTable thead>tr>th.sorting_asc:after,
-    table.dataTable thead>tr>th.sorting_desc:after,
-    table.dataTable thead>tr>th.sorting_asc_disabled:after,
-    table.dataTable thead>tr>th.sorting_desc_disabled:after,
-    table.dataTable thead>tr>td.sorting:after,
-    table.dataTable thead>tr>td.sorting_asc:after,
-    table.dataTable thead>tr>td.sorting_desc:after,
-    table.dataTable thead>tr>td.sorting_asc_disabled:after,
-    table.dataTable thead>tr>td.sorting_desc_disabled:after {
+    table.dataTable thead > tr > th.sorting:after,
+    table.dataTable thead > tr > th.sorting_asc:after,
+    table.dataTable thead > tr > th.sorting_desc:after,
+    table.dataTable thead > tr > th.sorting_asc_disabled:after,
+    table.dataTable thead > tr > th.sorting_desc_disabled:after,
+    table.dataTable thead > tr > td.sorting:after,
+    table.dataTable thead > tr > td.sorting_asc:after,
+    table.dataTable thead > tr > td.sorting_desc:after,
+    table.dataTable thead > tr > td.sorting_asc_disabled:after,
+    table.dataTable thead > tr > td.sorting_desc_disabled:after {
         display: none;
     }
 
@@ -627,7 +642,6 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
     });
 
 
-
 </script>
 <script>
     $("#spot_table").DataTable({
@@ -648,76 +662,75 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
     const tradeWs = new WebSocket('wss://ws.coincap.io/trades/binance');
 
 
+    const maxTrades = 10; // Максимальное количество сделок для отображения
+    const recentTrades1 = []; // Массив для хранения последних сделок для первой таблицы
+    const recentTrades2Buy = []; // Массив для хранения последних сделок "buy" для второй таблицы
+    const recentTrades3Sell = []; // Массив для хранения последних сделок "sell" для третьей таблицы
 
-const maxTrades = 10; // Максимальное количество сделок для отображения
-const recentTrades1 = []; // Массив для хранения последних сделок для первой таблицы
-const recentTrades2Buy = []; // Массив для хранения последних сделок "buy" для второй таблицы
-const recentTrades3Sell = []; // Массив для хранения последних сделок "sell" для третьей таблицы
+    const table1 = document.getElementById("trades_table");
+    const table2 = document.getElementById("order_book");
+    const table3 = document.getElementById("order_book1");
 
-const table1 = document.getElementById("trades_table");
-const table2 = document.getElementById("order_book");
-const table3 = document.getElementById("order_book1");
+    tradeWs.onmessage = function (event) {
+        const tradeData = JSON.parse(event.data);
 
-tradeWs.onmessage = function(event) {
-    const tradeData = JSON.parse(event.data);
+        if (tradeData.base === "<?= $coin_fullName ?>" && tradeData.priceUsd > 100 && tradeData.volume > 0.01) {
+            const date = new Date(tradeData.timestamp);
+            const day = date.getDate();
+            const month = date.getMonth() + 1;
+            const hours = date.getHours();
+            const minutes = date.getMinutes();
+            const formattedDate = `${day}.${month} ${hours}:${minutes}`;
 
-    if (tradeData.base === "<?= $coin_fullName ?>" && tradeData.priceUsd > 100 && tradeData.volume > 0.01) {
-        const date = new Date(tradeData.timestamp);
-        const day = date.getDate();
-        const month = date.getMonth() + 1;
-        const hours = date.getHours();
-        const minutes = date.getMinutes();
-        const formattedDate = `${day}.${month} ${hours}:${minutes}`;
+            const trade = {
+                priceUsd: tradeData.priceUsd.toFixed(2),
+                volume: tradeData.volume.toFixed(5),
+                formattedDate: formattedDate,
+                direction: tradeData.direction
+            };
 
-        const trade = {
-            priceUsd: tradeData.priceUsd.toFixed(2),
-            volume: tradeData.volume.toFixed(5),
-            formattedDate: formattedDate,
-            direction: tradeData.direction
-        };
+            // Добавляем новую сделку в массивы
+            recentTrades1.unshift(trade);
 
-        // Добавляем новую сделку в массивы
-        recentTrades1.unshift(trade);
+            if (trade.direction === "buy") {
+                recentTrades2Buy.unshift(trade);
+            } else if (trade.direction === "sell") {
+                recentTrades3Sell.unshift(trade);
+            }
 
-        if (trade.direction === "buy") {
-            recentTrades2Buy.unshift(trade);
-        } else if (trade.direction === "sell") {
-            recentTrades3Sell.unshift(trade);
+            // Если количество сделок превышает максимум, удаляем лишнее
+            while (recentTrades1.length > 21) {
+                recentTrades1.pop();
+            }
+            while (recentTrades2Buy.length > maxTrades) {
+                recentTrades2Buy.pop();
+            }
+            while (recentTrades3Sell.length > maxTrades) {
+                recentTrades3Sell.pop();
+            }
+
+            // Обновляем таблицы с небольшой задержкой
+            setTimeout(() => {
+                updateTable(table1, recentTrades1);
+            }, 500); // Задержка в 0.5 секунды для первой таблицы
+
+            setTimeout(() => {
+                updateTable(table2, recentTrades2Buy);
+            }, 200);
+
+            setTimeout(() => {
+                updateTable(table3, recentTrades3Sell);
+            }, 200); // Задержка в 0.2 секунды для третьей таблицы (sell)
         }
+    };
 
-        // Если количество сделок превышает максимум, удаляем лишнее
-        while (recentTrades1.length > 21) {
-            recentTrades1.pop();
-        }
-        while (recentTrades2Buy.length > maxTrades) {
-            recentTrades2Buy.pop();
-        }
-        while (recentTrades3Sell.length > maxTrades) {
-            recentTrades3Sell.pop();
-        }
+    // ...
 
-        // Обновляем таблицы с небольшой задержкой
-        setTimeout(() => {
-            updateTable(table1, recentTrades1);
-        }, 500); // Задержка в 0.5 секунды для первой таблицы
-
-        setTimeout(() => {
-            updateTable(table2, recentTrades2Buy);
-        }, 200);
-
-        setTimeout(() => {
-            updateTable(table3, recentTrades3Sell);
-        }, 200); // Задержка в 0.2 секунды для третьей таблицы (sell)
-    }
-};
-
-// ...
-
-    tradeWs.onopen = function() {
+    tradeWs.onopen = function () {
         console.log('WebSocket подключено');
     };
 
-    tradeWs.onclose = function(event) {
+    tradeWs.onclose = function (event) {
         if (event.wasClean) {
             console.log('WebSocket закрыто чисто, код: ' + event.code);
         } else {
@@ -725,7 +738,7 @@ tradeWs.onmessage = function(event) {
         }
     };
 
-    tradeWs.onerror = function(error) {
+    tradeWs.onerror = function (error) {
         console.error('WebSocket ошибка: ' + error.message);
     };
 
@@ -736,7 +749,7 @@ tradeWs.onmessage = function(event) {
         }
 
         // Добавляем сделки из массива в таблицу (по одной сверху вниз)
-        trades.forEach(function(trade) {
+        trades.forEach(function (trade) {
             const newRow = document.createElement("tr");
 
             const td1 = document.createElement("td");
@@ -762,7 +775,7 @@ tradeWs.onmessage = function(event) {
     }
 
     const order_buy_market_form = document.getElementById("market_buy_form");
-    order_buy_market_form.addEventListener("submit", function(e) {
+    order_buy_market_form.addEventListener("submit", function (e) {
         e.preventDefault();
         const formData = new FormData(this);
         formData.append("coinName", "<?=$coin_fullName?>");
@@ -771,11 +784,10 @@ tradeWs.onmessage = function(event) {
 
         const input_buy_market = document.getElementById('input_buy_market');
         const input_value = input_buy_market.querySelector('input').value;
-        if(input_value === ""){
+        if (input_value === "") {
             input_buy_market.classList.add("error_input");
             return false;
-        }
-        else {
+        } else {
             $.ajax({
                 url: "/api/ajax/orders_market.php",
                 type: "POST",
@@ -792,11 +804,165 @@ tradeWs.onmessage = function(event) {
 
             });
         }
+        update_assets()
     });
+    const order_sell_market_form = document.getElementById("market_sell_form");
+    order_sell_market_form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        formData.append("coinName", "<?=$coin_fullName?>");
+        formData.append("price", <?=$last_price_orig?>);
+        formData.append("type_order", "sell");
+
+        const input_sell_market = document.getElementById('input_sell_market');
+        const input_value = input_sell_market.querySelector('input').value;
+        if (input_value === "") {
+            input_sell_market.classList.add("error_input");
+            return false;
+        } else {
+            $.ajax({
+                url: "/api/ajax/orders_market.php",
+                type: "POST",
+                processData: false,
+                contentType: false,
+                data: formData,
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function (data) {
+                    console.log(data);
+                },
+            })
+        }
+        update_assets()
+
+    })
+    const limit_buy_form = document.getElementById("limit_buy_form");
+    limit_buy_form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        alert(123)
+        const formData = new FormData(this);
+        formData.append("coinName", "<?=$coin_fullName?>");
+
+        formData.append("type_order", "buy");
+
+        const input_buy_market = document.getElementById('input_buy_market');
+        const input_value = input_buy_market.querySelector('input').value;
+        if (input_value === "") {
+            input_buy_market.classList.add("error_input");
+            return false;
+        } else {
+            $.ajax({
+                url: "/api/ajax/open_limit_order.php",
+                type: "POST",
+                processData: false,
+                contentType: false,
+                data: formData,
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function (data) {
+                    console.log(data);
+                },
+            })
+        }
+    });
+
 </script>
 
+<script>
+    let pair = "<?=$pair?>";
+    let data_element = document.getElementById("__DATA__");
+
+    function update_assets() {
+        // const data = JSON.parse(data_element.innerHTML);
+
+        $.ajax({
+            url: "/api/ajax/get_assets_coin.php",
+            type: "POST",
+            data: {
+                pair: pair
+            },
+            success: function (data) {
+                data_element.innerHTML = JSON.stringify(data);
+                console.log(data)
 
 
+                const last_price = data['lastPrice'];
+                const change_24h = data['priceChangePercent'];
+                const high_24h = data['highPrice'];
+                const low_24h = data['lowPrice'];
+                const volume_24h = data['quoteVolume'];
+
+                document.getElementById("24h_amount").innerText = data['count'];
+                document.getElementById("24h_low").innerText = low_24h;
+                document.getElementById("24h_high").innerText = high_24h;
+                document.getElementById("24h_change").innerText = change_24h + "%";
+                if (change_24h > 0) {
+                    document.getElementById("24h_change").classList.add("text_success");
+                } else {
+                    document.getElementById("24h_change").classList.add("text_danger");
+                }
+                document.getElementById("24h_volume").innerText = volume_24h;
+                document.getElementById("cost_change").innerText = last_price;
+                if (last_price > 0) {
+                    document.getElementById("cost_change").classList.add("text_success");
+                } else {
+                    document.getElementById("cost_change").classList.add("text_danger");
+                }
+                document.getElementById("cost_change_usd").innerText = last_price;
+                $balance_usdt_elements = document.querySelectorAll('.balance_usdt');
+                $balance_usdt_elements.forEach(function (item, index) {
+                    item.innerText = data['balance_info_usdt'];
+                })
+                $balance_coin_elements = document.querySelectorAll('.balance_coin');
+                $balance_coin_elements.forEach(function (item, index) {
+                    item.innerText = data['balance_info'];
+                })
+            },
+            error: function (data) {
+                console.log(data);
+            },
+
+        });
+    }
+
+    function calculate(coin_name1, coin_name2, inpt_amount_value, type_el, el) {
+        console.log(inpt_amount_value)
+
+        setTimeout(function () {
+            $.ajax({
+                type: "POST",
+                url: "/api/ajax/convert_crypto_price.php",
+                data: {
+                    coin1: coin_name1,
+                    coin2: coin_name2,
+                    amount: inpt_amount_value
+                },
+                success: function (response) {
+
+                    if (response.status == 'success') {
+                        const kurs = response.course;
+                        if (type_el === "input") {
+                            el.value = kurs.toFixed(4)
+                        } else {
+                            el.innerText = kurs.toFixed(4)
+                        }
+
+
+                    }
+                },
+                error: function (response) {
+                    console.log(response)
+                }
+            });
+        }, 1000)
+
+    }
+
+    update_assets()
+    setInterval(update_assets, 3000);
+</script>
 
 
 </html>

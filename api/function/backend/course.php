@@ -96,8 +96,10 @@ function get_procent_to_balance($total_balance){
 }
 function convertCryptoPrice($amount, $coin1, $coin2) {
 
-    $kurs_coin1 = get_price_coin_to_usd($coin1, $amount);
-    $kurs_coin2 = get_price_coin_to_usd($coin2, 1);
+    $coin_full_name1 = strtolower(get_coin_info($coin1)['full_name']);
+    $coin_full_name2 = strtolower(get_coin_info($coin2)['full_name']);
+    $kurs_coin1 = get_price_coin_to_usd($coin_full_name1, $amount);
+    $kurs_coin2 = get_price_coin_to_usd($coin_full_name2, 1);
 
     $kurs = $kurs_coin1 / $kurs_coin2;
 

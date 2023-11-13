@@ -592,3 +592,10 @@ function close_order($order_id){
         return false;
     }
 }
+
+function get_all_orders_limit(){
+    $mysql = new mysqli(servername, username, password, dbname);
+
+
+    return $mysql->query("SELECT * FROM `orders` WHERE `type_trade` = 'limit'")->fetch_all(MYSQLI_ASSOC);
+}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 12 2023 г., 23:11
+-- Время создания: Ноя 14 2023 г., 00:27
 -- Версия сервера: 5.7.39
 -- Версия PHP: 7.4.30
 
@@ -67,8 +67,9 @@ INSERT INTO `balances` (`user_id`, `id_coin`, `quantity`) VALUES
 (18, 192, 201.12),
 (18, 193, 747.11111111111),
 (18, 195, 0.0045034902049088),
-(19, 189, 0.5),
-(19, 192, 16918.03);
+(19, 189, 0.0172137021988),
+(19, 192, 34726.28),
+(19, 214, 2.2181146025878);
 
 -- --------------------------------------------------------
 
@@ -300,13 +301,36 @@ CREATE TABLE `orders` (
   `type_order` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `type_trade` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` datetime NOT NULL,
-  `date_close` datetime NOT NULL,
+  `date_close` datetime DEFAULT NULL,
   `coin_id` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `open_order_price` double NOT NULL,
   `close_order_price` double NOT NULL,
   `amount` double NOT NULL,
+  `size` double DEFAULT NULL,
   `status` text COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `type_order`, `type_trade`, `date`, `date_close`, `coin_id`, `open_order_price`, `close_order_price`, `amount`, `size`, `status`) VALUES
+(1, 19, 'buy', 'market', '2023-11-13 19:14:41', '2023-11-13 19:14:42', '214', 5.464, 5.464, 12, NULL, 'close'),
+(2, 19, 'buy', 'market', '2023-11-13 22:32:20', '2023-11-13 22:32:21', '189', 37108, 37108, 123, NULL, 'close'),
+(3, 19, 'sell', 'market', '2023-11-13 23:17:45', '2023-11-13 23:17:46', '189', 36938.9, 36938.9, 0.4, NULL, 'close'),
+(4, 19, 'buy', 'market', '2023-11-13 23:18:35', '2023-11-13 23:18:36', '189', 36935.2, 36935.2, 30000, NULL, 'close'),
+(5, 19, 'sell', 'market', '2023-11-13 23:18:52', '2023-11-13 23:18:52', '189', 37080.5, 37080.5, 0.8, NULL, 'close'),
+(6, 19, 'buy', 'market', '2023-11-13 23:24:55', '2023-11-13 23:24:55', '189', 37041.1, 37041.1, 100, NULL, 'close'),
+(7, 19, 'buy', 'market', '2023-11-13 23:26:33', '2023-11-13 23:26:34', '189', 37033.6, 37033.6, 90, NULL, 'close'),
+(8, 19, 'buy', 'market', '2023-11-13 23:26:58', '2023-11-13 23:26:59', '189', 37131.4, 37131.4, 29, NULL, 'close'),
+(9, 19, 'buy', 'market', '2023-11-13 23:27:29', '2023-11-13 23:27:30', '189', 36962.1, 36962.1, 800, NULL, 'close'),
+(10, 19, 'buy', 'market', '2023-11-13 23:43:52', '2023-11-13 23:43:53', '189', 36901, 36901, 100, NULL, 'close'),
+(12, 19, 'sell', 'market', '2023-11-13 23:47:42', '2023-11-13 23:47:43', '189', 37076.6, 37076.6, 0.05, NULL, 'close'),
+(13, 19, 'sell', 'market', '2023-11-13 23:47:48', '2023-11-13 23:47:49', '189', 37076.6, 37076.6, 0.05, NULL, 'close'),
+(15, 19, 'sell', 'market', '2023-11-13 23:48:07', '2023-11-13 23:48:08', '189', 37076.6, 37076.6, 0.01, NULL, 'close'),
+(16, 19, 'sell', 'market', '2023-11-13 23:48:10', '2023-11-13 23:48:11', '189', 37076.6, 37076.6, 0.01, NULL, 'close'),
+(17, 19, 'sell', 'market', '2023-11-13 23:48:13', '2023-11-13 23:48:13', '189', 37076.6, 37076.6, 0.01, NULL, 'close'),
+(18, 19, 'sell', 'market', '2023-11-13 23:49:47', '2023-11-13 23:49:48', '189', 37076.6, 37076.6, 0.001, NULL, 'close');
 
 -- --------------------------------------------------------
 
@@ -395,7 +419,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `username`, `ref_code`, `password`, `kyc_step`, `last_online`, `2fa`, `email_verif`, `avatar`, `user_status`, `telegram`, `payment_address`, `withdraw_error`, `trading_error`, `verification_error`, `auth_token`, `created_date`) VALUES
 (18, 'KASRO@vk.com', 'KASRO', 46224787, '$2y$10$Y0U.6niCdh7Auj3nw11qcuqoS1G.GeGCvV2VjEiUM8jdFNIMphNN6', 0, '2023-10-25 00:28:53', 0, 0, '{\"image_url\":\"/assets/users_avatars/653682a189417.jpg\"}', 'user', NULL, NULL, NULL, NULL, NULL, 'defa29927b3670b1a81083e0a12d5c613000a923d34f42a0afaa155ccba66fba', NULL),
-(19, 'nikita150489@mail.ru', 'kasro123', 74329601, '$2y$10$u4IK9yVAaqgZ4TTtI53nLuPESX.7PvDNXUwwxUB666uLcZTl.8Fny', 0, '2023-11-12 22:59:28', 0, 1, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, NULL, '4fbff7c634f69331b3d6d799987b3ea6961307fef95dba52d351e9ae3e37c8a8', NULL),
+(19, 'nikita150489@mail.ru', 'kasro123', 74329601, '$2y$10$u4IK9yVAaqgZ4TTtI53nLuPESX.7PvDNXUwwxUB666uLcZTl.8Fny', 0, '2023-11-14 00:27:05', 0, 1, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, NULL, '4fbff7c634f69331b3d6d799987b3ea6961307fef95dba52d351e9ae3e37c8a8', NULL),
 (21, 'nikita15048769@mail.ru', 'KASRO124', 69087331, '$2y$10$/jk6vqm5U93CJs3Vzd780uVgoyaywZKfGo4N2ZlxBIQSHYVE6RwEK', 0, '2023-11-11 23:33:57', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, NULL, '0f450a652793aedd3844f18108308bbe84cba3082ea291bc2124504fe68ca6f3', '2023-11-11');
 
 --
@@ -529,7 +553,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT для таблицы `p2p_users`

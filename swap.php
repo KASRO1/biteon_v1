@@ -331,7 +331,7 @@ $user_info = get_user_info($auth_token);
                     const text = select_2.querySelector('.itc-select__toggle').textContent;
 
                     const convert_course = document.getElementById('convert_course');
-                    receive.value = `${(inpt_amount_value * kurs).toFixed(2)} `;
+                    receive.value = `${(kurs).toFixed(2)} `;
                     convert_course.textContent = `Reference exchange rate: ${inpt_amount_value} ${coin_name1} = ${kurs.toFixed(2)} ${coin_name2}`;
 
                 }
