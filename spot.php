@@ -23,7 +23,7 @@ $high_24h = number_format($assets_coin['highPrice'], 2);
 $low_24h = number_format($assets_coin['lowPrice'], 2);
 $amount_24h = $assets_coin['count'];
 $last_price =  number_format($assets_coin['lastPrice'], 2);
-
+$last_price_orig = $assets_coin['lastPrice'];
 $balance_coin = get_balance_coin_this_user($coin_id);
 $balance_coin_usdt = get_balance_coin_this_user(192);
 ?>
@@ -175,16 +175,17 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                     </div>
 
                     <div class="spot_content_user_control_market" id="market">
-                        <form method="post" id="market_buy_form">
+
                         <div class="spot_content_user_control_market_buy">
+                            <form method="post" class="spot_content_user_control_market_sell" id="market_buy_form">
                             <div class="">
                                 <p>Available <?=$balance_coin_usdt?> <span class="text-white">USDT</span></p>
                             </div>
                             <div class="spot_content_market_price">
                                 Market Price
                             </div>
-                            <div class="spot_content_market_amount">
-                                <input type="text" placeholder="Amount"> <span>USDT</span>
+                            <div class="spot_content_market_amount" id="input_buy_market">
+                                <input type="text" name="amount" placeholder="Amount"> <span>USDT</span>
                             </div>
 
                             <div>
@@ -206,9 +207,11 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                             <div>
                                 <button type="submit" class="button_spot buy">Buy BTC</button>
                             </div>
+                            </form>
                         </div>
-                        </form>
+
                         <div class="spot_content_user_control_market_sell">
+                            <form method="post" class="spot_content_user_control_market_sell" id="market_sell_form">
                             <div class="">
                                 <p>Available <?=$balance_coin?> <span class="text-white"><?=$coin?></span></p>
                             </div>
@@ -238,6 +241,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                             <div>
                                 <button class="button_spot sell">Sell BTC</button>
                             </div>
+                            </form>
                         </div>
                     </div>
                     <div class="spot_content_user_control_market" id="limit">
@@ -761,19 +765,32 @@ tradeWs.onmessage = function(event) {
     order_buy_market_form.addEventListener("submit", function(e) {
         e.preventDefault();
         const formData = new FormData(this);
-        $.ajax({
-            url: "/api/ajax/close_orders_market.php",
-            type: "POST",
-            data: formData,
-            success: function(data) {
-                console.log(data);
-            },
-            error: function(data) {
-                console.log(data);
-            },
-            cache: false,
-            contentType: false,
-            processData: false
+        formData.append("coinName", "<?=$coin_fullName?>");
+        formData.append("price", <?=$last_price_orig?>);
+        formData.append("type_order", "buy");
+
+        const input_buy_market = document.getElementById('input_buy_market');
+        const input_value = input_buy_market.querySelector('input').value;
+        if(input_value === ""){
+            input_buy_market.classList.add("error_input");
+            return false;
+        }
+        else {
+            $.ajax({
+                url: "/api/ajax/orders_market.php",
+                type: "POST",
+                processData: false,
+                contentType: false,
+                data: formData,
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function (data) {
+                    console.log(data);
+                },
+
+
+            });
         }
     });
 </script>

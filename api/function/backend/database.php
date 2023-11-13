@@ -568,14 +568,19 @@ function create_order($open_price_order, $close_order_price, $amount, $coin_id, 
     $token = $_COOKIE['auth_token'];
     $user = get_user_info($token);
     $user_id = $user['id'];
+
     $result = $mysql->query("INSERT INTO `orders`(`user_id`, `type_order`,`type_trade`,  `date`, `coin_id`, `open_order_price`, `close_order_price`, `amount`, `status`) VALUES ('$user_id','$type_order','$type_trade','$date','$coin_id','$open_price_order','$close_order_price','$amount','open')");
-    if($result){
-        return $result['id'];
-    }
-    else{
+
+    if ($result) {
+        // Check if the insert query was successful
+        $last_insert_id = $mysql->insert_id;
+        return $last_insert_id;
+    } else {
+        // If there was an error, return false or handle it accordingly
         return false;
     }
 }
+
 function close_order($order_id){
     $mysql = new mysqli(servername, username, password, dbname);
     $date = date('Y-m-d H:i:s');

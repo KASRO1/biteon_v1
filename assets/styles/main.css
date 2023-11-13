@@ -186,6 +186,10 @@ button {
     line-height: 19px;
     /* 119.497% */
 }
+.error_input{
+    border: 1px solid red !important;
+    transition: all 0.2s ease-in-out;
+}
 
 .vailable_p {
     color: #667085;
