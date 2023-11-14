@@ -120,7 +120,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
 
                         <tr>
                             <th>Price(USDT)</th>
-                            <th>Size(BTC)</th>
+                            <th>Size(<?=$coin?>)</th>
                             <th>Total(USDT)</th>
                         </tr>
 
@@ -247,16 +247,16 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                                             class="text-white">USDT</span></p>
                             </div>
                             <div>
-                                <button type="submit" class="button_spot sell">Sell BTC</button>
+                                <button type="submit" class="button_spot sell">Sell <?=$coin?></button>
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="spot_content_user_control_market" id="limit">
                     <div class="spot_content_user_control_market_buy">
-                        <form class="spot_content_user_control_market_buy" id="limit_buy_form">
+                        <form class="spot_content_user_control_market_buy"  id="limit_buy_form">
                             <div class="">
-                                <p>Available <span class="balance_coin"><?= $balance_coin ?></span> <span
+                                <p>Available <span class="balance_coin_usdt"><?= $balance_coin ?></span> <span
                                             class="text-white">USDT</span></p>
                             </div>
 
@@ -287,13 +287,13 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                             </div>
 
                             <div>
-                                <button type="submit" class="button_spot buy">Buy BTC</button>
+                                <button type="submit" class="button_spot buy">Buy <?=$coin?></button>
                             </div>
                         </form>
                     </div>
                     <div class="spot_content_user_control_market_sell">
                         <div class="">
-                            <p>Available 0.0000000 <span class="text-white">USDT</span></p>
+                            <p>Available <span class="balance_coin"><?=$balance_coin?></span> <span class="text-white">USDT</span></p>
                         </div>
 
                         <div class="spot_content_market_amount">
@@ -323,7 +323,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                         </div>
 
                         <div>
-                            <button class="button_spot sell">Sell BTC</button>
+                            <button class="button_spot sell">Sell <?=$coin?></button>
                         </div>
                     </div>
 
@@ -365,7 +365,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                         </div>
 
                         <div>
-                            <button class="button_spot buy">Buy BTC</button>
+                            <button class="button_spot buy">Buy <?=$coin?></button>
                         </div>
                     </div>
                     <div class="spot_content_user_control_market_sell">
@@ -404,7 +404,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                         </div>
 
                         <div>
-                            <button class="button_spot sell">Sell BTC</button>
+                            <button class="button_spot sell">Sell <?=$coin?></button>
                         </div>
                     </div>
 
@@ -419,7 +419,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
 
                         <tr>
                             <th>Total(USDT)</th>
-                            <th>Size(BTC)</th>
+                            <th>Size(<?=$coin?>)</th>
                             <th>Time</th>
                         </tr>
                         <tbody id="trades_table"></tbody>
@@ -910,7 +910,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                     document.getElementById("cost_change").classList.add("text_danger");
                 }
                 document.getElementById("cost_change_usd").innerText = last_price;
-                $balance_usdt_elements = document.querySelectorAll('.balance_usdt');
+                $balance_usdt_elements = document.querySelectorAll('.balance_coin_usdt');
                 $balance_usdt_elements.forEach(function (item, index) {
                     item.innerText = data['balance_info_usdt'];
                 })

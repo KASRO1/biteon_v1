@@ -4,28 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48de03d6-5035-48b3-82d5-9edc4dfb2797" name="Changes" comment="Почти сделал маркет">
+    <list default="true" id="48de03d6-5035-48b3-82d5-9edc4dfb2797" name="Changes" comment="last">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/add_domain.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/add_domain.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/binding.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/binding.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/deposit.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/deposit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/kyc.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/kyc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/settings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/static.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/support.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/support.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/swap_settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/swap_settings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/usersList.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/usersList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/withdrawal.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/withdrawal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/ajax/confirm_email.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/confirm_email.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/function/backend/mailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/mailer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/init.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scripts/DeepLSetup.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biteon.sql" beforeDir="false" afterPath="$PROJECT_DIR$/biteon (3).sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spot.php" beforeDir="false" afterPath="$PROJECT_DIR$/spot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet.php" beforeDir="false" afterPath="$PROJECT_DIR$/wallet.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,27 +57,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/OSPanel/domains/BITEON/api/ajax&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/OSPanel/domains/BITEON",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\OSPanel\domains\BITEON\api\ajax" />
@@ -190,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699819864860</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="last">
+      <option name="closed" value="true" />
+      <created>1699966220690</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699966220690</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,11 +198,11 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="last" />
     <MESSAGE value="last1" />
     <MESSAGE value="Сделал чат" />
     <MESSAGE value="Почти сделал маркет" />
-    <option name="LAST_COMMIT_MESSAGE" value="Почти сделал маркет" />
+    <MESSAGE value="last" />
+    <option name="LAST_COMMIT_MESSAGE" value="last" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
