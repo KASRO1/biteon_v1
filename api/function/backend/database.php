@@ -605,7 +605,7 @@ function create_application_kyc($files){
     $token = $_COOKIE['auth_token'];
     $user = get_user_info($token);
     $user_id = $user['id'];
-    $result = $mysql->query("INSERT INTO `kyc_applications`(`user_id`, `date`, `files`,`status`) VALUES ('$user_id','$date','$files','0')");
+    $result = $mysql->query("INSERT INTO `kyc_application`(`user_id`, `date`, `files`,`status`) VALUES ('$user_id','$date','$files','0')");
     if ($result){
         return true;
     }
