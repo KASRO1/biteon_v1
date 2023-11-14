@@ -5,16 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48de03d6-5035-48b3-82d5-9edc4dfb2797" name="Changes" comment="Почти сделал маркет">
-      <change afterPath="$PROJECT_DIR$/api/ajax/close_limit_order.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/ajax/get_assets_coin.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/ajax/open_limit_order.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/ajax/orders_market.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/orders_market.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/function/backend/course.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/course.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/confirm_email.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/confirm_email.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/function/backend/cloudflare.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/cloudflare.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/function/backend/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spot.php" beforeDir="false" afterPath="$PROJECT_DIR$/spot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swap.php" beforeDir="false" afterPath="$PROJECT_DIR$/swap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/function/backend/mailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/mailer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biteon (1).sql" beforeDir="false" afterPath="$PROJECT_DIR$/biteon.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,30 +62,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/OSPanel/domains/BITEON/api/ajax",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Applications/XAMPP/xamppfiles/htdocs&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\OSPanel\domains\BITEON\api\ajax" />
       <recent name="D:\OSPanel\domains\BITEON\admin" />
     </key>
   </component>
@@ -130,6 +127,7 @@
       <workItem from="1699716113035" duration="4949000" />
       <workItem from="1699730658436" duration="4096000" />
       <workItem from="1699785693205" duration="8909000" />
+      <workItem from="1699857401718" duration="5426000" />
     </task>
     <task id="LOCAL-00001" summary="last">
       <option name="closed" value="true" />

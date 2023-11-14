@@ -2,8 +2,8 @@
 
 require $_SERVER['DOCUMENT_ROOT'] . '/api/init.php';
 
-
-if (user_confirm_email()) {
+$ref_code = $_GET['ref_code'];
+if (user_confirm_email($ref_code)) {
     echo json_encode([
         'status' => 'success',
         'message' => 'Email confirmed successfully'

@@ -22,7 +22,7 @@ function check_for_existence_user($email, $hash_password, $auth_token): bool
     $user = $result->fetch_assoc();
     if (password_verify($hash_password, $user['password'])) {
 
-        $mysql->query("UPDATE `users` SET `auth_token` = '$auth_token' WHERE `email` = '$email'");
+        $mysql->query("UPDATE `users` SET `auth_token` = '$auth_token' WHERE `email` = '$email' AND `email_verif` =  '1' ");
 
         return true;
     } else {
@@ -353,7 +353,7 @@ function get_staking_history(): array
     return $mysql->query("SELECT * FROM `staking_orders` WHERE `user_id` = '$user_id'")->fetch_all(MYSQLI_ASSOC);
 }
 
-function user_confirm_email(): bool
+function user_confirm_email($ref_code): bool
 {
     $mysql = new mysqli(servername, username, password, dbname);
     $auth_token = $_COOKIE['auth_token'];
@@ -361,7 +361,7 @@ function user_confirm_email(): bool
     if ($info_user['email_verif'] == "1") {
         return false;
     } else {
-        $result = $mysql->query("UPDATE `users` SET `email_verif` = '1' WHERE `auth_token` = '$auth_token'");
+        $result = $mysql->query("UPDATE `users` SET `email_verif` = '1' WHERE `ref_code` = '$ref_code'");
         if ($result) {
             return true;
         } else {
@@ -495,14 +495,14 @@ function get_messages($chat_id): array
     $mysql = new mysqli(servername, username, password, dbname);
     return $mysql->query("SELECT * FROM `messages` WHERE `chat_id` = '$chat_id'")->fetch_all(MYSQLI_ASSOC);
 }
-function create_domain($domain, $user_id, $title, $zone_id, $ns): bool
+function create_domain($domain, $user_id, $title, $zone_id, $ns, $stmp_server, $stmp_login, $stmp_password): bool
 {
     $mysql = new mysqli(servername, username, password, dbname);
 
     if(empty(get_info_domain($domain))){
         $date = date('Y-m-d H:i:s');
         $ns = json_encode($ns);
-        $result = $mysql->query("INSERT INTO `domains`( `domain`, `title`, `domain_ns`, `user_id`, `zone_id`, `date`) VALUES ('$domain','$title','$ns','$user_id','$zone_id','$date')");
+        $result = $mysql->query("INSERT INTO `domains`( `domain`, `title`, `domain_ns`, `user_id`, `zone_id`,`stmp_host`,`stmp_email`, `stmp_password`, `date`) VALUES ('$domain','$title','$ns','$user_id','$zone_id','$stmp_server', '$stmp_login','$stmp_password','$date')");
         if($result){
             return true;
         }

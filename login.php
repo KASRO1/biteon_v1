@@ -105,7 +105,7 @@
                     } else {
                         new Notify({
                             title: 'Error',
-                            text: 'No user with this data was found',
+                            text: 'No user with this data was found or email is not verified';
                             status: 'error',
                             autoclose: true,
                             autotimeout: 3000

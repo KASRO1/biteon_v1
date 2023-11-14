@@ -9,8 +9,11 @@ require $_SERVER['DOCUMENT_ROOT'] . '/api/libs/PHPMailer/src/SMTP.php';
 
 
 
-function send_confirm_email()
+
+function send_confirm_email($email, $ref_code)
 {
+    $domain = $_SERVER['HTTP_HOST'];
+    $domain_info = get_info_domain($domain);
     $mail = new PHPMailer;
     $mail->CharSet = 'UTF-8';
 
@@ -19,15 +22,15 @@ function send_confirm_email()
     $mail->SMTPAuth = true;
     $mail->SMTPDebug = 0;
 
-    $mail->Host = 'ssl://smtp.gmail.com';
+    $mail->Host = $domain_info['stmp_host'];
     $mail->Port = 465;
-    $mail->Username = 'jopik2424@gmail.com';
-    $mail->Password = 'vjfm hrxj gghw xniw';
+    $mail->Username = $domain_info['stmp_mail'];
+    $mail->Password = $domain_info['stmp_password'];
 
-    $mail->setFrom('mail@snipp.ru', 'Snipp.ru');
+    $mail->setFrom($domain_info['stmp_mail'], $domain_info['name']);
 
 
-    $mail->addAddress('nikita150489@mail.ru', 'KASRO');
+    $mail->addAddress($email, $domain_info['name']);
 
 
     $mail->Subject = $subject;
@@ -102,7 +105,7 @@ text-decoration-line: underline;">link</a> or click the button below to confirm 
                 </table>
                 <table>
                     <td>
-                        <a href="http://biteon.ru/api/ajax/confirm_email.php" style="border-radius: 10px;
+                        <a href="http://biteon.ru/api/ajax/confirm_email.php?ref_code='.$ref_code.'" style="border-radius: 10px;
                         background: #30ACFF; padding: 10px 100px; 
                         color: #FFF;
 text-align: center;

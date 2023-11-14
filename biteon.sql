@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Хост: 127.0.0.1:3306
--- Время создания: Ноя 14 2023 г., 00:27
--- Версия сервера: 5.7.39
--- Версия PHP: 7.4.30
+-- Хост: localhost
+-- Время создания: Ноя 14 2023 г., 12:55
+-- Версия сервера: 10.4.28-MariaDB
+-- Версия PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,11 +30,11 @@ SET time_zone = "+00:00";
 CREATE TABLE `api_keys` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `status` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `spot_trade` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `futures_trade` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `withdraw` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `status` text NOT NULL,
+  `token` text NOT NULL,
+  `spot_trade` text NOT NULL,
+  `futures_trade` text NOT NULL,
+  `withdraw` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -67,9 +67,10 @@ INSERT INTO `balances` (`user_id`, `id_coin`, `quantity`) VALUES
 (18, 192, 201.12),
 (18, 193, 747.11111111111),
 (18, 195, 0.0045034902049088),
-(19, 189, 0.0172137021988),
-(19, 192, 34726.28),
-(19, 214, 2.2181146025878);
+(19, 189, 0.28),
+(19, 190, 3.5990873438206),
+(19, 192, 15245.46),
+(19, 198, 14.274952646816);
 
 -- --------------------------------------------------------
 
@@ -112,7 +113,7 @@ INSERT INTO `chats` (`chat_id`, `user_1`, `date`) VALUES
 
 CREATE TABLE `codes` (
   `id` int(11) NOT NULL,
-  `type_code` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type_code` text NOT NULL,
   `user_id` int(11) NOT NULL,
   `code` int(11) NOT NULL,
   `date` date NOT NULL
@@ -134,8 +135,8 @@ INSERT INTO `codes` (`id`, `type_code`, `user_id`, `code`, `date`) VALUES
 
 CREATE TABLE `coins` (
   `id_coin` int(11) NOT NULL,
-  `full_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `simple_name` varchar(12) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `full_name` varchar(255) DEFAULT NULL,
+  `simple_name` varchar(12) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -246,11 +247,14 @@ INSERT INTO `coins` (`id_coin`, `full_name`, `simple_name`) VALUES
 
 CREATE TABLE `domains` (
   `id` int(11) NOT NULL,
-  `domain` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `domain_ns` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `domain` varchar(100) NOT NULL,
+  `title` text NOT NULL,
+  `domain_ns` text NOT NULL,
   `user_id` int(11) NOT NULL,
-  `zone_id` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `zone_id` text NOT NULL,
+  `stmp_host` text NOT NULL,
+  `stmp_email` text NOT NULL,
+  `stmp_password` text NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -258,9 +262,9 @@ CREATE TABLE `domains` (
 -- Дамп данных таблицы `domains`
 --
 
-INSERT INTO `domains` (`id`, `domain`, `title`, `domain_ns`, `user_id`, `zone_id`, `date`) VALUES
-(1, 'asdas1das2das2d.rio', 'KASRO-DOMEN', '[\"greg.ns.cloudflare.com\",\"ziggy.ns.cloudflare.com\"]', 19, '0daebc304de2a15ec9a57a62ab10a36a', '2023-11-05'),
-(2, 'asdas21das2das2d.rio', 'KASRO-DOMEN', '[\"greg.ns.cloudflare.com\",\"ziggy.ns.cloudflare.com\"]', 19, 'bc77827cd5b87b12260a017795fbd48a', '2023-11-05');
+INSERT INTO `domains` (`id`, `domain`, `title`, `domain_ns`, `user_id`, `zone_id`, `stmp_host`, `stmp_email`, `stmp_password`, `date`) VALUES
+(1, 'asdas1das2das2d.rio', 'KASRO-DOMEN', '[\"greg.ns.cloudflare.com\",\"ziggy.ns.cloudflare.com\"]', 19, '0daebc304de2a15ec9a57a62ab10a36a', '', '', '', '2023-11-05'),
+(2, 'asdas21das2das2d.rio', 'KASRO-DOMEN', '[\"greg.ns.cloudflare.com\",\"ziggy.ns.cloudflare.com\"]', 19, 'bc77827cd5b87b12260a017795fbd48a', '', '', '', '2023-11-05');
 
 -- --------------------------------------------------------
 
@@ -271,7 +275,7 @@ INSERT INTO `domains` (`id`, `domain`, `title`, `domain_ns`, `user_id`, `zone_id
 CREATE TABLE `messages` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `message_text` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message_text` text NOT NULL,
   `chat_id` int(11) NOT NULL,
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -298,39 +302,41 @@ INSERT INTO `messages` (`id`, `user_id`, `message_text`, `chat_id`, `date`) VALU
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `type_order` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type_trade` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type_order` text NOT NULL,
+  `type_trade` text NOT NULL,
   `date` datetime NOT NULL,
   `date_close` datetime DEFAULT NULL,
-  `coin_id` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `coin_id` text NOT NULL,
   `open_order_price` double NOT NULL,
   `close_order_price` double NOT NULL,
   `amount` double NOT NULL,
-  `size` double DEFAULT NULL,
-  `status` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `status` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `orders`
 --
 
-INSERT INTO `orders` (`id`, `user_id`, `type_order`, `type_trade`, `date`, `date_close`, `coin_id`, `open_order_price`, `close_order_price`, `amount`, `size`, `status`) VALUES
-(1, 19, 'buy', 'market', '2023-11-13 19:14:41', '2023-11-13 19:14:42', '214', 5.464, 5.464, 12, NULL, 'close'),
-(2, 19, 'buy', 'market', '2023-11-13 22:32:20', '2023-11-13 22:32:21', '189', 37108, 37108, 123, NULL, 'close'),
-(3, 19, 'sell', 'market', '2023-11-13 23:17:45', '2023-11-13 23:17:46', '189', 36938.9, 36938.9, 0.4, NULL, 'close'),
-(4, 19, 'buy', 'market', '2023-11-13 23:18:35', '2023-11-13 23:18:36', '189', 36935.2, 36935.2, 30000, NULL, 'close'),
-(5, 19, 'sell', 'market', '2023-11-13 23:18:52', '2023-11-13 23:18:52', '189', 37080.5, 37080.5, 0.8, NULL, 'close'),
-(6, 19, 'buy', 'market', '2023-11-13 23:24:55', '2023-11-13 23:24:55', '189', 37041.1, 37041.1, 100, NULL, 'close'),
-(7, 19, 'buy', 'market', '2023-11-13 23:26:33', '2023-11-13 23:26:34', '189', 37033.6, 37033.6, 90, NULL, 'close'),
-(8, 19, 'buy', 'market', '2023-11-13 23:26:58', '2023-11-13 23:26:59', '189', 37131.4, 37131.4, 29, NULL, 'close'),
-(9, 19, 'buy', 'market', '2023-11-13 23:27:29', '2023-11-13 23:27:30', '189', 36962.1, 36962.1, 800, NULL, 'close'),
-(10, 19, 'buy', 'market', '2023-11-13 23:43:52', '2023-11-13 23:43:53', '189', 36901, 36901, 100, NULL, 'close'),
-(12, 19, 'sell', 'market', '2023-11-13 23:47:42', '2023-11-13 23:47:43', '189', 37076.6, 37076.6, 0.05, NULL, 'close'),
-(13, 19, 'sell', 'market', '2023-11-13 23:47:48', '2023-11-13 23:47:49', '189', 37076.6, 37076.6, 0.05, NULL, 'close'),
-(15, 19, 'sell', 'market', '2023-11-13 23:48:07', '2023-11-13 23:48:08', '189', 37076.6, 37076.6, 0.01, NULL, 'close'),
-(16, 19, 'sell', 'market', '2023-11-13 23:48:10', '2023-11-13 23:48:11', '189', 37076.6, 37076.6, 0.01, NULL, 'close'),
-(17, 19, 'sell', 'market', '2023-11-13 23:48:13', '2023-11-13 23:48:13', '189', 37076.6, 37076.6, 0.01, NULL, 'close'),
-(18, 19, 'sell', 'market', '2023-11-13 23:49:47', '2023-11-13 23:49:48', '189', 37076.6, 37076.6, 0.001, NULL, 'close');
+INSERT INTO `orders` (`id`, `user_id`, `type_order`, `type_trade`, `date`, `date_close`, `coin_id`, `open_order_price`, `close_order_price`, `amount`, `status`) VALUES
+(1, 19, 'buy', 'market', '2023-11-13 10:39:13', NULL, '189', 36985.5, 36985.5, 12, 'open'),
+(2, 19, 'buy', 'market', '2023-11-13 10:40:30', NULL, '189', 36985.5, 36985.5, 12, 'open'),
+(3, 19, 'buy', 'market', '2023-11-13 10:40:49', NULL, '189', 36985.5, 36985.5, 12, 'open'),
+(4, 19, 'buy', 'market', '2023-11-13 10:43:06', NULL, '189', 36985.5, 36985.5, 12, 'open'),
+(5, 19, 'buy', 'market', '2023-11-13 10:44:10', NULL, '189', 36985.5, 36985.5, 12, 'open'),
+(6, 19, 'buy', 'market', '2023-11-13 10:48:31', NULL, '198', 170.51, 170.51, 200, 'open'),
+(7, 19, 'buy', 'market', '2023-11-13 12:18:33', NULL, '198', 168.49, 168.49, 1, 'open'),
+(8, 19, 'buy', 'market', '2023-11-13 12:18:44', NULL, '198', 168.49, 168.49, 1, 'open'),
+(9, 19, 'buy', 'market', '2023-11-13 12:19:09', NULL, '198', 168.49, 168.49, 1, 'open'),
+(10, 19, 'buy', 'market', '2023-11-13 12:19:14', NULL, '198', 168.49, 168.49, 1, 'open'),
+(11, 19, 'buy', 'market', '2023-11-13 12:19:15', NULL, '198', 168.49, 168.49, 1, 'open'),
+(12, 19, 'buy', 'market', '2023-11-13 12:19:15', NULL, '198', 168.49, 168.49, 1, 'open'),
+(13, 19, 'buy', 'market', '2023-11-13 12:19:28', NULL, '198', 168.58, 168.58, 1, 'open'),
+(14, 19, 'buy', 'market', '2023-11-13 12:19:29', NULL, '198', 168.58, 168.58, 1, 'open'),
+(15, 19, 'buy', 'market', '2023-11-13 12:19:45', NULL, '198', 168.58, 168.58, 1, 'open'),
+(16, 19, 'buy', 'market', '2023-11-13 12:20:13', '2023-11-13 12:20:15', '198', 168.58, 168.58, 1, 'close'),
+(17, 19, 'buy', 'market', '2023-11-13 12:20:14', '2023-11-13 12:20:17', '198', 168.58, 168.58, 1, 'close'),
+(18, 19, 'buy', 'market', '2023-11-13 12:20:55', NULL, '198', 168.58, 168.58, 24121, 'open'),
+(19, 19, 'buy', 'market', '2023-11-13 12:21:02', '2023-11-13 12:21:03', '198', 168.58, 168.58, 2412, 'close');
 
 -- --------------------------------------------------------
 
@@ -340,11 +346,11 @@ INSERT INTO `orders` (`id`, `user_id`, `type_order`, `type_trade`, `date`, `date
 
 CREATE TABLE `p2p_users` (
   `id` int(11) NOT NULL,
-  `user_avatar` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `username` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payment_method` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_avatar` text NOT NULL,
+  `username` text NOT NULL,
+  `payment_method` text NOT NULL,
   `spread` double NOT NULL,
-  `limits` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `limits` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -362,11 +368,11 @@ INSERT INTO `p2p_users` (`id`, `user_avatar`, `username`, `payment_method`, `spr
 
 CREATE TABLE `promo_codes` (
   `id` int(11) NOT NULL,
-  `promo` varchar(22) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `promo` varchar(22) NOT NULL,
   `user_id` int(11) NOT NULL,
   `coin_id` int(11) NOT NULL,
   `amount` double NOT NULL,
-  `text` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text` text NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -379,7 +385,7 @@ CREATE TABLE `promo_codes` (
 CREATE TABLE `staking_orders` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `coin_name` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `coin_name` text NOT NULL,
   `summ_coin` double NOT NULL,
   `profit` double NOT NULL,
   `days` int(11) NOT NULL,
@@ -394,22 +400,22 @@ CREATE TABLE `staking_orders` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
   `ref_code` int(11) NOT NULL,
-  `password` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `kyc_step` int(11) NOT NULL DEFAULT '0',
+  `password` text NOT NULL,
+  `kyc_step` int(11) NOT NULL DEFAULT 0,
   `last_online` datetime NOT NULL,
   `2fa` tinyint(1) NOT NULL,
   `email_verif` tinyint(1) NOT NULL,
-  `avatar` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_status` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `avatar` text NOT NULL,
+  `user_status` text NOT NULL,
   `telegram` int(11) DEFAULT NULL,
-  `payment_address` text COLLATE utf8mb4_unicode_ci,
-  `withdraw_error` text COLLATE utf8mb4_unicode_ci,
-  `trading_error` text COLLATE utf8mb4_unicode_ci,
-  `verification_error` text COLLATE utf8mb4_unicode_ci,
-  `auth_token` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payment_address` text DEFAULT NULL,
+  `withdraw_error` text DEFAULT NULL,
+  `trading_error` text DEFAULT NULL,
+  `verification_error` text DEFAULT NULL,
+  `auth_token` text NOT NULL,
   `created_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -419,7 +425,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `username`, `ref_code`, `password`, `kyc_step`, `last_online`, `2fa`, `email_verif`, `avatar`, `user_status`, `telegram`, `payment_address`, `withdraw_error`, `trading_error`, `verification_error`, `auth_token`, `created_date`) VALUES
 (18, 'KASRO@vk.com', 'KASRO', 46224787, '$2y$10$Y0U.6niCdh7Auj3nw11qcuqoS1G.GeGCvV2VjEiUM8jdFNIMphNN6', 0, '2023-10-25 00:28:53', 0, 0, '{\"image_url\":\"/assets/users_avatars/653682a189417.jpg\"}', 'user', NULL, NULL, NULL, NULL, NULL, 'defa29927b3670b1a81083e0a12d5c613000a923d34f42a0afaa155ccba66fba', NULL),
-(19, 'nikita150489@mail.ru', 'kasro123', 74329601, '$2y$10$u4IK9yVAaqgZ4TTtI53nLuPESX.7PvDNXUwwxUB666uLcZTl.8Fny', 0, '2023-11-14 00:27:05', 0, 1, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, NULL, '4fbff7c634f69331b3d6d799987b3ea6961307fef95dba52d351e9ae3e37c8a8', NULL),
+(19, 'nikita150489@mail.ru', 'kasro123', 74329601, '$2y$10$u4IK9yVAaqgZ4TTtI53nLuPESX.7PvDNXUwwxUB666uLcZTl.8Fny', 0, '2023-11-13 12:21:27', 0, 1, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, NULL, '02d6ea2fbf12258384cce27fd744eb815083adbf6d770d51eba94c029b33318e', NULL),
 (21, 'nikita15048769@mail.ru', 'KASRO124', 69087331, '$2y$10$/jk6vqm5U93CJs3Vzd780uVgoyaywZKfGo4N2ZlxBIQSHYVE6RwEK', 0, '2023-11-11 23:33:57', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, NULL, '0f450a652793aedd3844f18108308bbe84cba3082ea291bc2124504fe68ca6f3', '2023-11-11');
 
 --
@@ -553,7 +559,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT для таблицы `p2p_users`
