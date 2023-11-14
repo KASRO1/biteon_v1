@@ -134,6 +134,7 @@ $user_info = get_user_info($auth_token);
 
                     }
                 }
+
             });
         } else {
             new Notify({

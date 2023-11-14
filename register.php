@@ -93,6 +93,16 @@
                     })
                 }
             },
+                error: function (data) {
+                    console.log(data);
+                    new Notify({
+                        title: 'Error',
+                        text: 'Registration is unavailable, this user may already exist',
+                        status: 'error',
+                        autoclose: true,
+                        autotimeout: 3000
+                    })
+                }
 
         });
         }

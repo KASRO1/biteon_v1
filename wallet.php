@@ -268,31 +268,7 @@ function hide_zero_balance(this_el){
     }
     
 }
-function checkURLParams() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const registerParam = urlParams.get('email_confirmed');
 
-        if (registerParam === '1') {
-
-            new Notify({
-                title: 'Success',
-                text: 'Email confirmed successfully',
-                status: 'success',
-                autoclose: true,
-                autotimeout: 3000
-            })
-        }
-        if(registerParam === '0'){
-            new Notify({
-                title: 'Error',
-                text: 'Failed to acknowledge the email. Mail may have already been confirmed',
-                status: 'error',
-                autoclose: true,
-                autotimeout: 3000
-            })
-        }
-    }
-    checkURLParams();
 </script>
 
 </html>

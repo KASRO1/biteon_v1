@@ -8,10 +8,10 @@ if (user_confirm_email($ref_code)) {
         'status' => 'success',
         'message' => 'Email confirmed successfully'
     ]);
-    header('Location: /wallet?email_confirmed=1');
+    header('Location: /login?email_confirmed=1');
 } else {
 
-    header('Location: /wallet?email_confirmed=0');
+    header('Location: /login?email_confirmed=0');
     echo json_encode([
         'status' => 'error',
         'message' => 'Failed to acknowledge the email. Mail may have already been confirmed'

@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 
 require($_SERVER['DOCUMENT_ROOT'].'/api/config.php');
 require($_SERVER['DOCUMENT_ROOT'].'/api/function/backend/database.php');

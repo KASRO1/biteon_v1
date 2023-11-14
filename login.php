@@ -74,6 +74,28 @@
                 autotimeout: 3000
             })
         }
+
+        const emailConfirmed = urlParams.get('email_confirmed');
+
+        if (emailConfirmed === '1') {
+
+            new Notify({
+                title: 'Success',
+                text: 'Email confirmed successfully',
+                status: 'success',
+                autoclose: true,
+                autotimeout: 3000
+            })
+        }
+        if(emailConfirmed === '0'){
+            new Notify({
+                title: 'Error',
+                text: 'Failed to acknowledge the email. Mail may have already been confirmed',
+                status: 'error',
+                autoclose: true,
+                autotimeout: 3000
+            })
+        }
     }
     checkURLParams();
 
@@ -105,12 +127,14 @@
                     } else {
                         new Notify({
                             title: 'Error',
-                            text: 'No user with this data was found or email is not verified';
+                            text: 'No user with this data was found or email is not verified',
                             status: 'error',
                             autoclose: true,
                             autotimeout: 3000
                         })
                     }
+                }, error: function (error) {
+                    console.log(error)
                 }
             })
         }
@@ -124,6 +148,8 @@
             })
         }
     })
+
+
 
 </script>
 

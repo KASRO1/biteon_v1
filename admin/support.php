@@ -3,7 +3,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/api/init.php';
 $chat_id = $_GET['chat_id'];
 if (!$chat_id) {
     $chats = get_chats();
-    header("Location: support?chat_id=" . $chats[0]['id']);
+    header("Location: support?chat_id=" . $chats[0]['chat_id']);
 }
 $this_user_id = get_user_info($_COOKIE['auth_token']);
 $info_chat = get_info_chat($chat_id);

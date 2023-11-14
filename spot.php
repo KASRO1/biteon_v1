@@ -839,8 +839,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
     })
     const limit_buy_form = document.getElementById("limit_buy_form");
     limit_buy_form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        alert(123)
+        e.preventDefault()
         const formData = new FormData(this);
         formData.append("coinName", "<?=$coin_fullName?>");
 

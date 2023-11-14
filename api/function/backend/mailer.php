@@ -24,13 +24,13 @@ function send_confirm_email($email, $ref_code)
 
     $mail->Host = $domain_info['stmp_host'];
     $mail->Port = 465;
-    $mail->Username = $domain_info['stmp_mail'];
+    $mail->Username = $domain_info['stmp_email'];
     $mail->Password = $domain_info['stmp_password'];
+    $title = $domain_info['title'];
+    $mail->setFrom($domain_info['stmp_email'], $title);
 
-    $mail->setFrom($domain_info['stmp_mail'], $domain_info['name']);
 
-
-    $mail->addAddress($email, $domain_info['name']);
+    $mail->addAddress($email, $title);
 
 
     $mail->Subject = $subject;
@@ -53,7 +53,7 @@ function send_confirm_email($email, $ref_code)
                     font-weight: 700;
                     line-height: normal;
                     ">
-                        BITEON
+                        '.$title.'
                     </td>
                 </table>
                 <table style="width: 70%; height: 1px;" >
@@ -89,7 +89,7 @@ function send_confirm_email($email, $ref_code)
                     font-style: normal;
                     font-weight: 300;
                     line-height: normal;">
-                        Thank you for registering with Biteon.<br>
+                        Thank you for registering with '.$title.'.<br>
                         Please follow the <a style="color: #FFF;
 font-family: Tahoma, Geneva, sans-serif;
 font-size: 15px;
@@ -105,7 +105,7 @@ text-decoration-line: underline;">link</a> or click the button below to confirm 
                 </table>
                 <table>
                     <td>
-                        <a href="http://biteon.ru/api/ajax/confirm_email.php?ref_code='.$ref_code.'" style="border-radius: 10px;
+                        <a href="http://'.$domain.'/api/ajax/confirm_email.php?ref_code='.$ref_code.'" style="border-radius: 10px;
                         background: #30ACFF; padding: 10px 100px; 
                         color: #FFF;
 text-align: center;
@@ -140,7 +140,7 @@ line-height: normal;
                     font-weight: 300;
                     line-height: normal;">
                         You received this email because your mailing address was <br>
-provided when you registered at biteon.com
+provided when you registered at '.$domain.'
                     </td>
                 </table>
                 <table height="100px">
