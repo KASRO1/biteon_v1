@@ -203,10 +203,18 @@ $user_info = get_user_info($auth_token);
                         </div>
                     </div>
                 </div>
-                <div class="blue_button kyc">
-                    <img src="assets/images/icons/upload_kyc.svg" alt="">
-                    <span>Upgrade</span>
-                </div>
+
+                <form id="upload-form" method="post" enctype="multipart/form-data">
+                    <label  id="label_upload" for="file-upload">
+                        <div class="blue_button kyc" id="uploadButton">
+                            <img src="assets/images/icons/upload_kyc.svg" alt="">
+                            <span>Upgrade</span>
+                            <input type="file"  name="kyc_images[]" accept="image/*" multiple="true" style="display: none" id="file-upload">
+                        </div>
+                    </label>
+                    <input type="file" style="display: none" name="kyc_images[]" id="file-upload" accept="image/*" class="custom-file-input">
+                </form>
+
             </div>
             <div class="wrapper__col">
                 <div class="col_content">
@@ -333,5 +341,47 @@ $user_info = get_user_info($auth_token);
     </div>
 </body>
 <script src="assets/scripts/main.js"></script>
+<script>
+    var uploadForm = $('#upload-form');
+    var avatarInput = $('#file-upload');
+    avatarInput.on('change', function() {
+
+        uploadForm.submit();
+    });
+    uploadForm.on('submit', (e) => {
+        e.preventDefault();
+
+
+        var formData = new FormData(uploadForm[0]);
+
+        $.ajax({
+            url: '/api/ajax/kyc_documents_upload.php',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                if (response.status == "success") {
+                    new Notify({
+                        title: 'Success',
+                        text: 'Avatar uploaded successfully',
+                        status: 'success',
+                        autoclose: true,
+                        autotimeout: 3000
+                    })
+                    setTimeout(() => {
+                        location.reload();
+                    }, 3000);
+                } else {
+                    console.log(response);
+                }
+            },
+            error: function(response) {
+                console.log(response);
+            }
+        });
+    });
+
+</script>
 
 </html>

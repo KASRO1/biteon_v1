@@ -599,3 +599,27 @@ function get_all_orders_limit(){
 
     return $mysql->query("SELECT * FROM `orders` WHERE `type_trade` = 'limit'")->fetch_all(MYSQLI_ASSOC);
 }
+function create_application_kyc($files){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $date = date('Y-m-d H:i:s');
+    $token = $_COOKIE['auth_token'];
+    $user = get_user_info($token);
+    $user_id = $user['id'];
+    $result = $mysql->query("INSERT INTO `kyc_applications`(`user_id`, `date`, `files`,`status`) VALUES ('$user_id','$date','$files','0')");
+    if ($result){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+function change_status_kyc($id, $status){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $result = $mysql->query("UPDATE `kyc_applications` SET `status` = '$status' WHERE `id` = '$id'");
+    if($result){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
