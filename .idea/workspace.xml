@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48de03d6-5035-48b3-82d5-9edc4dfb2797" name="Changes" comment="Почти сделал маркет">
-      <change afterPath="$PROJECT_DIR$/api/ajax/kyc_documents_upload.php" afterDir="false" />
+    <list default="true" id="48de03d6-5035-48b3-82d5-9edc4dfb2797" name="Changes" comment="Начал делать загрузку кук верифа">
+      <change afterPath="$PROJECT_DIR$/api/ajax/create_domain.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/function/backend/payment_api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/add_domain.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/add_domain.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/binding.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/binding.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/function/backend/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings_kyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_kyc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/function/frontend/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/frontend/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biteon (4).sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +88,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\OSPanel\domains\BITEON\admin" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="swap_settings.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/BITEON/admin/swap_settings.html" useBuiltInWebServerPort="true">
@@ -124,6 +132,7 @@
       <workItem from="1699730658436" duration="4096000" />
       <workItem from="1699785693205" duration="8909000" />
       <workItem from="1699857401718" duration="5426000" />
+      <workItem from="1700073020511" duration="786000" />
     </task>
     <task id="LOCAL-00001" summary="last">
       <option name="closed" value="true" />
@@ -173,7 +182,23 @@
       <option name="project" value="LOCAL" />
       <updated>1699819864860</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Начал делать загрузку кук верифа">
+      <option name="closed" value="true" />
+      <created>1699982053162</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699982053162</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Начал делать загрузку кук верифа">
+      <option name="closed" value="true" />
+      <created>1699982137974</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1699982137974</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,7 +220,23 @@
     <MESSAGE value="last1" />
     <MESSAGE value="Сделал чат" />
     <MESSAGE value="Почти сделал маркет" />
-    <option name="LAST_COMMIT_MESSAGE" value="Почти сделал маркет" />
+    <MESSAGE value="Начал делать загрузку кук верифа" />
+    <option name="LAST_COMMIT_MESSAGE" value="Начал делать загрузку кук верифа" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/api/function/backend/database.php</url>
+          <line>615</line>
+          <properties>
+            <option name="className" value="" />
+            <option name="methodName" value="\change_status_kyc" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

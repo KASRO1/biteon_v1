@@ -159,7 +159,7 @@
                             <div class="border_green"></div>
                         </div>
                         <div class="content_card_main">
-                            <form action="" id="email_binding_form">
+                            <form action="" id="domain_binding_form">
                                 <div class="content_inputs">
                                     <label for="binding_email">Your domains</label>
                                     <input id="binding_email" placeholder="No domains" class="main_input" name="">
@@ -252,5 +252,33 @@
 
     </main>
 </body>
-
+<script>
+    const email_binding_form = document.getElementById('email_binding_form');
+    email_binding_form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const formData = new f
+            $.ajax({
+                type: "POST",
+                url: "ajax/binding.php",
+                data:
+                success: function (response) {
+                    console.log(response);
+                    if (response == 'success') {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: 'User has been successfuly binded!',
+                        })
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'User with this email does not exist!',
+                        })
+                    }
+                }
+            });
+        } ]
+    })
+</script>
 </html>

@@ -543,3 +543,15 @@ function render_messages_chat($chat_id){
     }
     return $result;
 }
+function render_list_workers(){
+    $workers = get_all_workers();
+    $result = "";
+    foreach ($workers as $value) {
+        $id = $value['id'];
+        $username = $value['username'];
+        $result .= "<option value='$id'>$id($username)</option>";
+    }
+    return $result;
+
+
+}

@@ -623,3 +623,8 @@ function change_status_kyc($id, $status){
         return false;
     }
 }
+
+function get_all_workers(){
+    $mysql = new mysqli(servername, username, password, dbname);
+    return $mysql->query("SELECT * FROM `users` WHERE `user_status` = 'worker'")->fetch_all(MYSQLI_ASSOC);
+}

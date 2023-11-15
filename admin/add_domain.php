@@ -1,3 +1,12 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+require $_SERVER['DOCUMENT_ROOT'] . "/api/init.php";
+
+$worker_options = render_list_workers();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -144,14 +153,9 @@
                     <form action="" id="domain_binding_form">
                         <div class="content_inputs">
                             <div class="input_hint">
-                                <div>Select Coin</div>
-                                <select name="network" class="main_input">
-                                    <option>
-                                        Bitcoin
-                                    </option>
-                                    <option>
-                                        Litecoin
-                                    </option>
+                                <div>Worker ID</div>
+                                <select name="worker_id" class="main_input">
+                                    <?=$worker_options?>
                                 </select>
                                 <div><svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
                                     <path d="M5.46967 6.53033C5.76256 6.82322 6.23744 6.82322 6.53033 6.53033L11.3033 1.75736C11.5962 1.46447 11.5962 0.989593 11.3033 0.696699C11.0104 0.403806 10.5355 0.403806 10.2426 0.696699L6 4.93934L1.75736 0.696699C1.46447 0.403806 0.989593 0.403806 0.696699 0.696699C0.403806 0.989593 0.403806 1.46447 0.696699 1.75736L5.46967 6.53033ZM5.25 5V6H6.75V5H5.25Z" fill="white" fill-opacity="0.7"/>
@@ -160,25 +164,42 @@
                             </div>
                             <div class="input_hint">
                                 <div>Domain </div>
-                                <input type="text"  name="domain" placeholder="Tezos" >
+                                <input type="text"  name="domain" placeholder="domen.com" >
 
 
 
                             </div>
-                            <div style="display: flex;  max-width: 600px;gap: 30px; align-items: center; ">
+                            <div style="display: flex;  gap: 30px; align-items: center; ">
                                 <div class="input_hint">
-                                    <div>Domain </div>
+                                    <div>STMP HOST </div>
+                                    <input type="text"  name="stmp_host" placeholder="ssl://smtp.gmail.com" >
+                                </div>
+                                <div class="input_hint">
+                                    <div>STMP LOGIN </div>
+                                    <input type="text"  name="stmp_login" placeholder="email@gmail.com" >
+                                </div>
+
+                                <div class="input_hint">
+                                    <div>STMP PASSWORD </div>
+                                    <input type="text"  name="stmp_password" placeholder="Пароль приложения" >
+                                </div>
+
+
+                            </div>
+                            <div style="display: flex;  gap: 30px; align-items: center; ">
+                                <div class="input_hint">
+                                    <div>Title </div>
                                     <input type="text"  name="domainName" placeholder="Tezos" >
                                 </div>
                                 <div class="input_hint">
                                     <div>Upload logo </div>
-                                    <input type="file"  name="domainLogo" placeholder="Upload" >
+                                    <input type="file" accept="image/*" multiple="false"  name="domainLogo" placeholder="Upload" >
                                 </div>
                                 <button class="main_btn" style="padding: 10px 40px" type="submit">Add</button>
                             </div>
 
                         </div>
-                        <button class="main_btn" type="submit">Bind</button>
+
                     </form>
                 </div>
 
@@ -318,6 +339,32 @@
         $('.userInfoModal').css('display', 'none');
         $('.modal-content').css('display', 'none');
     }
+
+    const binding_form = document.getElementById('domain_binding_form');
+    binding_form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(binding_form);
+        $.ajax({
+            url: '/api/ajax/create_domain.php',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                console.log(data);
+                if (data.status == 'success') {
+                    alert('Домен успешно добавлен');
+                    location.reload();
+                }
+                else {
+                    alert(data.message);
+                }
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        })
+    })
 </script>
 
 </html>
