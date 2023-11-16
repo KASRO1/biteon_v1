@@ -68,7 +68,7 @@
 
             new Notify({
                 title: 'Success',
-                text: 'Registration successfully completed',
+                text: 'Registration successfully completed. Check your email to confirm your account',
                 status: 'success',
                 autoclose: true,
                 autotimeout: 3000

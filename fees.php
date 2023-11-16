@@ -1,3 +1,12 @@
+<?php
+
+require($_SERVER['DOCUMENT_ROOT'].'/api/init.php');
+$auth_token = $_COOKIE['auth_token'];
+if(!get_user_info($auth_token)){
+    header("Location: /login");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,73 +27,7 @@
 </head>
 
 <body class="swap">
-    <header>
-        <div class="logo">
-            <img src="assets/images/logo.svg" class="logo_img" alt="logo">
-            <h3 data-title></h3>
-        </div>
-        <div class="menu">
-            <ul>
-
-
-                <li><a href="pages/contact.php">Spot trading</a></li>
-                <li><a href="pages/contact.php">Swap</a></li>
-                <li><a href="pages/contact.php">Derivatives</a></li>
-                <li><a href="pages/contact.php">Tools</a></li>
-                <li><a href="pages/contact.php">Stacking</a></li>
-                <li><a href="pages/contact.php">Earn</a></li>
-                <li><a href="pages/contact.php">More</a></li>
-                <li><a href="pages/contact.php">Support</a></li>
-                <li class="balance">Wallet : 0 USD</li>
-            </ul>
-        </div>
-        <div class="login_block gap-0" id="login_block">
-            <a href="#" id="profile" class="autorized_user">KASRO</a>
-            <img src="assets/images/profile.png" class="image_profile" alt="">
-            <a href="" class="burger_menu"> <img src="assets/images/burger.svg" alt=""></a>
-            <div id="profileMenu" class="profile-menu">
-                <div class="profile-menu__balance">
-                    <div class="profile-menu__balance__title">
-                        <img src="assets/images/icons/withdraw.svg" alt="">
-                        <div>
-                            <p class="m-0 font-light">Balance</p>
-                            <p class="text-white m-0 font-light">0 USD</p>
-                        </div>
-                    </div>
-
-                    <div class="profile-menu__balance__buttons">
-                        <button class="btn"><img src="assets/images/icons/deposit.svg" alt="">Deposit</button>
-                        <button class="btn"><img src="assets/images/icons/withdraw.svg" alt="">Withdraw</button>
-                    </div>
-                    <div class="line mb-4"></div>
-                    <ul class="profile-menu__ul">
-                        <li><img src="assets/images/icons/wallet-two.svg" alt=""><a href="">Wallet</a></li>
-                        <li><img src="assets/images/icons/settings.svg" alt=""><a href="">Account settings</a></li>
-                        <li><img src="assets/images/icons/verif.svg" alt=""><a href="">Verification</a></li>
-                        <li><img src="assets/images/icons/gift.svg" alt=""><a href="">Gift codes</a></li>
-                        <li><img src="assets/images/icons/support.svg" alt=""><a href="">Support</a></li>
-                    </ul>
-                    <div class="line mb-4"></div>
-                    <div class="user_logout">
-                        <div class="flex gap-2">
-                            <img src="assets/images/profile.png" alt="">
-                            <div class="user_logout__info">
-                                <p class="m-0 ">KASRO</p>
-                                <p class="text-xs m-0">pupazalu..</p>
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <a class="logout_button"><img src="assets/images/icons/logout.svg" alt=""></a>
-                        </div>
-                    </div>
-
-
-                </div>
-
-            </div>
-        </div>
-
-    </header>
+    <?=render_header()?>
     <section class="subtitle">
         <div class="subtitle_box">
             <svg width="59" height="46" viewBox="0 0 59 46" fill="none" xmlns="http://www.w3.org/2000/svg">

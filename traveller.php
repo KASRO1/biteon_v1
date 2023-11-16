@@ -1,3 +1,12 @@
+<?php
+
+require($_SERVER['DOCUMENT_ROOT'].'/api/init.php');
+$auth_token = $_COOKIE['auth_token'];
+if(!get_user_info($auth_token)){
+    header("Location: /login");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,57 +24,7 @@
 </head>
 
 <body>
-    <header >
-        <div class="logo">
-            <img src="assets/images/logo.svg" class="logo_img" alt="logo" />
-            <h3 data-title></h3>
-        </div>
-        <div class="menu">
-            <ul>
-                <li class="has-submenu">
-                    <a href="#">Buy crypto</a>
-                    <ul class="submenu">
-                        <li>
-                            <a href="pages/contact.php">Credit / debit card</a>
-                            <span>Quick purchase of crypto</span>
-                        </li>
-                        <li>
-                            <a href="pages/contact.php">P2P trade</a>
-                            <span>Trade with real users</span>
-                        </li>
-                        <li>
-                            <a href="pages/contact.php">Refill with cryptocurrency</a>
-                            <span>Deposit in minutes</span>
-                        </li>
-                    </ul>
-                </li>
-                <li class="has-submenu">
-                    <a href="#">Trade</a>
-                    <ul class="submenu">
-                        <li>
-                            <a href="pages/contact.php">Spot Trading</a>
-                            <span>Buy and hold crypto</span>
-                        </li>
-                        <li>
-                            <a href="pages/contact.php">Futures Trading</a>
-                            <span>Perpetual contracts settled in crypto</span>
-                        </li>
-                        <li>
-                            <a href="pages/contact.php">Options Trading</a>
-                            <span>Trade European-style options</span>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="pages/contact.php">Swap</a></li>
-                <li><a href="pages/contact.php">Support</a></li>
-            </ul>
-        </div>
-        <div class="login_block">
-            <a href="pages/login.php" class="login">Log in</a>
-            <a href="pages/register.php" class="register">Open Free Account</a>
-            <a href=""><img src="assets/images/burger.svg" alt="" /></a>
-        </div>
-    </header>
+    <?=render_header()?>
     <main class="mb-96 p-0">
         <section class="box-header_travellar p-5">
             <div class="block box-header_travellar_content">

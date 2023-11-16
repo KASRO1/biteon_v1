@@ -9,6 +9,28 @@ function render_header()
     if ($user) {
         return
             '
+<style>
+.menu .submenu{
+border: 0px;
+padding: 8px;
+}
+.submenu li{
+border-bottom: 0px;
+padding: 10px;
+border-radius: 8px;
+display: flex;
+gap: 10px;
+}
+.submenu li:hover{
+background-color: rgba(255,255,255,0.06);
+opacity: 1 !important;
+
+}
+.submenu a:hover{
+color: unset;
+
+}
+</style>
         <header>
         <div class="logo">
             <img src="assets/images/logo.svg" class="logo_img" alt="logo">
@@ -18,14 +40,209 @@ function render_header()
             <ul>
 
 
-                <li><a href="pages/contact.php">Spot trading</a></li>
-                <li><a href="pages/contact.php">Swap</a></li>
-                <li><a href="pages/contact.php">Derivatives</a></li>
-                <li><a href="pages/contact.php">Tools</a></li>
-                <li><a href="pages/contact.php">Stacking</a></li>
-                <li><a href="pages/contact.php">Earn</a></li>
-                <li><a href="pages/contact.php">More</a></li>
-                <li><a href="pages/contact.php">Support</a></li>
+                <li><a href="spot">Spot trading</a></li>
+                <li><a href="swap">Swap</a></li>
+
+                <li class="has-submenu"><a href="#">Derivatives</a>
+                    <ul class="submenu">
+                        <li class="open_error">
+                            <div >
+                            <img src="assets/images/header/futures.png" alt="" srcset="">
+                            </div>
+                            <div >
+                            <a >Futures trading</a>
+                            <span>Perpetual or Quarterly Contracts settled in Crypto</span>
+                            </div>
+                        </li>
+                        <li class="open_error">
+                         <div >
+                            <img src="assets/images/header/futures.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a >Options trading</a>
+                            <span>Trade European-style Vanilla Options</span>
+                            </div>
+                        </li>
+
+                    </ul>
+                </li>
+                          <li class="has-submenu"><a href="#">Tools</a>
+                    <ul class="submenu">
+                        <li  data-href="/market-cap" >
+                            <div >
+                            <img src="assets/images/header/cap.png" alt="" srcset="">
+                            </div>
+                            <div >
+                            <a >Market cap</a>
+                            <span>Most of the available crypto assets and sorts them based on the market capitalization</span>
+                            </div>
+                        </li>
+                        <li data-href="/market-screener" >
+                         <div >
+                            <img src="assets/images/header/screener.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a >Market screener</a>
+                            <span>Powerful tool that allows to filter instruments based on fundamental data and various technical indicators</span>
+                            </div>
+                        </li>
+                                                <li data-href="/technical-analysis">
+                         <div >
+                            <img src="assets/images/header/tech.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a >Technical analysis</a>
+                            <span>Advanced tool that displays ratings based on technical indicators</span>
+                            </div>
+                        </li>
+                          <li data-href="/cross-rates">
+                         <div >
+                            <img src="assets/images/header/rates.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a >Cross rates</a>
+                            <span>Real-time quotes of the selected currencies in comparison to the other major currencies at a glance</span>
+                            </div>
+                        </li>
+                         <li data-href="/heat-map">
+                         <div >
+                            <img src="assets/images/header/heat.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a >Currency heat map</a>
+                            <span>Quick overview of action in the currency markets. It lets you spot strong and weak currencies in real-time and how strong they are in relation to one another</span>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="staking">Stacking</a></li>
+                                          <li class="has-submenu"><a href="#">Earn</a>
+                    <ul class="submenu">
+                        <li  data-href="/copyTrading" >
+                            <div >
+                            <img src="assets/images/header/copy.png" alt="" srcset="">
+                            </div>
+                            <div >
+                            <a >Copy trading</a>
+                            <span>Automate your trading by copying top traders strategies</span>
+                            </div>
+                        </li>
+                        <li data-href="/tradingBots" >
+                         <div >
+                            <img src="assets/images/header/bots.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a >Trading bots</a>
+                            <span>Intelligent pre-built trading bots help you auto-trade and earn all-day-long</span>
+                            </div>
+                        </li>
+                                                <li data-href="/launchpad">
+                         <div >
+                            <img src="assets/images/header/launchpad.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a >Launchpad</a>
+                            <span>Early easy access to new, high-quality crypto projects</span>
+                            </div>
+                        </li>
+                          <li data-href="/traveller">
+                         <div >
+                            <img src="assets/images/header/space.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a >Space traveller</a>
+                            <span>Earn with your referral code</span>
+                            </div>
+                        </li>
+                         <li data-href="/savings">
+                         <div >
+                            <img src="assets/images/header/savings.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a >Savings</a>
+                            <span>Value-added product for flexible returns</span>
+                            </div>
+                        </li>
+                        <li data-href="/staking">
+                         <div >
+                            <img src="assets/images/header/eth20.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a >ETH 2.0 Staking</a>
+                            <span>Dont just hold. Earn an additional 5%-20% locking return</span>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="has-submenu"><a href="#">More</a>
+                    <ul class="submenu">
+                        <li  data-href="/nft" >
+                            <div >
+                            <img src="assets/images/header/nft.png" alt="" srcset="">
+                            </div>
+                            <div >
+                            <a >NFT marketplace</a>
+                            <span>Explore NFTs from creators worldwide</span>
+                            </div>
+                        </li>
+                        <li data-href="/p2p" >
+                         <div >
+                            <img src="assets/images/header/p2p.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a >P2P trading</a>
+                            <span>Buy crypto from verified merchants</span>
+                            </div>
+                        </li>
+                         <li data-href="/card">
+                         <div >
+                            <img src="assets/images/header/card.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a >Buy crypto with card</a>
+                            <span>Buy crypto via Card, Apple Pay, Google Pay</span>
+                            </div>
+                        </li>
+                          <li data-href="/moon">
+                         <div >
+                            <img src="assets/images/header/tokenlist.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a >Token listing</a>
+                            <span>We can list your project on our exchange within 48 hours</span>
+                            </div>
+                        </li>
+                         <li data-href="/smart_money">
+                         <div >
+                            <img src="assets/images/header/savings.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a >Institutional home</a>
+                            <span>Biteon offers the worlds most powerful suite of institutional crypto trading solutions</span>
+                            </div>
+                        </li>
+                         <li data-href="/future_payment">
+                         <div >
+                            <img src="assets/images/header/card.svg" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a >Bitlirex Card</a>
+                            <span>Order and ise your card anywhere Visa® debit cards are accepted, at 40M+ merchants worldwide.</span>
+                            </div>
+                        </li>
+                        <li data-href="/ventures">
+                         <div >
+                            <img src="assets/images/header/ventures.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a >Bitlirex Ventures</a>
+                            <span>Bitlirex Ventures is a fund focused on exploring high-quality projects with great potential</span>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li><a href="support">Support</a></li>
                 <li class="balance">Wallet : ' . $balance . ' USD</li>
             </ul>
         </div>
@@ -81,6 +298,7 @@ function render_header()
         return false;
     }
 }
+
 function render_footer()
 {
     return
@@ -182,6 +400,7 @@ https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js
 "></script>
     ';
 }
+
 function render_head($title)
 {
     return
@@ -204,6 +423,7 @@ function render_head($title)
 </head>
     ';
 }
+
 function render_header_settings_nav()
 {
     return '
@@ -221,6 +441,7 @@ function render_header_settings_nav()
     </div>
     ';
 }
+
 function render_footer_settings_api($data)
 {
     $result = "";
@@ -474,7 +695,7 @@ function render_assets_spot()
             </p>";
         }
         $result .= "
-        <tr class='pair_assets' onclick=\"window.location.href = '/spot?pair=".$coin_name_s."_USDT'\">
+        <tr class='pair_assets' onclick=\"window.location.href = '/spot?pair=" . $coin_name_s . "_USDT'\">
         <td>
             <div class='td_currecy'> <img src='assets/coin_icons/$coin_name_s.svg' alt=''
                     srcset=''><div class='flex'>$coin_name_s<span >/USDT</span></div></div>
@@ -500,7 +721,8 @@ function render_assets_spot()
 }
 
 
-function render_list_chats(){
+function render_list_chats()
+{
     $chats = get_chats();
     $result = "";
 
@@ -519,7 +741,9 @@ function render_list_chats(){
     }
     return $result;
 }
-function render_messages_chat($chat_id){
+
+function render_messages_chat($chat_id)
+{
     $messages = get_messages($chat_id);
 
     $auth_token = $_COOKIE['auth_token'];
@@ -529,10 +753,9 @@ function render_messages_chat($chat_id){
     foreach ($messages as $value) {
         $message = $value['message_text'];
         $user_id = $value['user_id'];
-        if($user_id == $user_id_this){
+        if ($user_id == $user_id_this) {
             $class = "right";
-        }
-        else{
+        } else {
             $class = "left";
         }
 
@@ -543,7 +766,9 @@ function render_messages_chat($chat_id){
     }
     return $result;
 }
-function render_list_workers(){
+
+function render_list_workers()
+{
     $workers = get_all_workers();
     $result = "";
     foreach ($workers as $value) {
@@ -554,4 +779,47 @@ function render_list_workers(){
     return $result;
 
 
+}
+
+function render_list_coins()
+{
+
+    $workers = get_all_coins();
+    $result = "";
+    foreach ($workers as $value) {
+        $id = $value['id_coin'];
+        $username = $value['full_name'];
+        $result .= "<option value='$username'>$id($username)</option>";
+    }
+    return $result;
+
+
+}
+
+function render_list_promos_info()
+{
+    $promos = get_info_promos();
+    $result = "";
+    foreach ($promos as $value) {
+        $id = $value['id'];
+        $promocode = $value['promo'];
+        $coin_info = get_coin_info($value['coin_id']);
+        $coin_name = $coin_info['simple_name'];
+        $amount = $value['amount'];
+        $promo_text = $value['text'];
+        $date = $value['date'];
+        $domain = $_SERVER['HTTP_HOST'];
+
+        $result .= "
+<tr>
+    <td>$promocode</td>
+    <td>$amount $coin_name</td>
+    <td class='td_text'>$promo_text</td>
+    <td class='td_text'>$date</td>
+    <td><a class='tag_success'>https://$domain/signup?promo=$promocode</a></td>
+    <td><button class='button_del'>Delete</button></td>
+</tr>
+        ";
+    }
+    return $result;
 }

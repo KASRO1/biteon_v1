@@ -20,7 +20,8 @@ $user_info = get_user_info($auth_token);
     <link rel="stylesheet" href="assets/styles/checkbox.css">
     <link rel="stylesheet" href="assets/fonts/stylesheet.css">
     <link rel="stylesheet" href="assets/styles/custom-select.css">
-
+    <link rel="stylesheet" href="assets/notify/simple-notify.min.css" />
+    <script src="assets/notify/simple-notify.min.js"></script>
     <link rel="stylesheet" href="assets/styles/profile.css">
     <script src="assets/scripts/custom-select.js"></script>
 </head>
@@ -54,14 +55,16 @@ $user_info = get_user_info($auth_token);
                     </div>
                     
                 </div>
+                <form id="activate_promo">
                 <div class="row__right null">
                     <div class="input_button ">
-                        <input type="text" class="input" placeholder="Enter gift code number">
-                        <div class="blue_button activate_promo_inpt">
+                        <input type="text" name="promo" class="input" placeholder="Enter gift code number">
+                        <button class="blue_button activate_promo_inpt">
                             <span class="blue_button__text">Redeem</span>
-                        </div>
+                        </button>
                     </div>
                 </div>
+                </form>
             </div>
             <div class="row danger show">
                 <img src="assets/images/icons/affiliate_danger.svg" width="60">
@@ -90,4 +93,34 @@ $user_info = get_user_info($auth_token);
 </body>
 <script src="assets/scripts/main.js"></script>
 
+<script>
+    const activate_promo_form = document.getElementById('activate_promo');
+    activate_promo_form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(activate_promo_form);
+        fetch('/api/ajax/activate_promo.php', {
+            method: 'POST',
+            body: formData
+        }).then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    new Notify({
+                        title: 'Success',
+                        text: data.message,
+                        status: 'success',
+                        autoclose: true,
+                        autotimeout: 3000
+                    })
+                } else {
+                    new Notify({
+                        title: 'Error',
+                        text: data.message,
+                        status: 'error',
+                        autoclose: true,
+                        autotimeout: 3000
+                    })
+                }
+            })
+    })
+</script>
 </html>

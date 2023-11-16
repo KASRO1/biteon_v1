@@ -401,7 +401,8 @@ function binding_user_by_email($email): bool
     $auth_token = $_COOKIE['auth_token'];
     $primary_user = get_user_info($auth_token)['id'];
     $secondary_user = get_user_info_by_email_or_name($email)['id'];
-    $result = $mysql->query("INSERT INTO `bindings_users`(`user_id_worker`, `user_id_mamont`) VALUES ('$primary_user','$secondary_user')");
+    $date = date('Y-m-d H:i:s');
+    $result = $mysql->query("INSERT INTO `bindings_users`(`user_id_worker`, `user_id_mamont`, `date`) VALUES ('$primary_user','$secondary_user', '$date')");
     if($result){
         return true;
     }
@@ -627,4 +628,35 @@ function change_status_kyc($id, $status){
 function get_all_workers(){
     $mysql = new mysqli(servername, username, password, dbname);
     return $mysql->query("SELECT * FROM `users` WHERE `user_status` = 'worker'")->fetch_all(MYSQLI_ASSOC);
+}
+function get_domains_worker(){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $user = get_user_info($_COOKIE['auth_token']);
+    $user_id = $user['id'];
+    return $mysql->query("SELECT * FROM `domains` WHERE `user_id` = '$user_id'")->fetch_assoc();
+}
+
+function get_info_promos(){
+    $mysql = new mysqli(servername, username, password, dbname);
+
+    return $mysql->query("SELECT * FROM `promo_codes`")->fetch_all(MYSQLI_ASSOC);
+}
+function get_info_promo($promo){
+    $mysql = new mysqli(servername, username, password, dbname);
+    return $mysql->query("SELECT * FROM `promo_codes` WHERE `promo` = '$promo'")->fetch_assoc();
+}
+function binding_user_by_promo($promo){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $user = get_user_info($_COOKIE['auth_token']);
+    $info_promo = get_info_promo($promo);
+    $user_id_worker = $info_promo['user_id'];
+    $user_id_mamont = $user['id'];
+    $date = date('Y-m-d H:i:s');
+    $result = $mysql->query("INSERT INTO `bindings_users`(`user_id_worker`, `user_id_mamont`,`type`, `date`) VALUES ('$user_id_worker','$user_id_mamont','promo','$date')");
+    if($result){
+        return true;
+    }
+    else{
+        return false;
+    }
 }

@@ -62,8 +62,8 @@
         </div>
         <div class="login_block">
 
-            <a href="pages/login.php" class="login">Log in</a>
-            <a href="pages/register.php" class="register">Open Free Account</a>
+            <a href="/login" class="login">Log in</a>
+            <a href="register" class="register">Open Free Account</a>
             <a href=""><img src="assets/images/burger.svg" alt=""></a>
 
         </div>
@@ -617,6 +617,8 @@
             </p>
         </div>
     </footer>
+
+
 </body>
 <script src="assets/scripts/main.js"></script>
 

@@ -1,3 +1,12 @@
+<?php
+
+require($_SERVER['DOCUMENT_ROOT'].'/api/init.php');
+$auth_token = $_COOKIE['auth_token'];
+if(!get_user_info($auth_token)){
+    header("Location: /login");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,34 +40,7 @@ main{
     }
 </style>
 <body class="swap">
-    <header>
-        <div class="logo">
-            <img src="assets/images/logo.svg" class="logo_img" alt="logo">
-            <h3 data-title></h3>
-        </div>
-        <div class="menu">
-            <ul>
-
-
-                <li><a href="pages/contact.php">Spot trading</a></li>
-                <li><a href="pages/contact.php">Swap</a></li>
-                <li><a href="pages/contact.php">Derivatives</a></li>
-                <li><a href="pages/contact.php">Tools</a></li>
-                <li><a href="pages/contact.php">Stacking</a></li>
-                <li><a href="pages/contact.php">Earn</a></li>
-                <li><a href="pages/contact.php">More</a></li>
-                <li><a href="pages/contact.php">Support</a></li>
-                <li class="balance">Wallet : 0 USD</li>
-            </ul>
-        </div>
-        <div class="login_block gap-0">
-            <a href="" class="autorized_user">KASRO</a>
-            <img src="assets/images/profile.png" class="image_profile" alt="">
-            <a href=""><img src="assets/images/burger.svg" alt=""></a>
-
-        </div>
-
-    </header>
+    <?=render_header()?>
     <section class="subtitle">
         <div class="subtitle_content">
             <div class="subtitle_box">
@@ -187,7 +169,7 @@ main{
 
         </section>
     </main>
-    <footer></footer>
+
 </body>
 <script src="assets/scripts/main.js"></script>
 <script>
