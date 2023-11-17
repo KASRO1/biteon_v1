@@ -1,6 +1,6 @@
 <?php
 
-function create_new_user($email, $hash_password, $username)
+function create_new_user($email, $hash_password, $username) : bool
 {
     $mysql = new mysqli(servername, username, password, dbname);
     $date = date('Y-m-d H:i:s');
@@ -9,7 +9,7 @@ function create_new_user($email, $hash_password, $username)
     
     $result = $mysql->query("INSERT INTO `users`(`email`, `username`, `ref_code`, `password`, `kyc_step`, `last_online`, `2fa`,`email_verif`, `avatar`, `user_status`, `auth_token`, `created_date`) VALUES ('$email','$username','$ref_code','$hash_password','0','$date','0','0','$standard_avatar','user','NULL', '$date')");
     if ($result) {
-        return $result;
+        return true;
     } else {
         return false;
     }
@@ -554,11 +554,22 @@ function get_chats() : array
 
     return $mysql->query($query)->fetch_all(MYSQLI_ASSOC);
 }
+function get_worker_chats(){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $user = get_user_info($_COOKIE['auth_token']);
+    $user_id = $user['id'];
+
+    return $mysql->query("SELECT chats.*
+              FROM chats
+              JOIN bindings_users ON chats.user_1 = bindings_users.user_id_mamont
+              WHERE bindings_users.user_id_worker = $user_id")->fetch_all(MYSQLI_ASSOC);
+}
 
 function get_info_chat($chat_id){
     $mysql = new mysqli(servername, username, password, dbname);
     return $mysql->query("SELECT * FROM `chats` WHERE `chat_id` = '$chat_id'")->fetch_assoc();
 }
+
 function get_count_messages_chat($chat_id){
     $mysql = new mysqli(servername, username, password, dbname);
     return $mysql->query("SELECT * FROM `messages` WHERE `chat_id` = '$chat_id'")->num_rows;
@@ -684,11 +695,31 @@ function check_is_worker(){
         return false;
     }
 }
+function check_is_admin(){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $user = get_user_info($_COOKIE['auth_token']);
+    if($user['user_status'] == "admin"){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 
 function binding_user_by_id($worker_id, $mamont_id){
     $mysql = new mysqli(servername, username, password, dbname);
     $date = date('Y-m-d H:i:s');
     $result = $mysql->query("INSERT INTO `bindings_users`(`user_id_worker`, `user_id_mamont`,`type`, `date`) VALUES ('$worker_id','$mamont_id','id','$date')");
+    if($result){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+function delete_promo_id($promo){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $result = $mysql->query("DELETE FROM `promo_codes` WHERE `id` = '$promo'");
     if($result){
         return true;
     }

@@ -13,6 +13,7 @@ $info_chat = get_info_chat($chat_id);
 $companion_id = $info_chat['user_1'];
 $info_companion = get_user_info_by_email_or_name($companion_id);
 $companion_name = $info_companion['username'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +31,7 @@ $companion_name = $info_companion['username'];
 <header>
 
     <div class="login_block gap-0" id="login_block">
-        <a href="#" id="profile" class="autorized_user">123</a>
+        <a href="#" id="profile" class="autorized_user"><?=$this_user_id['username']?></a>
         <img src="/assets/users_avatars/standard_avatar.png" class="image_profile" alt="">
 
 
@@ -40,6 +41,9 @@ $companion_name = $info_companion['username'];
 </header>
 <main>
     <style>.content_container.tables {
+            height: 100%;
+        }
+        .content_card.table {
             height: 100%;
         }
     </style>

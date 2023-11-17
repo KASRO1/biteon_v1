@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48de03d6-5035-48b3-82d5-9edc4dfb2797" name="Changes" comment="Начал делать загрузку кук верифа">
-      <change afterPath="$PROJECT_DIR$/api/ajax/get_history.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/function/backend/telegram.php" afterDir="false" />
+    <list default="true" id="48de03d6-5035-48b3-82d5-9edc4dfb2797" name="Changes" comment="Почти сделал маркет">
+      <change afterPath="$PROJECT_DIR$/api/ajax/delete_promo.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/add_domain.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/add_domain.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/binding.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/binding.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/deposit.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/deposit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/kyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/kyc.php" afterDir="false" />
@@ -17,18 +17,9 @@
       <change beforePath="$PROJECT_DIR$/admin/swap_settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/swap_settings.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/usersList.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/usersList.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/withdrawal.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/withdrawal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/ajax/close_limit_order.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/close_limit_order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/ajax/open_limit_order.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/open_limit_order.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/ajax/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/function/backend/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/function/backend/mailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/mailer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/function/frontend/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/frontend/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spot.php" beforeDir="false" afterPath="$PROJECT_DIR$/spot.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,13 +75,13 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Applications/XAMPP/xamppfiles/htdocs&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/OSPanel/domains/BITEON&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -101,10 +92,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\OSPanel\domains\BITEON" />
       <recent name="D:\OSPanel\domains\BITEON\admin" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager">
@@ -147,7 +136,7 @@
       <workItem from="1699730658436" duration="4096000" />
       <workItem from="1699785693205" duration="8909000" />
       <workItem from="1699857401718" duration="5426000" />
-      <workItem from="1700073020511" duration="786000" />
+      <workItem from="1700143956344" duration="8896000" />
     </task>
     <task id="LOCAL-00001" summary="last">
       <option name="closed" value="true" />
@@ -197,23 +186,7 @@
       <option name="project" value="LOCAL" />
       <updated>1699819864860</updated>
     </task>
-    <task id="LOCAL-00007" summary="Начал делать загрузку кук верифа">
-      <option name="closed" value="true" />
-      <created>1699982053162</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1699982053162</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Начал делать загрузку кук верифа">
-      <option name="closed" value="true" />
-      <created>1699982137974</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1699982137974</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,23 +208,7 @@
     <MESSAGE value="last1" />
     <MESSAGE value="Сделал чат" />
     <MESSAGE value="Почти сделал маркет" />
-    <MESSAGE value="Начал делать загрузку кук верифа" />
-    <option name="LAST_COMMIT_MESSAGE" value="Начал делать загрузку кук верифа" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php-line-method">
-          <url>file://$PROJECT_DIR$/api/function/backend/database.php</url>
-          <line>616</line>
-          <properties>
-            <option name="className" value="" />
-            <option name="methodName" value="\change_status_kyc" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <option name="LAST_COMMIT_MESSAGE" value="Почти сделал маркет" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

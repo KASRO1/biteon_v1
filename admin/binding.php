@@ -5,6 +5,8 @@ $domain_worker = get_domains_worker();
 if(!check_is_worker()){
     header("Location: /login");
 }
+$auth_token = $_COOKIE['auth_token'];
+$user_info = get_user_info($auth_token);
 ?>
 
 <!DOCTYPE html>
@@ -18,13 +20,15 @@ if(!check_is_worker()){
     <link rel="stylesheet" href="/assets/styles/output.css">
     <link rel="stylesheet" href="/assets/fonts/stylesheet.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="/assets/notify/simple-notify.min.css" />
+    <script src="/assets/notify/simple-notify.min.js"></script>
 </head>
 
 <body>
     <header>
 
         <div class="login_block gap-0" id="login_block">
-            <a href="#" id="profile" class="autorized_user">123</a>
+            <a href="#" id="profile" class="autorized_user"><?=$user_info['username']?></a>
             <img src="/assets/users_avatars/standard_avatar.png" class="image_profile" alt="">
 
 
@@ -177,10 +181,48 @@ if(!check_is_worker()){
             processData: false,
             success: function (response) {
                 console.log(response);
+                new Notify({
+                        title: 'Success',
+                        text: response.message,
+                        status: 'success',
+                        autoclose: true,
+                        autotimeout: 3000
+                    })
+
             }
 
         });
     });
+    function delete_promo(id){
+        $.ajax({
+            type: "POST",
+            url: "/api/ajax/delete_promo.php",
+            data: {promo: id},
+            success: function (response) {
+                if(response.status){
+                    new Notify({
+                        title: 'Success',
+                        text: 'Promo deleted',
+                        status: 'success',
+                        autoclose: true,
+                        autotimeout: 3000
+                    })
+                    setTimeout(location.reload(), 3000)
+                }
+                else
+                {
+                    new Notify({
+                        title: 'Error',
+                        text: 'Promo not deleted',
+                        status: 'error',
+                        autoclose: true,
+                        autotimeout: 3000
+                    })
+                }
+            }
+
+        });
+    }
 </script>
 
 </html>
