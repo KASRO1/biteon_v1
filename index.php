@@ -27,11 +27,11 @@
                 <li class="has-submenu"><a href="#">Buy crypto</a>
                     <ul class="submenu">
                         <li>
-                            <a href="pages/contact.php">Credit / debit card</a>
+                            <a href="/deposit.php">Credit / debit card</a>
                             <span>Quick purchase of crypto</span>
                         </li>
                         <li>
-                            <a href="pages/contact.php">P2P trade</a>
+                            <a href="/p2p">P2P trade</a>
                             <span>Trade with real users</span>
                         </li>
                         <li>
@@ -43,27 +43,27 @@
                 <li class="has-submenu"><a href="#">Trade</a>
                     <ul class="submenu">
                         <li>
-                            <a href="pages/contact.php">Spot Trading</a>
+                            <a href="/spot">Spot Trading</a>
                             <span>Buy and hold crypto</span>
                         </li>
                         <li>
-                            <a href="pages/contact.php">Futures Trading</a>
+                            <a href="/login">Futures Trading</a>
                             <span>Perpetual contracts settled in crypto</span>
                         </li>
                         <li>
-                            <a href="pages/contact.php">Options Trading</a>
+                            <a href="/login">Options Trading</a>
                             <span>Trade European-style options</span>
                         </li>
                     </ul>
                 </li>
-                <li><a href="pages/contact.php">Swap</a></li>
-                <li><a href="pages/contact.php">Support</a></li>
+                <li><a href="/swap">Swap</a></li>
+                <li><a href="/support">Support</a></li>
             </ul>
         </div>
         <div class="login_block">
 
             <a href="/login" class="login">Log in</a>
-            <a href="register" class="register">Open Free Account</a>
+            <a href="/register" class="register">Open Free Account</a>
             <a href=""><img src="assets/images/burger.svg" alt=""></a>
 
         </div>

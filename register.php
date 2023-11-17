@@ -24,7 +24,7 @@
 
         <div class="login_block1">
 
-            <a href="#" class="login">← Go back </a>
+            <a href="/" class="login">← Go back </a>
 
 
         </div>

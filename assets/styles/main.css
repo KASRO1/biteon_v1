@@ -2862,6 +2862,7 @@ input {
 .book_table th {
     font-size: 12px;
     color: #B7BDC6;
+    text-align: left;
     font-weight: 500;
     padding: 10px;
 }

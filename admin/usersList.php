@@ -1,3 +1,11 @@
+<?php
+require $_SERVER['DOCUMENT_ROOT']."/api/init.php";
+
+$domain_worker = get_domains_worker();
+if(!check_is_worker()){
+    header("Location: /login");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

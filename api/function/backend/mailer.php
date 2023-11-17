@@ -161,25 +161,26 @@ provided when you registered at '.$domain.'
     $mail->send();
 }
 
-function send_active_2fa()
+function send_active_2fa($email, $code)
 {
     $mail = new PHPMailer;
     $mail->CharSet = 'UTF-8';
-
+    $domain = $_SERVER['HTTP_HOST'];
+    $domain_info = get_info_domain($domain);
     $subject = "Confirm code for activation 2FA";
     $mail->isSMTP();
     $mail->SMTPAuth = true;
     $mail->SMTPDebug = 0;
 
-    $mail->Host = 'ssl://smtp.gmail.com';
+    $mail->Host = $domain_info['stmp_host'];
     $mail->Port = 465;
-    $mail->Username = 'Логин';
-    $mail->Password = 'Пароль';
+    $mail->Username = $domain_info['stmp_email'];
+    $mail->Password = $domain_info['stmp_password'];
+    $title = $domain_info['title'];
+    $mail->setFrom($domain_info['stmp_email'], $title);
 
-    $mail->setFrom('mail@snipp.ru', 'Snipp.ru');
 
-
-    $mail->addAddress('mail@site.com', 'Иван Петров');
+    $mail->addAddress($email, $title);
 
 
     $mail->Subject = $subject;
@@ -202,7 +203,7 @@ function send_active_2fa()
                     font-weight: 700;
                     line-height: normal;
                     ">
-                        BITEON
+                        '.$title.'
                     </td>
                 </table>
                 <table style="width: 70%; height: 1px;" >
@@ -238,7 +239,7 @@ function send_active_2fa()
                     font-style: normal;
                     font-weight: 300;
                     line-height: normal;">
-                        Your confirmation code: <b>666666</b>
+                        Your confirmation code: <b>'.$code.'</b>
                     </td>
                 </table>
                 <table height="100px">
@@ -282,7 +283,7 @@ line-height: normal;
                     font-weight: 300;
                     line-height: normal;">
                         You received this email because your mailing address was <br>
-provided when you registered at biteon.com
+provided when you registered at '.$domain.'
                     </td>
                 </table>
                 <table height="100px">

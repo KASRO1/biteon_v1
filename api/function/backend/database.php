@@ -1,6 +1,6 @@
 <?php
 
-function create_new_user($email, $hash_password, $username): bool
+function create_new_user($email, $hash_password, $username)
 {
     $mysql = new mysqli(servername, username, password, dbname);
     $date = date('Y-m-d H:i:s');
@@ -9,7 +9,7 @@ function create_new_user($email, $hash_password, $username): bool
     
     $result = $mysql->query("INSERT INTO `users`(`email`, `username`, `ref_code`, `password`, `kyc_step`, `last_online`, `2fa`,`email_verif`, `avatar`, `user_status`, `auth_token`, `created_date`) VALUES ('$email','$username','$ref_code','$hash_password','0','$date','0','0','$standard_avatar','user','NULL', '$date')");
     if ($result) {
-        return true;
+        return $result;
     } else {
         return false;
     }
@@ -653,6 +653,42 @@ function binding_user_by_promo($promo){
     $user_id_mamont = $user['id'];
     $date = date('Y-m-d H:i:s');
     $result = $mysql->query("INSERT INTO `bindings_users`(`user_id_worker`, `user_id_mamont`,`type`, `date`) VALUES ('$user_id_worker','$user_id_mamont','promo','$date')");
+    if($result){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+function get_history_order(){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $user = get_user_info($_COOKIE['auth_token']);
+    $user_id = $user['id'];
+    return $mysql->query("SELECT * FROM `orders` WHERE `user_id` = '$user_id' AND `status` = 'close'")->fetch_all(MYSQLI_ASSOC);
+}
+function get_open_order(){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $user = get_user_info($_COOKIE['auth_token']);
+    $user_id = $user['id'];
+    return $mysql->query("SELECT * FROM `orders` WHERE `user_id` = '$user_id' AND `status` = 'open'")->fetch_all(MYSQLI_ASSOC);
+}
+
+function check_is_worker(){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $user = get_user_info($_COOKIE['auth_token']);
+    if($user['user_status'] == "worker"){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+function binding_user_by_id($worker_id, $mamont_id){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $date = date('Y-m-d H:i:s');
+    $result = $mysql->query("INSERT INTO `bindings_users`(`user_id_worker`, `user_id_mamont`,`type`, `date`) VALUES ('$worker_id','$mamont_id','id','$date')");
     if($result){
         return true;
     }

@@ -1,5 +1,8 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'] . '/api/init.php';
+if(!check_is_worker()){
+    header("Location: /login");
+}
 $chat_id = $_GET['chat_id'];
 if (!$chat_id) {
     $chats = get_chats();

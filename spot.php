@@ -261,7 +261,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                             </div>
 
                             <div class="spot_content_market_amount">
-                                <input type="text" name="price" placeholder="Price"> <span>USDT</span>
+                                <input type="text" name="close_order_price" placeholder="Price"> <span>USDT</span>
                             </div>
                             <div class="spot_content_market_amount">
                                 <input type="text" name="size" placeholder="Size"> <span>USDT</span>
@@ -282,7 +282,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                             </div>
                             <div class="per_purchase">
                                 <div class="spot_content_market_amount">
-                                    <input type="text" placeholder="Amount"> <span>USDT</span>
+                                    <input type="text" name="amount" placeholder="Amount"> <span>USDT</span>
                                 </div>
                             </div>
 
@@ -292,15 +292,16 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                         </form>
                     </div>
                     <div class="spot_content_user_control_market_sell">
+                        <form class="spot_content_user_control_market_buy" id="limit_sell_form">
                         <div class="">
-                            <p>Available <span class="balance_coin"><?=$balance_coin?></span> <span class="text-white">USDT</span></p>
+                            <p>Available <span class="balance_coin"><?=$balance_coin?></span> <span class="text-white"><?=$coin?></span></p>
                         </div>
 
                         <div class="spot_content_market_amount">
-                            <input type="text" placeholder="Price"> <span>USDT</span>
+                            <input type="text" name="close_order_price" placeholder="Price"> <span>USDT</span>
                         </div>
                         <div class="spot_content_market_amount">
-                            <input type="text" placeholder="Size"> <span>USDT</span>
+                            <input type="text" name="size" placeholder="Size"> <span>USDT</span>
                         </div>
 
                         <div>
@@ -318,13 +319,14 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                         </div>
                         <div class="per_purchase">
                             <div class="spot_content_market_amount">
-                                <input type="text" placeholder="Amount"> <span>USDT</span>
+                                <input type="text" name="amount" placeholder="Amount"> <span><?=$coin?></span>
                             </div>
                         </div>
 
                         <div>
-                            <button class="button_spot sell">Sell <?=$coin?></button>
+                            <button class="button_spot sell" type="submit">Sell <?=$coin?></button>
                         </div>
+                        </form>
                     </div>
 
                 </div>
@@ -431,38 +433,19 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
 
     </section>
     <section>
-        <div class="spot_content_user_panel_control_header">
-            <button class="spot_content_user_control" onclick="switcher_type_trade(this,'limit')"
+        <div class="spot_content_user_panel_control_header history_element">
+            <button class="spot_content_user_control active" onclick="switcher_type_history(this,'open_orders')"
                     control-id="ControlID-2">
                 My Open Orders
             </button>
-            <button class="spot_content_user_control active" onclick="switcher_type_trade(this,'market')"
+            <button class="spot_content_user_control " onclick="switcher_type_history(this,'close_orders')"
                     control-id="ControlID-3">
                 My Trading History
             </button>
             <div class="order_book_container">
 
-                <div class="order_book_content">
-                    <table class="book_table" style="text-align: left;">
+                <div id="order_book_content_history" class="order_book_content">
 
-                        <tbody>
-                        <tr>
-                            <th>Date</th>
-                            <th>Pair</th>
-                            <th>Side</th>
-                            <th>Type</th>
-                            <th>Amount</th>
-                        </tr>
-
-                        <tr class="adrr">
-                            <td class="th_succefly">26541.83</td>
-                            <td>≈$26541.83</td>
-                            <td>16.9 15:10</td>
-                            <td>16.9 15:10</td>
-                            <td>16.9 15:10</td>
-                        </tr>
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>
@@ -504,6 +487,24 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
         }
     }
 
+    function switcher_type_history(this_el, el) {
+        const openOrders = document.getElementById("open_orders");
+        const closeOrders = document.getElementById("close_orders");
+
+        document.querySelectorAll(".history_element .spot_content_user_control").forEach(item => {
+            item.classList.remove("active");
+        });
+        if (el === "open_orders") {
+            openOrders.style.display = "inline-table";
+            closeOrders.style.display = "none";
+            this_el.classList.add("active");
+        } else if (el === "close_orders") {
+            openOrders.style.display = "none";
+            closeOrders.style.display = "inline-table";
+            this_el.classList.add("active");
+
+        }
+    }
 
     const payment_methods = [
         ["Limit", "Limit"],
@@ -638,7 +639,8 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
         "enable_publishing": false,
         "hide_side_toolbar": false,
         "allow_symbol_change": true,
-        "container_id": "tradingview_f1662"
+        "container_id": "tradingview_f1662",
+
     });
 
 
@@ -796,6 +798,8 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                 data: formData,
                 success: function (data) {
                     console.log(data);
+                    update_history()
+
                 },
                 error: function (data) {
                     console.log(data);
@@ -828,6 +832,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                 data: formData,
                 success: function (data) {
                     console.log(data);
+                    update_history()
                 },
                 error: function (data) {
                     console.log(data);
@@ -841,16 +846,13 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
     limit_buy_form.addEventListener("submit", function (e) {
         e.preventDefault()
         const formData = new FormData(this);
+        const data = document.getElementById("__DATA__");
+        const data_json = JSON.parse(data.innerHTML);
         formData.append("coinName", "<?=$coin_fullName?>");
-
         formData.append("type_order", "buy");
+        formData.append("price", data_json.lastPrice);
 
-        const input_buy_market = document.getElementById('input_buy_market');
-        const input_value = input_buy_market.querySelector('input').value;
-        if (input_value === "") {
-            input_buy_market.classList.add("error_input");
-            return false;
-        } else {
+
             $.ajax({
                 url: "/api/ajax/open_limit_order.php",
                 type: "POST",
@@ -859,14 +861,58 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                 data: formData,
                 success: function (data) {
                     console.log(data);
+                    update_history()
                 },
                 error: function (data) {
                     console.log(data);
                 },
             })
-        }
-    });
 
+    });
+    const limit_sell_form = document.getElementById("limit_sell_form");
+    limit_sell_form.addEventListener("submit", function (e) {
+        e.preventDefault()
+        const formData = new FormData(this);
+        const data = document.getElementById("__DATA__");
+        const data_json = JSON.parse(data.innerHTML);
+        formData.append("coinName", "<?=$coin_fullName?>");
+        formData.append("type_order", "sell");
+        formData.append("price", data_json.lastPrice);
+
+
+        $.ajax({
+            url: "/api/ajax/open_limit_order.php",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            data: formData,
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (data) {
+                console.log(data);
+            },
+        })
+
+    });
+    function update_history(){
+        const order_book_content_history = document.getElementById('order_book_content_history');
+        $.ajax({
+            url: "/api/ajax/get_history.php",
+            type: "POST",
+            success: function (data) {
+
+
+                order_book_content_history.innerHTML = data;
+            },
+            error: function (data) {
+                console.log(data)
+            },
+
+        });
+    }
+    update_history()
+    setInterval(update_history(), 3000);
 </script>
 
 <script>
@@ -884,7 +930,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
             },
             success: function (data) {
                 data_element.innerHTML = JSON.stringify(data);
-                console.log(data)
+
 
 
                 const last_price = data['lastPrice'];
