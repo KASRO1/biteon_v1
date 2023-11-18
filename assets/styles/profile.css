@@ -554,9 +554,6 @@ main {
     display: flex;
 }
 
-.input_button .blue_button {
-    margin-left: -55px;
-}
 
 .blue_button__text {
     font-size: 15px;

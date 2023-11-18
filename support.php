@@ -8,7 +8,7 @@ $auth_token = $_COOKIE['auth_token'];
 $info_user = get_user_info($auth_token);
 
 $chat = get_chat();
-$chat_id = $chat['chat_id'];
+$chat_id = $chat['chat_id'] ? $chat['chat_id'] : 0;
 
 $user_id = $info_user['id'];
 ?>
@@ -97,7 +97,7 @@ $user_id = $info_user['id'];
             </form>
         </div>
     </main>
-    <footer></footer>
+
 </body>
 <script src="assets/scripts/main.js"></script>
 <script>
@@ -109,55 +109,67 @@ $user_id = $info_user['id'];
 
         }
     }
-    $.ajax({
-        url: '/api/ajax/get_messages.php',
-        type: 'GET',
-        data: {
-            chat_id: <?=$chat_id?>
-        },
-        success: function (data) {
+    function get_messages() {
+        $.ajax({
+            url: '/api/ajax/get_messages.php',
+            type: 'GET',
+            data: {
+                chat_id: <?=$chat_id?>
+            },
+            success: function (data) {
+                // Удаляем старые сообщения перед добавлением новых
+                $(".chat-container").empty();
 
-            if(data.status === "success"){
-                $(".non_message").css('display', 'none');
-                const messages = data.messages;
-                if (messages.length === 0){
+                if (data.status === "success") {
+                    $(".non_message").css('display', 'none');
+                    const messages = data.messages;
+
+                    if (messages.length === 0) {
+                        $(".chat-container").addClass('non_message_container');
+                    }
+
+                    messages.forEach(message => {
+                        add_message(message.message_text, message.user_id);
+                    });
+                } else {
                     $(".chat-container").addClass('non_message_container');
-
+                    $(".non_message").css('display', 'block');
                 }
-                console.log(data)
-                messages.forEach(message => {
-                    add_message(message.message_text, message.user_id);
-                });
             }
-            else{
-                $(".chat-container").addClass('non_message_container');
-                $(".non_message").css('display', 'block');
-            }
-        }
-    });
+        });
+    }
+
+    get_messages();
+    setInterval(get_messages, 3000);
     const form_send_msg = document.getElementById('send_message');
     const input_send_msg = document.getElementById('input_send');
     form_send_msg.addEventListener('submit', function (e) {
         e.preventDefault();
         const formData = new FormData(this);
-        $.ajax({
-            url: '/api/ajax/send_message_chat.php',
-            type: 'POST',
-            data: {
-                chat_id: <?=$chat_id?>,
-                message: formData.get('message')
-            },
-            success: function (data) {
-                add_message(formData.get('message'), <?=$user_id?>);
-                input_send_msg.value = "";
+        const value = input_send_msg.value;
+        if(value !== ""){
+            $.ajax({
+                url: '/api/ajax/send_message_chat.php',
+                type: 'POST',
+                data: {
+                    chat_id: <?=$chat_id?>,
+                    message: formData.get('message')
+                },
+                success: function (data) {
+                    add_message(formData.get('message'), <?=$user_id?>);
+                    input_send_msg.value = "";
 
-                console.log(data);
-            },
-            error: function (data) {
-                console.log(data);
-            }
-        });
+                    console.log(data);
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        }
     });
+    if(<?=$chat_id?> === 0){
+        window.location.reload();
+    }
     function add_message(message, user) {
         check_exist_msg();
         const chatContainer = document.querySelector('.chat-container');

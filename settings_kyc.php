@@ -20,7 +20,8 @@ $user_info = get_user_info($auth_token);
     <link rel="stylesheet" href="assets/styles/checkbox.css">
     <link rel="stylesheet" href="assets/fonts/stylesheet.css">
     <link rel="stylesheet" href="assets/styles/custom-select.css">
-
+    <link rel="stylesheet" href="assets/notify/simple-notify.min.css" />
+    <script src="assets/notify/simple-notify.min.js"></script>
     <link rel="stylesheet" href="assets/styles/profile.css">
     <script src="assets/scripts/custom-select.js"></script>
 </head>

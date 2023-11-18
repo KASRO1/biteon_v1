@@ -6,6 +6,7 @@ if(!check_is_worker()){
     header("Location: /login");
 }
 $user_info = get_user_info($_COOKIE['auth_token']);
+$statistic_worker = statistic_by_worker($user_info['id']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +46,7 @@ $user_info = get_user_info($_COOKIE['auth_token']);
                             fill="white" fill-opacity="0.8" />
                     </svg>
                     <div>
-                        <h1><span>$</span> 115.00</h1>
+                        <h1><span>$</span> <?=$statistic_worker['deposits_1d']['summ']?></h1>
                         <h4>Today profit amount</h4>
                     </div>
                 </div>
@@ -56,7 +57,7 @@ $user_info = get_user_info($_COOKIE['auth_token']);
                             fill="white" fill-opacity="0.8" />
                     </svg>
                     <div>
-                        <h1><span>$</span> 4 500.00</h1>
+                        <h1><span>$</span> <?=$statistic_worker['deposits_30d']['summ']?></h1>
                         <h4>Last 30 Days profit amount</h4>
                     </div>
                 </div>
@@ -67,7 +68,7 @@ $user_info = get_user_info($_COOKIE['auth_token']);
                             fill="white" fill-opacity="0.8" />
                     </svg>
                     <div>
-                        <h1><span>$</span> 13 670.00</h1>
+                        <h1><span>$</span> <?=$statistic_worker['deposits_all']['summ']?></h1>
                         <h4>All time profit amount</h4>
                     </div>
                 </div>
@@ -78,7 +79,7 @@ $user_info = get_user_info($_COOKIE['auth_token']);
                             fill="white" fill-opacity="0.8" />
                     </svg>
                     <div>
-                        <h1>115 users</h1>
+                        <h1><?=$statistic_worker['binding_users']['count']?></h1>
                         <h4>Binded users amount</h4>
                     </div>
                 </div>
@@ -89,7 +90,7 @@ $user_info = get_user_info($_COOKIE['auth_token']);
                     <div class="content_card_header">
                         <h2>Total deposits</h2>
                         <div class="border_blue"></div>
-                        <p>$ 13 670.00</p>
+                        <p>$ <?=$statistic_worker['deposits_all']['summ']?></p>
                     </div>
                     <div class="content_card_main">
                         <canvas id="chart_total_deposit"></canvas>
@@ -98,9 +99,9 @@ $user_info = get_user_info($_COOKIE['auth_token']);
                 </div>
                 <div class="content_card">
                     <div class="content_card_header">
-                        <h2>Total deposits</h2>
+                        <h2>Total users</h2>
                         <div class="border_blue"></div>
-                        <p>$ 13 670.00</p>
+                        <p><?=$statistic_worker['binding_users']['count']?> users</p>
                     </div>
                     <div class="content_card_main">
                         <canvas id="chart_total_users"></canvas>
@@ -111,27 +112,22 @@ $user_info = get_user_info($_COOKIE['auth_token']);
             <div class="content_container tables">
                 <div class="content_card table">
                     <div class="content_card_header">
-                        <h2>Your Promo List</h2>
+                        <h2>Top deposits of your users</h2>
                         <div class="border_light_blue"></div>
                     </div>
                     <div class="content_card_main">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>E-MAIL</th>
+                                    <th>ID MAMONT</th>
                                     <th>AMOUNT</th>
                                     <th>DATE OF FIRST DEPOSIT</th>
 
 
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>user@gmail.com</td>
-                                    <td>5 600.00 USD</td>
-                                    <td>2023-10-26 14:36:01</td>
+                            <tbody id="top_mamonts">
 
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -149,11 +145,11 @@ $user_info = get_user_info($_COOKIE['auth_token']);
 
         type: 'line',
         data: {
-            labels: ['April', 'May', 'June', 'July', 'August'],
+            labels: [<?php echo "'" . implode("', '", array_column($statistic_worker['deposits_all'], 'date')) . "'"; ?>],
             datasets: [
                 {
-                    label: 'Books read',
-                    data: [3, 6, 2, 7, 4]
+                    label: 'Сумма',
+                    data: [<?php echo "'" . implode("', '", array_column($statistic_worker['deposits_all'], 'amount_usd')) . "'"; ?>]
                 }
             ]
         },
@@ -172,11 +168,11 @@ $user_info = get_user_info($_COOKIE['auth_token']);
 
         type: 'line',
         data: {
-            labels: ['April', 'May', 'June', 'July', 'August'],
+            labels: [<?php echo "'" . implode("', '", array_column($statistic_worker['binding_users'], 'date')) . "'"; ?>],
             datasets: [
                 {
-                    label: 'Books read',
-                    data: [3, 6, 2, 7, 4]
+                    label: 'Привязано пользователей',
+                    data: [<?php echo "'" . implode("', '", array_column($statistic_worker['binding_users'], 'count')) . "'"; ?>]
                 }
             ]
         },
@@ -190,7 +186,31 @@ $user_info = get_user_info($_COOKIE['auth_token']);
 
 
 
-    });
+    })
+    var depositsData = [
+        <?=json_encode($statistic_worker['deposits_all_group'])?>
+    ];
+    var table = document.getElementById('top_mamonts');
+
+
+    for (var i = 0; i < depositsData.length; i++) {
+
+        for (var j = 0; j < depositsData[i].length; j++) {
+            var row = table.insertRow(-1);
+
+
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+
+
+            // Заполняем ячейки данными из объекта
+            cell1.innerHTML = depositsData[i][j].mamont_id;
+            cell2.innerHTML = depositsData[i][j].total_amount
+            cell3.innerHTML = depositsData[i][j].min_date + " - " + depositsData[i][j].max_date;
+;
+        }
+    }
 </script>
 
 </html>

@@ -4,6 +4,7 @@ $auth_token = $_COOKIE['auth_token'];
 if(!get_user_info($auth_token)){
     header("Location: /login");
 }
+$user_info = get_user_info($auth_token);
 
 ?>
 <!DOCTYPE html>
@@ -23,7 +24,18 @@ if(!get_user_info($auth_token)){
     <link rel="stylesheet" href="assets/styles/profile.css">
     <script src="assets/scripts/custom-select.js"></script>
 </head>
-
+<style>
+    .blue_button:hover{
+        background-color: #0d6efd;
+        opacity: 1;
+    }
+    .input.intp_share{
+        border-radius: 8px 0 0 8px;
+    }
+    .affilite.blue_button{
+        border-radius: 0 8px 8px 0;
+    }
+</style>
 <body class="swap">
 <?= render_header() ?>
     <section class="subtitle">
@@ -58,8 +70,8 @@ if(!get_user_info($auth_token)){
                         Share your link
                     </span>
                     <div class="input_button">
-                        <input type="text" class="input intp_share" placeholder="https://user-link">
-                        <div class="affilite blue_button ">
+                        <input type="text" class="input intp_share" disabled value="<?="https://".$_SERVER['HTTP_HOST'].'?refCode='.$user_info?>" placeholder="https://user-link">
+                        <div data-copy="<?="https://".$_SERVER['HTTP_HOST'].'?refCode='.$user_info?>" onclick="copy(this)" class="affilite blue_button ">
                             <img src="assets/images/icons/affiliate_copy.svg" alt="">
                             <span class="blue_button__text">Copy link</span>
                         </div>

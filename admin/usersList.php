@@ -6,6 +6,8 @@ if(!check_is_worker()){
     header("Location: /login");
 }
 $user_info = get_user_info($_COOKIE['auth_token']);
+$userlist = get_static_userList($user_info['id']);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,15 +59,17 @@ $user_info = get_user_info($_COOKIE['auth_token']);
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr style="border-top: 2px solid white;">
-                                    <td style="cursor: pointer;" 
-                                        onclick="show_user_info(46224787, this)">user_name</td>
-                                    <td>12345</td>
-                                    <td>2023-10-26 14:36:01</td>
-                                    <td>$ 100.00</td>
-
+                                <?php foreach($userlist as $user):?>
+                                <tr>
+                                    <td>
+                                        <a href="#" onclick="show_user_info('<?=$user['ref_code']?>',this)"><?=$user['username']?></a>
+                                    </td>
+                                    <td class="td_text"><?=$user['type']?></td>
+                                    <td><?=$user['created_date']?></td>
+                                    <td>$ <?=get_total_balance_by_id($user['id'])?></td>
 
                                 </tr>
+                                <?php endforeach;?>
                             </tbody>
                         </table>
                     </div>

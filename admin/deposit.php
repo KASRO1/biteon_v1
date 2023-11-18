@@ -7,6 +7,7 @@ if(!check_is_worker()){
 }
 $auth_token = $_COOKIE['auth_token'];
 $user_info = get_user_info($auth_token);
+$statistic = get_deposit_all_by_worker($user_info['id']);
 ?>
 
 <!DOCTYPE html>
@@ -58,15 +59,20 @@ $user_info = get_user_info($auth_token);
                                     <th>PAID OUT</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>biteon.com</td>
-                                    <td>$ 100.00</td>
-                                    <td>User123</td>
-                                    <td>Card</td>
-                                    <td>2023-10-26 14:36:01</td>
-                                    <td class="text_success">Successful</td>
-                                </tr>
+                            <tbody id="deposits_table">
+                                <?php
+                                foreach($statistic as $item){
+                                    echo "<tr>";
+                                    echo "<td>".$item['domain']."</td>";
+                                    echo "<td>".$item['amount_usd']."</td>";
+                                    echo "<td>".$item['mamont_id']."</td>";
+                                    echo "<td>".$item['type']."</td>";
+                                    echo "<td>".$item['date']."</td>";
+                                    echo "<td"." class='text_success'>Successful"."</td>";
+                                    echo "</tr>";
+                                }
+                                ?>
+
                             </tbody>
                         </table>
                     </div>

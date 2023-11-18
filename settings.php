@@ -29,6 +29,9 @@ $user_info = get_user_info($auth_token);
     input[type="file"] {
         display: none;
     }
+    input:disabled{
+        background: transparent;
+    }
 </style>
 
 <body class="swap">

@@ -65,7 +65,7 @@ $user_info = get_user_info($_COOKIE['auth_token']);
                                 <tr style="border-top: 2px solid white;">
                                     <td
                                         >user_name</td>
-                                    <td style="cursor: pointer;" onclick="show_user_info(46224787, this)">Check</td>
+                                    <td style="cursor: pointer;" onclick="show_user_info(13, this)">Check</td>
                                     <td>2</td>
                                     <td>
                                         <div style="display: flex; gap: 10px">
@@ -105,9 +105,7 @@ $user_info = get_user_info($_COOKIE['auth_token']);
 
             </div>
             <div class="modal_content_body">
-             <img src="/assets/documents_kyc/document1.jpg"/>
-                <img src="/assets/documents_kyc/document1.jpg"/>
-                <img src="/assets/documents_kyc/document1.jpg"/>
+
             </div>
         </div>
     </div>
@@ -116,8 +114,12 @@ $user_info = get_user_info($_COOKIE['auth_token']);
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <script src="/assets/DataTables/datatables.js"></script>
+<link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
 
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
     var status = false;
     $("#user_table").DataTable({
@@ -141,41 +143,43 @@ $user_info = get_user_info($_COOKIE['auth_token']);
             $('.blur-background').css('display', 'block');
             $('.userInfoModal').css('display', 'flex');
             $('.modal-content').css('display', 'block');
-            $('.modal_content_body').slick({
-                dots: true,
-                infinite: true,
-                speed: 500,
-                fade: true,
-                cssEase: 'linear'
-            });
-            // $.ajax({
-            //     url: '/api/ajax/get_info_user.php',
-            //     type: 'GET',
-            //     data: { refCode: id },
-            //     success: function (data) {
-            //         el.classList.remove('loader');
-            //         el.innerText = text;
-            //         if (data.status == 'success') {
-            //
-            //             $('#user_id').text(data.data.ref_code);
-            //             $('#kyc_lvl').text("LVL " + data.data.kyc_step);
-            //             $('#register_date').text(data.data.created_date);
-            //             $('#balance_user').text("$ " + data.data.balance);
-            //             status = false;
-            //
-            //         }
-            //         else {
-            //             console.log(data.status);
-            //         }
-            //         status = false;
-            //     },
-            //     error: function (data) {
-            //         console.log(data);
-            //         el.innerText = text;
-            //         el.classList.remove('loader');
-            //         status = false;
-            //     }
-            // })
+
+            $.ajax({
+                url: '/api/ajax/get_info_kyc.php',
+                type: 'POST',
+                data: { id: id },
+                success: function (data) {
+                    const data_json = JSON.parse(data);
+
+
+                    const images = JSON.parse(data_json.files).kyc_images;
+                    console.log(images)
+                    const modal_content_body = document.querySelector(".modal_content_body");
+
+                    images.map((image) => {
+                        const img = document.createElement('img');
+                        img.src = image;
+                        modal_content_body.appendChild(img);
+                    });
+
+                    const swiper = new Swiper('.modal_content_body', {
+                        // Optional parameters
+                        direction: 'vertical',
+                        loop: true,
+
+                        // If we need pagination
+
+
+                    });
+                    status = false;
+                },
+                error: function (data) {
+                    console.log(data);
+                    el.innerText = text;
+                    el.classList.remove('loader');
+                    status = false;
+                }
+            })
 
 
         }

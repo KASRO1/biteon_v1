@@ -4439,21 +4439,21 @@ input:focus {
 
 @keyframes flash {
     0% {
-        background-color: transparent;
+        background-color: #30ACFF;
     }
 
     50% {
         background-color: rgb(170, 255, 194);
-        /* Измените цвет по вашему выбору */
+
     }
 
     100% {
-        background-color: transparent;
+        background-color: #30ACFF;
     }
 }
 
 .flash {
-    animation: flash 0.5s ease-in-out;
+    animation: flash 0.7s ease-in-out;
 }
 
 .qr_code {

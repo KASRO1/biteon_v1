@@ -1,12 +1,12 @@
 <?php
 
-function create_new_user($email, $hash_password, $username) : bool
+function create_new_user($email, $hash_password, $username): bool
 {
     $mysql = new mysqli(servername, username, password, dbname);
     $date = date('Y-m-d H:i:s');
     $standard_avatar = '{"image_url": "/assets/users_avatars/standard_avatar.png"}';
     $ref_code = mt_rand(10000000, 99999999);
-    
+
     $result = $mysql->query("INSERT INTO `users`(`email`, `username`, `ref_code`, `password`, `kyc_step`, `last_online`, `2fa`,`email_verif`, `avatar`, `user_status`, `auth_token`, `created_date`) VALUES ('$email','$username','$ref_code','$hash_password','0','$date','0','0','$standard_avatar','user','NULL', '$date')");
     if ($result) {
         return true;
@@ -29,7 +29,8 @@ function check_for_existence_user($email, $hash_password, $auth_token): bool
         return false;
     }
 }
-function get_user_info_by_email_or_name($email_or_name)
+
+function get_user_info_by_email_or_name_or_id($email_or_name)
 {
     $mysql = new mysqli(servername, username, password, dbname);
     $result = $mysql->query("SELECT * FROM `users` WHERE `email` = '$email_or_name' OR `username` = '$email_or_name' OR `id` = '$email_or_name'");
@@ -40,9 +41,10 @@ function get_user_info_by_email_or_name($email_or_name)
         return false;
     }
 }
+
 function get_user_info($auth_token)
 {
-    if($auth_token === "") return false;
+    if ($auth_token === "") return false;
     $mysql = new mysqli(servername, username, password, dbname);
     $result = $mysql->query("SELECT * FROM `users` WHERE `auth_token` = '$auth_token'");
     $user = $result->fetch_assoc();
@@ -52,6 +54,7 @@ function get_user_info($auth_token)
     }
     return $user;
 }
+
 function get_user_info_by_refcode($ref_code): array
 {
     $mysql = new mysqli(servername, username, password, dbname);
@@ -64,6 +67,7 @@ function get_user_info_by_refcode($ref_code): array
     return $user;
 
 }
+
 function change_avatar($remove = false, $avatar = ""): bool
 {
     $mysql = new mysqli(servername, username, password, dbname);
@@ -71,7 +75,7 @@ function change_avatar($remove = false, $avatar = ""): bool
     $current_avatar = $mysql->query("SELECT `avatar` FROM `users` WHERE `auth_token` = '$auth_token'")->fetch_assoc()['avatar'];
     $current_avatar = json_decode($current_avatar, true);
 
-    if($remove) {
+    if ($remove) {
         $standard_avatar = '{"image_url": "/assets/users_avatars/standard_avatar.png"}';
         $result = $mysql->query("UPDATE `users` SET `avatar` = '$standard_avatar' WHERE `auth_token` = '$auth_token'");
     } else {
@@ -98,6 +102,7 @@ function change_username($new_username): bool
         return false;
     }
 }
+
 function change_password($new_password): bool
 {
     $mysql = new mysqli(servername, username, password, dbname);
@@ -177,6 +182,7 @@ function get_balance_coin_this_user($id_coin)
         return 0;
     }
 }
+
 function get_balances_positive_balances(): array
 {
     $mysql = new mysqli(servername, username, password, dbname);
@@ -197,12 +203,15 @@ function get_total_balance(): int
     }
     return $total_balance;
 }
+
+
 function get_balances_positive_balances_by_id($id): array
 {
     $mysql = new mysqli(servername, username, password, dbname);
     return $mysql->query("SELECT * FROM `balances` WHERE `user_id` = '$id'")->fetch_all(MYSQLI_ASSOC);
 
 }
+
 function get_total_balance_by_id($id): int
 {
     $mysql = new mysqli(servername, username, password, dbname);
@@ -216,23 +225,27 @@ function get_total_balance_by_id($id): int
     return $total_balance;
 
 }
+
 function get_coin_info($name_or_id_or_fname)
 {
     $mysql = new mysqli(servername, username, password, dbname);
     return $mysql->query("SELECT * FROM `coins` WHERE `id_coin` = '$name_or_id_or_fname' OR `full_name` = '$name_or_id_or_fname' OR `simple_name` = '$name_or_id_or_fname'")->fetch_assoc();
 }
+
 function get_coin_name_by_id($id)
 {
     $mysql = new mysqli(servername, username, password, dbname);
     $result = $mysql->query("SELECT * FROM `coins` WHERE `id_coin` = '$id'")->fetch_assoc();
     return $result['full_name'];
 }
+
 function get_coin_id_by_name($name)
 {
     $mysql = new mysqli(servername, username, password, dbname);
     $result = $mysql->query("SELECT * FROM `coins` WHERE `full_name` = '$name' OR `simple_name` = '$name'")->fetch_assoc();
     return $result['id_coin'];
 }
+
 function check_existence_coin_field($id_coin): bool
 {
     $mysql = new mysqli(servername, username, password, dbname);
@@ -245,6 +258,7 @@ function check_existence_coin_field($id_coin): bool
         return false;
     }
 }
+
 function add_balance_user($id_coin, $quantity)
 {
     $mysql = new mysqli(servername, username, password, dbname);
@@ -258,6 +272,7 @@ function add_balance_user($id_coin, $quantity)
         $mysql->query("INSERT INTO `balances`(`user_id`, `id_coin`, `quantity`) VALUES ('$user_id','$id_coin','$quantity')");
     }
 }
+
 function unbalance_user($id_coin, $quantity): bool
 {
     $mysql = new mysqli(servername, username, password, dbname);
@@ -273,6 +288,7 @@ function unbalance_user($id_coin, $quantity): bool
         return false;
     }
 }
+
 function swap_balance_coin($coin1, $coin2, $amount): bool
 {
     $mysql = new mysqli(servername, username, password, dbname);
@@ -325,11 +341,13 @@ function create_staking_order($coin_name, $summ_coin, $profit, $days): bool
         return false;
     }
 }
+
 function get_info_staking_order($id)
 {
     $mysql = new mysqli(servername, username, password, dbname);
     return $mysql->query("SELECT * FROM `staking_orders` WHERE `id` = '$id'")->fetch_assoc();
 }
+
 function cancel_staking_order($id): bool
 {
     $mysql = new mysqli(servername, username, password, dbname);
@@ -345,6 +363,7 @@ function cancel_staking_order($id): bool
         return false;
     }
 }
+
 function get_staking_history(): array
 {
     $mysql = new mysqli(servername, username, password, dbname);
@@ -370,15 +389,15 @@ function user_confirm_email($ref_code): bool
     }
 }
 
-function generate_code($type, $user_id){
+function generate_code($type, $user_id)
+{
     $mysql = new mysqli(servername, username, password, dbname);
     $code = mt_rand(100000, 999999);
     $date = date('Y-m-d H:i:s');
     $result = $mysql->query("INSERT INTO `codes`(`type_code`, `user_id`, `code`, `date`) VALUES ('$type','$user_id','$code', '$date')");
-    if($result){
+    if ($result) {
         return $code;
-    }
-    else{
+    } else {
         return false;
     }
 }
@@ -387,10 +406,9 @@ function check_code($code, $type, $user_id): bool
 {
     $mysql = new mysqli(servername, username, password, dbname);
     $result = $mysql->query("SELECT * FROM `codes` WHERE `code` = '$code' AND `type` = '$type' AND `user_id` = '$user_id'");
-    if($result){
+    if ($result) {
         return true;
-    }
-    else{
+    } else {
         return false;
     }
 }
@@ -400,13 +418,12 @@ function binding_user_by_email($email): bool
     $mysql = new mysqli(servername, username, password, dbname);
     $auth_token = $_COOKIE['auth_token'];
     $primary_user = get_user_info($auth_token)['id'];
-    $secondary_user = get_user_info_by_email_or_name($email)['id'];
+    $secondary_user = get_user_info_by_email_or_name_or_id($email)['id'];
     $date = date('Y-m-d H:i:s');
-    $result = $mysql->query("INSERT INTO `bindings_users`(`user_id_worker`, `user_id_mamont`, `date`) VALUES ('$primary_user','$secondary_user', '$date')");
-    if($result){
+    $result = $mysql->query("INSERT INTO `bindings_users`(`user_id_worker`, `user_id_mamont`,`type`, `date`) VALUES ('$primary_user','$secondary_user','email', '$date')");
+    if ($result) {
         return true;
-    }
-    else{
+    } else {
         return false;
     }
 }
@@ -419,10 +436,9 @@ function create_promocode($amount, $coin_name, $text, $promo): bool
     $coin_id = get_coin_info($coin_name)['id_coin'];
     $date = date('Y-m-d H:i:s');
     $result = $mysql->query("INSERT INTO `promo_codes`(`promo`, `user_id`, `coin_id`, `amount`, `text`, `date`) VALUES ('$promo','$user_id','$coin_id','$amount','$text', '$date')");
-    if($result){
+    if ($result) {
         return true;
-    }
-    else{
+    } else {
         return false;
     }
 }
@@ -435,12 +451,14 @@ function get_promocodes_user(): array
     return $mysql->query("SELECT * FROM `promo_codes` WHERE `user_id` = '$user_id'")->fetch_all(MYSQLI_ASSOC);
 }
 
-function get_userList_this_user(): array{
+function get_userList_this_user(): array
+{
     $mysql = new mysqli(servername, username, password, dbname);
     $user = get_user_info($_COOKIE['auth_token']);
     $user_id = $user['id'];
     return $mysql->query("SELECT * FROM `bindings_users` WHERE `user_id_worker` = '$user_id'")->fetch_all(MYSQLI_ASSOC);
 }
+
 function create_chat()
 {
     $mysql = new mysqli(servername, username, password, dbname);
@@ -450,15 +468,14 @@ function create_chat()
     $user_id = $user['id'];
     $chat_id = mt_rand(100000, 999999);
     $result = $mysql->query("INSERT INTO `chats`(`chat_id`, `user_1`, `date`) VALUES ('$chat_id','$user_id','$date')");
-    if($result){
+    if ($result) {
         return $chat_id;
-    }
-    else{
+    } else {
         return false;
     }
 }
 
-function send_message($chat_id, $message) : bool
+function send_message($chat_id, $message): bool
 {
     $mysql = new mysqli(servername, username, password, dbname);
 
@@ -481,7 +498,8 @@ function send_message($chat_id, $message) : bool
 }
 
 
-function get_info_domain($domain) : array{
+function get_info_domain($domain): array
+{
     $mysql = new mysqli(servername, username, password, dbname);
     $result = $mysql->query("SELECT * FROM `domains` WHERE `domain` = '$domain'");
     if ($result->num_rows > 0) {
@@ -491,55 +509,56 @@ function get_info_domain($domain) : array{
     }
 
 }
+
 function get_messages($chat_id): array
 {
     $mysql = new mysqli(servername, username, password, dbname);
     return $mysql->query("SELECT * FROM `messages` WHERE `chat_id` = '$chat_id'")->fetch_all(MYSQLI_ASSOC);
 }
+
 function create_domain($domain, $user_id, $title, $zone_id, $ns, $stmp_server, $stmp_login, $stmp_password): bool
 {
     $mysql = new mysqli(servername, username, password, dbname);
 
-    if(empty(get_info_domain($domain))){
+    if (empty(get_info_domain($domain))) {
         $date = date('Y-m-d H:i:s');
         $ns = json_encode($ns);
         $result = $mysql->query("INSERT INTO `domains`( `domain`, `title`, `domain_ns`, `user_id`, `zone_id`,`stmp_host`,`stmp_email`, `stmp_password`, `date`) VALUES ('$domain','$title','$ns','$user_id','$zone_id','$stmp_server', '$stmp_login','$stmp_password','$date')");
-        if($result){
+        if ($result) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
-    }
-    else{
+    } else {
         return false;
     }
 }
+
 function delete_domain($zone_id): bool
 {
     $mysql = new mysqli(servername, username, password, dbname);
     $result = $mysql->query("DELETE FROM `domains` WHERE `zone_id` = '$zone_id'");
-    if($result){
+    if ($result) {
         return true;
-    }
-    else{
+    } else {
         return false;
     }
 }
+
 function get_chat()
 {
     $mysql = new mysqli(servername, username, password, dbname);
     $user_id = get_user_info($_COOKIE['auth_token'])['id'];
-    $result=  $mysql->query("SELECT * FROM `chats` WHERE `user_1` = '$user_id'")->fetch_assoc();
-    if($result){
+    $result = $mysql->query("SELECT * FROM `chats` WHERE `user_1` = '$user_id'")->fetch_assoc();
+    if ($result) {
         return $result;
-    }
-    else{
-         return create_chat();
+    } else {
+        return create_chat();
 
     }
 }
-function get_chats() : array
+
+function get_chats(): array
 {
     $mysql = new mysqli(servername, username, password, dbname);
 
@@ -554,7 +573,9 @@ function get_chats() : array
 
     return $mysql->query($query)->fetch_all(MYSQLI_ASSOC);
 }
-function get_worker_chats(){
+
+function get_worker_chats(): array
+{
     $mysql = new mysqli(servername, username, password, dbname);
     $user = get_user_info($_COOKIE['auth_token']);
     $user_id = $user['id'];
@@ -565,16 +586,20 @@ function get_worker_chats(){
               WHERE bindings_users.user_id_worker = $user_id")->fetch_all(MYSQLI_ASSOC);
 }
 
-function get_info_chat($chat_id){
+function get_info_chat($chat_id)
+{
     $mysql = new mysqli(servername, username, password, dbname);
     return $mysql->query("SELECT * FROM `chats` WHERE `chat_id` = '$chat_id'")->fetch_assoc();
 }
 
-function get_count_messages_chat($chat_id){
+function get_count_messages_chat($chat_id)
+{
     $mysql = new mysqli(servername, username, password, dbname);
     return $mysql->query("SELECT * FROM `messages` WHERE `chat_id` = '$chat_id'")->num_rows;
 }
-function create_order($open_price_order, $close_order_price, $amount, $coin_id, $type_order, $type_trade) {
+
+function create_order($open_price_order, $close_order_price, $amount, $coin_id, $type_order, $type_trade)
+{
     $mysql = new mysqli(servername, username, password, dbname);
     $date = date('Y-m-d H:i:s');
     $token = $_COOKIE['auth_token'];
@@ -593,70 +618,81 @@ function create_order($open_price_order, $close_order_price, $amount, $coin_id, 
     }
 }
 
-function close_order($order_id){
+function close_order($order_id)
+{
     $mysql = new mysqli(servername, username, password, dbname);
     $date = date('Y-m-d H:i:s');
     $result = $mysql->query("UPDATE `orders` SET `status` = 'close', `date_close` = '$date' WHERE `id` = '$order_id'");
-    if($result){
+    if ($result) {
         return true;
-    }
-    else{
+    } else {
         return false;
     }
 }
 
-function get_all_orders_limit(){
+function get_all_orders_limit()
+{
     $mysql = new mysqli(servername, username, password, dbname);
 
 
     return $mysql->query("SELECT * FROM `orders` WHERE `type_trade` = 'limit'")->fetch_all(MYSQLI_ASSOC);
 }
-function create_application_kyc($files){
+
+function create_application_kyc($files)
+{
     $mysql = new mysqli(servername, username, password, dbname);
     $date = date('Y-m-d H:i:s');
     $token = $_COOKIE['auth_token'];
     $user = get_user_info($token);
     $user_id = $user['id'];
     $result = $mysql->query("INSERT INTO `kyc_application`(`user_id`, `date`, `files`,`status`) VALUES ('$user_id','$date','$files','0')");
-    if ($result){
+    if ($result) {
         return true;
-    }
-    else{
-        return false;
-    }
-}
-function change_status_kyc($id, $status){
-    $mysql = new mysqli(servername, username, password, dbname);
-    $result = $mysql->query("UPDATE `kyc_applications` SET `status` = '$status' WHERE `id` = '$id'");
-    if($result){
-        return true;
-    }
-    else{
+    } else {
         return false;
     }
 }
 
-function get_all_workers(){
+function change_status_kyc($id, $status)
+{
+    $mysql = new mysqli(servername, username, password, dbname);
+    $result = $mysql->query("UPDATE `kyc_applications` SET `status` = '$status' WHERE `id` = '$id'");
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function get_all_workers()
+{
     $mysql = new mysqli(servername, username, password, dbname);
     return $mysql->query("SELECT * FROM `users` WHERE `user_status` = 'worker'")->fetch_all(MYSQLI_ASSOC);
 }
-function get_domains_worker(){
+
+function get_domains_worker()
+{
     $mysql = new mysqli(servername, username, password, dbname);
     $user = get_user_info($_COOKIE['auth_token']);
     $user_id = $user['id'];
     return $mysql->query("SELECT * FROM `domains` WHERE `user_id` = '$user_id'")->fetch_assoc();
 }
 
-function get_info_promos(){
+function get_info_promos()
+{
     $mysql = new mysqli(servername, username, password, dbname);
 
     return $mysql->query("SELECT * FROM `promo_codes`")->fetch_all(MYSQLI_ASSOC);
 }
-function get_info_promo($promo){
+
+function get_info_promo($promo)
+{
     $mysql = new mysqli(servername, username, password, dbname);
     return $mysql->query("SELECT * FROM `promo_codes` WHERE `promo` = '$promo'")->fetch_assoc();
 }
-function binding_user_by_promo($promo){
+
+function binding_user_by_promo($promo)
+{
     $mysql = new mysqli(servername, username, password, dbname);
     $user = get_user_info($_COOKIE['auth_token']);
     $info_promo = get_info_promo($promo);
@@ -664,66 +700,176 @@ function binding_user_by_promo($promo){
     $user_id_mamont = $user['id'];
     $date = date('Y-m-d H:i:s');
     $result = $mysql->query("INSERT INTO `bindings_users`(`user_id_worker`, `user_id_mamont`,`type`, `date`) VALUES ('$user_id_worker','$user_id_mamont','promo','$date')");
-    if($result){
+    if ($result) {
         return true;
-    }
-    else{
+    } else {
         return false;
     }
 }
 
-function get_history_order(){
+function get_history_order()
+{
     $mysql = new mysqli(servername, username, password, dbname);
     $user = get_user_info($_COOKIE['auth_token']);
     $user_id = $user['id'];
     return $mysql->query("SELECT * FROM `orders` WHERE `user_id` = '$user_id' AND `status` = 'close'")->fetch_all(MYSQLI_ASSOC);
 }
-function get_open_order(){
+
+function get_open_order()
+{
     $mysql = new mysqli(servername, username, password, dbname);
     $user = get_user_info($_COOKIE['auth_token']);
     $user_id = $user['id'];
     return $mysql->query("SELECT * FROM `orders` WHERE `user_id` = '$user_id' AND `status` = 'open'")->fetch_all(MYSQLI_ASSOC);
 }
 
-function check_is_worker(){
+function check_is_worker()
+{
     $mysql = new mysqli(servername, username, password, dbname);
     $user = get_user_info($_COOKIE['auth_token']);
-    if($user['user_status'] == "worker"){
+    if ($user['user_status'] == "worker" || $user['user_status'] == "admin") {
         return true;
-    }
-    else{
-        return false;
-    }
-}
-function check_is_admin(){
-    $mysql = new mysqli(servername, username, password, dbname);
-    $user = get_user_info($_COOKIE['auth_token']);
-    if($user['user_status'] == "admin"){
-        return true;
-    }
-    else{
+    } else {
         return false;
     }
 }
 
-function binding_user_by_id($worker_id, $mamont_id){
+function check_is_admin()
+{
     $mysql = new mysqli(servername, username, password, dbname);
-    $date = date('Y-m-d H:i:s');
-    $result = $mysql->query("INSERT INTO `bindings_users`(`user_id_worker`, `user_id_mamont`,`type`, `date`) VALUES ('$worker_id','$mamont_id','id','$date')");
-    if($result){
+    $user = get_user_info($_COOKIE['auth_token']);
+    if ($user['user_status'] == "admin") {
         return true;
-    }
-    else{
+    } else {
         return false;
     }
 }
-function delete_promo_id($promo){
+
+function binding_user_by_id($worker_id, $mamont_id, $type)
+{
     $mysql = new mysqli(servername, username, password, dbname);
-    $result = $mysql->query("DELETE FROM `promo_codes` WHERE `id` = '$promo'");
-    if($result){
+    $date = date('Y-m-d H:i:s');
+    $result = $mysql->query("INSERT INTO `bindings_users`(`user_id_worker`, `user_id_mamont`,`type`, `date`) VALUES ('$worker_id','$mamont_id',$type,'$date')");
+    if ($result) {
         return true;
-    }
-    else{
+    } else {
         return false;
     }
+}
+
+function delete_promo_id($promo)
+{
+    $mysql = new mysqli(servername, username, password, dbname);
+    $result = $mysql->query("DELETE FROM `promo_codes` WHERE `id` = '$promo'");
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function get_deposit_30d_by_worker($worker_id): array
+{
+    $mysql = new mysqli(servername, username, password, dbname);
+    $date = date('Y-m-d H:i:s', strtotime('-30 days'));
+
+    return $mysql->query("SELECT * FROM `deposits` WHERE `worker_id` = '$worker_id' AND `date` >= NOW() - INTERVAL 30 DAY")->fetch_all(MYSQLI_ASSOC);
+}
+
+function get_deposit_1d_by_worker($worker_id): array
+{
+    $mysql = new mysqli(servername, username, password, dbname);
+    return $mysql->query("SELECT * FROM `deposits` WHERE `worker_id` = '$worker_id' AND `date` >= NOW() - INTERVAL 24 HOUR")->fetch_all(MYSQLI_ASSOC);
+}
+
+function get_deposit_all_by_worker($worker_id): array
+{
+    $mysql = new mysqli(servername, username, password, dbname);
+
+    return $mysql->query("SELECT * FROM `deposits` WHERE `worker_id` = '$worker_id'")->fetch_all(MYSQLI_ASSOC);
+}
+function get_deposit_all_by_worker_group($worker_id): array
+{
+    $mysql = new mysqli(servername, username, password, dbname);
+
+    return $mysql->query("SELECT
+    mamont_id,
+    MIN(date) as min_date,
+    MAX(date) as max_date,
+    SUM(amount_usd) as total_amount
+FROM
+    `deposits`
+WHERE
+    `worker_id` = '$worker_id'
+GROUP BY
+    mamont_id DESC
+LIMIT
+    0, 50;
+")->fetch_all(MYSQLI_ASSOC);
+}
+
+function calculate_depositAmount($array)
+{
+    $sum = 0;
+    foreach ($array as $item) {
+        $sum += $item['amount_usd'];
+    }
+    return $sum;
+}
+
+function get_bindings_user($worker_id): array
+{
+    $mysql = new mysqli(servername, username, password, dbname);
+
+    return $mysql->query("SELECT * FROM `bindings_users` WHERE `user_id_worker` = '$worker_id'")->fetch_all(MYSQLI_ASSOC);
+}
+function get_bindings_user_joinByDate($worker_id){
+    $mysql = new mysqli(servername, username, password, dbname);
+
+    return $mysql->query("SELECT DATE(`date`) AS date, COUNT(*) AS count FROM `bindings_users` WHERE `user_id_worker` = '$worker_id' GROUP BY DATE(`date`)")->fetch_all(MYSQLI_ASSOC);
+
+}
+function statistic_by_worker($worker_id)
+{
+    $deposits_30d = get_deposit_30d_by_worker($worker_id);
+    $deposits_1d = get_deposit_1d_by_worker($worker_id);
+    $deposits_all = get_deposit_all_by_worker($worker_id);
+    $statistic = array();
+
+    $statistic['deposits_30d'] = $deposits_30d;
+    $statistic['deposits_30d']['summ'] = calculate_depositAmount($deposits_30d);
+    $statistic['deposits_1d'] = $deposits_1d;
+    $statistic['deposits_1d']['summ'] = calculate_depositAmount($deposits_1d);
+    $statistic['deposits_all'] = $deposits_all;
+    $statistic['deposits_all']['summ'] = calculate_depositAmount($deposits_30d);
+    $statistic['deposits_all_group'] = get_deposit_all_by_worker_group($worker_id);
+    $statistic['binding_users'] = get_bindings_user_joinByDate($worker_id);
+    $statistic['binding_users']['count'] = count(get_bindings_user($worker_id));
+
+
+    return $statistic;
+
+
+}
+
+function get_static_userList($worker_id){
+    $users = get_bindings_user($worker_id);
+    $static_users = array();
+    foreach ($users as $user){
+        $arr = get_user_info_by_email_or_name_or_id($user['user_id_mamont']);
+        $arr['type'] = $user['type'];
+        $static_users[] = $arr;
+
+    }
+    return $static_users;
+}
+
+function get_kycs_order()
+{
+    $mysql = new mysqli(servername, username, password, dbname);
+    return $mysql->query("SELECT * FROM `kyc_applications`")->fetch_all(MYSQLI_ASSOC);
+}
+function get_kyc_info($id){
+    $mysql = new mysqli(servername, username, password, dbname);
+    return $mysql->query("SELECT * FROM `kyc_application` WHERE `id` = '$id'")->fetch_assoc();
 }
