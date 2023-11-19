@@ -19,6 +19,8 @@ $user_info = get_user_info($_COOKIE['auth_token']);
     <link rel="stylesheet" href="/assets/styles/output.css">
     <link rel="stylesheet" type="text/css" href="/assets/styles/_slick.css"/>
     <link rel="stylesheet" href="/assets/fonts/stylesheet.css">
+    <link rel="stylesheet" href="/assets/notify/simple-notify.min.css" />
+    <script src="/assets/notify/simple-notify.min.js"></script>
 </head>
 <style>
     .modal-content{
@@ -67,7 +69,7 @@ $user_info = get_user_info($_COOKIE['auth_token']);
 
 
                             </div>
-                            <div style="display: flex;  gap: 30px; align-items: center; ">
+                            <div class="container_form">
                                 <div class="input_hint">
                                     <div>STMP HOST </div>
                                     <input type="text"  name="stmp_host" placeholder="ssl://smtp.gmail.com" >
@@ -84,7 +86,7 @@ $user_info = get_user_info($_COOKIE['auth_token']);
 
 
                             </div>
-                            <div style="display: flex;  gap: 30px; align-items: center; ">
+                            <div class="container_form">
                                 <div class="input_hint">
                                     <div>Title </div>
                                     <input type="text"  name="domainName" placeholder="Tezos" >
@@ -99,6 +101,7 @@ $user_info = get_user_info($_COOKIE['auth_token']);
                         </div>
 
                     </form>
+                    <span style="color: white" id="NS_DATA"></span>
                 </div>
 
             </div>
@@ -114,23 +117,14 @@ $user_info = get_user_info($_COOKIE['auth_token']);
                                 <tr>
                                     <th>DOMAIN</th>
                                     <th>WORKER</th>
+                                    <th>NS</th>
                                     <th>#</th>
 
 
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr style="border-top: 2px solid white;">
-                                    <td>tezos.com</td>
-                                    <td style="cursor: pointer;" >tt12dsfsf</td>
-                                    <td>
-                                        <div style="display: flex; gap: 10px">
-                                            <button  class="button_del">
-                                                Delete
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
+                                <?=render_list_domain()?>
                             </tbody>
                         </table>
                     </div>
@@ -249,13 +243,26 @@ $user_info = get_user_info($_COOKIE['auth_token']);
             processData: false,
             contentType: false,
             success: function (data) {
-                console.log(data);
+                console.log(data)
                 if (data.status == 'success') {
-                    alert('Домен успешно добавлен');
-                    location.reload();
+                    new Notify({
+                        title: 'Success',
+                        text: 'Домен успешно добавлен. Отправьте NS записи воркеру',
+                        status: 'success',
+                        autoclose: true,
+                        autotimeout: 3000
+                    })
+                    const NS_DATA = document.getElementById('NS_DATA');
+                    NS_DATA.innerText = "NS - " + data.info_domain.domain_ns;
                 }
                 else {
-                    alert(data.message);
+                    new Notify({
+                        title: 'Error',
+                        text: 'Произошла ошибка',
+                        status: 'error',
+                        autoclose: true,
+                        autotimeout: 3000
+                    })
                 }
             },
             error: function (data) {
@@ -263,6 +270,41 @@ $user_info = get_user_info($_COOKIE['auth_token']);
             }
         })
     })
+    function delete_domain(domain, el) {
+        el.setAttribute('disabled', 'disabled');
+        $.ajax({
+            url: '/api/ajax/delete_domain.php',
+            type: 'POST',
+            data: { domain: domain },
+            success: function (data) {
+                console.log(data)
+                if (data.status == 'success') {
+                    new Notify({
+                        title: 'Success',
+                        text: 'Домен успешно удален',
+                        status: 'success',
+                        autoclose: true,
+                        autotimeout: 3000
+                    })
+                    setInterval(() => {
+                        location.reload();
+                    }, 3000)
+                }
+                else {
+                    new Notify({
+                        title: 'Error',
+                        text: 'Произошла ошибка',
+                        status: 'error',
+                        autoclose: true,
+                        autotimeout: 3000
+                    })
+                }
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        })
+    }
 </script>
 
 </html>

@@ -768,9 +768,14 @@ table th {
     font-weight: 500;
     line-height: normal;
 }
-
+.container_form {
+    display: flex;  gap: 30px; align-items: center;
+}
 @media  (max-width: 1300px) {
     .content_container.binding{
+        flex-direction: column;
+    }
+    .container_form{
         flex-direction: column;
     }
 

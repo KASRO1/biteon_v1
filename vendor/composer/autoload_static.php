@@ -13,6 +13,10 @@ class ComposerStaticInit13c1b18224d2ca7ae40d9ddaabd744f5
     );
 
     public static $prefixLengthsPsr4 = array (
+        'T' => 
+        array (
+            'TelegramBot\\Api\\' => 16,
+        ),
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
@@ -31,10 +35,14 @@ class ComposerStaticInit13c1b18224d2ca7ae40d9ddaabd744f5
     );
 
     public static $prefixDirsPsr4 = array (
+        'TelegramBot\\Api\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/telegram-bot/api/src',
+        ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (

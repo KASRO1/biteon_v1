@@ -4,28 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48de03d6-5035-48b3-82d5-9edc4dfb2797" name="Changes" comment="Почти сделал маркет">
-      <change afterPath="$PROJECT_DIR$/api/ajax/get_info_kyc.php" afterDir="false" />
+    <list default="true" id="48de03d6-5035-48b3-82d5-9edc4dfb2797" name="Changes" comment="Начал делать загрузку кук верифа">
+      <change afterPath="$PROJECT_DIR$/2fa.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/ajax/2fa_auth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/ajax/binding_telegram_worker.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/ajax/delete_domain.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/ajax/enable_or_disable_2fa.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/ajax/open_trigger_order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/deposit.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/deposit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/kyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/kyc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/static.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/support.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/support.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/usersList.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/usersList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/ajax/forgot_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/forgot_password.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/ajax/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/add_domain.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/add_domain.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/settings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/create_domain.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/create_domain.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/function/backend/cloudflare.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/cloudflare.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/function/backend/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/function/backend/telegram.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/telegram.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/function/frontend/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/frontend/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/init.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biteon-2.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings_affiliate.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_affiliate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings_kyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_kyc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/support.php" beforeDir="false" afterPath="$PROJECT_DIR$/support.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings_2fa.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_2fa.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/autoload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +73,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/telegram-bot/api" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -75,35 +85,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/OSPanel/domains/BITEON&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Applications/XAMPP/xamppfiles/htdocs",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\OSPanel\domains\BITEON" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/api/ajax" />
       <recent name="D:\OSPanel\domains\BITEON\admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\OSPanel\domains\BITEON\assets" />
-      <recent name="D:\OSPanel\domains\BITEON\assets\DataTables" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager">
@@ -146,7 +156,7 @@
       <workItem from="1699730658436" duration="4096000" />
       <workItem from="1699785693205" duration="8909000" />
       <workItem from="1699857401718" duration="5426000" />
-      <workItem from="1700143956344" duration="8896000" />
+      <workItem from="1700073020511" duration="786000" />
     </task>
     <task id="LOCAL-00001" summary="last">
       <option name="closed" value="true" />
@@ -196,15 +206,23 @@
       <option name="project" value="LOCAL" />
       <updated>1699819864860</updated>
     </task>
-    <task id="LOCAL-00007" summary="Почти сделал маркет">
+    <task id="LOCAL-00007" summary="Начал делать загрузку кук верифа">
       <option name="closed" value="true" />
-      <created>1700229275377</created>
+      <created>1699982053162</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1700229275377</updated>
+      <updated>1699982053162</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Начал делать загрузку кук верифа">
+      <option name="closed" value="true" />
+      <created>1699982137974</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1699982137974</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,7 +244,23 @@
     <MESSAGE value="last1" />
     <MESSAGE value="Сделал чат" />
     <MESSAGE value="Почти сделал маркет" />
-    <option name="LAST_COMMIT_MESSAGE" value="Почти сделал маркет" />
+    <MESSAGE value="Начал делать загрузку кук верифа" />
+    <option name="LAST_COMMIT_MESSAGE" value="Начал делать загрузку кук верифа" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/api/function/backend/database.php</url>
+          <line>655</line>
+          <properties>
+            <option name="className" value="" />
+            <option name="methodName" value="\change_status_kyc" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

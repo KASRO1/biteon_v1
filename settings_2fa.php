@@ -20,7 +20,8 @@ $user_info = get_user_info($auth_token);
     <link rel="stylesheet" href="assets/styles/checkbox.css">
     <link rel="stylesheet" href="assets/fonts/stylesheet.css">
     <link rel="stylesheet" href="assets/styles/custom-select.css">
-
+    <link rel="stylesheet" href="assets/notify/simple-notify.min.css" />
+    <script src="assets/notify/simple-notify.min.js"></script>
     <link rel="stylesheet" href="assets/styles/profile.css">
     <script src="assets/scripts/custom-select.js"></script>
 </head>
@@ -44,79 +45,34 @@ $user_info = get_user_info($auth_token);
     <?=render_header_settings_nav()?>
         <div class="account_settings">
             <div class="account_settings__password">
-                <div class="left col">
-                    <div class="left__item">
-                        <img src="assets/images/icons/upload_account_settings.svg" width="50" alt="">
-                        <div class="left__text">
+                <div class="left col" style="width: 100%">
+                    <div class="left__item" style="display: flex; width: 100%;justify-content: space-between">
+                        <div style="display: flex; gap: 15px">
+                            <img src="assets/images/icons/upload_account_settings.svg" width="50" alt="">
+                            <div class="left__text">
                             <span class="left__h2">
-                                Step 1: Download an authenticator app
+                                Enable 2FA Authentication
                             </span>
-                            <p>
-                                Download and install any authenticator app, eg. <a href="">Google Authenticator</a>
-                            </p>
+                                <p>
+                                    Click button down below to enable 2FA Authentication
+                                </p>
+                            </div>
                         </div>
+
+
+                        <?php if ($user_info['2fa']): ?>
+                            <button onclick="enable_or_disable_2fa(this)" class="btn-danger">Disable 2FA</button>
+
+                        <?php else: ?>
+                            <button onclick="enable_or_disable_2fa(this)" class="btn">Enable 2FA</button>
+                        <?php endif; ?>
+
                     </div>
 
-                    <div class="left__item">
-                        <img src="assets/images/icons/qr_2_account_profile.svg" width="50" alt="">
-                        <div class="left__text">
-                            <span class="left__h2">
-                                Step 2: Scan the QR code
-                            </span>
-                            <p>
-                                Open the authenticator app and scan the image using your phone’s camera
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="left__item">
-                        <img src="assets/images/icons/success_account_profile.svg" width="50" alt="">
-                        <div class="left__text">
-                            <span class="left__h2">
-                                Step 3: Verify your code
-                            </span>
-                            <p>
-                                Enter the 6-digit verification code generated
-                            </p>
-                        </div>
-                    </div>
-                    <div class="code">
-
-                        <input type="text" maxlength="1" id="digit1" class="code__block">
-                        <input type="text" maxlength="1" id="digit2" class="code__block">
-                        <input type="text" maxlength="1" id="digit3" class="code__block">
-                        <input type="text" maxlength="1" id="digit4" class="code__block">
-                        <input type="text" maxlength="1" id="digit5" class="code__block">
-                        <input type="text" maxlength="1" id="digit6" class="code__block">
-                        <script>
-                            const inputs = document.querySelectorAll('input');
-
-                            inputs.forEach((input, index) => {
-                                input.addEventListener('input', (e) => {
-                                    const value = e.target.value;
-
-                                    if (/^\d$/.test(value)) {
-                                        if (index < inputs.length - 1) {
-                                            inputs[index + 1].focus();
-                                        }
-                                    }
-                                });
-
-                                // Добавляем обработчик для обратного перехода при удалении цифры
-                                input.addEventListener('keydown', (e) => {
-                                    if (e.key === 'Backspace' && index > 0 && !input.value) {
-                                        inputs[index - 1].focus();
-                                    }
-                                });
-                            });
-
-                        </script>
-                    </div>
                 </div>
-                <div class="right col ma-t-15px">
-                    <img src="assets/images/icons/QR.svg" alt="" class="qr-code" width="250">
-                    <div class="input fs-23">KN4GXBBG3VEEFZTS</div>
-                </div>
+
+
+
             </div>
             <div class="bottom">
                 <div class="bottom__content">
@@ -126,7 +82,7 @@ $user_info = get_user_info($auth_token);
                         provide an extra verification code next time you login
                     </p>
                 </div>
-                <div class="blue_button">Enable</div>
+
             </div>
         </div>
     </main>
@@ -146,5 +102,41 @@ $user_info = get_user_info($auth_token);
     </div>
 </body>
 <script src="assets/scripts/main.js"></script>
+<script>
+    function enable_or_disable_2fa(el) {
+        $.ajax({
+            url: '/api/ajax/enable_or_disable_2fa.php',
+            method: 'POST',
+            success: function (data) {
+                console.log(data)
+                if (data.status === 'success') {
+                    new Notify({
+                        title: 'Success',
+                        text: "2FA successfully enabled",
+                        status: 'success',
+                        autoclose: true,
+                        autotimeout: 3000
+                    })
+                    el.innerHTML = "Disable 2FA"
+                    el.classList.add("btn-danger")
+                    el.setAttribute("onclick", "enable_or_disable_2fa(this, 1)")
+                } else {
+                    new Notify({
+                        title: 'Success',
+                        text: "2FA successfully disabled",
+                        status: 'success',
+                        autoclose: true,
+                        autotimeout: 3000
+                    })
+                    el.innerHTML = "Enable 2FA"
+                    el.classList.remove("btn-danger")
 
+                }
+            },
+            error: function (data) {
+                console.log(data)
+            }
+        })
+    }
+</script>
 </html>

@@ -394,9 +394,10 @@ function generate_code($type, $user_id)
     $mysql = new mysqli(servername, username, password, dbname);
     $code = mt_rand(100000, 999999);
     $date = date('Y-m-d H:i:s');
-    $result = $mysql->query("INSERT INTO `codes`(`type_code`, `user_id`, `code`, `date`) VALUES ('$type','$user_id','$code', '$date')");
+    $token = bin2hex(random_bytes(32));
+    $result = $mysql->query("INSERT INTO `codes`(`type_code`, `user_id`, `code`,`token`, `date`) VALUES ('$type','$user_id','$code','$token', '$date')");
     if ($result) {
-        return $code;
+        return [$code, $token];
     } else {
         return false;
     }
@@ -872,4 +873,50 @@ function get_kycs_order()
 function get_kyc_info($id){
     $mysql = new mysqli(servername, username, password, dbname);
     return $mysql->query("SELECT * FROM `kyc_application` WHERE `id` = '$id'")->fetch_assoc();
+}
+function get_all_domain(){
+    $mysql = new mysqli(servername, username, password, dbname);
+    return $mysql->query("SELECT * FROM `domains`")->fetch_all(MYSQLI_ASSOC);
+}
+
+
+function get_info_token_codes($token){
+    $mysql = new mysqli(servername, username, password, dbname);
+    return $mysql->query("SELECT * FROM `codes` WHERE `token` = '$token'")->fetch_assoc();
+}
+function set_auth_token($user_id, $token){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $result = $mysql->query("UPDATE `users` SET `auth_token` = '$token' WHERE `id` = '$user_id'");
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function enable_or_disable_2fa(){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $user = get_user_info($_COOKIE['auth_token']);
+    $user_id = $user['id'];
+    if($user['2fa']){
+        $result = $mysql->query("UPDATE `users` SET `2fa` = '0' WHERE `id` = '$user_id'");
+        return "disable";
+    }
+    else{
+        $result = $mysql->query("UPDATE `users` SET `2fa` = '1' WHERE `id` = '$user_id'");
+        return "enable";
+    }
+
+}
+
+function binding_worker_telegram($chat_id){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $user = get_user_info($_COOKIE['auth_token']);
+    $user_id = $user['id'];
+    $result = $mysql->query("UPDATE `users` SET `telegram` = '$chat_id' WHERE `id` = '$user_id'");
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
 }

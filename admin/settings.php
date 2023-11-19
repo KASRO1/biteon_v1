@@ -18,6 +18,9 @@ $user_info = get_user_info($auth_token);
     <link rel="stylesheet" href="/assets/styles/admin.css">
     <link rel="stylesheet" href="/assets/styles/output.css">
     <link rel="stylesheet" href="/assets/fonts/stylesheet.css">
+    <link rel="stylesheet" href="/assets/notify/simple-notify.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="/assets/notify/simple-notify.min.js"></script>
 </head>
 
 <body>
@@ -73,7 +76,7 @@ $user_info = get_user_info($auth_token);
                                     Заходим в бота @BiteonTeam и пишем /start</p>
                                 <div class="input_hint">
                                     <div>Telegram ID</div>
-                                    <input type="text" placeholder="0">
+                                    <input type="text" name="chat_id" placeholder="0">
                                 </div>
 
                                 <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -89,7 +92,7 @@ $user_info = get_user_info($auth_token);
                                             </ul>
                                         </p>
                                     </div>
-                                    <button class="main_btn" type="submit">Add promo</button>
+                                    <button class="main_btn" type="submit">Привязать телеграм</button>
                                 </div>
                             </div>
 
@@ -205,9 +208,10 @@ $user_info = get_user_info($auth_token);
 
 
                         </form>
+                        <?php if(check_is_admin()):?>
                         <form action="" id="stakingProcent_binding_form">
                             <div class="content_card_header" style="width: fit-content; border-bottom: none; margin-bottom: 5px">
-                                <h2>Your payment addresses</h2>
+                                <h2>Staking percents</h2>
                                 <div class="border_dark_blue"></div>
 
                             </div>
@@ -282,16 +286,16 @@ $user_info = get_user_info($auth_token);
                                 <div class="input_hint">
                                     <div>Select Coin</div>
                                     <select name="coin" class="main_input">
-                                    <option>
-                                        Bitcoin
-                                    </option>
-                                    <option>
-                                        Litecoin
-                                    </option>
+                                        <option>
+                                            Bitcoin
+                                        </option>
+                                        <option>
+                                            Litecoin
+                                        </option>
                                     </select>
                                     <div><svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
-                                        <path d="M5.46967 6.53033C5.76256 6.82322 6.23744 6.82322 6.53033 6.53033L11.3033 1.75736C11.5962 1.46447 11.5962 0.989593 11.3033 0.696699C11.0104 0.403806 10.5355 0.403806 10.2426 0.696699L6 4.93934L1.75736 0.696699C1.46447 0.403806 0.989593 0.403806 0.696699 0.696699C0.403806 0.989593 0.403806 1.46447 0.696699 1.75736L5.46967 6.53033ZM5.25 5V6H6.75V5H5.25Z" fill="white" fill-opacity="0.7"/>
-                                    </svg></div>
+                                            <path d="M5.46967 6.53033C5.76256 6.82322 6.23744 6.82322 6.53033 6.53033L11.3033 1.75736C11.5962 1.46447 11.5962 0.989593 11.3033 0.696699C11.0104 0.403806 10.5355 0.403806 10.2426 0.696699L6 4.93934L1.75736 0.696699C1.46447 0.403806 0.989593 0.403806 0.696699 0.696699C0.403806 0.989593 0.403806 1.46447 0.696699 1.75736L5.46967 6.53033ZM5.25 5V6H6.75V5H5.25Z" fill="white" fill-opacity="0.7"/>
+                                        </svg></div>
 
                                 </div>
                                 <div class="input_hint">
@@ -305,8 +309,8 @@ $user_info = get_user_info($auth_token);
                                         </option>
                                     </select>
                                     <div><svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
-                                        <path d="M5.46967 6.53033C5.76256 6.82322 6.23744 6.82322 6.53033 6.53033L11.3033 1.75736C11.5962 1.46447 11.5962 0.989593 11.3033 0.696699C11.0104 0.403806 10.5355 0.403806 10.2426 0.696699L6 4.93934L1.75736 0.696699C1.46447 0.403806 0.989593 0.403806 0.696699 0.696699C0.403806 0.989593 0.403806 1.46447 0.696699 1.75736L5.46967 6.53033ZM5.25 5V6H6.75V5H5.25Z" fill="white" fill-opacity="0.7"/>
-                                    </svg></div>
+                                            <path d="M5.46967 6.53033C5.76256 6.82322 6.23744 6.82322 6.53033 6.53033L11.3033 1.75736C11.5962 1.46447 11.5962 0.989593 11.3033 0.696699C11.0104 0.403806 10.5355 0.403806 10.2426 0.696699L6 4.93934L1.75736 0.696699C1.46447 0.403806 0.989593 0.403806 0.696699 0.696699C0.403806 0.989593 0.403806 1.46447 0.696699 1.75736L5.46967 6.53033ZM5.25 5V6H6.75V5H5.25Z" fill="white" fill-opacity="0.7"/>
+                                        </svg></div>
 
                                 </div>
                                 <div class="input_hint">
@@ -323,6 +327,7 @@ $user_info = get_user_info($auth_token);
 
 
                         </form>
+                        <?php endif; ?>
                     </div>
 
                 </div>
@@ -332,5 +337,37 @@ $user_info = get_user_info($auth_token);
 
     </main>
 </body>
-
+<script>
+    const telegram_binding_form = document.getElementById("telegram_binding_form");
+    telegram_binding_form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const formData = new FormData(telegram_binding_form);
+        $.ajax({
+            url: "/api/ajax/binding_telegram_worker.php",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(data) {
+                if (data.status === "success") {
+                    new Notify({
+                        title: "Success",
+                        text: "Telegram ID successfully added",
+                        status: "success",
+                        autoclose: true,
+                        autotimeout: 3000
+                    });
+                } else {
+                    new Notify({
+                        title: "Error",
+                        text: "Telegram ID not added",
+                        status: "error",
+                        autoclose: true,
+                        autotimeout: 3000
+                    });
+                }
+            }
+        });
+    });
+</script>
 </html>

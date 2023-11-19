@@ -1032,3 +1032,29 @@ function render_aside_admin(){
 ";
 }
 
+function render_list_domain(){
+    $domains = get_all_domain();
+    $result = "";
+    foreach ($domains as $domain) {
+        $domain_id = $domain['id'];
+        $domain_name = $domain['domain'];
+        $domain_worker = $domain['user_id'];
+        $info_user = get_user_info_by_email_or_name_or_id($domain_worker);
+        $worker_username = $info_user['username'];
+        $domain_ns = $domain['domain_ns'];
+        $result .="                               
+                               <tr style='border-top: 2px solid white;'>
+                                    <td>$domain_name</td>
+                                    <td style='cursor: pointer;' >$worker_username</td>
+                                    <td style='cursor: pointer;' >$domain_ns</td>
+                                    <td>
+                                        <div style='display: flex; gap: 10px'>
+                                            <button onclick='delete_domain(\"$domain_name\", this)' class='button_del'>
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>";
+    }
+    return $result;
+}

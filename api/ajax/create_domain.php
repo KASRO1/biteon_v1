@@ -13,9 +13,9 @@ $stmp_password = $_POST['stmp_password'];
 
 if (add_domain_cloudflare($domain, $title, $user_id, $stmp_host, $stmp_login, $stmp_password)) {
     $info_domain = get_info_domain($domain);
-    echo json_encode(array("success" => true, "info_domain" => $info_domain));
+    echo json_encode(array("status" => "success", "info_domain" => $info_domain));
 } else {
-    echo json_encode(array("success" => false));
+    echo json_encode(array("status" => "error"));
 }
 
 

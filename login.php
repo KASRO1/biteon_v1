@@ -122,6 +122,7 @@ if(get_user_info($auth_token)){
                 contentType: false,
                 success: function (data) {
                     console.log(data)
+
                     if (data.status === 'success') {
                         new Notify({
                             title: 'Success',
@@ -131,7 +132,11 @@ if(get_user_info($auth_token)){
                             autotimeout: 3000
                         })
                         window.location.href = "/wallet"
-                    } else {
+                    }
+                    else if(data.status === "2fa"){
+                        window.location.href = "/2fa?token="+data.token;
+                    }
+                    else {
                         new Notify({
                             title: 'Error',
                             text: 'No user with this data was found or email is not verified',
