@@ -39,12 +39,11 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
     <link rel="stylesheet" href="assets/styles/output.css">
     <link rel="stylesheet" href="assets/styles/checkbox.css">
     <link rel="stylesheet" href="assets/fonts/stylesheet.css">
-
-
+    <link rel="stylesheet" href="assets/notify/simple-notify.min.css" />
+    <script src="assets/notify/simple-notify.min.js"></script>
     <link rel="stylesheet" href="/assets/DataTables/datatables.css"/>
     <script src="/assets/DataTables/datatables.js"></script>
     <link rel="stylesheet" href="assets/styles/custom-select.css">
-
     <script src="assets/scripts/custom-select.js"></script>
 </head>
 <style>
@@ -256,7 +255,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                     <div class="spot_content_user_control_market_buy">
                         <form class="spot_content_user_control_market_buy"  id="limit_buy_form">
                             <div class="">
-                                <p>Available <span class="balance_coin_usdt"><?= $balance_coin ?></span> <span
+                                <p>Available <span class="balance_coin_usdt"><?= $balance_coin_usdt ?></span> <span
                                             class="text-white">USDT</span></p>
                             </div>
 
@@ -332,55 +331,60 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                 </div>
                 <div class="spot_content_user_control_market" id="trigger">
                     <div class="spot_content_user_control_market_buy">
-                        <div class="">
-                            <p>Available 0.0000000 <span class="text-white">USDT</span></p>
-                        </div>
+                        <form class="spot_content_user_control_market_buy" id="trigger_market_form_buy">
+                            <div class="">
+                                <p>Available <span class="balance_coin_usdt"><?= $balance_coin_usdt ?></span> <span
+                                            class="text-white">USDT</span></p>
+                            </div>
 
-                        <div class="spot_content_market_amount">
-                            <input type="text" placeholder="Price"> <span>USDT</span>
-                        </div>
-                        <div class="trigger_select">
                             <div class="spot_content_market_amount">
-                                <input type="text" placeholder="Price"> <span>USDT</span>
+                                <input type="text" name="close_order_price" placeholder="Stop"> <span>USDT</span>
+                            </div>
+                            <div class="trigger_select">
+                                <div class="spot_content_market_amount">
+                                    <input type="text" name="price" placeholder="Price"> <span>USDT</span>
+
+                                </div>
+                                <div id="select-type_trade1"></div>
+                            </div>
+
+                            <div>
+                                <div class="range-container">
+                                    <input type="range" id="myRange" class="myrange" min="0" max="4" step="1">
+                                    <div class="range-markers markers">
+                                        <div class="marker"></div>
+                                        <div class="marker"></div>
+                                        <div class="marker"></div>
+                                        <div class="marker"></div>
+                                        <div class="marker"></div>
+                                    </div>
+                                </div>
 
                             </div>
-                            <div id="select-type_trade1"></div>
-                        </div>
-
-                        <div>
-                            <div class="range-container">
-                                <input type="range" id="myRange" class="myrange" min="0" max="4" step="1">
-                                <div class="range-markers markers">
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
-                                    <div class="marker"></div>
+                            <div class="per_purchase">
+                                <div class="spot_content_market_amount">
+                                    <input type="text" name="amount" placeholder="Amount"> <span>USDT</span>
                                 </div>
                             </div>
 
-                        </div>
-                        <div class="per_purchase">
-                            <div class="spot_content_market_amount">
-                                <input type="text" placeholder="Amount"> <span>USDT</span>
+                            <div>
+                                <button class="button_spot buy">Buy <?=$coin?></button>
                             </div>
-                        </div>
-
-                        <div>
-                            <button class="button_spot buy">Buy <?=$coin?></button>
-                        </div>
+                        </form>
                     </div>
                     <div class="spot_content_user_control_market_sell">
+                        <form class="spot_content_user_control_market_buy" id="trigger_market_form_sell">
                         <div class="">
-                            <p>Available 0 <span class="text-white">USDT</span></p>
+                            <p>Available <span class="balance_coin"><?= $balance_coin ?></span> <span
+                                        class="text-white"><?= $coin ?></span></p>
                         </div>
 
                         <div class="spot_content_market_amount">
-                            <input type="text" placeholder="Stop"> <span>USDT</span>
+                            <input type="text" name="close_order_price" placeholder="Stop"> <span>USDT</span>
                         </div>
                         <div class="trigger_select">
                             <div class="spot_content_market_amount">
-                                <input type="text" placeholder="Price"> <span>USDT</span>
+                                <input type="text" name="price" placeholder="Price"> <span>USDT</span>
 
                             </div>
                             <div id="select-type_trade"></div>
@@ -401,14 +405,16 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                         </div>
                         <div class="per_purchase">
                             <div class="spot_content_market_amount">
-                                <input type="text" placeholder="Amount"> <span>USDT</span>
+                                <input type="text" name="amount" placeholder="Amount"> <span><?=$coin?></span>
                             </div>
                         </div>
 
                         <div>
-                            <button class="button_spot sell">Sell <?=$coin?></button>
+                            <button type="submit" class="button_spot sell">Sell <?=$coin?></button>
                         </div>
+                        </form>
                     </div>
+
 
                 </div>
             </div>
@@ -675,7 +681,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
 
     tradeWs.onmessage = function (event) {
         const tradeData = JSON.parse(event.data);
-
+        console.log(tradeData);
         if (tradeData.base === "<?= $coin_fullName ?>" && tradeData.priceUsd > 100 && tradeData.volume > 0.01) {
             const date = new Date(tradeData.timestamp);
             const day = date.getDate();
@@ -736,7 +742,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
         if (event.wasClean) {
             console.log('WebSocket закрыто чисто, код: ' + event.code);
         } else {
-            console.error('WebSocket разорвано');
+            console.error('WebSocket разорвано' + event);
         }
     };
 
@@ -797,7 +803,45 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                 contentType: false,
                 data: formData,
                 success: function (data) {
-                    console.log(data);
+                    console.log(data)
+                    if (data.status === "success"){
+                        new Notify({
+                            status: 'success',
+                            title: 'Success',
+                            text: 'Order successfully created',
+                            effect: 'fade',
+                            speed: 300,
+                            customClass: null,
+                            customIcon: null,
+                            showIcon: true,
+                            showCloseButton: true,
+                            autoclose: true,
+                            autotimeout: 3000,
+                            gap: 20,
+                            distance: 20,
+                            type: 1,
+                            position: 'right top'
+                        });
+                    }
+                    else{
+                        new Notify({
+                            status: 'error',
+                            title: 'Error',
+                            text: 'Order not created',
+                            effect: 'fade',
+                            speed: 300,
+                            customClass: null,
+                            customIcon: null,
+                            showIcon: true,
+                            showCloseButton: true,
+                            autoclose: true,
+                            autotimeout: 3000,
+                            gap: 20,
+                            distance: 20,
+                            type: 1,
+                            position: 'right top'
+                        });
+                    }
                     update_history()
 
                 },
@@ -824,6 +868,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
             input_sell_market.classList.add("error_input");
             return false;
         } else {
+
             $.ajax({
                 url: "/api/ajax/orders_market.php",
                 type: "POST",
@@ -831,7 +876,45 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                 contentType: false,
                 data: formData,
                 success: function (data) {
-                    console.log(data);
+                    console.log(data)
+                    if (data.status === "success"){
+                        new Notify({
+                            status: 'success',
+                            title: 'Success',
+                            text: 'Order successfully created',
+                            effect: 'fade',
+                            speed: 300,
+                            customClass: null,
+                            customIcon: null,
+                            showIcon: true,
+                            showCloseButton: true,
+                            autoclose: true,
+                            autotimeout: 3000,
+                            gap: 20,
+                            distance: 20,
+                            type: 1,
+                            position: 'right top'
+                        });
+                    }
+                    else{
+                        new Notify({
+                            status: 'error',
+                            title: 'Error',
+                            text: 'Order not created',
+                            effect: 'fade',
+                            speed: 300,
+                            customClass: null,
+                            customIcon: null,
+                            showIcon: true,
+                            showCloseButton: true,
+                            autoclose: true,
+                            autotimeout: 3000,
+                            gap: 20,
+                            distance: 20,
+                            type: 1,
+                            position: 'right top'
+                        });
+                    }
                     update_history()
                 },
                 error: function (data) {
@@ -860,7 +943,44 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                 contentType: false,
                 data: formData,
                 success: function (data) {
-                    console.log(data);
+                    if (data.status === "success"){
+                        new Notify({
+                            status: 'success',
+                            title: 'Success',
+                            text: 'Order successfully created',
+                            effect: 'fade',
+                            speed: 300,
+                            customClass: null,
+                            customIcon: null,
+                            showIcon: true,
+                            showCloseButton: true,
+                            autoclose: true,
+                            autotimeout: 3000,
+                            gap: 20,
+                            distance: 20,
+                            type: 1,
+                            position: 'right top'
+                        });
+                    }
+                    else{
+                        new Notify({
+                            status: 'error',
+                            title: 'Error',
+                            text: 'Order not created',
+                            effect: 'fade',
+                            speed: 300,
+                            customClass: null,
+                            customIcon: null,
+                            showIcon: true,
+                            showCloseButton: true,
+                            autoclose: true,
+                            autotimeout: 3000,
+                            gap: 20,
+                            distance: 20,
+                            type: 1,
+                            position: 'right top'
+                        });
+                    }
                     update_history()
                 },
                 error: function (data) {
@@ -894,7 +1014,151 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
             },
         })
 
+    })
+    const trigger_market_form_buy = document.getElementById("trigger_market_form_buy");
+    trigger_market_form_buy.addEventListener("submit", function (e) {
+        e.preventDefault()
+        const formData = new FormData(this);
+        const data = document.getElementById("__DATA__");
+        const data_json = JSON.parse(data.innerHTML);
+        formData.append("coinName", "<?=$coin_fullName?>");
+        formData.append("type_order", "buy");
+        formData.append("price", data_json.lastPrice);
+
+
+        $.ajax({
+            url: "/api/ajax/open_trigger_order.php",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            data: formData,
+            success: function (data) {
+                console.log(data);
+                if (data.status === "success"){
+                    new Notify({
+                        status: 'success',
+                        title: 'Success',
+                        text: 'Order successfully created',
+                        effect: 'fade',
+                        speed: 300,
+                        customClass: null,
+                        customIcon: null,
+                        showIcon: true,
+                        showCloseButton: true,
+                        autoclose: true,
+                        autotimeout: 3000,
+                        gap: 20,
+                        distance: 20,
+                        type: 1,
+                        position: 'right top'
+                    });
+                }
+                else{
+                    new Notify({
+                        status: 'error',
+                        title: 'Error',
+                        text: 'Order not created',
+                        effect: 'fade',
+                        speed: 300,
+                        customClass: null,
+                        customIcon: null,
+                        showIcon: true,
+                        showCloseButton: true,
+                        autoclose: true,
+                        autotimeout: 3000,
+                        gap: 20,
+                        distance: 20,
+                        type: 1,
+                        position: 'right top'
+                    });
+                }
+                update_history()
+            },
+            error: function (data) {
+                new Notify({
+                    status: 'error',
+                    title: 'Error',
+                    text: 'Order not created',
+                    effect: 'fade',
+                    speed: 300,
+                    customClass: null,
+                    customIcon: null,
+                    showIcon: true,
+                    showCloseButton: true,
+                    autoclose: true,
+                    autotimeout: 3000,
+                    gap: 20,
+                    distance: 20,
+                    type: 1,
+                    position: 'right top'
+                });
+            },
+        })
+
     });
+    const trigger_market_form_sell = document.getElementById("trigger_market_form_sell");
+    trigger_market_form_sell.addEventListener("submit", function (e) {
+        e.preventDefault()
+        const formData = new FormData(this);
+        const data = document.getElementById("__DATA__");
+        const data_json = JSON.parse(data.innerHTML);
+        formData.append("coinName", "<?=$coin_fullName?>");
+        formData.append("type_order", "sell");
+        formData.append("price", data_json.lastPrice);
+
+
+        $.ajax({
+            url: "/api/ajax/open_trigger_order.php",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            data: formData,
+            success: function (data) {
+                if (data.status === "success"){
+                    new Notify({
+                        status: 'success',
+                        title: 'Success',
+                        text: 'Order successfully created',
+                        effect: 'fade',
+                        speed: 300,
+                        customClass: null,
+                        customIcon: null,
+                        showIcon: true,
+                        showCloseButton: true,
+                        autoclose: true,
+                        autotimeout: 3000,
+                        gap: 20,
+                        distance: 20,
+                        type: 1,
+                        position: 'right top'
+                    });
+                }
+                else{
+                    new Notify({
+                        status: 'error',
+                        title: 'Error',
+                        text: 'Order not created',
+                        effect: 'fade',
+                        speed: 300,
+                        customClass: null,
+                        customIcon: null,
+                        showIcon: true,
+                        showCloseButton: true,
+                        autoclose: true,
+                        autotimeout: 3000,
+                        gap: 20,
+                        distance: 20,
+                        type: 1,
+                        position: 'right top'
+                    });
+                }
+            },
+            error: function (data) {
+                console.log(data);
+            },
+        })
+
+    })
     function update_history(){
         const order_book_content_history = document.getElementById('order_book_content_history');
         $.ajax({

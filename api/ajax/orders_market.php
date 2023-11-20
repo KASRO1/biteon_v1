@@ -1,5 +1,5 @@
 <?php
-
+header('Content-Type: application/json');
 require $_SERVER['DOCUMENT_ROOT'] . '/api/init.php';
 
 $coinName = $_POST['coinName'];

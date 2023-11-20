@@ -713,7 +713,7 @@ function get_history_order()
     $mysql = new mysqli(servername, username, password, dbname);
     $user = get_user_info($_COOKIE['auth_token']);
     $user_id = $user['id'];
-    return $mysql->query("SELECT * FROM `orders` WHERE `user_id` = '$user_id' AND `status` = 'close'")->fetch_all(MYSQLI_ASSOC);
+    return $mysql->query("SELECT * FROM `orders` WHERE `user_id` = '$user_id' AND `status` = 'close' ORDER BY `date` DESC")->fetch_all(MYSQLI_ASSOC);
 }
 
 function get_open_order()
@@ -721,7 +721,7 @@ function get_open_order()
     $mysql = new mysqli(servername, username, password, dbname);
     $user = get_user_info($_COOKIE['auth_token']);
     $user_id = $user['id'];
-    return $mysql->query("SELECT * FROM `orders` WHERE `user_id` = '$user_id' AND `status` = 'open'")->fetch_all(MYSQLI_ASSOC);
+    return $mysql->query("SELECT * FROM `orders` WHERE `user_id` = '$user_id' AND `status` = 'open' ORDER BY `date` DESC")->fetch_all(MYSQLI_ASSOC);
 }
 
 function check_is_worker()

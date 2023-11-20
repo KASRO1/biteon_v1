@@ -862,10 +862,11 @@ function render_history_order($type){
         $pair = get_coin_info($value['coin_id'])['simple_name'] . "/USDT";
         $type_trade = $value['type_trade'];
         $amount = $value['amount'];
+        $type_order = $value['type_order'];
         $orders_html .= "<tr class='adrr'>
                             <td class='th_succefly'>$date</td>
                             <td>$pair</td>
-                            <td>16.9 15:10</td>
+                            <td>$type_order</td>
                             <td>$type_trade</td>
                             <td>$amount </td>
                         </tr>";

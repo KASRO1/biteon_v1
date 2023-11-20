@@ -293,7 +293,7 @@ $user_info = get_user_info($_COOKIE['auth_token']);
                 else {
                     new Notify({
                         title: 'Error',
-                        text: 'Произошла ошибка',
+                        text: 'Произошла ошибка. Возможно домен уже не привязан в cloudflare',
                         status: 'error',
                         autoclose: true,
                         autotimeout: 3000
