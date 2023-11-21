@@ -46,7 +46,7 @@ stroke: transparent;
         <header>
         <div class="logo">
             <img src="assets/images/logo.svg" class="logo_img" alt="logo">
-            <h3 data-title></h3>
+            <h3 >'.$domain_titleINIT.'</h3>
         </div>
         <div class="menu">
             <ul>
@@ -230,7 +230,7 @@ stroke: transparent;
                             </div>
                             <div>
                             <a >Institutional home</a>
-                            <span>Biteon offers the worlds most powerful suite of institutional crypto trading solutions</span>
+                            <span><?=$domain_titleINIT?> offers the worlds most powerful suite of institutional crypto trading solutions</span>
                             </div>
                         </li>
                          <li data-href="/future_payment">
@@ -322,7 +322,7 @@ function render_footer()
         <div class="footer-links__box max-w-xs">
             <div class="logo justify-start">
                 <img src="assets/images/logo.svg" class="logo_img" alt="logo" />
-                <h3 class="logo_name" data-title></h3>
+                <h3 class="logo_name" >'.$domain_titleINIT.'</h3>
             </div>
             <div class="footer_desc">
                 <p>
@@ -349,7 +349,7 @@ function render_footer()
                 <li>Instant swap</li>
                 <li>P2P trading</li>
                 <li>DeFi Staking</li>
-                <li><span data-title></span> Visa Card</li>
+                <li><span >'.$domain_titleINIT.'</span> Visa Card</li>
             </ul>
         </div>
         <div class="footer-links__box">
@@ -361,7 +361,7 @@ function render_footer()
                 <li>ETH 2.0 staking</li>
                 <li>Launchpad</li>
                 <li>Savings</li>
-                <li><span data-title></span> ventures</li>
+                <li><span >'.$domain_titleINIT.'</span> ventures</li>
                 <li>Buy crypto</li>
             </ul>
         </div>
@@ -402,7 +402,7 @@ function render_footer()
             recommendations regarding any Digital Asset, including the suitability
             and appropriateness of, and investment strategies for, any Digital
             Asset. You agree and understand that you access and use the Platform
-            and the Site at your own risk. <span data-title></span> 2023 © All
+            and the Site at your own risk. <span >'.$domain_titleINIT.'</span> 2023 © All
             right reserved
         </p>
     </div>
@@ -421,7 +421,7 @@ function render_head($title)
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-title>' . $title . ' | BITEON</title>
+    <title >' . $title . ' | '.$domain_titleINIT.'</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/styles/main.css">
     <link rel="stylesheet" href="assets/styles/output.css">

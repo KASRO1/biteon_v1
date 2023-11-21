@@ -5,22 +5,57 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48de03d6-5035-48b3-82d5-9edc4dfb2797" name="Changes" comment="Почти сделал маркет">
-      <change afterPath="$PROJECT_DIR$/api/ajax/close_trigger_order.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/ajax/transfer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/ajax/withdraw.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/add_domain.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/add_domain.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/ajax/close_limit_order.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/close_limit_order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/ajax/orders_market.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/orders_market.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2fa.php" beforeDir="false" afterPath="$PROJECT_DIR$/2fa.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/kyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/kyc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/settings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/support.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/support.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/usersList.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/usersList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/auth.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/function/backend/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/function/backend/mailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/mailer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/function/frontend/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/frontend/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/init.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scripts/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scripts/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/change-password.php" beforeDir="false" afterPath="$PROJECT_DIR$/change-password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/copyTrading.php" beforeDir="false" afterPath="$PROJECT_DIR$/copyTrading.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deposit.php" beforeDir="false" afterPath="$PROJECT_DIR$/deposit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/faq.php" beforeDir="false" afterPath="$PROJECT_DIR$/faq.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fees.php" beforeDir="false" afterPath="$PROJECT_DIR$/fees.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forgot-password.php" beforeDir="false" afterPath="$PROJECT_DIR$/forgot-password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/future_payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/future_payment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launchpad.php" beforeDir="false" afterPath="$PROJECT_DIR$/launchpad.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/moon.php" beforeDir="false" afterPath="$PROJECT_DIR$/moon.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nft.php" beforeDir="false" afterPath="$PROJECT_DIR$/nft.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p2p.php" beforeDir="false" afterPath="$PROJECT_DIR$/p2p.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/participate.php" beforeDir="false" afterPath="$PROJECT_DIR$/participate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savings.php" beforeDir="false" afterPath="$PROJECT_DIR$/savings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings_2fa.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_2fa.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings_affiliate.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_affiliate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings_api.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings_gift.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_gift.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings_kyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_kyc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart_money.php" beforeDir="false" afterPath="$PROJECT_DIR$/smart_money.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spot.php" beforeDir="false" afterPath="$PROJECT_DIR$/spot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/autoload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staking.php" beforeDir="false" afterPath="$PROJECT_DIR$/staking.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/status.php" beforeDir="false" afterPath="$PROJECT_DIR$/status.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/support.php" beforeDir="false" afterPath="$PROJECT_DIR$/support.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swap.php" beforeDir="false" afterPath="$PROJECT_DIR$/swap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tradingBots.php" beforeDir="false" afterPath="$PROJECT_DIR$/tradingBots.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transfer.php" beforeDir="false" afterPath="$PROJECT_DIR$/transfer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/traveller.php" beforeDir="false" afterPath="$PROJECT_DIR$/traveller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ventures.php" beforeDir="false" afterPath="$PROJECT_DIR$/ventures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/want_buy.php" beforeDir="false" afterPath="$PROJECT_DIR$/want_buy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/withdraw.php" beforeDir="false" afterPath="$PROJECT_DIR$/withdraw.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +118,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
     "vue.rearranger.settings.migration": "true"
   },
@@ -145,6 +181,8 @@
       <workItem from="1699857401718" duration="5426000" />
       <workItem from="1700143956344" duration="8896000" />
       <workItem from="1700431978127" duration="6866000" />
+      <workItem from="1700483792072" duration="595000" />
+      <workItem from="1700555921650" duration="20082000" />
     </task>
     <task id="LOCAL-00001" summary="last">
       <option name="closed" value="true" />

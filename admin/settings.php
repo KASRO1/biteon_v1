@@ -73,7 +73,7 @@ $user_info = get_user_info($auth_token);
                                     Бот напишет ваш ID
                                     Копируем и вставляем цифры в поле ниже и нажимаем кнопку Save changes (можно указать
                                     несколько ID через запятую: 123,455,667). <br>
-                                    Заходим в бота @BiteonTeam и пишем /start</p>
+                                    Заходим в бота @<?=$domain_titleINIT?>Team и пишем /start</p>
                                 <div class="input_hint">
                                     <div>Telegram ID</div>
                                     <input type="text" name="chat_id" placeholder="0">

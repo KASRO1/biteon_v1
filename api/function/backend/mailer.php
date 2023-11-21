@@ -321,7 +321,7 @@ function send_reset_password($email, $code, $user_id)
     $mail->setFrom('mail@snipp.ru', 'Snipp.ru');
 
 
-    $mail->addAddress($email, 'BITEON');
+    $mail->addAddress($email, '<?=$domain_titleINIT?>');
 
 
     $mail->Subject = $subject;
@@ -344,7 +344,7 @@ function send_reset_password($email, $code, $user_id)
                     font-weight: 700;
                     line-height: normal;
                     ">
-                        BITEON
+                        <?=$domain_titleINIT?>
                     </td>
                 </table>
                 <table style="width: 70%; height: 1px;" >
@@ -395,7 +395,7 @@ text-decoration-line: underline;">link</a> or click the button below.
                 </table>
                 <table>
                     <td>
-                        <a href="http://biteon.ru/change-password?code='.$code.'&user_id='.$user_id.'" style="border-radius: 10px;
+                        <a href="http://<?=$domain_titleINIT?>.ru/change-password?code='.$code.'&user_id='.$user_id.'" style="border-radius: 10px;
                         background: #30ACFF; padding: 10px 100px; 
                         color: #FFF;
 text-align: center;
@@ -430,7 +430,7 @@ line-height: normal;
                     font-weight: 300;
                     line-height: normal;">
                         You received this email because your mailing address was <br>
-provided when you registered at biteon.com
+provided when you registered at <?=$domain_titleINIT?>.com
                     </td>
                 </table>
                 <table height="100px">
@@ -492,7 +492,7 @@ function confirm_login_from_account()
                     font-weight: 700;
                     line-height: normal;
                     ">
-                        BITEON
+                        <?=$domain_titleINIT?>
                     </td>
                 </table>
                 <table style="width: 70%; height: 1px;" >
@@ -528,7 +528,7 @@ function confirm_login_from_account()
                     font-style: normal;
                     font-weight: 300;
                     line-height: normal;">
-                        Confirm login from your user@gmail.com account at biteon.com
+                        Confirm login from your user@gmail.com account at <?=$domain_titleINIT?>.com
                     </td>
                 </table>
                 <table height="100px">
@@ -572,7 +572,7 @@ line-height: normal;
                     font-weight: 300;
                     line-height: normal;">
                         You received this email because your mailing address was <br>
-provided when you registered at biteon.com
+provided when you registered at <?=$domain_titleINIT?>.com
                     </td>
                 </table>
                 <table height="100px">

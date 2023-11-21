@@ -13,7 +13,7 @@ if(!get_user_info($auth_token)){
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-title>.</title>
+    <title ><?=$domain_titleINIT?></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/styles/main.css" />
     <link rel="stylesheet" href="assets/styles/output.css" />
@@ -37,7 +37,7 @@ if(!get_user_info($auth_token)){
                         We protect the daily security of your assets by using secure
                         online/offline storage systems with multisig protection and
                         multiple backups. For times when things are out of your control,
-                        we have our Biteon Risk Shield.
+                        we have our <?=$domain_titleINIT?> Risk Shield.
                     </p>
 
                 </div>
@@ -49,9 +49,9 @@ if(!get_user_info($auth_token)){
         </section>
         <section class="preotecting_your_assets_content">
             <div>
-                <h2>What is Biteon Risk Shield?</h2>
-                <p>To safeguard our users' assets, Biteon has created an asset risk reserve fund committed to continually allocating a percentage of our
-                    earnings to guarantee and protect assets from crypto security risks. Biteon Risk Shield now stands at approximately more than $700
+                <h2>What is <?=$domain_titleINIT?> Risk Shield?</h2>
+                <p>To safeguard our users' assets, <?=$domain_titleINIT?> has created an asset risk reserve fund committed to continually allocating a percentage of our
+                    earnings to guarantee and protect assets from crypto security risks. <?=$domain_titleINIT?> Risk Shield now stands at approximately more than $700
                     million.</p>
             </div>
             <div>
@@ -71,7 +71,7 @@ if(!get_user_info($auth_token)){
                     How does our cold wallet system work?
                 </h5>
                 <p>Our security program encompasses all aspects: platform, assets, data, and access security. We are transparent and public with our
-                    protocols that guarantee complete protection of funds on Biteon. Multiple backups, bank vaults, and storage limits are only some of the
+                    protocols that guarantee complete protection of funds on <?=$domain_titleINIT?>. Multiple backups, bank vaults, and storage limits are only some of the
                     measures we take. Explore our approach and see for yourself that your crypto is safe with us.</p>
                 <ul>
                     <li>10,000 cold wallet addresses with private keys are generated on an offline computer.</li>
@@ -108,7 +108,7 @@ if(!get_user_info($auth_token)){
                 <div class="footer-box__content">
                     <h1 class="">Trade anywhere and anytime with us</h1>
                     <p>
-                        Enjoy the convenience of <span data-title></span>’s crypto trading
+                        Enjoy the convenience of <span ><?=$domain_titleINIT?></span>’s crypto trading
                         platform. Make money on cryptocurrency anytime, anywhere as
                         valuable.
                     </p>
@@ -122,7 +122,7 @@ if(!get_user_info($auth_token)){
             <div class="footer-links__box max-w-xs">
                 <div class="logo justify-start">
                     <img src="assets/images/logo.svg" class="logo_img" alt="logo" />
-                    <h3 class="logo_name" data-title></h3>
+                    <h3 class="logo_name" ><?=$domain_titleINIT?></h3>
                 </div>
                 <div class="footer_desc">
                     <p>
@@ -149,7 +149,7 @@ if(!get_user_info($auth_token)){
                     <li>Instant swap</li>
                     <li>P2P trading</li>
                     <li>DeFi Staking</li>
-                    <li><span data-title></span> Visa Card</li>
+                    <li><span ><?=$domain_titleINIT?></span> Visa Card</li>
                 </ul>
             </div>
             <div class="footer-links__box">
@@ -161,7 +161,7 @@ if(!get_user_info($auth_token)){
                     <li>ETH 2.0 staking</li>
                     <li>Launchpad</li>
                     <li>Savings</li>
-                    <li><span data-title></span> ventures</li>
+                    <li><span ><?=$domain_titleINIT?></span> ventures</li>
                     <li>Buy crypto</li>
                 </ul>
             </div>
@@ -202,7 +202,7 @@ if(!get_user_info($auth_token)){
                 recommendations regarding any Digital Asset, including the suitability
                 and appropriateness of, and investment strategies for, any Digital
                 Asset. You agree and understand that you access and use the Platform
-                and the Site at your own risk. <span data-title></span> 2023 © All
+                and the Site at your own risk. <span ><?=$domain_titleINIT?></span> 2023 © All
                 right reserved
             </p>
         </div>

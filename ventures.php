@@ -13,7 +13,7 @@ if(!get_user_info($auth_token)){
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-title>.</title>
+  <title ><?=$domain_titleINIT?></title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <link rel="stylesheet" href="assets/styles/main.css" />
   <link rel="stylesheet" href="assets/styles/output.css" />
@@ -36,11 +36,11 @@ if(!get_user_info($auth_token)){
       <div class="ventures__box">
         <div class="ventures__content">
           <div class="ventures__header">
-            <h1>Biteons Ventures</h1>
+            <h1><?=$domain_titleINIT?>s Ventures</h1>
             <p class="mb-24">
-              <span data-title></span> With an initial capital of $100 million, Biteon <br>
+              <span ></span> With an initial capital of $100 million, <?=$domain_titleINIT?> <br>
               Ventures is a fund focused on exploring high- <br>
-              quality Biteons with great potential.
+              quality <?=$domain_titleINIT?>s with great potential.
             </p>
           </div>
           <img src="assets/images/icons/arrow.png" alt="">
@@ -57,9 +57,9 @@ if(!get_user_info($auth_token)){
           </h3>
         </div>
         <div class="block">
-          <p>Biteon Ventures will focus on the discoveries and investments in various aspects, including <br>
+          <p><?=$domain_titleINIT?> Ventures will focus on the discoveries and investments in various aspects, including <br>
             blockchain basic infrastructures, Layer2, DeFi, WEB3.0, NFT and Metaverse.</p>
-          <p>Our mission is to explore and invest on the innovative blockchain Biteons worldwide and <br>
+          <p>Our mission is to explore and invest on the innovative blockchain <?=$domain_titleINIT?>s worldwide and <br>
             promote sustainable development across the entire industry globally. We look forward to <br>
             working and growing with passionate dreamers and founders to create value for the blockchain <br>
             industry, while sharing our global resources and historical experience with the founders.</p>
@@ -238,11 +238,11 @@ if(!get_user_info($auth_token)){
           <img src="assets/images/ecosystem_resources.png" alt="">
           <div class="investment_el_content">
             <h3>Ecosystem resources</h3>
-            <p>We provide strong support for investment Biteons. Biteons with our in-depth participation and
-              investment will be recommended to Biteon and have the opportunity to access numerous
-              Biteon products, services, publicity resources, users, and brand endorsement. From the initial
+            <p>We provide strong support for investment <?=$domain_titleINIT?>s. <?=$domain_titleINIT?>s with our in-depth participation and
+              investment will be recommended to <?=$domain_titleINIT?> and have the opportunity to access numerous
+              <?=$domain_titleINIT?> products, services, publicity resources, users, and brand endorsement. From the initial
               stage of the launch, a detailed scheme is formulated according to the characteristics of the
-              Biteon, and all the advantages of this Biteon will be displayed to the users of Biteon and users
+              <?=$domain_titleINIT?>, and all the advantages of this <?=$domain_titleINIT?> will be displayed to the users of <?=$domain_titleINIT?> and users
               of the global blockchain industry.</p>
           </div>
         </div>
@@ -266,7 +266,7 @@ if(!get_user_info($auth_token)){
         <div class="footer-box__content">
           <h1 class="">Trade anywhere and anytime with us</h1>
           <p>
-            Enjoy the convenience of <span data-title></span>’s crypto trading platform. Make
+            Enjoy the convenience of <span ></span>’s crypto trading platform. Make
             money on cryptocurrency anytime, anywhere as valuable.
           </p>
           <div class="footer-box__button">
@@ -279,7 +279,7 @@ if(!get_user_info($auth_token)){
       <div class="footer-links__box max-w-xs">
         <div class="logo justify-start">
           <img src="assets/images/logo.svg" class="logo_img" alt="logo" />
-          <h3 class="logo_name" data-title></h3>
+          <h3 class="logo_name" ></h3>
         </div>
         <div class="footer_desc">
           <p>
@@ -306,7 +306,7 @@ if(!get_user_info($auth_token)){
           <li>Instant swap</li>
           <li>P2P trading</li>
           <li>DeFi Staking</li>
-          <li><span data-title></span> Visa Card</li>
+          <li><span ></span> Visa Card</li>
         </ul>
       </div>
       <div class="footer-links__box">
@@ -318,7 +318,7 @@ if(!get_user_info($auth_token)){
           <li>ETH 2.0 staking</li>
           <li>Launchpad</li>
           <li>Savings</li>
-          <li><span data-title></span> ventures</li>
+          <li><span ></span> ventures</li>
           <li>Buy crypto</li>
         </ul>
       </div>
@@ -359,7 +359,7 @@ if(!get_user_info($auth_token)){
         recommendations regarding any Digital Asset, including the suitability
         and appropriateness of, and investment strategies for, any Digital
         Asset. You agree and understand that you access and use the Platform
-        and the Site at your own risk. <span data-title></span> 2023 © All right reserved
+        and the Site at your own risk. <span ></span> 2023 © All right reserved
       </p>
     </div>
   </footer>

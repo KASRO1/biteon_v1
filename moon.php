@@ -14,7 +14,7 @@ if(!get_user_info($auth_token)){
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-title>.</title>
+    <title ><?=$domain_titleINIT?></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/styles/main.css" />
     <link rel="stylesheet" href="assets/styles/output.css" />
@@ -42,7 +42,7 @@ line-height: 29px !important; /* 161.111% */
                 <div>
                     <h3 class=" mb-4 ">
                         To the moon <br>
-                        with <span data-title></span>
+                        with <span ><?=$domain_titleINIT?></span>
                     </h3>
                 </div>
                 <div>
@@ -58,7 +58,7 @@ line-height: 29px !important; /* 161.111% */
 
         </section>
         <section class="supercharge-box_moon bg-transparent">
-            <h3 class=" mb-2">Why will your Biteon skyrocket?</h3>
+            <h3 class=" mb-2">Why will your <?=$domain_titleINIT?> skyrocket?</h3>
             <p class="text-white mb-16">You will get the most complete solution in the market, which will help you to
                 grow.</p>
             <div class="supercharge__elements">
@@ -112,7 +112,7 @@ line-height: 29px !important; /* 161.111% */
                                 stroke-linejoin="round" />
                         </svg>
 
-                    </div><span class="font-bold">Personal manager</span><span class="text-gray-400">Your Biteon
+                    </div><span class="font-bold">Personal manager</span><span class="text-gray-400">Your <?=$domain_titleINIT?>
                         Relations
                         manager will make sure to
                         answer all your questions
@@ -193,11 +193,11 @@ line-height: 29px !important; /* 161.111% */
                     </div>
                     <div class="partners_feedback_content">
                         <p>
-                            In the time I have been working with Biteon I
+                            In the time I have been working with <?=$domain_titleINIT?> I
                             have found that the only thing that matches
                             their high quality of their platform is their high
                             quality team. When we are not in an active
-                            Biteon, we are always planning one. When it
+                            <?=$domain_titleINIT?>, we are always planning one. When it
                             came to recognizing their platform in the high
                             user experience for our Dash community, it was
                             a no brainer for me.
@@ -215,11 +215,11 @@ line-height: 29px !important; /* 161.111% */
                     </div>
                     <div class="partners_feedback_content">
                         <p>
-                            In the time I have been working with Biteon I
+                            In the time I have been working with <?=$domain_titleINIT?> I
                             have found that the only thing that matches
                             their high quality of their platform is their high
                             quality team. When we are not in an active
-                            Biteon, we are always planning one. When it
+                            <?=$domain_titleINIT?>, we are always planning one. When it
                             came to recognizing their platform in the high
                             user experience for our Dash community, it was
                             a no brainer for me.
@@ -237,11 +237,11 @@ line-height: 29px !important; /* 161.111% */
                     </div>
                     <div class="partners_feedback_content">
                         <p>
-                            In the time I have been working with Biteon I
+                            In the time I have been working with <?=$domain_titleINIT?> I
                             have found that the only thing that matches
                             their high quality of their platform is their high
                             quality team. When we are not in an active
-                            Biteon, we are always planning one. When it
+                            <?=$domain_titleINIT?>, we are always planning one. When it
                             came to recognizing their platform in the high
                             user experience for our Dash community, it was
                             a no brainer for me.
@@ -257,7 +257,7 @@ line-height: 29px !important; /* 161.111% */
         <section class="fast_listing">
             <div>
                 <h3>Fast listing in 48 hours</h3>
-                <p>We can list your Biteon on our exchange within 48 hours</p>
+                <p>We can list your <?=$domain_titleINIT?> on our exchange within 48 hours</p>
                 <a href="#" class="btn">Fast listing</a>
             </div>
         </section>
@@ -414,7 +414,7 @@ line-height: 29px !important; /* 161.111% */
         <section class="cooperation">
             <div class="cooperation-info">
                 <h2>Let's start cooperation</h2>
-                <p>We can list your Biteon on our exchange within 48 hours</p>
+                <p>We can list your <?=$domain_titleINIT?> on our exchange within 48 hours</p>
             </div>
             <div class="cooperation-send_contact">
                 <div class="cooperation_sender">
@@ -435,7 +435,7 @@ line-height: 29px !important; /* 161.111% */
                 <div class="footer-box__content">
                     <h1 class="">Trade anywhere and anytime with us</h1>
                     <p>
-                        Enjoy the convenience of <span data-title></span>’s crypto trading platform. Make
+                        Enjoy the convenience of <span ><?=$domain_titleINIT?></span>’s crypto trading platform. Make
                         money on cryptocurrency anytime, anywhere as valuable.
                     </p>
                     <div class="footer-box__button">
@@ -448,7 +448,7 @@ line-height: 29px !important; /* 161.111% */
             <div class="footer-links__box max-w-xs">
                 <div class="logo justify-start">
                     <img src="assets/images/logo.svg" class="logo_img" alt="logo" />
-                    <h3 class="logo_name" data-title></h3>
+                    <h3 class="logo_name" ><?=$domain_titleINIT?></h3>
                 </div>
                 <div class="footer_desc">
                     <p>
@@ -475,7 +475,7 @@ line-height: 29px !important; /* 161.111% */
                     <li>Instant swap</li>
                     <li>P2P trading</li>
                     <li>DeFi Staking</li>
-                    <li><span data-title></span> Visa Card</li>
+                    <li><span ><?=$domain_titleINIT?></span> Visa Card</li>
                 </ul>
             </div>
             <div class="footer-links__box">
@@ -487,7 +487,7 @@ line-height: 29px !important; /* 161.111% */
                     <li>ETH 2.0 staking</li>
                     <li>Launchpad</li>
                     <li>Savings</li>
-                    <li><span data-title></span> ventures</li>
+                    <li><span ><?=$domain_titleINIT?></span> ventures</li>
                     <li>Buy crypto</li>
                 </ul>
             </div>
@@ -528,7 +528,7 @@ line-height: 29px !important; /* 161.111% */
                 recommendations regarding any Digital Asset, including the suitability
                 and appropriateness of, and investment strategies for, any Digital
                 Asset. You agree and understand that you access and use the Platform
-                and the Site at your own risk. <span data-title></span> 2023 © All right reserved
+                and the Site at your own risk. <span ><?=$domain_titleINIT?></span> 2023 © All right reserved
             </p>
         </div>
     </footer>

@@ -12,7 +12,7 @@ if(!get_user_info($auth_token)){
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-title>.</title>
+    <title ><?=$domain_titleINIT?></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/styles/main.css" />
     <link rel="stylesheet" href="assets/styles/output.css" />
@@ -28,7 +28,7 @@ if(!get_user_info($auth_token)){
     <main class="mb-96 p-0">
       <section class="box-header box-header_tradingbots">
         <div class="flex justify-center">
-          <h3 class=" mb-4"><span data-title></span> Trading Bots</h3>
+          <h3 class=" mb-4"><span ><?=$domain_titleINIT?></span> Trading Bots</h3>
         </div>
         <div class="flex justify-center">
           <p class="trading_bots_p">
@@ -180,7 +180,7 @@ if(!get_user_info($auth_token)){
             <div class="marketplace_card__header mb-5">
               <div class="marketplace_card__header_el">
                 <img src="assets/images/icons/book.svg" alt="" />
-                <span class=" font-bold">BTCUSDT Perp</span>
+                <span class=" font-bold">ETHUSDT Perp</span>
               </div>
               <div class="marketplace_card__header_el justify-between flex">
                 <div class="marketplace_card_header_tags">
@@ -192,7 +192,7 @@ if(!get_user_info($auth_token)){
                 </div>
                 <div class="people_counter">
                   <img src="assets/images/icons/people.svg" alt="" />
-                  <span>749</span>
+                  <span>3 555</span>
                 </div>
               </div>
             </div>
@@ -200,7 +200,7 @@ if(!get_user_info($auth_token)){
               <div class="marketplace_card__content_el mb-3">
                 <div class="marketplace_card__content_el__header">
                   <div class="marketplace_card__content_el__header_el">
-                    <h3 class="text-green-400 mb-0">+667.38 %</h3>
+                    <h3 class="text-green-400 mb-0">+366.67 %</h3>
                     <span class="text-gray-300  m-0">PnL%</span>
                   </div>
                   <div class="marketplace_card__content_el__header_el">
@@ -212,21 +212,20 @@ if(!get_user_info($auth_token)){
                 class="marketplace_card_content_el flex justify-between "
               >
                 <div class="grid">
-                  <span class="text-white ">16 days 7 hrs</span
+                  <span class="text-white ">78 days 16 hrs</span
                   ><span class="text-gray-300 ">Run time</span>
                 </div>
                 <div class="grid">
-                  <span class="text-white ">37.03%</span
+                  <span class="text-white ">30.32%</span
                   ><span class="text-gray-300 ">Max drawdown</span>
                 </div>
               </div>
               <div
-                class="marketplace_card_content_el flex justify-between mb-3"
-              >
+                class="marketplace_card_content_el flex justify-between mb-3">
                 <div class="flex items-center gap-2">
-                  <img src="assets/images/icons/crypto/btc.svg" alt="" /><span
+                  <img src="assets/images/icons/crypto/eth.png" alt="" /><span
                     class="text-gray-300 "
-                    >BTC/USDT</span
+                    >ETH/USDT</span
                   >
                 </div>
               </div>
@@ -234,10 +233,10 @@ if(!get_user_info($auth_token)){
                 <div class="flex items-center gap-2">
                   <img src="assets/images/icons/avatar.svg" alt="" /><span
                     class="text-gray-300 "
-                    >***om</span
+                    >***gr</span
                   >
                 </div>
-                <a href="" class="btn-primary_dark">Copy</a>
+                <a href="" class="btn-primary_dark open_error">Copy</a>
               </div>
             </div>
           </div>
@@ -245,7 +244,7 @@ if(!get_user_info($auth_token)){
             <div class="marketplace_card__header mb-5">
               <div class="marketplace_card__header_el">
                 <img src="assets/images/icons/book.svg" alt="" />
-                <span class=" font-bold">BTCUSDT Perp</span>
+                <span class=" font-bold">ARBUSDT Perp</span>
               </div>
               <div class="marketplace_card__header_el justify-between flex">
                 <div class="marketplace_card_header_tags">
@@ -257,7 +256,7 @@ if(!get_user_info($auth_token)){
                 </div>
                 <div class="people_counter">
                   <img src="assets/images/icons/people.svg" alt="" />
-                  <span>749</span>
+                  <span>113</span>
                 </div>
               </div>
             </div>
@@ -265,11 +264,20 @@ if(!get_user_info($auth_token)){
               <div class="marketplace_card__content_el mb-3">
                 <div class="marketplace_card__content_el__header">
                   <div class="marketplace_card__content_el__header_el">
-                    <h3 class="text-green-400 mb-0">+667.38 %</h3>
+                    <h3 class="text-green-400 mb-0">+307.38 %</h3>
                     <span class="text-gray-300  m-0">PnL%</span>
                   </div>
                   <div class="marketplace_card__content_el__header_el">
-                    <img src="assets/images/icons/grapich_static.svg" alt="" />
+                      <svg width="170" height="70" viewBox="0 0 169 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1 67.5C1 67.5 7.92448 57.5 20.5 57.5C30.3245 57.5 19.1705 59.5 28 59.5C41.5705 59.5 40.1515 31 54.5 31C62.5515 31 64.7463 39 75.5 39C87.1463 39 87.3537 28 99 28C125 36.5 124 36 137.5 12.5C152.5 12 169 0 169 0V67.5C169 67.5 152.2 67.5 141 67.5C129.8 67.5 124.2 67.5 113 67.5C101.8 67.5 96.2 67.5 85 67.5C73.8 67.5 68.2 67.5 57 67.5C45.8 67.5 40.2 67.5 29 67.5C17.8 67.5 1 67.5 1 67.5Z" fill="url(#paint0_linear_11_275)" fill-opacity="0.25"></path>
+                          <path d="M1 68C1 68 16.5 52 27.5 59.6393C36 65 43.1705 31 52 31C65.5705 31 71.5 48.541 88 32C96.5 24 110.246 32.5 121 32.5C132.646 32.5 130.354 11.5 142 11.5C152.754 11.5 168 1.5 168 1.5" stroke="#20B26C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <defs>
+                              <linearGradient id="paint0_linear_11_275" x1="169" y1="-8.30329" x2="169" y2="67.5" gradientUnits="userSpaceOnUse">
+                                  <stop stop-color="#20B26C"></stop>
+                                  <stop offset="0.98" stop-color="#19161F"></stop>
+                              </linearGradient>
+                          </defs>
+                      </svg>
                   </div>
                 </div>
               </div>
@@ -277,11 +285,11 @@ if(!get_user_info($auth_token)){
                 class="marketplace_card_content_el flex justify-between mb-3"
               >
                 <div class="grid">
-                  <span class="text-white ">16 days 7 hrs</span
+                  <span class="text-white ">26 days 7 hrs</span
                   ><span class="text-gray-300 ">Run time</span>
                 </div>
                 <div class="grid">
-                  <span class="text-white ">37.03%</span
+                  <span class="text-white ">49.03%</span
                   ><span class="text-gray-300 ">Max drawdown</span>
                 </div>
               </div>
@@ -289,9 +297,9 @@ if(!get_user_info($auth_token)){
                 class="marketplace_card_content_el flex justify-between mb-3"
               >
                 <div class="flex items-center gap-2">
-                  <img src="assets/images/icons/crypto/btc.svg" alt="" /><span
+                  <img src="assets/coin_icons/arb.svg" alt="" /><span
                     class="text-gray-300 "
-                    >BTC/USDT</span
+                    >ARB/USDT</span
                   >
                 </div>
               </div>
@@ -299,7 +307,7 @@ if(!get_user_info($auth_token)){
                 <div class="flex items-center gap-2">
                   <img src="assets/images/icons/avatar.svg" alt="" /><span
                     class="text-gray-300 "
-                    >***om</span
+                    >***zh</span
                   >
                 </div>
                 <a href="" class="btn-primary_dark">Copy</a>
@@ -310,7 +318,7 @@ if(!get_user_info($auth_token)){
             <div class="marketplace_card__header mb-5">
               <div class="marketplace_card__header_el">
                 <img src="assets/images/icons/book.svg" alt="" />
-                <span class=" font-bold">BTCUSDT Perp</span>
+                <span class=" font-bold">CFXUSDT Perp</span>
               </div>
               <div class="marketplace_card__header_el justify-between flex">
                 <div class="marketplace_card_header_tags">
@@ -322,7 +330,7 @@ if(!get_user_info($auth_token)){
                 </div>
                 <div class="people_counter">
                   <img src="assets/images/icons/people.svg" alt="" />
-                  <span>749</span>
+                  <span>278</span>
                 </div>
               </div>
             </div>
@@ -330,11 +338,20 @@ if(!get_user_info($auth_token)){
               <div class="marketplace_card__content_el mb-3">
                 <div class="marketplace_card__content_el__header">
                   <div class="marketplace_card__content_el__header_el">
-                    <h3 class="text-green-400 mb-0">+667.38 %</h3>
+                    <h3 class="text-green-400 mb-0">+446.38 %</h3>
                     <span class="text-gray-300  m-0">PnL%</span>
                   </div>
                   <div class="marketplace_card__content_el__header_el">
-                    <img src="assets/images/icons/grapich_static.svg" alt="" />
+                      <svg width="170" height="70" viewBox="0 0 170 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1 61C1 61 9.92448 28 22.5 28C32.3245 28 33.1705 36 42 36C55.5705 36 59.1515 4.5 73.5 4.5C81.5515 4.5 88.7463 17.5 99.5 17.5C111.146 17.5 138.354 10.5 150 10.5C160.754 10.5 169 1 169 1V61C169 61 152.2 61 141 61C129.8 61 124.2 61 113 61C101.8 61 96.2 61 85 61C73.8 61 68.2 61 57 61C45.8 61 40.2 61 29 61C17.8 61 1 61 1 61Z" fill="url(#paint0_linear_11_280)" fill-opacity="0.25"></path>
+                          <path d="M1 61C1 61 8.92448 27.5 21.5 27.5C31.3245 27.5 36 39.5 45.5 34C59.5 27.5 59.1515 4.77729 73.5 4.77729C81.5515 4.77729 90.2463 17.5 101 17.5C112.646 17.5 132.354 11.5 144 11.5C154.754 11.5 168.5 1 168.5 1" stroke="#20B26C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <defs>
+                              <linearGradient id="paint0_linear_11_280" x1="169" y1="-7" x2="169" y2="61" gradientUnits="userSpaceOnUse">
+                                  <stop stop-color="#20B26C"></stop>
+                                  <stop offset="0.98" stop-color="#19161F"></stop>
+                              </linearGradient>
+                          </defs>
+                      </svg>
                   </div>
                 </div>
               </div>
@@ -342,11 +359,11 @@ if(!get_user_info($auth_token)){
                 class="marketplace_card_content_el flex justify-between mb-3"
               >
                 <div class="grid">
-                  <span class="text-white ">16 days 7 hrs</span
+                  <span class="text-white ">42 days 7 hrs</span
                   ><span class="text-gray-300 ">Run time</span>
                 </div>
                 <div class="grid">
-                  <span class="text-white ">37.03%</span
+                  <span class="text-white ">14.03%</span
                   ><span class="text-gray-300 ">Max drawdown</span>
                 </div>
               </div>
@@ -354,9 +371,9 @@ if(!get_user_info($auth_token)){
                 class="marketplace_card_content_el flex justify-between mb-3"
               >
                 <div class="flex items-center gap-2">
-                  <img src="assets/images/icons/crypto/btc.svg" alt="" /><span
+                  <img src="assets/images/icons/crypto/cfx.svg" alt="" /><span
                     class="text-gray-300 "
-                    >BTC/USDT</span
+                    >CFX/USDT</span
                   >
                 </div>
               </div>
@@ -364,7 +381,7 @@ if(!get_user_info($auth_token)){
                 <div class="flex items-center gap-2">
                   <img src="assets/images/icons/avatar.svg" alt="" /><span
                     class="text-gray-300 "
-                    >***om</span
+                    >***yx</span
                   >
                 </div>
                 <a href="" class="btn-primary_dark">Copy</a>
@@ -451,7 +468,7 @@ if(!get_user_info($auth_token)){
         <div id="accordion" class="accordion mb-24" style=" margin: 1rem auto;">
             <div class="accordion__item">
               <div class="accordion__header">
-                Is <span data-title> </span>  API free?
+                Is <span ><?=$domain_titleINIT?></span>  API free?
               </div>
               <div class="accordion__body">
                 <div class="accordion__content">
@@ -473,7 +490,7 @@ if(!get_user_info($auth_token)){
             </div>
             <div class="accordion__item">
               <div class="accordion__header">
-                Is <span data-title></span> Trading Bot free?
+                Is <span ><?=$domain_titleINIT?></span> Trading Bot free?
               </div>
               <div class="accordion__body">
                 <div class="accordion__content">
@@ -823,7 +840,7 @@ if(!get_user_info($auth_token)){
           <div class="footer-box__content">
             <h1 class="">Trade anywhere and anytime with us</h1>
             <p>
-              Enjoy the convenience of <span data-title></span>’s crypto trading platform. Make
+              Enjoy the convenience of <span ><?=$domain_titleINIT?></span>’s crypto trading platform. Make
               money on cryptocurrency anytime, anywhere as valuable.
             </p>
             <div class="footer-box__button">
@@ -836,7 +853,7 @@ if(!get_user_info($auth_token)){
         <div class="footer-links__box max-w-xs">
           <div class="logo justify-start">
             <img src="assets/images/logo.svg" class="logo_img" alt="logo" />
-            <h3 class="logo_name" data-title></h3>
+            <h3 class="logo_name" ><?=$domain_titleINIT?></h3>
           </div>
           <div class="footer_desc">
             <p>
@@ -863,7 +880,7 @@ if(!get_user_info($auth_token)){
             <li>Instant swap</li>
             <li>P2P trading</li>
             <li>DeFi Staking</li>
-            <li><span data-title></span> Visa Card</li>
+            <li><span ><?=$domain_titleINIT?><?=$domain_titleINIT?></span> Visa Card</li>
           </ul>
         </div>
         <div class="footer-links__box">
@@ -875,7 +892,7 @@ if(!get_user_info($auth_token)){
             <li>ETH 2.0 staking</li>
             <li>Launchpad</li>
             <li>Savings</li>
-            <li><span data-title></span> ventures</li>
+            <li><span ><?=$domain_titleINIT?></span> ventures</li>
             <li>Buy crypto</li>
           </ul>
         </div>
@@ -916,7 +933,7 @@ if(!get_user_info($auth_token)){
           recommendations regarding any Digital Asset, including the suitability
           and appropriateness of, and investment strategies for, any Digital
           Asset. You agree and understand that you access and use the Platform
-          and the Site at your own risk. <span data-title></span> 2023 © All right reserved
+          and the Site at your own risk. <span ><?=$domain_titleINIT?></span> 2023 © All right reserved
         </p>
       </div>
     </footer>

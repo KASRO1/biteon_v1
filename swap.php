@@ -13,7 +13,7 @@ $user_info = get_user_info($auth_token);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-title>.</title>
+    <title ><?=$domain_titleINIT?></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/styles/main.css">
     <link rel="stylesheet" href="assets/styles/output.css">
@@ -119,15 +119,15 @@ $user_info = get_user_info($auth_token);
         <section class="block">
 
             <div class="swap-box__wrapper instructions">
-                <h1>Is it safe to deposit and store my cryptocurrencies with <span data-title></span>?</h1>
-                <p>Yes, it is safe to do so! To maintain a high level of asset security and flexibility, <span data-title></span> uses an
+                <h1>Is it safe to deposit and store my cryptocurrencies with <span ><?=$domain_titleINIT?></span>?</h1>
+                <p>Yes, it is safe to do so! To maintain a high level of asset security and flexibility, <span ><<?=$domain_titleINIT?>/span> uses an
                     industry-standard cold wallet to keep your deposited assets safe, and a hot wallet that allows for
                     all-day withdrawals. All withdrawals undergo a strict confirmation procedure and every withdrawal
                     request is manually reviewed by our team daily at 0:00AM, 8:00AM, and 4:00PM UTC. In addition, 100%
-                    of our traders' deposit assets are segregated from <span data-title></span>'s own operating budget
+                    of our traders' deposit assets are segregated from <span ><?=$domain_titleINIT?></span>'s own operating budget
                     for increased
                     financial accountability. If you wish to learn more, please refer to our Terms of Service.</p>
-                <h1>What type of coin deposits does <span data-title></span> support?</h1>
+                <h1>What type of coin deposits does <span ><?=$domain_titleINIT?></span> support?</h1>
                 <p>We're constantly working on expanding the types of coin deposits we accept to better suit your needs.
                     Here are the types of coin deposits we currently support: BTC ETH XRP EOS USDT DOGE DOT LTC XLM
                     Note: Each coin must be based and have their transaction hash (TXID) validated on their respective
@@ -137,120 +137,14 @@ $user_info = get_user_info($auth_token);
                 <p>There might be a few reasons for the delay. Here are the major reasons for the respective coins: BTC
                     — Unconfirmed transactions on the blockchain (at least 3 confirmation is needed). ETH — Unconfirmed
                     transactions on the blockchain (at least 30 confirmations are needed), or it could be a Smart
-                    Contract transaction that <span data-title></span> does not currently support. XRP or EOS — Invalid
+                    Contract transaction that <span ><?=$domain_titleINIT?></span> does not currently support. XRP or EOS — Invalid
                     or missing
                     tag/memo when the deposit was made. USDT — Unconfirmed transaction on the blockchain (1 or 30 or 100
                     confirmations are needed depending if the deposit was an Omni, ERC-20, or TRC-20 transfer).</p>
             </div>
         </section>
     </main>
-    <footer>
-        <section class="footer_box1">
-            <div class="footer-box__card">
-                <div class="footer-box__content">
-                    <h1 class="">
-                        Trade anywhere and anytime with us
-                    </h1>
-                    <p>Enjoy the convenience of <span data-title></span>’s crypto trading platform.
-                        Make money on cryptocurrency anytime, anywhere as valuable.</p>
-                    <div class="footer-box__button">
-                        <a href="" class="btn">Get started now</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="footer-links mb-6">
-            <div class="footer-links__box max-w-xs">
-                <div class="logo justify-start">
-                    <img src="assets/images/logo.svg" class="logo_img" alt="logo">
-                    <h3 class="logo_name" data-title></h3>
-                </div>
-                <div class="footer_desc">
-                    <p>
-                        Innovative cryptocurrency exchange with
-                        advanced financial services. We rely on
-                        blockchain technology to provide
-                        everything you need for wise trading and
-                        investment.
-                    </p>
-                </div>
-                <div class="footer_subscribe">
-                    <p class="text-lg">Subscribe to our newsletter</p>
-                    <div class="footer_enter">
-                        <input type="text" placeholder="Enter email">
-                        <button class="btn">Subscribe</button>
-                    </div>
 
-                </div>
-            </div>
-            <div class="footer-links__box">
-                <h3>Products</h3>
-                <ul>
-                    <li>Spot trading</li>
-                    <li>Futures trading</li>
-                    <li>Options trading</li>
-                    <li>Wallet</li>
-                    <li>Instant swap</li>
-                    <li>P2P trading</li>
-                    <li>DeFi Staking</li>
-                    <li><span data-title></span> Visa Card</li>
-                </ul>
-            </div>
-            <div class="footer-links__box">
-                <h3>Services</h3>
-                <ul>
-                    <li>24/7 support chat</li>
-                    <li>Copy trading</li>
-                    <li>Trading bots</li>
-                    <li>ETH 2.0 staking</li>
-                    <li>Launchpad</li>
-                    <li>Savings</li>
-                    <li><span data-title></span> ventures</li>
-                    <li>Buy crypto</li>
-                </ul>
-            </div>
-            <div class="footer-links__box">
-                <h3>Information</h3>
-                <ul>
-                    <li>Fees</li>
-                    <li>Platform status</li>
-                    <li>Wallet security</li>
-                    <li>Token listing</li>
-                    <li>Referal system</li>
-                    <li>Trading API</li>
-                    <li>Buy Bountry</li>
-
-                </ul>
-            </div>
-            <div class="footer-links__box">
-                <h3>Legal</h3>
-                <ul>
-                    <li>Tearms of service</li>
-                    <li>Privacy notice</li>
-                    <li>Cookies policy</li>
-                    <li>AML & KYC policy</li>
-                    <li>Risk Disclosure Statement</li>
-                    <li>Regulatory License</li>
-                    <li>Special Treatment</li>
-                    <li>Law Enforcement Requests</li>
-                </ul>
-            </div>
-
-        </div>
-        <div class="footer_main_desc">
-            <p class="text-xs">
-                In acceding to or using the Platform and the Site, you represent and warrant that you are fully aware of
-                the risks associated with the transactions involving Digital Assets or the use of Platform. You agree
-                and understand that you are solely responsible
-                for determining the nature, potential value, suitability, and appropriateness of these risks for
-                yourself, and that the Company does not give advice or recommendations regarding any Digital Asset,
-                including the suitability and appropriateness of, and
-                investment strategies for, any Digital Asset. You agree and understand that you access and use the
-                Platform and the Site at your own risk.
-                <span data-title></span> 2023 © All right reserved
-            </p>
-        </div>
-    </footer>
 </body>
 <script src="assets/scripts/main.js"></script>
 <script>

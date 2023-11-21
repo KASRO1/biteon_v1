@@ -6,6 +6,8 @@ if(!check_is_worker()){
     header("Location: /login");
 }
 $user_info = get_user_info($_COOKIE['auth_token']);
+
+$kycs = get_kycs_order();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,9 +64,10 @@ $user_info = get_user_info($_COOKIE['auth_token']);
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php foreach ($kycs as $kyc):?>
                                 <tr style="border-top: 2px solid white;">
                                     <td
-                                        >user_name</td>
+                                    >user_name</td>
                                     <td style="cursor: pointer;" onclick="show_user_info(13, this)">Check</td>
                                     <td>2</td>
                                     <td>
@@ -80,6 +83,7 @@ $user_info = get_user_info($_COOKIE['auth_token']);
 
 
                                 </tr>
+                            <?php endforeach;?>
                             </tbody>
                         </table>
                     </div>
@@ -162,15 +166,8 @@ $user_info = get_user_info($_COOKIE['auth_token']);
                         modal_content_body.appendChild(img);
                     });
 
-                    const swiper = new Swiper('.modal_content_body', {
-                        // Optional parameters
-                        direction: 'vertical',
-                        loop: true,
-
-                        // If we need pagination
-
-
-                    });
+                    el.innerText = text;
+                    el.classList.remove('loader');
                     status = false;
                 },
                 error: function (data) {

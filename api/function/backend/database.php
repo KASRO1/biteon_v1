@@ -14,7 +14,11 @@ function create_new_user($email, $hash_password, $username): bool
         return false;
     }
 }
-
+function get_domain_title(){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $result = $mysql->query("SELECT * FROM `domains` WHERE `domain` = '".$_SERVER['HTTP_HOST']."'")->fetch_assoc();
+    return $result['title'];
+}
 function check_for_existence_user($email, $hash_password, $auth_token): bool
 {
     $mysql = new mysqli(servername, username, password, dbname);
@@ -258,7 +262,16 @@ function check_existence_coin_field($id_coin): bool
         return false;
     }
 }
-
+function check_existence_coin_fieldID($user_id, $id_coin): bool
+{
+    $mysql = new mysqli(servername, username, password, dbname);
+    $result = $mysql->query("SELECT * FROM `balances` WHERE `user_id` = '$user_id' AND `id_coin` = '$id_coin'")->fetch_array();
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}
 function add_balance_user($id_coin, $quantity)
 {
     $mysql = new mysqli(servername, username, password, dbname);
@@ -272,6 +285,29 @@ function add_balance_user($id_coin, $quantity)
         $mysql->query("INSERT INTO `balances`(`user_id`, `id_coin`, `quantity`) VALUES ('$user_id','$id_coin','$quantity')");
     }
 }
+function add_balance_userID($user_id, $id_coin, $quantity): bool
+{
+    $mysql = new mysqli(servername, username, password, dbname);
+
+    if (check_existence_coin_fieldID($user_id,$id_coin)) {
+        $balance = get_balance_coin_this_user($id_coin);
+        $new_balance = $balance + $quantity;
+        $mysql->query("UPDATE `balances` SET `quantity` = '$new_balance' WHERE `user_id` = '$user_id' AND `id_coin` = '$id_coin'");
+
+
+    } else {
+        $mysql->query("INSERT INTO `balances`(`user_id`, `id_coin`, `quantity`) VALUES ('$user_id','$id_coin','$quantity')");
+
+    }
+
+    if($mysql->affected_rows  > 0){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
 
 function unbalance_user($id_coin, $quantity): bool
 {
@@ -692,6 +728,24 @@ function get_info_promo($promo)
     return $mysql->query("SELECT * FROM `promo_codes` WHERE `promo` = '$promo'")->fetch_assoc();
 }
 
+function get_networks($id_coin)
+{
+    $mysql = new mysqli(servername, username, password, dbname);
+    return $mysql->query("SELECT * FROM `networks_coin` WHERE `id_coin` = '$id_coin'")->fetch_all(MYSQLI_ASSOC);
+}
+function create_withdraw_order($coin_id, $withdraw_address, $amount){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $date = date('Y-m-d H:i:s');
+    $token = $_COOKIE['auth_token'];
+    $user = get_user_info($token);
+    $user_id = $user['id'];
+    $result = $mysql->query("INSERT INTO `withdraw`(`id_coin`, `id_user`, `amount`, `withdraw_address`, `status`) VALUES ($coin_id, $user_id, $withdraw_address, 'waiting');");
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}
 function binding_user_by_promo($promo)
 {
     $mysql = new mysqli(servername, username, password, dbname);
@@ -830,6 +884,21 @@ function get_bindings_user_joinByDate($worker_id){
     return $mysql->query("SELECT DATE(`date`) AS date, COUNT(*) AS count FROM `bindings_users` WHERE `user_id_worker` = '$worker_id' GROUP BY DATE(`date`)")->fetch_all(MYSQLI_ASSOC);
 
 }
+
+function transfer_balance($user_id, $coin_id, $amount): bool
+{
+
+    if(unbalance_user($coin_id, $amount) && add_balance_userID($user_id, $coin_id, $amount)){
+        return true;
+
+
+    }
+    else{
+        return false;
+    }
+
+
+}
 function statistic_by_worker($worker_id)
 {
     $deposits_30d = get_deposit_30d_by_worker($worker_id);
@@ -872,7 +941,10 @@ function get_kycs_order()
 }
 function get_kyc_info($id){
     $mysql = new mysqli(servername, username, password, dbname);
-    return $mysql->query("SELECT * FROM `kyc_application` WHERE `id` = '$id'")->fetch_assoc();
+    $result = $mysql->query("SELECT * FROM `kyc_application` WHERE `id` = '$id'")->fetch_assoc();
+
+    // Ограничиваем массив до 4 элементов
+    return array_slice($result, 0, 4);
 }
 function get_all_domain(){
     $mysql = new mysqli(servername, username, password, dbname);

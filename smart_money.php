@@ -13,7 +13,7 @@ if(!get_user_info($auth_token)){
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-title>.</title>
+  <title ><?=$domain_titleINIT?></title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <link rel="stylesheet" href="assets/styles/main.css" />
   <link rel="stylesheet" href="assets/styles/output.css" />
@@ -36,7 +36,7 @@ if(!get_user_info($auth_token)){
         <div class="smart_money_content_block">
           <h1 class=" font-bold " style="line-height: 3.5rem !important">Where smart
             money moves</h1>
-          <p class="text-base mb-10">Biteon offers the world's most
+          <p class="text-base mb-10"><?=$domain_titleINIT?> offers the world's most
             powerful suite of institutional
             crypto trading solutionsThe world's largest digital marketplace for crypto collectibles and non-fungible
             tokens</p>
@@ -51,7 +51,7 @@ if(!get_user_info($auth_token)){
     <section class="top_tradersROI slider_smart_money_">
       <section class="flex justify-between">
         <div class="w-100 text-center slider_smart_money_h3">
-          <h3 class=" ">Why institutions choose Biteon</h3>
+          <h3 class=" ">Why institutions choose <?=$domain_titleINIT?></h3>
         </div>
 
       </section>
@@ -181,7 +181,7 @@ if(!get_user_info($auth_token)){
         </div>
         <div class="powerful_crypto_block">
           <div>
-            <h3>Biteon Exchange order book</h3>
+            <h3><?=$domain_titleINIT?> Exchange order book</h3>
             <ul>
               <li>350+ tokens</li>
               <li>730 spot trading pairs</li>
@@ -313,10 +313,10 @@ if(!get_user_info($auth_token)){
         <div class="mySwiper1" navigation="true" space-between="20" grab-cursor="true">
 
           <div class="our_reviews_slide ">
-            <h3>“Biteon has always been one of the most user-friendly
+            <h3>“<?=$domain_titleINIT?> has always been one of the most user-friendly
               exchanges for institutional traders like ourselves, with
               features like portfolio margin providing greater capital
-              efficiency. Biteon’s Liquid Marketplace opens up additional
+              efficiency. <?=$domain_titleINIT?>’s Liquid Marketplace opens up additional
               opportunities for us to quote sophisticated, multi-instrument
               strategies, without the counterparty having to worry about
               slippage or execution.”</h3>
@@ -327,10 +327,10 @@ if(!get_user_info($auth_token)){
             </div>
           </div>
           <div class="our_reviews_slide ">
-            <h3>“Biteon has always been one of the most user-friendly
+            <h3>“<?=$domain_titleINIT?> has always been one of the most user-friendly
               exchanges for institutional traders like ourselves, with
               features like portfolio margin providing greater capital
-              efficiency. Biteon’s Liquid Marketplace opens up additional
+              efficiency. <?=$domain_titleINIT?>’s Liquid Marketplace opens up additional
               opportunities for us to quote sophisticated, multi-instrument
               strategies, without the counterparty having to worry about
               slippage or execution.”</h3>
@@ -404,7 +404,7 @@ if(!get_user_info($auth_token)){
         <div class="footer-box__content">
           <h1 class="">Trade anywhere and anytime with us</h1>
           <p>
-            Enjoy the convenience of <span data-title></span>’s crypto trading platform. Make
+            Enjoy the convenience of <span ><?=$domain_titleINIT?></span>’s crypto trading platform. Make
             money on cryptocurrency anytime, anywhere as valuable.
           </p>
           <div class="footer-box__button">
@@ -417,7 +417,7 @@ if(!get_user_info($auth_token)){
       <div class="footer-links__box max-w-xs">
         <div class="logo justify-start">
           <img src="assets/images/logo.svg" class="logo_img" alt="logo" />
-          <h3 class="logo_name" data-title></h3>
+          <h3 class="logo_name" ><?=$domain_titleINIT?></h3>
         </div>
         <div class="footer_desc">
           <p>
@@ -444,7 +444,7 @@ if(!get_user_info($auth_token)){
           <li>Instant swap</li>
           <li>P2P trading</li>
           <li>DeFi Staking</li>
-          <li><span data-title></span> Visa Card</li>
+          <li><span ><?=$domain_titleINIT?></span> Visa Card</li>
         </ul>
       </div>
       <div class="footer-links__box">
@@ -456,7 +456,7 @@ if(!get_user_info($auth_token)){
           <li>ETH 2.0 staking</li>
           <li>Launchpad</li>
           <li>Savings</li>
-          <li><span data-title></span> ventures</li>
+          <li><span ><?=$domain_titleINIT?></span> ventures</li>
           <li>Buy crypto</li>
         </ul>
       </div>
@@ -497,7 +497,7 @@ if(!get_user_info($auth_token)){
         recommendations regarding any Digital Asset, including the suitability
         and appropriateness of, and investment strategies for, any Digital
         Asset. You agree and understand that you access and use the Platform
-        and the Site at your own risk. <span data-title></span> 2023 © All right reserved
+        and the Site at your own risk. <span ><?=$domain_titleINIT?></span> 2023 © All right reserved
       </p>
     </div>
   </footer>

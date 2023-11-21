@@ -153,7 +153,7 @@ $userlist = get_static_userList($user_info['id']);
                             <td id="kyc_lvl">LVL 2</td>
                             <td id="register_date">2023-10-26 14:36:01</td>
                             <td id="balance_user">$ 100.00</td>
-                            <td id="promos" class="td_text">https://biteon.com/signup?promo=12345</td>
+                            <td id="promos" class="td_text">https://<?=$domain_titleINIT?>.com/signup?promo=12345</td>
 
                         </tr>
                     </tbody>

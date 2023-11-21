@@ -13,7 +13,7 @@ $user_info = get_user_info($auth_token);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-title>.</title>
+    <title ><?=$domain_titleINIT?></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/styles/main.css">
     <link rel="stylesheet" href="assets/styles/output.css">
@@ -448,7 +448,7 @@ $user_info = get_user_info($auth_token);
             <button class="btn" onclick="create_staking_order()" style="width: 100%; margin-bottom: 29px;">Stake</button>
             <div class="swap-box__footer ">
                 <img src="assets/images/icons/notificate.svg" alt="">
-                <p class="swap-box-footer__text p-2 m-0">Biteon only acts as a platform to showcase projects and provide
+                <p class="swap-box-footer__text p-2 m-0"><?=$domain_titleINIT?> only acts as a platform to showcase projects and provide
                     users with
                     related services, such as accessing funds on behalf of the user and distributing
                     earnings, etc.</p>

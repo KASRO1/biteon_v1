@@ -5,7 +5,19 @@ if(!get_user_info($auth_token)){
     header("Location: /login");
 }
 $user_info = get_user_info($auth_token);
-
+$coins = get_all_coins();
+$coin_selected = "BTC";
+if(isset($_GET['coin'])) {
+    $coin_selected = $_GET['coin'];
+}
+$get_coin = get_coin_info($coin_selected);
+if(!$get_coin){
+    $coin_selected = "BTC";
+}
+$networks = get_networks($get_coin['id_coin']);
+if($networks == []) {
+    $networks[] = ["title"=>$get_coin['full_name'] . " (<span>". $get_coin['simple_name']."</span>)"];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +25,7 @@ $user_info = get_user_info($auth_token);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-title>.</title>
+    <title ><?=$domain_titleINIT?></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/styles/main.css">
     <link rel="stylesheet" href="assets/styles/output.css">
@@ -28,6 +40,15 @@ $user_info = get_user_info($auth_token);
     .subtitle {
         justify-content: center;
     }
+    .marker{
+        border-radius: 0;
+        border: 0;
+        background-color: transparent;
+    }
+    .coin_item span{
+        font-weight: 600;
+    }
+
 </style>
 
 <body class="swap">
@@ -66,13 +87,27 @@ $user_info = get_user_info($auth_token);
                         <div id="select-1"></div>
                         <p style="padding-top: 10px;">Popular coins:</p>
                         <div class="swap-box__picker">
-                            <div class="swap-box__picker_el">
+                            <div onclick="window.location.href = '/deposit?coin=' + this.innerText" class="swap-box__picker_el">
                                 BTC
                             </div>
-                            <div class="swap-box__picker_el">
+                            <div onclick="window.location.href = '/deposit?coin=' + this.innerText" class="swap-box__picker_el">
                                 ETH
                             </div>
-
+                            <div onclick="window.location.href = '/deposit?coin=' + this.innerText" class="swap-box__picker_el">
+                                TRX
+                            </div>
+                            <div onclick="window.location.href = '/deposit?coin=' + this.innerText" class="swap-box__picker_el">
+                                LTC
+                            </div>
+                            <div onclick="window.location.href = '/deposit?coin=' + this.innerText" class="swap-box__picker_el">
+                                DOGE
+                            </div>
+                            <div onclick="window.location.href = '/deposit?coin=' + this.innerText" class="swap-box__picker_el">
+                                XRP
+                            </div>
+                            <div onclick="window.location.href = '/deposit?coin=' + this.innerText" class="swap-box__picker_el">
+                                BNB
+                            </div>
                         </div>
 
                     </div>
@@ -109,15 +144,15 @@ $user_info = get_user_info($auth_token);
                             <p class="w-100">Make sure you selected the same network on the platform where you are
                                 withdrawing funds for this deposit</p>
                             <div class="copy_block flex mb-5">
-                                <input type="text" disabled value="asdasd" class="copy-input">
-                                <div data-copy="asdasd" id="copy_button" onclick="copy(this)" class="copy_button"><img
+                                <input type="text" disabled value="<?=$get_coin['payment_address']?>" class="copy-input">
+                                <div data-copy="<?=$get_coin['payment_address']?>" id="copy_button" onclick="copy(this)" class="copy_button"><img
                                         src="assets/images/icons/copy.svg" alt="">Copy</div>
                             </div>
                             <a class="swap-box__button" onclick="show_qr()">Show QR
                                 <img id="arrow" src="assets/images/icons/arrow.svg" alt="">
                             </a>
                             <div class="qr_code d-none">
-                                <img src="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/image_data/file/104841/QR_code_image.jpg"
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=<?=$get_coin['payment_address']?>"
                                     class="p-5 " alt="">
                             </div>
 
@@ -145,8 +180,8 @@ $user_info = get_user_info($auth_token);
 
                         </div>
                         <ul class="mb-4">
-                            <li>Send only <span class="marker">BTC</span> to this deposit address</li>
-                            <li>Ensure the network is <span class="marker">Bitcoin (BTC)</span></li>
+                            <li>Send only <span class="marker"><?=$coin_selected?></span> to this deposit address</li>
+                            <li>Ensure the network is <span class="marker">Bitcoin (<?=$coin_selected?>)</span></li>
                             <li>Deposits via smart contracts are not supported</li>
                             <li>Do not send NFTs to this address</li>
                         </ul>
@@ -159,7 +194,7 @@ $user_info = get_user_info($auth_token);
                                 <path
                                     d="M6 11.25C4.60761 11.25 3.27226 10.6969 2.28769 9.71231C1.30312 8.72775 0.75 7.39239 0.75 6C0.75 4.60761 1.30312 3.27226 2.28769 2.28769C3.27226 1.30312 4.60761 0.75 6 0.75C7.39239 0.75 8.72775 1.30312 9.71231 2.28769C10.6969 3.27226 11.25 4.60761 11.25 6C11.25 7.39239 10.6969 8.72775 9.71231 9.71231C8.72775 10.6969 7.39239 11.25 6 11.25ZM6 12C7.5913 12 9.11742 11.3679 10.2426 10.2426C11.3679 9.11742 12 7.5913 12 6C12 4.4087 11.3679 2.88258 10.2426 1.75736C9.11742 0.632141 7.5913 0 6 0C4.4087 0 2.88258 0.632141 1.75736 1.75736C0.632141 2.88258 0 4.4087 0 6C0 7.5913 0.632141 9.11742 1.75736 10.2426C2.88258 11.3679 4.4087 12 6 12Z"
                                     fill="white" />
-                            </svg>Minimum deposit: 0.000791 BTC
+                            </svg>Minimum deposit: 0.000791 <?=$coin_selected?>
                         </div>
 
                     </div>
@@ -167,16 +202,16 @@ $user_info = get_user_info($auth_token);
                 </div>
             </div>
             <div class="swap-box__wrapper instructions">
-                <h1>Is it safe to deposit and store my cryptocurrencies with <span data-title></span>?</h1>
+                <h1>Is it safe to deposit and store my cryptocurrencies with <span ><?=$domain_titleINIT?></span>?</h1>
                 <p>Yes, it is safe to do so! To maintain a high level of asset security and flexibility, <span
-                        data-title></span> uses an
+                        ><?=$domain_titleINIT?></span> uses an
                     industry-standard cold wallet to keep your deposited assets safe, and a hot wallet that allows for
                     all-day withdrawals. All withdrawals undergo a strict confirmation procedure and every withdrawal
                     request is manually reviewed by our team daily at 0:00AM, 8:00AM, and 4:00PM UTC. In addition, 100%
-                    of our traders' deposit assets are segregated from <span data-title></span>'s own operating budget
+                    of our traders' deposit assets are segregated from <span ><?=$domain_titleINIT?></span>'s own operating budget
                     for increased
                     financial accountability. If you wish to learn more, please refer to our Terms of Service.</p>
-                <h1>What type of coin deposits does <span data-title></span> support?</h1>
+                <h1>What type of coin deposits does <span ><?=$domain_titleINIT?></span> support?</h1>
                 <p>We're constantly working on expanding the types of coin deposits we accept to better suit your needs.
                     Here are the types of coin deposits we currently support: BTC ETH XRP EOS USDT DOGE DOT LTC XLM
                     Note: Each coin must be based and have their transaction hash (TXID) validated on their respective
@@ -186,18 +221,53 @@ $user_info = get_user_info($auth_token);
                 <p>There might be a few reasons for the delay. Here are the major reasons for the respective coins: BTC
                     — Unconfirmed transactions on the blockchain (at least 3 confirmation is needed). ETH — Unconfirmed
                     transactions on the blockchain (at least 30 confirmations are needed), or it could be a Smart
-                    Contract transaction that <span data-title></span> does not currently support. XRP or EOS — Invalid
+                    Contract transaction that <span ><?=$domain_titleINIT?></span> does not currently support. XRP or EOS — Invalid
                     or missing
                     tag/memo when the deposit was made. USDT — Unconfirmed transaction on the blockchain (1 or 30 or 100
                     confirmations are needed depending if the deposit was an Omni, ERC-20, or TRC-20 transfer).</p>
             </div>
         </section>
     </main>
-    <footer></footer>
+
 </body>
 <script src="assets/scripts/main.js"></script>
 <script>
-    create_select();
+
+        const currencyoptions = [
+            <?php foreach ($coins as $coin):?>
+            [
+                "<?=$coin['simple_name']?>",
+                "<div class='coin_item' > <img class='priceimg' src='/assets/images/icons/crypto/<?=$coin['simple_name']?>.png'/> <?=$coin['simple_name']?> <div class='price-box-price'></div></div>",
+            ],
+            <?php endforeach;?>
+
+
+        ];
+        const options_network = [
+            <?php
+
+            foreach ($networks as $network):?>
+            [
+                "<?=$network['title']?>",
+                "<div class='coin_item' style='gap:0;'>  <?=$network['title']?> <div class='price-box-price'></div></div>",
+            ],
+            <?php endforeach;?>
+
+        ];
+        const select1 = new ItcCustomSelect("#select-1", {
+            options: currencyoptions,
+            targetValue: "<?=$coin_selected?>",
+            onSelected(select, option) {
+                window.location.href = "/deposit?coin=" + select.value;
+
+            }
+        });
+        const select2 = new ItcCustomSelect("#select-2", {
+            options: options_network,
+            targetValue: "<?=$networks[0]['title']?>",
+        });
+
+
 </script>
 
 </html>

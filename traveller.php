@@ -13,7 +13,7 @@ if(!get_user_info($auth_token)){
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-title>.</title>
+    <title ><?=$domain_titleINIT?></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/styles/main.css" />
     <link rel="stylesheet" href="assets/styles/output.css" />
@@ -30,7 +30,7 @@ if(!get_user_info($auth_token)){
             <div class="block box-header_travellar_content">
                 <div>
                     <h3 class=" mb-4 ">
-                        <span data-title></span> Space Traveller Earn with your referral code!
+                        <span ><?=$domain_titleINIT?></span> Space Traveller Earn with your referral code!
                     </h3>
                 </div>
                 <div>
@@ -150,13 +150,13 @@ if(!get_user_info($auth_token)){
                     In order to get a higher commission better than 20%, please fill out Space Traveller Application
                     Form to
                     apply.
-                    Every <span data-title></span> user, KOLs, bloggers, community managers and influencers are welcomed
-                    to promote <span data-title></span>
+                    Every <span ><?=$domain_titleINIT?></span> user, KOLs, bloggers, community managers and influencers are welcomed
+                    to promote <span ><?=$domain_titleINIT?></span>
                     and
                     become a Space Traveller.
                     Activation rate = number of activated referrals / total number of referrals. Activated referrals are
-                    those who trade more than $50 on <span data-title></span>.
-                    <span data-title></span> will evaluate your performance and adjust your Space Traveller tier every
+                    those who trade more than $50 on <span ><?=$domain_titleINIT?></span>.
+                    <span ><?=$domain_titleINIT?></span> will evaluate your performance and adjust your Space Traveller tier every
                     month. The referral
                     data will be reset monthly.
                     Sun Captains enjoy 50% commission from the referrals’ trading fee and 10% commission from
@@ -175,7 +175,7 @@ if(!get_user_info($auth_token)){
                         <h3>Exclusive Bonus</h3>
                         <img src="assets/images/icons/bonus.svg" alt="">
                     </div>
-                    <p>Besides referral commission, <span data-title></span> will hold exclusive
+                    <p>Besides referral commission, <span ><?=$domain_titleINIT?></span> will hold exclusive
                         events for Space Travellers and you could win NFT,
                         Futures trial fund and more.</p>
 
@@ -187,16 +187,16 @@ if(!get_user_info($auth_token)){
                     </div>
                     <p>Space Travellers could gain exclusive access to online
                         and offline events and crypto industry lectures hosted
-                        by <span data-title></span>.</p>
+                        by <span ></span><?=$domain_titleINIT?></p>
 
                 </div>
                 <div class="benefits_card rounded-lg p-5">
                     <div class="flex justify-between mb-10">
-                        <h3>Build <span data-title></span> Together</h3>
+                        <h3>Build <span ><?=$domain_titleINIT?></span> Together</h3>
                         <img src="assets/images/icons/together.svg" alt="">
                     </div>
                     <p>Space Traveller could help us build and grow the
-                        <span data-title></span> ecosystem by providing direct input for our
+                        <span ><?=$domain_titleINIT?></span> ecosystem by providing direct input for our
                         products and marketing initiatives.
                     </p>
 
@@ -249,7 +249,7 @@ if(!get_user_info($auth_token)){
         <section class=" px-32 flex ">
             <div class="banner_traveller  justify-between w-100">
                 <div class="block p-8">
-                    <h2 class="mb-0 ">Biteon Space Traveller</h2>
+                    <h2 class="mb-0 "><?=$domain_titleINIT?> Space Traveller</h2>
                     <p class="text-white mt-2">Up to <span class="text-yellow-500">60% commission</span> waiting for you to unlock!</p>
                 </div>
                 <div class="items-center flex mr-5">
@@ -264,7 +264,7 @@ if(!get_user_info($auth_token)){
                 <div class="footer-box__content">
                     <h1 class="">Trade anywhere and anytime with us</h1>
                     <p>
-                        Enjoy the convenience of <span data-title></span>’s crypto trading platform. Make
+                        Enjoy the convenience of <span ><?=$domain_titleINIT?></span>’s crypto trading platform. Make
                         money on cryptocurrency anytime, anywhere as valuable.
                     </p>
                     <div class="footer-box__button">
@@ -277,7 +277,7 @@ if(!get_user_info($auth_token)){
             <div class="footer-links__box max-w-xs">
                 <div class="logo justify-start">
                     <img src="assets/images/logo.svg" class="logo_img" alt="logo" />
-                    <h3 class="logo_name" data-title></h3>
+                    <h3 class="logo_name" ><?=$domain_titleINIT?></h3>
                 </div>
                 <div class="footer_desc">
                     <p>
@@ -304,7 +304,7 @@ if(!get_user_info($auth_token)){
                     <li>Instant swap</li>
                     <li>P2P trading</li>
                     <li>DeFi Staking</li>
-                    <li><span data-title></span> Visa Card</li>
+                    <li><span ><?=$domain_titleINIT?></span> Visa Card</li>
                 </ul>
             </div>
             <div class="footer-links__box">
@@ -316,7 +316,7 @@ if(!get_user_info($auth_token)){
                     <li>ETH 2.0 staking</li>
                     <li>Launchpad</li>
                     <li>Savings</li>
-                    <li><span data-title></span> ventures</li>
+                    <li><span ><?=$domain_titleINIT?></span> ventures</li>
                     <li>Buy crypto</li>
                 </ul>
             </div>
@@ -357,7 +357,7 @@ if(!get_user_info($auth_token)){
                 recommendations regarding any Digital Asset, including the suitability
                 and appropriateness of, and investment strategies for, any Digital
                 Asset. You agree and understand that you access and use the Platform
-                and the Site at your own risk. <span data-title></span> 2023 © All right reserved
+                and the Site at your own risk. <span ><?=$domain_titleINIT?></span> 2023 © All right reserved
             </p>
         </div>
     </footer>

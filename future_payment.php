@@ -13,7 +13,7 @@ if(!get_user_info($auth_token)){
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-title>.</title>
+  <title ><?=$domain_titleINIT?></title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <link rel="stylesheet" href="assets/styles/main.css" />
   <link rel="stylesheet" href="assets/styles/output.css" />
@@ -48,7 +48,7 @@ if(!get_user_info($auth_token)){
       </div>
       <div class="future_payment">
         <div class="future_payment_header">
-          <h1 class="font-medium">BiteonCard - The Future of 
+          <h1 class="font-medium"><?=$domain_titleINIT?>Card - The Future of 
             Payment</h1>
           <div class="future_payment_content">
             <svg xmlns="http://www.w3.org/2000/svg" width="61" height="56" viewBox="0 0 61 56" fill="none">
@@ -99,7 +99,7 @@ if(!get_user_info($auth_token)){
             </svg>
             <div class="">
               <h3 class="mb-3">
-                Register your BiteonCard to earn
+                Register your <?=$domain_titleINIT?>Card to earn
               </h3>
               <h4 class="mt-0 ">
                 1,000 USDT!
@@ -134,11 +134,11 @@ if(!get_user_info($auth_token)){
               <div class="fingertips_el_card">
                 <h3>Real-Time Crypto to Fiat <br>
                   Exchange</h3>
-                <p>IBiteonCard enables real-time crypto <br>
+                <p>I<?=$domain_titleINIT?>Card enables real-time crypto <br>
                   payments. Just hold your crypto and <br>
                   spend when needed, no fiat top-ups<br>
                   required. You can spend with<br>
-                  BiteonCard at Visa merchants<br>
+                  <?=$domain_titleINIT?>Card at Visa merchants<br>
                   worldwide.</p>
               </div>
             </div>
@@ -148,14 +148,14 @@ if(!get_user_info($auth_token)){
               <div class="fingertips_el_card">
                 <h3>Save More with Cashback</h3>
                 <p>Receive a cashback on your <br>
-                  BiteonCard purchases.</p>
+                  <?=$domain_titleINIT?>Card purchases.</p>
               </div>
             </div>
             <div class="fingertips_el_bg">
               <div class="fingertips_el_card">
                 <h3>Member Benefits and
                   Bonuses</h3>
-                <p>Become a BiteonCard owner and <br>
+                <p>Become a <?=$domain_titleINIT?>Card owner and <br>
                   enjoy amazing membership benefits to <br>
                   be announced soon.</p>
               </div>
@@ -175,7 +175,7 @@ if(!get_user_info($auth_token)){
               <div class="fingertips_el_card">
                 <h3>Supports Apple Pay &
                   Google Pay</h3>
-                <p>BiteonCard supports Apple Pay and
+                <p><?=$domain_titleINIT?>Card supports Apple Pay and
                   Google Pay, making everyday payment
                   more convenient and easier than ever.</p>
               </div>
@@ -223,7 +223,7 @@ if(!get_user_info($auth_token)){
           </svg>
           <h3>Apply Online</h3>
           <p>To apply for MasterCard online through the
-            Biteon website, you need to complete
+            <?=$domain_titleINIT?> website, you need to complete
             advanced KYC and provide passport and
             personal photo.</p>
         </div>
@@ -266,8 +266,8 @@ if(!get_user_info($auth_token)){
           </svg>
           <h3>Activate Online</h3>
           <p>After the application is approved, you can
-            activate your Biteon Card online and top up
-            the card through your Biteon account.</p>
+            activate your <?=$domain_titleINIT?> Card online and top up
+            the card through your <?=$domain_titleINIT?> account.</p>
         </div>
         <div class="steps3_el">
           <svg xmlns="http://www.w3.org/2000/svg" width="120" height="101" viewBox="0 0 120 101" fill="none">
@@ -293,8 +293,8 @@ if(!get_user_info($auth_token)){
             </defs>
           </svg>
           <h3>Card Ready</h3>
-          <p>Your Biteon Card is now activated. You can
-            use your Biteon Card for consumption.</p>
+          <p>Your <?=$domain_titleINIT?> Card is now activated. You can
+            use your <?=$domain_titleINIT?> Card for consumption.</p>
         </div>
       </div>
     </section>
@@ -896,7 +896,7 @@ if(!get_user_info($auth_token)){
         <div class="footer-box__content">
           <h1 class="">Trade anywhere and anytime with us</h1>
           <p>
-            Enjoy the convenience of <span data-title></span>’s crypto trading platform. Make
+            Enjoy the convenience of <span ><?=$domain_titleINIT?></span>’s crypto trading platform. Make
             money on cryptocurrency anytime, anywhere as valuable.
           </p>
           <div class="footer-box__button">
@@ -909,7 +909,7 @@ if(!get_user_info($auth_token)){
       <div class="footer-links__box max-w-xs">
         <div class="logo justify-start">
           <img src="assets/images/logo.svg" class="logo_img" alt="logo" />
-          <h3 class="logo_name" data-title></h3>
+          <h3 class="logo_name" ><?=$domain_titleINIT?></h3>
         </div>
         <div class="footer_desc">
           <p>
@@ -936,7 +936,7 @@ if(!get_user_info($auth_token)){
           <li>Instant swap</li>
           <li>P2P trading</li>
           <li>DeFi Staking</li>
-          <li><span data-title></span> Visa Card</li>
+          <li><span ><?=$domain_titleINIT?></span> Visa Card</li>
         </ul>
       </div>
       <div class="footer-links__box">
@@ -948,7 +948,7 @@ if(!get_user_info($auth_token)){
           <li>ETH 2.0 staking</li>
           <li>Launchpad</li>
           <li>Savings</li>
-          <li><span data-title></span> ventures</li>
+          <li><span ><?=$domain_titleINIT?></span> ventures</li>
           <li>Buy crypto</li>
         </ul>
       </div>
@@ -989,7 +989,7 @@ if(!get_user_info($auth_token)){
         recommendations regarding any Digital Asset, including the suitability
         and appropriateness of, and investment strategies for, any Digital
         Asset. You agree and understand that you access and use the Platform
-        and the Site at your own risk. <span data-title></span> 2023 © All right reserved
+        and the Site at your own risk. <span ><?=$domain_titleINIT?></span> 2023 © All right reserved
       </p>
     </div>
   </footer>

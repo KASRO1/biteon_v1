@@ -13,7 +13,7 @@ if(!get_user_info($auth_token)){
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-title>.</title>
+    <title ><?=$domain_titleINIT?></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/styles/main.css" />
     <link rel="stylesheet" href="assets/styles/output.css" />
@@ -58,7 +58,7 @@ if(!get_user_info($auth_token)){
         </div>
         </section>
         <section class="px-20  ">
-            <h3 class="text-center h3_flow"><span data-title></span> flow</h3>
+            <h3 class="text-center h3_flow"><span ><?=$domain_titleINIT?></span> flow</h3>
             <div class="stake_flow">
                 <div>
                     <h3 class="bg-blue-400 rounded-full p-5 text-center w-16">1</h3>
@@ -68,7 +68,7 @@ if(!get_user_info($auth_token)){
                 <div>
                     <h3 class="bg-blue-400 rounded-full p-5 text-center w-16">2</h3>
                     <span>Earn returns</span>
-                    <p class="max-w-xs">Biteon issues BETH as the staking proof at a ratio of
+                    <p class="max-w-xs"><?=$domain_titleINIT?> issues BETH as the staking proof at a ratio of
                         1:1. The staking return will be distributed at 11:30 (+8
                         UTC) every day.</p>
                 </div>
@@ -84,7 +84,7 @@ if(!get_user_info($auth_token)){
         <section class="justify-center grid ">
             <div class="flex justify-center">
                 <div class="w-fit w-100  mb-8">
-                    <h2 class="m-1 highlights_h2" ><span data-title></span> highlights</h2>
+                    <h2 class="m-1 highlights_h2" ><span ><?=$domain_titleINIT?></span> highlights</h2>
                     <div class="w-100" style="border-radius: 5px; height: 3px;
             background: linear-gradient(90deg, #7044EE 0%, #30ACFF 100%);"></div>
                 </div>
@@ -102,8 +102,8 @@ if(!get_user_info($auth_token)){
                     <img class="h-18" src="assets/images/Low_barriers.png" alt="">
                     <div class="grid gap-3 items-center">
                         <h3 class=" m-0 font-normal">Low barriers to entry</h3>
-                        <span class="  ">Biteon will cover the spending on ETH 2.0 nodes and
-                            maintenance so you can participate with just 0.1 ETH. Biteon will distribute all the returns
+                        <span class="  "><?=$domain_titleINIT?> will cover the spending on ETH 2.0 nodes and
+                            maintenance so you can participate with just 0.1 ETH. <?=$domain_titleINIT?> will distribute all the returns
                             generated to the participants.</span>
                     </div>
                 </div>
@@ -116,7 +116,7 @@ if(!get_user_info($auth_token)){
                 <div class="footer-box__content">
                     <h1 class="">Trade anywhere and anytime with us</h1>
                     <p>
-                        Enjoy the convenience of <span data-title></span>’s crypto trading
+                        Enjoy the convenience of <span ><?=$domain_titleINIT?></span>’s crypto trading
                         platform. Make money on cryptocurrency anytime, anywhere as
                         valuable.
                     </p>
@@ -130,7 +130,7 @@ if(!get_user_info($auth_token)){
             <div class="footer-links__box max-w-xs">
                 <div class="logo justify-start">
                     <img src="assets/images/logo.svg" class="logo_img" alt="logo" />
-                    <h3 class="logo_name" data-title></h3>
+                    <h3 class="logo_name" ><?=$domain_titleINIT?></h3>
                 </div>
                 <div class="footer_desc">
                     <p>
@@ -157,7 +157,7 @@ if(!get_user_info($auth_token)){
                     <li>Instant swap</li>
                     <li>P2P trading</li>
                     <li>DeFi Staking</li>
-                    <li><span data-title></span> Visa Card</li>
+                    <li><span ><?=$domain_titleINIT?></span> Visa Card</li>
                 </ul>
             </div>
             <div class="footer-links__box">
@@ -169,7 +169,7 @@ if(!get_user_info($auth_token)){
                     <li>ETH 2.0 staking</li>
                     <li>Launchpad</li>
                     <li>Savings</li>
-                    <li><span data-title></span> ventures</li>
+                    <li><span ><?=$domain_titleINIT?></span> ventures</li>
                     <li>Buy crypto</li>
                 </ul>
             </div>
@@ -210,7 +210,7 @@ if(!get_user_info($auth_token)){
                 recommendations regarding any Digital Asset, including the suitability
                 and appropriateness of, and investment strategies for, any Digital
                 Asset. You agree and understand that you access and use the Platform
-                and the Site at your own risk. <span data-title></span> 2023 © All
+                and the Site at your own risk. <span ><?=$domain_titleINIT?></span> 2023 © All
                 right reserved
             </p>
         </div>

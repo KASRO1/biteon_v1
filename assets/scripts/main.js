@@ -1,6 +1,6 @@
 window.onload = function () {
     const title = "BITEON";
-    const titles = document.querySelectorAll("[data-title]");
+    const titles = document.querySelectorAll("[]");
     titles.forEach((el) => {
         el.innerHTML = title;
     });
@@ -47,131 +47,7 @@ function show_qr() {
     }
 }
 
-function create_select() {
-    const currencyoptions = [
-        [
-            "BTC",
-            "<div class='coin_item'><img class='priceimg' src='/assets/images/icons/crypto/btc.png'/> BTC <div class='price-box-price'></div></div>",
-        ],
-        [
-            "ETH",
-            "<div class='coin_item'> <img class='priceimg' src='/assets/images/icons/crypto/eth.png'/> ETH <div class='price-box-price'></div></div>",
-        ],
-        [
-            "DOGE",
-            "<div class='coin_item'> <img class='priceimg' src='/assets/images/icons/crypto/doge.png'/> DOGE <div class='price-box-price'></div></div>",
-        ],
-        [
-            "BNB",
-            "<div class='coin_item'> <img class='priceimg' src='/assets/images/icons/crypto/bnb.png'/> BNB <div class='price-box-price'></div></div>",
-        ],
-        [
-            "TRX",
-            "<div class='coin_item'> <img class='priceimg' src='/assets/images/icons/crypto/trx.png'/> TRX <div class='price-box-price'></div></div>",
-        ],
-        [
-            "LTC",
-            "<div class='coin_item'> <img class='priceimg' src='/assets/images/icons/crypto/ltc.png'/> LTC <div class='price-box-price'></div></div>",
-        ],
-        [
-            "CAKE",
-            "<div class='coin_item'> <img class='priceimg' src='/assets/images/icons/crypto/cake.png'/> CAKE <div class='price-box-price'></div></div>",
-        ],
-        [
-            "AVAX",
-            "<div class='coin_item'> <img class='priceimg' src='/assets/images/icons/crypto/avax.png'/> AVAX <div class='price-box-price'></div></div>",
-        ],
-        [
-            "XMR",
-            "<div class='coin_item'> <img class='priceimg' src='/assets/images/icons/crypto/xmr.png'/> XMR <div class='price-box-price'></div></div>",
-        ],
-        [
-            "BCH",
-            "<div class='coin_item'> <img class='priceimg' src='/assets/images/icons/crypto/bch.png'/> BCH <div class='price-box-price'></div></div>",
-        ],
-        [
-            "FTM",
-            "<div class='coin_item'> <img class='priceimg' src='/assets/images/icons/crypto/ftm.png'/> FTM <div class='price-box-price'></div></div>",
-        ],
-        [
-            "ADA",
-            "<div class='coin_item'> <img class='priceimg' src='/assets/images/icons/crypto/ada.png'/> ADA <div class='price-box-price'></div></div>",
-        ],
-        [
-            "DASH",
-            "<div class='coin_item'> <img class='priceimg' src='/assets/images/icons/crypto/dash.png'/> DASH <div class='price-box-price'></div></div>",
-        ],
-        [
-            "SOL",
-            "<div class='coin_item'> <img class='priceimg' src='/assets/images/icons/crypto/sol.png'/> SOL <div class='price-box-price'></div></div>",
-        ],
-        [
-            "BNB",
-            "<div class='coin_item'> <img class='priceimg' src='/assets/images/icons/crypto/bnb.png'/> BNB <div class='price-box-price'></div></div>",
-        ],
-        [
-            "TETHER (TRC20)",
-            "<div class='coin_item'> <img class='priceimg' src='/assets/images/icons/crypto/usdt.png'/> TETHER (TRC20) <div class='price-box-price'>1</div>",
-        ],
-        [
-            "TETHER (ERC20)",
-            "<div class='coin_item'> <img class='priceimg' src='/assets/images/icons/crypto/usdt.png'/> TETHER (ERC20) <div class='price-box-price'>1</div>",
-        ],
-        [
-            "BINANCE USD (ERC20)",
-            "<div class='coin_item'> <img class='priceimg' src='/assets/images/icons/crypto/scysytw.png'/> BINANCE USD (ERC20) <div class='price-box-price'>1</div>",
-        ],
-        [
-            "BINANCE USD (BEP20)",
-            "<div class='coin_item'> <img class='priceimg' src='/assets/images/icons/crypto/scysytw.png'/> BINANCE USD (BEP20) <div class='price-box-price'>1</div>",
-        ],
-        [
-            "BINANCE USD (BEP2)",
-            "<div class='coin_item'> <img class='priceimg' src='/assets/images/icons/crypto/scysytw.png'/> BINANCE USD (BEP2) <div class='price-box-price'>1</div>",
-        ],
-        [
-            "USD COIN (ERC20)",
-            "<div class='coin_item'> <img class='priceimg' src='/assets/images/icons/crypto/ustst.png'/> USD COIN (ERC20) <div class='price-box-price'>1</div>",
-        ],
-        [
-            "USD COIN (BEP20)",
-            "<div class='coin_item'> <img class='priceimg' src='/assets/images/icons/crypto/ustst.png'/> USD COIN (BEP20) <div class='price-box-price'>1</div>",
-        ],
-        [
-            "USD COIN (POLYGON)",
-            "<div class='coin_item'> <img class='priceimg' src='/assets/images/icons/crypto/ustst.png'/> USD COIN (POLYGON) <div class='price-box-price'>1</div>",
-        ],
-        [
-            "USD COIN (TRC20)",
-            "<div class='coin_item'> <img class='priceimg' src='/assets/images/icons/crypto/ustst.png'/> USD COIN (TRC20) <div class='price-box-price'>1</div>",
-        ],
-    ];
-    const options_network = [
-        [
-            "BTC",
-            "<div class='coin_item'><img class='priceimg' src='/assets/images/icons/crypto/btc.png'/> <span class='f-bold'>BTC</span> </div>",
-        ],
-        ["ETH", "ETH"],
-        ["DOGE", "DOGE"],
-    ];
-    const select1 = new ItcCustomSelect("#select-1", {
-        options: currencyoptions,
-        targetValue: "BTC",
-    });
-    const select2 = new ItcCustomSelect("#select-2", {
-        options: options_network,
-    });
 
-    const pickerElements = document.querySelectorAll('.swap-box__picker_el');
-    pickerElements.forEach((element) => {
-        element.addEventListener('click', function (event) {
-            const value = event.target.textContent;
-
-            select2.value = "BTC";
-
-        });
-    });
-}
 
 
 const profile = document.getElementById('profile');

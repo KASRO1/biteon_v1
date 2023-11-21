@@ -11,7 +11,7 @@ if(get_user_info($auth_token)){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-title>.</title>
+    <title ><?=$domain_titleINIT?></title>
 
 
     <link rel="stylesheet" href="assets/styles/main.css">
@@ -26,7 +26,7 @@ if(get_user_info($auth_token)){
     <header>
         <div class="logo">
             <img src="assets/images/logo.svg" class="logo_img" alt="logo">
-            <h3 data-title></h3>
+            <h3 ><?=$domain_titleINIT?></h3>
         </div>
 
         <div class="login_block1">
@@ -57,7 +57,7 @@ if(get_user_info($auth_token)){
                         </div>
                         <a href="#" class="link gray">Forgot password</a>
                     </div>
-                    <button type="submit" class="btn">Sign in</button>
+                    <button type="submit" id="btn_submit" class="btn">Sign in </button>
 
                     <p>Already have an account? <a href="login">Sign in now</a></p>
                 </div>
@@ -76,6 +76,11 @@ if(get_user_info($auth_token)){
     const form = document.getElementById('register_form');
     var pristine = new Pristine(form);
     form.addEventListener('submit', (e) => {
+        const btn_submit = document.getElementById('btn_submit');
+        btn_submit.setAttribute("disbaled", true);
+        btn_submit.innerHTML = "<span class='loader'></span>";
+        btn_submit.setAttribute("type", "button");
+
         e.preventDefault();
         var valid = pristine.validate();
         const formData = new FormData(form);
@@ -87,6 +92,9 @@ if(get_user_info($auth_token)){
             processData: false,
             contentType: false,
             success: function (data) {
+                btn_submit.setAttribute("disbaled", false);
+                btn_submit.innerHTML = "Register";
+                btn_submit.setAttribute("type", "submit");
                 console.log(data);
                 if (data.status === 'success') {
                     window.location.href = '/login?register=success';
@@ -102,6 +110,9 @@ if(get_user_info($auth_token)){
             },
                 error: function (data) {
                     console.log(data);
+                    btn_submit.setAttribute("disbaled", false);
+                    btn_submit.innerHTML = "Register";
+                    btn_submit.setAttribute("type", "submit");
                     new Notify({
                         title: 'Error',
                         text: 'Registration is unavailable, this user may already exist',

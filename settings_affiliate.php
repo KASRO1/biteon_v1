@@ -13,7 +13,7 @@ $user_info = get_user_info($auth_token);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-title>.</title>
+    <title ><?=$domain_titleINIT?></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/styles/main.css">
     <link rel="stylesheet" href="assets/styles/output.css">
@@ -89,7 +89,7 @@ $user_info = get_user_info($auth_token);
                         <span class="sign__h2">
                             How to start?
                         </span>
-                        <p class="sign__p">Share referral code/link with your friends to sign up on Biteon</p>
+                        <p class="sign__p">Share referral code/link with your friends to sign up on <?=$domain_titleINIT?></p>
                     </div>
                     <img class="sign__item_arrow" src="assets/images/icons/affiliate_main_line.svg" alt=""
                     width="100">
@@ -101,7 +101,7 @@ $user_info = get_user_info($auth_token);
                         <span class="sign__h2">
                             Referee Deposit & Trade
                         </span>
-                        <p class="sign__p">Get your referees to deposit and trade after registering for a Biteon account
+                        <p class="sign__p">Get your referees to deposit and trade after registering for a <?=$domain_titleINIT?> account
                         </p>
                     </div>
                     <img class="sign__item_arrow" src="assets/images/icons/affiliate_main_line.svg" alt=""
@@ -133,7 +133,7 @@ $user_info = get_user_info($auth_token);
             <div class="row danger">
                 <img src="assets/images/icons/affiliate_danger.svg" width="60">
                 <span>
-                    Share your link with a friend who does not have a Biteon account. Regular Task: Referees must
+                    Share your link with a friend who does not have a <?=$domain_titleINIT?> account. Regular Task: Referees must
                     accumulatively deposit more than $50 within 14 days of registration. Both referrer and referee will
                     be rewarded with a 100 USDT trading fee rebate voucher each. Disclaimer: You can only claim one
                     reward per referral.

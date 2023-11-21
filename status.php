@@ -13,7 +13,7 @@ if(!get_user_info($auth_token)){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-title>.</title>
+    <title ><?=$domain_titleINIT?></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/styles/main.css">
     <link rel="stylesheet" href="assets/styles/output.css">
@@ -32,11 +32,11 @@ if(!get_user_info($auth_token)){
     <main id="status_main" >
         <section class="status_project">
             <div class="status_project_header">
-                <h1>Biteon Status</h1>
+                <h1><?=$domain_titleINIT?> Status</h1>
                 <p>Real-time maintenance info</p>
             </div>
             <div class="status_project_header_footer">
-                <p>Check the status of Biteon upgrades, system maintenance, potential service outages, and crypto deposits and withdrawals</p>
+                <p>Check the status of <?=$domain_titleINIT?> upgrades, system maintenance, potential service outages, and crypto deposits and withdrawals</p>
             </div>
         </section>
         <section class="planned_upgrades_sec">
@@ -228,7 +228,7 @@ if(!get_user_info($auth_token)){
         <section class="stats_status_deposits_sec">
             <div class="stats_status_deposits_sec_title">
                 <h1 class="mb-2">Status of deposits and withdrawals</h1>
-                <p >Check if you can deposit or withdraw any crypto listed on Biteon right now.</p>
+                <p >Check if you can deposit or withdraw any crypto listed on <?=$domain_titleINIT?> right now.</p>
             </div>
             <table id="status_table_table" class="fees_table status_table" >
                 <thead>
