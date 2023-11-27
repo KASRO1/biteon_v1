@@ -4,57 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48de03d6-5035-48b3-82d5-9edc4dfb2797" name="Changes" comment="Почти сделал маркет">
-      <change afterPath="$PROJECT_DIR$/api/ajax/transfer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/ajax/withdraw.php" afterDir="false" />
+    <list default="true" id="48de03d6-5035-48b3-82d5-9edc4dfb2797" name="Changes" comment="last">
+      <change afterPath="$PROJECT_DIR$/api/ajax/binding_minimalDeposit_worker.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/ajax/binding_paymentAddress_worker.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/ajax/binding_stakingProcent_worker.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/ajax/binding_textsError_worker.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/ajax/binding_withdraw_worker.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/ajax/set_spread.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/ajax/set_status_kyc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/2fa.php" beforeDir="false" afterPath="$PROJECT_DIR$/2fa.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/kyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/kyc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/settings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/support.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/support.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/swap_settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/swap_settings.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/usersList.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/usersList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/ajax/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/withdrawal.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/withdrawal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/close_limit_order.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/close_limit_order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/close_trigger_order.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/close_trigger_order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/get_assets_coin.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/get_assets_coin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/orders_market.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/orders_market.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/function/backend/course.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/course.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/function/backend/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/function/backend/mailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/mailer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/function/frontend/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/frontend/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/init.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/scripts/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scripts/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/change-password.php" beforeDir="false" afterPath="$PROJECT_DIR$/change-password.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/copyTrading.php" beforeDir="false" afterPath="$PROJECT_DIR$/copyTrading.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deposit.php" beforeDir="false" afterPath="$PROJECT_DIR$/deposit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/faq.php" beforeDir="false" afterPath="$PROJECT_DIR$/faq.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fees.php" beforeDir="false" afterPath="$PROJECT_DIR$/fees.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forgot-password.php" beforeDir="false" afterPath="$PROJECT_DIR$/forgot-password.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/future_payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/future_payment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cross-rates.php" beforeDir="false" afterPath="$PROJECT_DIR$/cross-rates.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/heat-map.php" beforeDir="false" afterPath="$PROJECT_DIR$/heat-map.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/launchpad.php" beforeDir="false" afterPath="$PROJECT_DIR$/launchpad.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moon.php" beforeDir="false" afterPath="$PROJECT_DIR$/moon.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nft.php" beforeDir="false" afterPath="$PROJECT_DIR$/nft.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p2p.php" beforeDir="false" afterPath="$PROJECT_DIR$/p2p.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/participate.php" beforeDir="false" afterPath="$PROJECT_DIR$/participate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market-cap.php" beforeDir="false" afterPath="$PROJECT_DIR$/market-cap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market-screener.php" beforeDir="false" afterPath="$PROJECT_DIR$/market-screener.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/savings.php" beforeDir="false" afterPath="$PROJECT_DIR$/savings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings_2fa.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_2fa.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings_affiliate.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_affiliate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings_api.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings_gift.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_gift.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings_kyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_kyc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_password.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart_money.php" beforeDir="false" afterPath="$PROJECT_DIR$/smart_money.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spot.php" beforeDir="false" afterPath="$PROJECT_DIR$/spot.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/staking.php" beforeDir="false" afterPath="$PROJECT_DIR$/staking.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/status.php" beforeDir="false" afterPath="$PROJECT_DIR$/status.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/support.php" beforeDir="false" afterPath="$PROJECT_DIR$/support.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swap.php" beforeDir="false" afterPath="$PROJECT_DIR$/swap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/technical-analysis.php" beforeDir="false" afterPath="$PROJECT_DIR$/technical-analysis.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tradingBots.php" beforeDir="false" afterPath="$PROJECT_DIR$/tradingBots.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/transfer.php" beforeDir="false" afterPath="$PROJECT_DIR$/transfer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/traveller.php" beforeDir="false" afterPath="$PROJECT_DIR$/traveller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ventures.php" beforeDir="false" afterPath="$PROJECT_DIR$/ventures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/want_buy.php" beforeDir="false" afterPath="$PROJECT_DIR$/want_buy.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/withdraw.php" beforeDir="false" afterPath="$PROJECT_DIR$/withdraw.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,28 +91,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/OSPanel/domains/BITEON/api/ajax",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/OSPanel/domains/BITEON/api/ajax&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\OSPanel\domains\BITEON\api\ajax" />
@@ -182,7 +167,13 @@
       <workItem from="1700143956344" duration="8896000" />
       <workItem from="1700431978127" duration="6866000" />
       <workItem from="1700483792072" duration="595000" />
-      <workItem from="1700555921650" duration="20082000" />
+      <workItem from="1700555921650" duration="20166000" />
+      <workItem from="1700657111255" duration="11785000" />
+      <workItem from="1700675466277" duration="83000" />
+      <workItem from="1700903428543" duration="9756000" />
+      <workItem from="1701104195824" duration="1280000" />
+      <workItem from="1701111975887" duration="1502000" />
+      <workItem from="1701114563333" duration="1392000" />
     </task>
     <task id="LOCAL-00001" summary="last">
       <option name="closed" value="true" />
@@ -240,7 +231,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700229275377</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="last">
+      <option name="closed" value="true" />
+      <created>1700608809545</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1700608809545</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,11 +257,11 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="last" />
     <MESSAGE value="last1" />
     <MESSAGE value="Сделал чат" />
     <MESSAGE value="Почти сделал маркет" />
-    <option name="LAST_COMMIT_MESSAGE" value="Почти сделал маркет" />
+    <MESSAGE value="last" />
+    <option name="LAST_COMMIT_MESSAGE" value="last" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

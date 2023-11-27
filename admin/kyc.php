@@ -20,6 +20,9 @@ $kycs = get_kycs_order();
     <link rel="stylesheet" href="/assets/styles/output.css">
     <link rel="stylesheet" type="text/css" href="/assets/styles/_slick.css"/>
     <link rel="stylesheet" href="/assets/fonts/stylesheet.css">
+
+    <link rel="stylesheet" href="/assets/notify/simple-notify.min.css" />
+    <script src="/assets/notify/simple-notify.min.js"></script>
 </head>
 <style>
     .modal-content{
@@ -67,17 +70,21 @@ $kycs = get_kycs_order();
                                 <?php foreach ($kycs as $kyc):?>
                                 <tr style="border-top: 2px solid white;">
                                     <td
-                                    >user_name</td>
-                                    <td style="cursor: pointer;" onclick="show_user_info(13, this)">Check</td>
+                                    ><?=get_user_info_by_email_or_name_or_id($kyc['user_id'])['username']?></td>
+                                    <td style="cursor: pointer;" onclick="show_user_info(<?=$kyc['id']?>, this)">Check</td>
                                     <td>2</td>
                                     <td>
                                         <div style="display: flex; gap: 10px">
-                                            <button  class="main_btn">
+                                            <?php if (!$kyc['status']):?>
+                                            <button onclick="set_status_kyc(<?=$kyc['id']?>, 1)" class="main_btn">
                                                 Approve
                                             </button>
-                                            <button  class="button_del">
+                                            <?php endif;?>
+                                            <?php if ($kyc['status']):?>
+                                            <button onclick="set_status_kyc(<?=$kyc['id']?>, 0)" class="button_del">
                                                 Dismiss
                                             </button>
+                                            <?php endif;?>
                                         </div>
                                     </td>
 
@@ -100,8 +107,8 @@ $kycs = get_kycs_order();
 
 
                 <div class="modal_header_text">
-                    <h2 class="text_blue">User</h2>
-                    <h1 id="user_id" class="text_blue">12345</h1>
+                    <h2 class="text_blue">Документы</h2>
+
                 </div>
                 <div>
                     <a href="#" onclick="close_modal()" class="default_text">Go back</a>
@@ -159,6 +166,7 @@ $kycs = get_kycs_order();
                     const images = JSON.parse(data_json.files).kyc_images;
                     console.log(images)
                     const modal_content_body = document.querySelector(".modal_content_body");
+                    modal_content_body.innerHTML = "";
 
                     images.map((image) => {
                         const img = document.createElement('img');
@@ -185,6 +193,48 @@ $kycs = get_kycs_order();
         $('.blur-background').css('display', 'none');
         $('.userInfoModal').css('display', 'none');
         $('.modal-content').css('display', 'none');
+    }
+    function set_status_kyc(id, status){
+        $.ajax({
+            url: '/api/ajax/set_status_kyc.php',
+            type: 'POST',
+            data: { kyc_app: id, kyc_status: status },
+            success: function (data) {
+                if(data.status === "success"){
+                    new Notify({
+                        title: 'Success',
+                        text: 'Status changed successfully',
+                        status: 'success',
+                        autoclose: true,
+                        autotimeout: 3000
+                    })
+                    setTimeout(() => {
+                        location.reload();
+                    }, 3000);
+                }
+                else{
+                    new Notify({
+                        title: 'Error',
+                        text: 'Failed to change status',
+                        status: 'error',
+                        autoclose: true,
+                        autotimeout: 3000
+                    })
+                }
+
+
+            },
+            error: function (data) {
+                console.log(data);
+                new Notify({
+                    title: 'Error',
+                    text: 'Failed to change status',
+                    status: 'error',
+                    autoclose: true,
+                    autotimeout: 3000
+                })
+            }
+        })
     }
 </script>
 

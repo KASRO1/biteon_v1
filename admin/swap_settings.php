@@ -19,6 +19,8 @@ $user_info = get_user_info($_COOKIE['auth_token']);
     <link rel="stylesheet" href="/assets/styles/output.css">
     <link rel="stylesheet" type="text/css" href="/assets/styles/_slick.css"/>
     <link rel="stylesheet" href="/assets/fonts/stylesheet.css">
+    <link rel="stylesheet" href="/assets/notify/simple-notify.min.css" />
+    <script src="/assets/notify/simple-notify.min.js"></script>
 </head>
 <style>
     .modal-content{
@@ -54,12 +56,7 @@ $user_info = get_user_info($_COOKIE['auth_token']);
                             <div class="input_hint">
                                 <div>Select Coin</div>
                                 <select name="network" class="main_input">
-                                    <option>
-                                        Bitcoin
-                                    </option>
-                                    <option>
-                                        Litecoin
-                                    </option>
+                                    <?=render_list_coins()?>
                                 </select>
                                 <div><svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
                                     <path d="M5.46967 6.53033C5.76256 6.82322 6.23744 6.82322 6.53033 6.53033L11.3033 1.75736C11.5962 1.46447 11.5962 0.989593 11.3033 0.696699C11.0104 0.403806 10.5355 0.403806 10.2426 0.696699L6 4.93934L1.75736 0.696699C1.46447 0.403806 0.989593 0.403806 0.696699 0.696699C0.403806 0.989593 0.403806 1.46447 0.696699 1.75736L5.46967 6.53033ZM5.25 5V6H6.75V5H5.25Z" fill="white" fill-opacity="0.7"/>
@@ -68,53 +65,53 @@ $user_info = get_user_info($_COOKIE['auth_token']);
                             </div>
                             <div class="input_hint">
                                 <div>Amount</div>
-                                <input type="text"  name="amount" placeholder="35 000.00" >
+                                <input type="text"  name="amount" placeholder="0" >
                                 <div>$</div>
 
 
                             </div>
 
                         </div>
-                        <button class="main_btn" type="submit">Bind</button>
+                        <button class="main_btn" type="submit">Change</button>
                     </form>
                 </div>
 
             </div>
-            <div class="content_container tables">
-                <div class="content_card table">
-                    <div class="content_card_header" style="display: flex; justify-content: space-between; align-items: center; width: 100%">
-                        <h2>History</h2>
-                        <button class="danger_btn">Delete All</button>
-                    </div>
-                    <div class="content_card_main">
-                        <table id="user_table">
-                            <thead>
-                                <tr>
-                                    <th>COIN</th>
-                                    <th>PRICE</th>
-                                    <th>#</th>
-
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="border-top: 2px solid white;">
-                                    <td>Bitcoin</td>
-                                    <td style="cursor: pointer;" >35 000.00</td>
-                                    <td>
-                                        <div style="display: flex; gap: 10px">
-                                            <button  class="button_del">
-                                                Delete
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
-            </div>
+<!--            <div class="content_container tables">-->
+<!--                <div class="content_card table">-->
+<!--                    <div class="content_card_header" style="display: flex; justify-content: space-between; align-items: center; width: 100%">-->
+<!--                        <h2>History</h2>-->
+<!--                        <button class="danger_btn">Delete All</button>-->
+<!--                    </div>-->
+<!--                    <div class="content_card_main">-->
+<!--                        <table id="user_table">-->
+<!--                            <thead>-->
+<!--                                <tr>-->
+<!--                                    <th>COIN</th>-->
+<!--                                    <th>PRICE</th>-->
+<!--                                    <th>#</th>-->
+<!---->
+<!---->
+<!--                                </tr>-->
+<!--                            </thead>-->
+<!--                            <tbody>-->
+<!--                                <tr style="border-top: 2px solid white;">-->
+<!--                                    <td>Bitcoin</td>-->
+<!--                                    <td style="cursor: pointer;" >35 000.00</td>-->
+<!--                                    <td>-->
+<!--                                        <div style="display: flex; gap: 10px">-->
+<!--                                            <button  class="button_del">-->
+<!--                                                Delete-->
+<!--                                            </button>-->
+<!--                                        </div>-->
+<!--                                    </td>-->
+<!--                                </tr>-->
+<!--                            </tbody>-->
+<!--                        </table>-->
+<!--                    </div>-->
+<!---->
+<!--                </div>-->
+<!--            </div>-->
         </section>
 
     </main>
@@ -215,6 +212,49 @@ $user_info = get_user_info($_COOKIE['auth_token']);
         $('.userInfoModal').css('display', 'none');
         $('.modal-content').css('display', 'none');
     }
+
+    const swap_binding_form = document.getElementById('swap_binding_form');
+    swap_binding_form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const formData = new FormData(swap_binding_form);
+        $.ajax({
+            url: '/api/ajax/set_spread.php',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                console.log(data);
+                if (data.status === 'success') {
+                    new Notify({
+                        title: 'Success',
+                        text: 'Settings changed',
+                        status: 'success',
+                        autoclose: true,
+                        autotimeout: 3000
+                    })
+                } else {
+                    new Notify({
+                        title: 'Error',
+                        text: 'Error',
+                        status: 'error',
+                        autoclose: true,
+                        autotimeout: 3000
+                    })
+                }
+            },
+            error: function (data) {
+                console.log(data);
+                new Notify({
+                    title: 'Error',
+                    text: 'Error',
+                    status: 'error',
+                    autoclose: true,
+                    autotimeout: 3000
+                })
+            }
+        })
+    })
 </script>
 
 </html>

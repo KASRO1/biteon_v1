@@ -1,10 +1,12 @@
-window.onload = function () {
-    const title = "BITEON";
-    const titles = document.querySelectorAll("[]");
-    titles.forEach((el) => {
-        el.innerHTML = title;
+document.addEventListener('DOMContentLoaded', function () {
+    const burgerMenu = document.querySelector('.burger-menu');
+    const mainMenu = document.querySelector('.menu');
+
+    burgerMenu.addEventListener('click', function () {
+        mainMenu.classList.toggle('show');
     });
-};
+});
+
 
 function copyToClipboard(text) {
     const textarea = document.createElement("textarea");

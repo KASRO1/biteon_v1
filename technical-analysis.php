@@ -18,7 +18,7 @@ $user_info = get_user_info($auth_token);
       <div class="col-md-4">
         <!-- TradingView Widget BEGIN -->
         <div class="tradingview-widget-container" style="width: 100%; height: 430px;">
-          <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/technical-analysis/?locale=en#%7B%22interval%22%3A%221m%22%2C%22width%22%3A%22100%25%22%2C%22isTransparent%22%3Afalse%2C%22height%22%3A430%2C%22symbol%22%3A%22COINBASE%3ABTCUSD%22%2C%22showIntervalTabs%22%3Atrue%2C%22colorTheme%22%3A%22dark%22%2C%22utm_source%22%3A%22bitlirex.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22technical-analysis%22%2C%22page-uri%22%3A%22bitlirex.com%2Ftechnical-analysis%22%7D" title="technical analysis TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 430px; width: 100%;"></iframe>
+          <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/technical-analysis/?locale=en#%7B%22interval%22%3A%221m%22%2C%22width%22%3A%22100%25%22%2C%22isTransparent%22%3Afalse%2C%22height%22%3A430%2C%22symbol%22%3A%22COINBASE%3ABTCUSD%22%2C%22showIntervalTabs%22%3Atrue%2C%22colorTheme%22%3A%22dark%22%2C%22utm_source%22%3A%22<?=$domain_titleINIT?>.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22technical-analysis%22%2C%22page-uri%22%3A%22<?=$domain_titleINIT?>.com%2Ftechnical-analysis%22%7D" title="technical analysis TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 430px; width: 100%;"></iframe>
           
         <style>
 	.tradingview-widget-copyright {
@@ -61,7 +61,7 @@ $user_info = get_user_info($auth_token);
       <div class="col-md-4">
         <!-- TradingView Widget BEGIN -->
         <div class="tradingview-widget-container" style="width: 100%; height: 430px;">
-          <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/technical-analysis/?locale=en#%7B%22interval%22%3A%221m%22%2C%22width%22%3A%22100%25%22%2C%22isTransparent%22%3Afalse%2C%22height%22%3A430%2C%22symbol%22%3A%22BINANCE%3ABTCUSDT%22%2C%22showIntervalTabs%22%3Atrue%2C%22colorTheme%22%3A%22dark%22%2C%22utm_source%22%3A%22bitlirex.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22technical-analysis%22%2C%22page-uri%22%3A%22bitlirex.com%2Ftechnical-analysis%22%7D" title="technical analysis TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 430px; width: 100%;"></iframe>
+          <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/technical-analysis/?locale=en#%7B%22interval%22%3A%221m%22%2C%22width%22%3A%22100%25%22%2C%22isTransparent%22%3Afalse%2C%22height%22%3A430%2C%22symbol%22%3A%22BINANCE%3ABTCUSDT%22%2C%22showIntervalTabs%22%3Atrue%2C%22colorTheme%22%3A%22dark%22%2C%22utm_source%22%3A%22<?=$domain_titleINIT?>.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22technical-analysis%22%2C%22page-uri%22%3A%22<?=$domain_titleINIT?>.com%2Ftechnical-analysis%22%7D" title="technical analysis TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 430px; width: 100%;"></iframe>
           
         <style>
 	.tradingview-widget-copyright {
@@ -104,7 +104,7 @@ $user_info = get_user_info($auth_token);
       <div class="col-md-4">
         <!-- TradingView Widget BEGIN -->
         <div class="tradingview-widget-container" style="width: 100%; height: 430px;">
-          <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/technical-analysis/?locale=en#%7B%22interval%22%3A%221m%22%2C%22width%22%3A%22100%25%22%2C%22isTransparent%22%3Afalse%2C%22height%22%3A430%2C%22symbol%22%3A%22FX%3AGBPJPY%22%2C%22showIntervalTabs%22%3Atrue%2C%22colorTheme%22%3A%22dark%22%2C%22utm_source%22%3A%22bitlirex.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22technical-analysis%22%2C%22page-uri%22%3A%22bitlirex.com%2Ftechnical-analysis%22%7D" title="technical analysis TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 430px; width: 100%;"></iframe>
+          <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/technical-analysis/?locale=en#%7B%22interval%22%3A%221m%22%2C%22width%22%3A%22100%25%22%2C%22isTransparent%22%3Afalse%2C%22height%22%3A430%2C%22symbol%22%3A%22FX%3AGBPJPY%22%2C%22showIntervalTabs%22%3Atrue%2C%22colorTheme%22%3A%22dark%22%2C%22utm_source%22%3A%22<?=$domain_titleINIT?>.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22technical-analysis%22%2C%22page-uri%22%3A%22<?=$domain_titleINIT?>.com%2Ftechnical-analysis%22%7D" title="technical analysis TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 430px; width: 100%;"></iframe>
           
         <style>
 	.tradingview-widget-copyright {
@@ -147,7 +147,7 @@ $user_info = get_user_info($auth_token);
       <div class="col-md-4">
         <!-- TradingView Widget BEGIN -->
         <div class="tradingview-widget-container" style="width: 100%; height: 430px;">
-          <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/technical-analysis/?locale=en#%7B%22interval%22%3A%221m%22%2C%22width%22%3A%22100%25%22%2C%22isTransparent%22%3Afalse%2C%22height%22%3A430%2C%22symbol%22%3A%22FX%3AUSDCAD%22%2C%22showIntervalTabs%22%3Atrue%2C%22colorTheme%22%3A%22dark%22%2C%22utm_source%22%3A%22bitlirex.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22technical-analysis%22%2C%22page-uri%22%3A%22bitlirex.com%2Ftechnical-analysis%22%7D" title="technical analysis TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 430px; width: 100%;"></iframe>
+          <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/technical-analysis/?locale=en#%7B%22interval%22%3A%221m%22%2C%22width%22%3A%22100%25%22%2C%22isTransparent%22%3Afalse%2C%22height%22%3A430%2C%22symbol%22%3A%22FX%3AUSDCAD%22%2C%22showIntervalTabs%22%3Atrue%2C%22colorTheme%22%3A%22dark%22%2C%22utm_source%22%3A%22<?=$domain_titleINIT?>.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22technical-analysis%22%2C%22page-uri%22%3A%22<?=$domain_titleINIT?>.com%2Ftechnical-analysis%22%7D" title="technical analysis TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 430px; width: 100%;"></iframe>
           
         <style>
 	.tradingview-widget-copyright {
@@ -190,7 +190,7 @@ $user_info = get_user_info($auth_token);
       <div class="col-md-4">
         <!-- TradingView Widget BEGIN -->
         <div class="tradingview-widget-container" style="width: 100%; height: 430px;">
-          <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/technical-analysis/?locale=en#%7B%22interval%22%3A%221m%22%2C%22width%22%3A%22100%25%22%2C%22isTransparent%22%3Afalse%2C%22height%22%3A430%2C%22symbol%22%3A%22FX%3AAUDUSD%22%2C%22showIntervalTabs%22%3Atrue%2C%22colorTheme%22%3A%22dark%22%2C%22utm_source%22%3A%22bitlirex.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22technical-analysis%22%2C%22page-uri%22%3A%22bitlirex.com%2Ftechnical-analysis%22%7D" title="technical analysis TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 430px; width: 100%;"></iframe>
+          <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/technical-analysis/?locale=en#%7B%22interval%22%3A%221m%22%2C%22width%22%3A%22100%25%22%2C%22isTransparent%22%3Afalse%2C%22height%22%3A430%2C%22symbol%22%3A%22FX%3AAUDUSD%22%2C%22showIntervalTabs%22%3Atrue%2C%22colorTheme%22%3A%22dark%22%2C%22utm_source%22%3A%22<?=$domain_titleINIT?>.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22technical-analysis%22%2C%22page-uri%22%3A%22<?=$domain_titleINIT?>.com%2Ftechnical-analysis%22%7D" title="technical analysis TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 430px; width: 100%;"></iframe>
           
         <style>
 	.tradingview-widget-copyright {
@@ -233,7 +233,7 @@ $user_info = get_user_info($auth_token);
       <div class="col-md-4">
         <!-- TradingView Widget BEGIN -->
         <div class="tradingview-widget-container" style="width: 100%; height: 430px;">
-          <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/technical-analysis/?locale=en#%7B%22interval%22%3A%221m%22%2C%22width%22%3A%22100%25%22%2C%22isTransparent%22%3Afalse%2C%22height%22%3A430%2C%22symbol%22%3A%22OANDA%3AGBPUSD%22%2C%22showIntervalTabs%22%3Atrue%2C%22colorTheme%22%3A%22dark%22%2C%22utm_source%22%3A%22bitlirex.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22technical-analysis%22%2C%22page-uri%22%3A%22bitlirex.com%2Ftechnical-analysis%22%7D" title="technical analysis TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 430px; width: 100%;"></iframe>
+          <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/technical-analysis/?locale=en#%7B%22interval%22%3A%221m%22%2C%22width%22%3A%22100%25%22%2C%22isTransparent%22%3Afalse%2C%22height%22%3A430%2C%22symbol%22%3A%22OANDA%3AGBPUSD%22%2C%22showIntervalTabs%22%3Atrue%2C%22colorTheme%22%3A%22dark%22%2C%22utm_source%22%3A%22<?=$domain_titleINIT?>.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22technical-analysis%22%2C%22page-uri%22%3A%22<?=$domain_titleINIT?>.com%2Ftechnical-analysis%22%7D" title="technical analysis TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 430px; width: 100%;"></iframe>
           
         <style>
 	.tradingview-widget-copyright {
@@ -276,7 +276,7 @@ $user_info = get_user_info($auth_token);
       <div class="col-md-4">
         <!-- TradingView Widget BEGIN -->
         <div class="tradingview-widget-container" style="width: 100%; height: 430px;">
-          <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/technical-analysis/?locale=en#%7B%22interval%22%3A%221m%22%2C%22width%22%3A%22100%25%22%2C%22isTransparent%22%3Afalse%2C%22height%22%3A430%2C%22symbol%22%3A%22NASDAQ%3AAAPL%22%2C%22showIntervalTabs%22%3Atrue%2C%22colorTheme%22%3A%22dark%22%2C%22utm_source%22%3A%22bitlirex.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22technical-analysis%22%2C%22page-uri%22%3A%22bitlirex.com%2Ftechnical-analysis%22%7D" title="technical analysis TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 430px; width: 100%;"></iframe>
+          <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/technical-analysis/?locale=en#%7B%22interval%22%3A%221m%22%2C%22width%22%3A%22100%25%22%2C%22isTransparent%22%3Afalse%2C%22height%22%3A430%2C%22symbol%22%3A%22NASDAQ%3AAAPL%22%2C%22showIntervalTabs%22%3Atrue%2C%22colorTheme%22%3A%22dark%22%2C%22utm_source%22%3A%22<?=$domain_titleINIT?>.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22technical-analysis%22%2C%22page-uri%22%3A%22<?=$domain_titleINIT?>.com%2Ftechnical-analysis%22%7D" title="technical analysis TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 430px; width: 100%;"></iframe>
           
         <style>
 	.tradingview-widget-copyright {
@@ -319,7 +319,7 @@ $user_info = get_user_info($auth_token);
       <div class="col-md-4">
         <!-- TradingView Widget BEGIN -->
         <div class="tradingview-widget-container" style="width: 100%; height: 430px;">
-          <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/technical-analysis/?locale=en#%7B%22interval%22%3A%221m%22%2C%22width%22%3A%22100%25%22%2C%22isTransparent%22%3Afalse%2C%22height%22%3A430%2C%22symbol%22%3A%22FX%3AUSDCHF%22%2C%22showIntervalTabs%22%3Atrue%2C%22colorTheme%22%3A%22dark%22%2C%22utm_source%22%3A%22bitlirex.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22technical-analysis%22%2C%22page-uri%22%3A%22bitlirex.com%2Ftechnical-analysis%22%7D" title="technical analysis TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 430px; width: 100%;"></iframe>
+          <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/technical-analysis/?locale=en#%7B%22interval%22%3A%221m%22%2C%22width%22%3A%22100%25%22%2C%22isTransparent%22%3Afalse%2C%22height%22%3A430%2C%22symbol%22%3A%22FX%3AUSDCHF%22%2C%22showIntervalTabs%22%3Atrue%2C%22colorTheme%22%3A%22dark%22%2C%22utm_source%22%3A%22<?=$domain_titleINIT?>.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22technical-analysis%22%2C%22page-uri%22%3A%22<?=$domain_titleINIT?>.com%2Ftechnical-analysis%22%7D" title="technical analysis TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 430px; width: 100%;"></iframe>
           
         <style>
 	.tradingview-widget-copyright {
@@ -362,7 +362,7 @@ $user_info = get_user_info($auth_token);
       <div class="col-md-4">
         <!-- TradingView Widget BEGIN -->
         <div class="tradingview-widget-container" style="width: 100%; height: 430px;">
-          <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/technical-analysis/?locale=en#%7B%22interval%22%3A%221m%22%2C%22width%22%3A%22100%25%22%2C%22isTransparent%22%3Afalse%2C%22height%22%3A430%2C%22symbol%22%3A%22FX%3AGBPAUD%22%2C%22showIntervalTabs%22%3Atrue%2C%22colorTheme%22%3A%22dark%22%2C%22utm_source%22%3A%22bitlirex.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22technical-analysis%22%2C%22page-uri%22%3A%22bitlirex.com%2Ftechnical-analysis%22%7D" title="technical analysis TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 430px; width: 100%;"></iframe>
+          <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/technical-analysis/?locale=en#%7B%22interval%22%3A%221m%22%2C%22width%22%3A%22100%25%22%2C%22isTransparent%22%3Afalse%2C%22height%22%3A430%2C%22symbol%22%3A%22FX%3AGBPAUD%22%2C%22showIntervalTabs%22%3Atrue%2C%22colorTheme%22%3A%22dark%22%2C%22utm_source%22%3A%22<?=$domain_titleINIT?>.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22technical-analysis%22%2C%22page-uri%22%3A%22<?=$domain_titleINIT?>.com%2Ftechnical-analysis%22%7D" title="technical analysis TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 430px; width: 100%;"></iframe>
           
         <style>
 	.tradingview-widget-copyright {

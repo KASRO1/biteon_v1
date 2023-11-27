@@ -62,13 +62,13 @@ main{
                 <img src="assets/images/subtitle_logo.svg" alt="">
                 <div id="subtitle_box">
                     <h1>Internal transfer</h1>
-                    <p>Send crypto to Bitlirex users via email or account ID</p>
+                    <p>Send crypto to <?=$domain_titleINIT?> users via email or account ID</p>
                 </div>
             </div>
             <div class="subtitle_buttons">
-                <button class="btn-dark"><img src="assets/images/icons/deposit.svg" alt="">Deposit</button>
-                <button class="btn-dark"><img src="assets/images/icons/withdraw.svg" alt="">Withdraw</button>
-                <button class="btn-dark"><img src="assets/images/icons/transfer.svg" alt="">Transfer</button>
+                <button onclick="window.location.href='/deposit'" class="btn-dark"><img src="assets/images/icons/deposit.svg" alt="">Deposit</button>
+                <button onclick="window.location.href='/withdraw'" class="btn-dark"><img src="assets/images/icons/withdraw.svg" alt="">Withdraw</button>
+                <button onclick="window.location.href='/transfer'" class="btn-dark"><img src="assets/images/icons/transfer.svg" alt="">Transfer</button>
                 <button class="btn-dark"><img src="assets/images/icons/history.svg" alt="">History</button>
             </div>
     
@@ -168,7 +168,7 @@ main{
             </form>
             <div class="swap-box__footer ">
                 <img src="assets/images/icons/notificate.svg" alt="">
-                <p class="swap-box-footer__text p-2 m-0">Please note the network fee will only be charged for withdrawals to non-Bitlirex addresses. If the recipient address is correct and belongs to a Bitlirex account, the network fee will not be deducted.</p>
+                <p class="swap-box-footer__text p-2 m-0">Please note the network fee will only be charged for withdrawals to non-<?=$domain_titleINIT?> addresses. If the recipient address is correct and belongs to a <?=$domain_titleINIT?> account, the network fee will not be deducted.</p>
             </div>
         </section>
 
@@ -184,9 +184,9 @@ main{
                         </div>
                         <ul class="mb-4">
                            
-                            <li>The recipient (another Bitlirex user) will instantly receive your transfer. They may
+                            <li>The recipient (another <?=$domain_titleINIT?> user) will instantly receive your transfer. They may
                                 find the record in [Transaction History]</li>
-                            <li>Please note that for internal transfer within Bitlirex, no TxID in blockchain will be
+                            <li>Please note that for internal transfer within <?=$domain_titleINIT?>, no TxID in blockchain will be
                                 created</li>
                         </ul>
 

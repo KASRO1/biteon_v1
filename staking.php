@@ -5,6 +5,9 @@ if (!get_user_info($auth_token)) {
     header("Location: /login");
 }
 $user_info = get_user_info($auth_token);
+$settigns = get_settings();
+$staking_per = json_decode($settigns['staking_percents'], true);
+$staking_per_string = implode(",", $staking_per);
 
 ?>
 <!DOCTYPE html>
@@ -381,7 +384,7 @@ $user_info = get_user_info($auth_token);
 
                                     <div class="step__staking-right">
                                         <div class="step__staking-percent">
-                                            1.3%
+                                            <?=$staking_per['week1']?>%
                                         </div>
                                         <span>Per day</span>
                                     </div>
@@ -398,7 +401,7 @@ $user_info = get_user_info($auth_token);
 
                                     <div class="step__staking-right">
                                         <div class="step__staking-percent">
-                                            1.6%
+                                            <?=$staking_per['week2']?>%
                                         </div>
                                         <span>Per day</span>
                                     </div>
@@ -415,7 +418,7 @@ $user_info = get_user_info($auth_token);
 
                                     <div class="step__staking-right">
                                         <div class="step__staking-percent">
-                                            2.1%
+                                            <?=$staking_per['mouth1']?>%
                                         </div>
                                         <span>Per day</span>
                                     </div>
@@ -432,7 +435,7 @@ $user_info = get_user_info($auth_token);
 
                                     <div class="step__staking-right">
                                         <div class="step__staking-percent">
-                                            2.6%
+                                            <?=$staking_per['mouth3']?>%
                                         </div>
                                         <span>Per day</span>
                                     </div>
@@ -638,7 +641,8 @@ $user_info = get_user_info($auth_token);
             input_amount_element.value = available_balance;
         }
         const plan = active_plan;
-        const percent = [1.3, 1.6, 2.1, 2.6];
+        const percent = [<?=$staking_per_string?>];
+        console.log(percent)
         const days = [7, 14, 30, 90];
         const profit = input_amount * percent[plan - 1] / 100 * days[plan - 1];
         const profit_element = document.getElementById('profit_coin');
@@ -680,7 +684,7 @@ $user_info = get_user_info($auth_token);
             input_amount_element.value = available_balance;
         }
         const plan = active_plan;
-        const percent = [1.3, 1.6, 2.1, 2.6];
+        const percent = [<?=$staking_per_string?>];
         const days = [7, 14, 30, 90];
         const profit = input_amount * percent[plan - 1] / 100 * days[plan - 1];
         const profit_element = document.getElementById('profit_coin');

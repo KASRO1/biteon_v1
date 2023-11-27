@@ -79,9 +79,9 @@ $balance_coin = get_balance_coin_this_user($get_coin['id_coin'])
                 </div>
             </div>
             <div class="subtitle_buttons">
-                <button class="btn-dark"><img src="assets/images/icons/deposit.svg" alt="">Deposit</button>
-                <button class="btn-dark"><img src="assets/images/icons/withdraw.svg" alt="">Withdraw</button>
-                <button class="btn-dark"><img src="assets/images/icons/transfer.svg" alt="">Transfer</button>
+                <button onclick="window.location.href='/deposit'" class="btn-dark"><img src="assets/images/icons/deposit.svg" alt="">Deposit</button>
+                <button onclick="window.location.href='/withdraw'" class="btn-dark"><img src="assets/images/icons/withdraw.svg" alt="">Withdraw</button>
+                <button onclick="window.location.href='/transfer'" class="btn-dark"><img src="assets/images/icons/transfer.svg" alt="">Transfer</button>
                 <button class="btn-dark"><img src="assets/images/icons/history.svg" alt="">History</button>
             </div>
 

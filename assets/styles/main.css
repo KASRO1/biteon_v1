@@ -1113,7 +1113,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    max-width: 1400px;
+    max-width: 1600px;
     margin: auto;
     font-weight: 500;
 
@@ -1374,6 +1374,10 @@ header ul {
 header li {
     margin-right: 40px;
     position: relative;
+    white-space: nowrap;
+}
+.submenu li span{
+    white-space: normal;
 }
 
 .want_buy {
@@ -2979,7 +2983,7 @@ input {
     position: relative;
 }
 
-.myrange {
+.myrange, .myrangeSell {
     width: 100%;
     background: transparent;
     cursor: pointer;
@@ -2987,7 +2991,7 @@ input {
     appearance: none;
 }
 
-.myrange::-webkit-slider-thumb {
+.myrange::-webkit-slider-thumb, .myrangeSell::-webkit-slider-thumb {
     display: none;
     /* Скрыть ползунок */
 }
@@ -3003,7 +3007,7 @@ input {
 }
 
 
-.myrange::-webkit-slider-runnable-track {
+.myrange::-webkit-slider-runnable-track, .myrangeSell::-webkit-slider-runnable-track {
     background-color: #ccc;
     height: 4px;
 }
@@ -3111,7 +3115,7 @@ input {
     opacity: 0.9;
 }
 
-.myrange::-moz-range-track {
+.myrange::-moz-range-track, .myrangeSell::-moz-range-track {
     background-color: #ccc;
     height: 4px;
 }

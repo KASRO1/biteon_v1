@@ -3,6 +3,7 @@
 
 function render_header()
 {
+    $domain_titleINIT = get_domain_title();
     $auth_token = $_COOKIE['auth_token'];
     $user = get_user_info($auth_token);
     $balance = get_total_balance();
@@ -230,7 +231,7 @@ stroke: transparent;
                             </div>
                             <div>
                             <a >Institutional home</a>
-                            <span><?=$domain_titleINIT?> offers the worlds most powerful suite of institutional crypto trading solutions</span>
+                            <span>'.$domain_titleINIT.' offers the worlds most powerful suite of institutional crypto trading solutions</span>
                             </div>
                         </li>
                          <li data-href="/future_payment">
@@ -238,7 +239,7 @@ stroke: transparent;
                             <img src="assets/images/header/card.svg" alt="" srcset="">
                             </div>
                             <div>
-                            <a >Bitlirex Card</a>
+                            <a >'.$domain_titleINIT.' Card</a>
                             <span>Order and ise your card anywhere Visa® debit cards are accepted, at 40M+ merchants worldwide.</span>
                             </div>
                         </li>
@@ -247,8 +248,8 @@ stroke: transparent;
                             <img src="assets/images/header/ventures.png" alt="" srcset="">
                             </div>
                             <div>
-                            <a >Bitlirex Ventures</a>
-                            <span>Bitlirex Ventures is a fund focused on exploring high-quality projects with great potential</span>
+                            <a >'.$domain_titleINIT.' Ventures</a>
+                            <span>'.$domain_titleINIT.' Ventures is a fund focused on exploring high-quality projects with great potential</span>
                             </div>
                         </li>
                         

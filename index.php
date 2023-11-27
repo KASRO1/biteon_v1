@@ -37,31 +37,31 @@ $TRX = get_assets_coin("TRX_USDT");
             <ul>
                 <li class="has-submenu"><a href="#">Buy crypto</a>
                     <ul class="submenu">
-                        <li>
-                            <a href="/deposit.php">Credit / debit card</a>
+                        <li onclick="window.location.href = '/deposit'">
+                            <a href="/deposit">Credit / debit card</a>
                             <span>Quick purchase of crypto</span>
                         </li>
-                        <li>
+                        <li onclick="window.location.href = '/p2p'">
                             <a href="/p2p">P2P trade</a>
                             <span>Trade with real users</span>
                         </li>
-                        <li>
-                            <a href="pages/contact.php">Refill with cryptocurrency</a>
+                        <li onclick="window.location.href = '/swap'">
+                            <a href="swap">Refill with cryptocurrency</a>
                             <span>Deposit in minutes</span>
                         </li>
                     </ul>
                 </li>
                 <li class="has-submenu"><a href="#">Trade</a>
                     <ul class="submenu">
-                        <li>
+                        <li onclick="window.location.href = '/spot'">
                             <a href="/spot">Spot Trading</a>
                             <span>Buy and hold crypto</span>
                         </li>
-                        <li>
+                        <li onclick="window.location.href = '/login'">
                             <a href="/login">Futures Trading</a>
                             <span>Perpetual contracts settled in crypto</span>
                         </li>
-                        <li>
+                        <li onclick="window.location.href = '/login'">
                             <a href="/login">Options Trading</a>
                             <span>Trade European-style options</span>
                         </li>
@@ -72,11 +72,13 @@ $TRX = get_assets_coin("TRX_USDT");
             </ul>
         </div>
         <div class="login_block">
-
+            <?php if(isAuth()):?>
+            <a href="/wallet" style="min-width: 200px" class="login">My wallet</a>
+            <?php else:?>
             <a href="/login" class="login">Log in</a>
             <a href="/register" class="register">Open Free Account</a>
+            <?php endif;?>
             <a href=""><img src="assets/images/burger.svg" alt=""></a>
-
         </div>
 
     </header>
@@ -85,13 +87,13 @@ $TRX = get_assets_coin("TRX_USDT");
             <div class="row box-1_title_content">
                 <div>
                     <h1>
-                        Invest, save, earn with crypto
+                        Invest, save, earn with <?=$domain_titleINIT?>
                     </h1>
                 </div>
                 <div>
                     <p class="description">
                         Get all the benefits of an innovative crypto platform in one click
-                        Faster, better, safer and more efficient with crypto
+                        Faster, better, safer and more efficient with <?=$domain_titleINIT?>
                     </p>
                 </div>
                 <div class="SignUpButton_div">

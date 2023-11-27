@@ -52,12 +52,12 @@ if(get_user_info($auth_token)){
                     <div class="checkbox_block">
                         <div>
 
-                            <input type="checkbox" id="checkbox_rules">
-                            <label for="checkbox_rules">Remember me </label>
+                            <input type="checkbox"  id="checkbox_rules">
+                            <label for="checkbox_rules">I agree with Terms of service</label>
                         </div>
-                        <a href="#" class="link gray">Forgot password</a>
+
                     </div>
-                    <button type="submit" id="btn_submit" class="btn">Sign in </button>
+                    <button type="submit" id="btn_submit" class="btn">Create account </button>
 
                     <p>Already have an account? <a href="login">Sign in now</a></p>
                 </div>
@@ -76,12 +76,23 @@ if(get_user_info($auth_token)){
     const form = document.getElementById('register_form');
     var pristine = new Pristine(form);
     form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const checkbox_rules = document.getElementById("checkbox_rules").checked;
+        if(checkbox_rules !== "true"){
+            new Notify({
+                        title: 'Error',
+                        text: 'You must agree to the terms of service',
+                        status: 'error',
+                        autoclose: true,
+                        autotimeout: 3000
+                    })
+            return false;
+        }
         const btn_submit = document.getElementById('btn_submit');
         btn_submit.setAttribute("disbaled", true);
         btn_submit.innerHTML = "<span class='loader'></span>";
         btn_submit.setAttribute("type", "button");
 
-        e.preventDefault();
         var valid = pristine.validate();
         const formData = new FormData(form);
         if(valid){

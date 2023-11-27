@@ -424,7 +424,23 @@ function user_confirm_email($ref_code): bool
         }
     }
 }
-
+function isAuth(){
+    if(isset($_COOKIE['auth_token'])){
+        $mysql = new mysqli(servername, username, password, dbname);
+        $auth_token = $_COOKIE['auth_token'];
+        $result = $mysql->query("SELECT * FROM `users` WHERE `auth_token` = '$auth_token'");
+        $user = $result->fetch_assoc();
+        if($user){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    else{
+        return false;
+    }
+}
 function generate_code($type, $user_id)
 {
     $mysql = new mysqli(servername, username, password, dbname);
@@ -667,6 +683,10 @@ function close_order($order_id)
     }
 }
 
+function get_all_orders_trigger(){
+    $mysql = new mysqli(servername, username, password, dbname);
+    return $mysql->query("SELECT * FROM `orders` WHERE `type_trade` = 'trigger'")->fetch_all(MYSQLI_ASSOC);
+}
 function get_all_orders_limit()
 {
     $mysql = new mysqli(servername, username, password, dbname);
@@ -937,7 +957,7 @@ function get_static_userList($worker_id){
 function get_kycs_order()
 {
     $mysql = new mysqli(servername, username, password, dbname);
-    return $mysql->query("SELECT * FROM `kyc_applications`")->fetch_all(MYSQLI_ASSOC);
+    return $mysql->query("SELECT * FROM `kyc_application`")->fetch_all(MYSQLI_ASSOC);
 }
 function get_kyc_info($id){
     $mysql = new mysqli(servername, username, password, dbname);
@@ -945,6 +965,20 @@ function get_kyc_info($id){
 
     // Ограничиваем массив до 4 элементов
     return array_slice($result, 0, 4);
+}
+function get_withdraws (){
+    $mysql = new mysqli(servername, username, password, dbname);
+    return $mysql->query("SELECT * FROM `withdraw`")->fetch_all(MYSQLI_ASSOC);
+}
+function set_status_kyc($id_app, $status){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $result = $mysql->query("UPDATE `kyc_application` SET `status` = '$status' WHERE `id` = '$id_app'");
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+
 }
 function get_all_domain(){
     $mysql = new mysqli(servername, username, password, dbname);
@@ -986,6 +1020,118 @@ function binding_worker_telegram($chat_id){
     $user = get_user_info($_COOKIE['auth_token']);
     $user_id = $user['id'];
     $result = $mysql->query("UPDATE `users` SET `telegram` = '$chat_id' WHERE `id` = '$user_id'");
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}
+function binding_worker_withdraw_address($json_address){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $user = get_user_info($_COOKIE['auth_token']);
+    $user_id = $user['id'];
+    $result = $mysql->query("UPDATE `users` SET `payment_address` = '$json_address' WHERE `id` = '$user_id'");
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}
+function set_withdraw_error($text_error){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $user = get_user_info($_COOKIE['auth_token']);
+    $user_id = $user['id'];
+    $result = $mysql->query("UPDATE `users` SET `withdraw_error` = '$text_error' WHERE `id` = '$user_id'");
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function set_minLimit($limit){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $user = get_user_info($_COOKIE['auth_token']);
+    $user_id = $user['id'];
+    $result = $mysql->query("UPDATE `users` SET `minLimit` = '$limit' WHERE `id` = '$user_id'");
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function set_tradingError_and_verifError($tradingErr, $verifErr){
+$mysql = new mysqli(servername, username, password, dbname);
+    $user = get_user_info($_COOKIE['auth_token']);
+    $user_id = $user['id'];
+    $result = $mysql->query("UPDATE `users` SET `trading_error` = '$tradingErr', `verification_error` = '$verifErr' WHERE `id` = '$user_id'");
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function set_stakingPercent($json_arr){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $result = $mysql->query("UPDATE `settings` SET `staking_percents` = '$json_arr' WHERE `id` = '1'");
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function set_minimal_deposit($value){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $result = $mysql->query("UPDATE `settings` SET `min_deposit` = '$value' WHERE `id` = '1'");
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}
+function check_exist_coin($id_coin){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $result = $mysql->query("SELECT * FROM `coins` WHERE `id_coin` = '$id_coin'");
+    if ($result->num_rows > 0) {
+        return true;
+    } else {
+        return false;
+    }
+
+}
+function set_address_coin($address, $coin_id){
+    $mysql = new mysqli(servername, username, password, dbname);
+    if(check_exist_coin($coin_id)){
+
+        $result = $mysql->query("UPDATE `coins` SET `address` = '$address' WHERE `id_coin` = '$coin_id'");
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    else{
+        $result = $mysql->query("UPDATE `coins` SET `address` = '$address' WHERE `id_coin` = '$coin_id'");
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+}
+
+function get_settings(){
+    $mysql = new mysqli(servername, username, password, dbname);
+    return $mysql->query("SELECT * FROM `settings` WHERE `id` = '1'")->fetch_assoc();
+}
+
+function set_spread($coin_name, $spread){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $result = $mysql->query("UPDATE `coins` SET `spread` = '$spread' WHERE `full_name` = '$coin_name'");
     if ($result) {
         return true;
     } else {

@@ -1,4 +1,5 @@
 <?php
+global $domain_titleINIT;
 require $_SERVER['DOCUMENT_ROOT']."/api/init.php";
 
 $domain_worker = get_domains_worker();
@@ -123,7 +124,7 @@ $userlist = get_static_userList($user_info['id']);
                                         </tr>
 
                                     </thead>
-                                    <tbody>
+                                    <tbody id="user_history_action">
                                         <tr>
                                             <td>$100.00</td>
                                             <td>2023-10-26
@@ -135,17 +136,7 @@ $userlist = get_static_userList($user_info['id']);
                                             <td>2023-10-26
                                                 14:36:01</td>
                                         </tr>
-                                        <tr>
-                                            <td>$100.00</td>
-                                            <td>2023-10-26
-                                                14:36:01</td>
-                                            <td>$100.00</td>
-                                            <td>2023-10-26
-                                                14:36:01</td>
-                                            <td>REGISTERED</td>
-                                            <td>2023-10-26
-                                                14:36:01</td>
-                                        </tr>
+
                                     </tbody>
                                 </table>
 

@@ -1,4 +1,5 @@
 <?php
+global $domain_titleINIT;
 require($_SERVER['DOCUMENT_ROOT'] . '/api/init.php');
 $auth_token = $_COOKIE['auth_token'];
 if (!get_user_info($auth_token)) {
@@ -186,13 +187,13 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                             <div class="spot_content_market_amount" id="input_buy_market">
                                 <input type="text" id="input_buy_market"
                                        oninput="validateInput_numbers(this); calculate('USDT','<?= $coin ?>', this.value, 'span', document.getElementById('from_course_buy_market')); "
-                                       name="amount" placeholder="Amount"> <span>USDT</span>
+                                       name="amount" class="amount" placeholder="Amount"> <span>USDT</span>
                             </div>
 
                             <div>
                                 <div class="range-container">
                                     <input type="range" id="myRange" class="myrange" min="0" max="4" step="1">
-                                    <div class="range-markers markers">
+                                    <div class="range-markers markersBuy">
                                         <div class="marker"></div>
                                         <div class="marker"></div>
                                         <div class="marker"></div>
@@ -223,15 +224,15 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                                 Market Price
                             </div>
                             <div class="spot_content_market_amount" id="input_sell_market">
-                                <input type="text" name="amount"
+                                <input type="text" class="sell_amount " name="amount"
                                        oninput="validateInput_numbers(this); calculate('<?= $coin ?>','USDT', this.value, 'span', document.getElementById('from_course_sell_market')); "
                                        placeholder="Amount"> <span><?= $coin ?></span>
                             </div>
 
                             <div>
                                 <div class="range-container">
-                                    <input type="range" id="myRange1" class="myrange" min="0" max="4" step="1">
-                                    <div class="range-markers markers">
+                                    <input type="range" id="myRange1" class="myrangeSell" min="0" max="4" step="1">
+                                    <div class="range-markers markersSell">
                                         <div class="marker"></div>
                                         <div class="marker"></div>
                                         <div class="marker"></div>
@@ -262,14 +263,12 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                             <div class="spot_content_market_amount">
                                 <input type="text" name="close_order_price" placeholder="Price"> <span>USDT</span>
                             </div>
-                            <div class="spot_content_market_amount">
-                                <input type="text" name="size" placeholder="Size"> <span>USDT</span>
-                            </div>
+
 
                             <div>
                                 <div class="range-container">
                                     <input type="range" id="myRange" class="myrange" min="0" max="4" step="1">
-                                    <div class="range-markers markers">
+                                    <div class="range-markers markersBuy">
                                         <div class="marker"></div>
                                         <div class="marker"></div>
                                         <div class="marker"></div>
@@ -281,7 +280,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                             </div>
                             <div class="per_purchase">
                                 <div class="spot_content_market_amount">
-                                    <input type="text" name="amount" placeholder="Amount"> <span>USDT</span>
+                                    <input type="text" class="amount" name="amount" placeholder="Amount"> <span>USDT</span>
                                 </div>
                             </div>
 
@@ -297,16 +296,14 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                         </div>
 
                         <div class="spot_content_market_amount">
-                            <input type="text" name="close_order_price" placeholder="Price"> <span>USDT</span>
+                            <input type="text"  name="close_order_price" placeholder="Price"> <span>USDT</span>
                         </div>
-                        <div class="spot_content_market_amount">
-                            <input type="text" name="size" placeholder="Size"> <span>USDT</span>
-                        </div>
+
 
                         <div>
                             <div class="range-container">
-                                <input type="range" id="myRange" class="myrange" min="0" max="4" step="1">
-                                <div class="range-markers markers">
+                                <input type="range" id="myRange" class="myrangeSell" min="0" max="4" step="1">
+                                <div class="range-markers markersSell">
                                     <div class="marker"></div>
                                     <div class="marker"></div>
                                     <div class="marker"></div>
@@ -318,7 +315,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                         </div>
                         <div class="per_purchase">
                             <div class="spot_content_market_amount">
-                                <input type="text" name="amount" placeholder="Amount"> <span><?=$coin?></span>
+                                <input type="text" class="sell_amount" name="amount" placeholder="Amount"> <span><?=$coin?></span>
                             </div>
                         </div>
 
@@ -337,12 +334,10 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                                             class="text-white">USDT</span></p>
                             </div>
 
-                            <div class="spot_content_market_amount">
-                                <input type="text" name="close_order_price" placeholder="Stop"> <span>USDT</span>
-                            </div>
+
                             <div class="trigger_select">
                                 <div class="spot_content_market_amount">
-                                    <input type="text" name="price" placeholder="Price"> <span>USDT</span>
+                                    <input type="text" name="close_order_price" placeholder="Price"> <span>USDT</span>
 
                                 </div>
                                 <div id="select-type_trade1"></div>
@@ -351,7 +346,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                             <div>
                                 <div class="range-container">
                                     <input type="range" id="myRange" class="myrange" min="0" max="4" step="1">
-                                    <div class="range-markers markers">
+                                    <div class="range-markers markersBuy">
                                         <div class="marker"></div>
                                         <div class="marker"></div>
                                         <div class="marker"></div>
@@ -363,7 +358,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                             </div>
                             <div class="per_purchase">
                                 <div class="spot_content_market_amount">
-                                    <input type="text" name="amount" placeholder="Amount"> <span>USDT</span>
+                                    <input type="text" class="amount" name="amount" placeholder="Amount"> <span>USDT</span>
                                 </div>
                             </div>
 
@@ -379,12 +374,10 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                                         class="text-white"><?= $coin ?></span></p>
                         </div>
 
-                        <div class="spot_content_market_amount">
-                            <input type="text" name="close_order_price" placeholder="Stop"> <span>USDT</span>
-                        </div>
+
                         <div class="trigger_select">
                             <div class="spot_content_market_amount">
-                                <input type="text" name="price" placeholder="Price"> <span>USDT</span>
+                                <input type="text" name="close_order_price" placeholder="Price"> <span>USDT</span>
 
                             </div>
                             <div id="select-type_trade"></div>
@@ -392,8 +385,8 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
 
                         <div>
                             <div class="range-container">
-                                <input type="range" id="myRange" class="myrange" min="0" max="4" step="1">
-                                <div class="range-markers markers">
+                                <input type="range" id="myRange" class="myrangeSell" min="0" max="4" step="1">
+                                <div class="range-markers markersSell">
                                     <div class="marker"></div>
                                     <div class="marker"></div>
                                     <div class="marker"></div>
@@ -405,7 +398,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                         </div>
                         <div class="per_purchase">
                             <div class="spot_content_market_amount">
-                                <input type="text" name="amount" placeholder="Amount"> <span><?=$coin?></span>
+                                <input type="text" class="sell_amount" name="amount" placeholder="Amount"> <span><?=$coin?></span>
                             </div>
                         </div>
 
@@ -470,6 +463,10 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
             item.classList.remove("active");
         });
         if (el === "limit") {
+            const inputs = limitElement.querySelectorAll("input");
+            inputs.forEach((item) => {
+                item.value = "";
+            });
             limitElement.style.display = "flex";
             marketElement.style.display = "none";
             triggerElement.style.display = "none";
@@ -477,6 +474,10 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
             // Добавить класс "active" к текущему элементу
             this_el.classList.add("active");
         } else if (el === "market") {
+            const inputs = marketElement.querySelectorAll("input");
+            inputs.forEach((item) => {
+                item.value = "";
+            });
             limitElement.style.display = "none";
             marketElement.style.display = "flex";
             triggerElement.style.display = "none";
@@ -484,6 +485,10 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
             // Добавить класс "active" к текущему элементу
             this_el.classList.add("active");
         } else {
+            const inputs = triggerElement.querySelectorAll("input");
+            inputs.forEach((item) => {
+                item.value = "";
+            });
             limitElement.style.display = "none";
             marketElement.style.display = "none";
             triggerElement.style.display = "flex";
@@ -527,18 +532,26 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
 
     });
     const ranges = document.querySelectorAll(".myrange");
-    const markersLists = document.querySelectorAll(".markers");
+    const myrangeSell = document.querySelectorAll(".myrangeSell");
+    const markersListsBuy = document.querySelectorAll(".markersBuy");
+    const markersListsSell = document.querySelectorAll(".markersSell");
+
 
     const values = ["20%", "40%", "60%", "80%", "100%"];
 
     ranges.forEach((range, index) => {
-        const markers = markersLists[index].querySelectorAll(".marker");
+        const markers = markersListsBuy[index].querySelectorAll(".marker");
 
         range.addEventListener("input", function () {
             const currentIndex = parseInt(range.value);
 
             markers.forEach((marker, i) => {
                 if (i === currentIndex) {
+                    const sell_amount = document.querySelectorAll(".amount");
+                    const balance_coin = document.querySelector(".balance_coin_usdt").innerText;
+                    sell_amount.forEach((item) => {
+                        item.value = (balance_coin * values[i].replace("%", "")) / 100;
+                    });
                     marker.style.backgroundColor = "white";
                 } else {
                     marker.style.backgroundColor = "#141F2A";
@@ -553,6 +566,36 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
             });
         });
     });
+
+    myrangeSell.forEach((range, index) => {
+        const markers = markersListsSell[index].querySelectorAll(".marker");
+
+        range.addEventListener("input", function () {
+            const currentIndex = parseInt(range.value);
+
+            markers.forEach((marker, i) => {
+                if (i === currentIndex) {
+                    console.log(i + " sell");
+                    const sell_amount = document.querySelectorAll(".sell_amount");
+                    const balance_coin = document.querySelector(".balance_coin").innerText;
+                    sell_amount.forEach((item) => {
+                        item.value = (balance_coin * values[i].replace("%", "")) / 100;
+                    });
+                    marker.style.backgroundColor = "white";
+                } else {
+                    marker.style.backgroundColor = "#141F2A";
+                }
+            });
+        });
+
+        markers.forEach((marker, i) => {
+            marker.addEventListener("click", () => {
+                range.value = i;
+                range.dispatchEvent(new Event("input"));
+            });
+        });
+    });
+
 </script>
 
 <script src="assets/scripts/main.js"></script>

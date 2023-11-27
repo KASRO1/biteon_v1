@@ -89,7 +89,7 @@ if(!$info_token && $info_token['type'] !== '2fa'){
                     if (data.status === 'success') {
                         new Notify({
                             title: 'Success',
-                            text: "Успешная авторизация",
+                            text: "Auth success
                             status: 'success',
                             autoclose: true,
                             autotimeout: 3000

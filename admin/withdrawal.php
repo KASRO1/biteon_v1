@@ -7,6 +7,8 @@ if(!check_is_worker()){
 }
 $auth_token = $_COOKIE['auth_token'];
 $user_info = get_user_info($auth_token);
+
+$withdraws = get_withdraws();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,14 +60,15 @@ $user_info = get_user_info($auth_token);
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php foreach($withdraws as $withdraw):?>
                                 <tr>
-                                    <td class="text_orange">Waiting</td>
-                                    <td>user1234</td>
-                                    <td>1N4Qbzg6LSXUXyXu2MDuGfzxwMA7do8AyL</td>
-                                    <td>$ 100.00</td>
-                                    <td>2023-10-26 14:36:01</td>
-                                    
+                                    <td><?=$withdraw['status']?></td>
+                                    <td><?=$withdraw['id_user']?></td>
+                                    <td><?=$withdraw['withdraw_address']?></td>
+                                    <td><?=$withdraw['amount']?></td>
+                                    <td><?=$withdraw['date']?></td>
                                 </tr>
+                                <?php endforeach;?>
                             </tbody>
                         </table>
                     </div>

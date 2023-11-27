@@ -18,7 +18,7 @@ $user_info = get_user_info($auth_token);
       <div class="col-md-12">
         <!-- TradingView Widget BEGIN -->
         <div class="tradingview-widget-container" style="width: 100%; height: 900px;">
-          <iframe allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/screener/?locale=en#%7B%22width%22%3A%22100%25%22%2C%22height%22%3A900%2C%22defaultColumn%22%3A%22overview%22%2C%22defaultScreen%22%3A%22general%22%2C%22market%22%3A%22crypto%22%2C%22showToolbar%22%3Atrue%2C%22colorTheme%22%3A%22dark%22%2C%22enableScrolling%22%3Atrue%2C%22utm_source%22%3A%22bitlirex.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22cryptoscreener%22%2C%22page-uri%22%3A%22bitlirex.com%2Fmarket-screener%22%7D" title="screener TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 900px; width: 100%;"></iframe>
+          <iframe allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/screener/?locale=en#%7B%22width%22%3A%22100%25%22%2C%22height%22%3A900%2C%22defaultColumn%22%3A%22overview%22%2C%22defaultScreen%22%3A%22general%22%2C%22market%22%3A%22crypto%22%2C%22showToolbar%22%3Atrue%2C%22colorTheme%22%3A%22dark%22%2C%22enableScrolling%22%3Atrue%2C%22utm_source%22%3A%22<?=$domain_titleINIT?>.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22cryptoscreener%22%2C%22page-uri%22%3A%22<?=$domain_titleINIT?>.com%2Fmarket-screener%22%7D" title="screener TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 900px; width: 100%;"></iframe>
           
         <style>
 	.tradingview-widget-copyright {

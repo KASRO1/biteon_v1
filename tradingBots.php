@@ -505,7 +505,7 @@ if(!get_user_info($auth_token)){
       <section class="users-saying">
         <div class="users-saying__container">
             <div class="users-saying__title">
-                What Bitlirex users are saying
+                What <?=$domain_titleINIT?> users are saying
             </div>
             <div class="users-saying__slider">
                 <div class="users-saying__slider-track" id="users-saying-track-one" style="column-gap: 40px; --x: -1788px;">
@@ -528,7 +528,7 @@ if(!get_user_info($auth_token)){
                                 </div>
                             </div>
                             <div class="users-saying__slide-text">
-                                Bitlirex trading bot is easy to set up and it automatically
+                                <?=$domain_titleINIT?> trading bot is easy to set up and it automatically
                                 places the orders for me to buy low and sell high so that
                                 I don't need to watch the market all the time. The grid
                                 bot is the best tool for volatile markets!
@@ -579,7 +579,7 @@ if(!get_user_info($auth_token)){
                                 </div>
                             </div>
                             <div class="users-saying__slide-text">
-                                I’ve seen a very nice part of Bitlirex bot, the trading bot
+                                I’ve seen a very nice part of <?=$domain_titleINIT?> bot, the trading bot
                                 drives the level improvement of regular users.
                                 With using martingale bot, and quite plain formulas,
                                 I could automatically decrease my average costs, and
@@ -608,7 +608,7 @@ if(!get_user_info($auth_token)){
                                 </div>
                             </div>
                             <div class="users-saying__slide-text">
-                                Bitlirex trading bot is easy to set up and it automatically
+                                <?=$domain_titleINIT?> trading bot is easy to set up and it automatically
                                 places the orders for me to buy low and sell high so that
                                 I don't need to watch the market all the time. The grid
                                 bot is the best tool for volatile markets!
@@ -659,7 +659,7 @@ if(!get_user_info($auth_token)){
                                 </div>
                             </div>
                             <div class="users-saying__slide-text">
-                                I’ve seen a very nice part of Bitlirex bot, the trading bot
+                                I’ve seen a very nice part of <?=$domain_titleINIT?> bot, the trading bot
                                 drives the level improvement of regular users.
                                 With using martingale bot, and quite plain formulas,
                                 I could automatically decrease my average costs, and
@@ -689,7 +689,7 @@ if(!get_user_info($auth_token)){
                                 </div>
                             </div>
                             <div class="users-saying__slide-text">
-                                Bitlirex offers many types of trading bots suitable
+                                <?=$domain_titleINIT?> offers many types of trading bots suitable
                                 for any type of market, bullish or bearish,
                                 and it is very easy for beginners with its bot
                                 marketplace copy trading feature.
@@ -716,7 +716,7 @@ if(!get_user_info($auth_token)){
                             </div>
                             <div class="users-saying__slide-text">
                                 Мне нравится использовать трейдинговых ботов.
-                                Биржа Bitlirex предоставляет самые популярные боты,
+                                Биржа <?=$domain_titleINIT?> предоставляет самые популярные боты,
                                 такие как боты сетки и DCA. Кроме того,
                                 они абсолютно бесплатны для всех!
                             </div>
@@ -741,7 +741,7 @@ if(!get_user_info($auth_token)){
                                 </div>
                             </div>
                             <div class="users-saying__slide-text">
-                                I like the bot marketplace feature from Bitlirex trading bot.
+                                I like the bot marketplace feature from <?=$domain_titleINIT?> trading bot.
                                 I don't need to learn all the technical analysis and I
                                 can copy bot parameters from other traders and help me
                                 make profits. It's easy for beginners!
@@ -769,7 +769,7 @@ if(!get_user_info($auth_token)){
                                 </div>
                             </div>
                             <div class="users-saying__slide-text">
-                                Bitlirex offers many types of trading bots suitable
+                                <?=$domain_titleINIT?> offers many types of trading bots suitable
                                 for any type of market, bullish or bearish,
                                 and it is very easy for beginners with its bot
                                 marketplace copy trading feature.
@@ -796,7 +796,7 @@ if(!get_user_info($auth_token)){
                             </div>
                             <div class="users-saying__slide-text">
                                 Мне нравится использовать трейдинговых ботов.
-                                Биржа Bitlirex предоставляет самые популярные боты,
+                                Биржа <?=$domain_titleINIT?> предоставляет самые популярные боты,
                                 такие как боты сетки и DCA. Кроме того,
                                 они абсолютно бесплатны для всех!
                             </div>
@@ -821,7 +821,7 @@ if(!get_user_info($auth_token)){
                                 </div>
                             </div>
                             <div class="users-saying__slide-text">
-                                I like the bot marketplace feature from Bitlirex trading bot.
+                                I like the bot marketplace feature from <?=$domain_titleINIT?> trading bot.
                                 I don't need to learn all the technical analysis and I
                                 can copy bot parameters from other traders and help me
                                 make profits. It's easy for beginners!
