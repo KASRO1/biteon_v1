@@ -52,7 +52,7 @@ line-height: 29px !important; /* 161.111% */
                     </p>
                 </div>
                 <div class="block__button w-80">
-                    <a href="" class="btn w-44">Apply to list</a>
+                    <a  class="btn w-44 open_error">Apply to list</a>
                 </div>
             </div>
 
@@ -158,26 +158,26 @@ line-height: 29px !important; /* 161.111% */
                         <h3>36%</h3>
                     </div>
                     <div class="map_static_el">
-                        <p>Europe</p>
-                        <h3>36%</h3>
+                        <p>CIS</p>
+                        <h3>20%</h3>
                     </div>
                     <div class="map_static_el">
-                        <p>Europe</p>
-                        <h3>36%</h3>
+                        <p>Asia</p>
+                        <h3>17%</h3>
                     </div>
                     <div class="map_static_el">
-                        <p>Europe</p>
-                        <h3>36%</h3>
+                        <p>Africa</p>
+                        <h3>3%</h3>
                     </div>
                     <div class="map_static_el_plug"></div>
 
                     <div class="map_static_el">
-                        <p>Europe</p>
-                        <h3>36%</h3>
+                        <p>.mb-96</p>
+                        <h3>17%</h3>
                     </div>
                     <div class="map_static_el">
-                        <p>Europe</p>
-                        <h3>36%</h3>
+                        <p>Others</p>
+                        <h3>1%</h3>
                     </div>
                 </div>
 
@@ -188,7 +188,7 @@ line-height: 29px !important; /* 161.111% */
             <div class="partners_feedback">
                 <div class="partners_feedback_el">
                     <div class="partners_feedback_el_head">
-                        <img src="assets/images/avatar_dria.png" alt="">
+                        <img src="assets/images/company_logo/dash.webp" alt="">
                         <span>Dash</span>
                     </div>
                     <div class="partners_feedback_content">
@@ -210,46 +210,33 @@ line-height: 29px !important; /* 161.111% */
                 </div>
                 <div class="partners_feedback_el">
                     <div class="partners_feedback_el_head">
-                        <img src="assets/images/avatar_dria.png" alt="">
-                        <span>Dash</span>
+                        <img src="assets/images/company_logo/Horizen.webp" alt="">
+                        <span>Horizen</span>
                     </div>
                     <div class="partners_feedback_content">
                         <p>
-                            In the time I have been working with <?=$domain_titleINIT?> I
-                            have found that the only thing that matches
-                            their high quality of their platform is their high
-                            quality team. When we are not in an active
-                            <?=$domain_titleINIT?>, we are always planning one. When it
-                            came to recognizing their platform in the high
-                            user experience for our Dash community, it was
-                            a no brainer for me.
+                            Horizen (ZEN) has been listed on <?=$domain_titleINIT?> since July 2020. They have been a major venue for Eastern European users. The <?=$domain_titleINIT?> team has provided comprehensive support to our <?=$domain_titleINIT?>. They are professional and always available.
                         </p>
                     </div>
                     <div class="partners_feedback_footer">
-                        <span>Omar Hamwi</span>
-                        <p>Dash Business Development Manager</p>
+                        <span>Vano Narimanidze</span>
+                        <p>Horizen Business Development Manager</p>
                     </div>
                 </div>
                 <div class="partners_feedback_el">
                     <div class="partners_feedback_el_head">
-                        <img src="assets/images/avatar_dria.png" alt="">
-                        <span>Dash</span>
+                        <img src="assets/images/company_logo/hoge.webp" alt="">
+                        <span>
+Hoge</span>
                     </div>
                     <div class="partners_feedback_content">
                         <p>
-                            In the time I have been working with <?=$domain_titleINIT?> I
-                            have found that the only thing that matches
-                            their high quality of their platform is their high
-                            quality team. When we are not in an active
-                            <?=$domain_titleINIT?>, we are always planning one. When it
-                            came to recognizing their platform in the high
-                            user experience for our Dash community, it was
-                            a no brainer for me.
+                            <?=$domain_titleINIT?> was a pillar to HOGE’s early success. Their team was quick to respond to questions and feedback. It was no surprise to our community that when we asked <?=$domain_titleINIT?> to team up to help charities, they would be excited to help with some amazing nonprofits throughout the world.
                         </p>
                     </div>
                     <div class="partners_feedback_footer">
-                        <span>Omar Hamwi</span>
-                        <p>Dash Business Development Manager</p>
+                        <span>Joseph Rocko</span>
+                        <p>Marketing Lead at HOGE Finance</p>
                     </div>
                 </div>
             </div>
@@ -258,7 +245,7 @@ line-height: 29px !important; /* 161.111% */
             <div>
                 <h3>Fast listing in 48 hours</h3>
                 <p>We can list your <?=$domain_titleINIT?> on our exchange within 48 hours</p>
-                <a href="#" class="btn">Fast listing</a>
+                <a  class="btn open_error">Fast listing</a>
             </div>
         </section>
         <section class="unseccessful">
@@ -418,120 +405,18 @@ line-height: 29px !important; /* 161.111% */
             </div>
             <div class="cooperation-send_contact">
                 <div class="cooperation_sender">
-                    <input placeholder="Info" type="text">
-                    <input placeholder="Info" type="text">
-                    <input placeholder="Info" type="text">
-                    <input placeholder="Info" type="text">
-                    <input placeholder="Info" type="text">
-                    <a href="" class="btn">Send</a>
+                    <input placeholder="<?=$domain_titleINIT?> name" type="text">
+                    <input placeholder="<?=$domain_titleINIT?> website" type="text">
+                    <input placeholder="<?=$domain_titleINIT?> Contact e-mail" type="text">
+                    <input placeholder="Position" type="text">
+                    <input placeholder="Personal Telegram or WhatsApp" type="text">
+                    <a  class="btn open_error">Send</a>
                 </div>
 
             </div>
         </section>
     </main>
-    <footer>
-        <section class="footer_box1">
-            <div class="footer-box__card">
-                <div class="footer-box__content">
-                    <h1 class="">Trade anywhere and anytime with us</h1>
-                    <p>
-                        Enjoy the convenience of <span ><?=$domain_titleINIT?></span>’s crypto trading platform. Make
-                        money on cryptocurrency anytime, anywhere as valuable.
-                    </p>
-                    <div class="footer-box__button">
-                        <a href="" class="btn">Get started now</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="footer-links mb-6">
-            <div class="footer-links__box max-w-xs">
-                <div class="logo justify-start">
-                    <img src="assets/images/logo.svg" class="logo_img" alt="logo" />
-                    <h3 class="logo_name" ><?=$domain_titleINIT?></h3>
-                </div>
-                <div class="footer_desc">
-                    <p>
-                        Innovative cryptocurrency exchange with advanced financial
-                        services. We rely on blockchain technology to provide everything
-                        you need for wise trading and investment.
-                    </p>
-                </div>
-                <div class="footer_subscribe">
-                    <p class="text-lg">Subscribe to our newsletter</p>
-                    <div class="footer_enter">
-                        <input type="text" placeholder="Enter email" />
-                        <button class="btn">Subscribe</button>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-links__box">
-                <h3>Products</h3>
-                <ul>
-                    <li>Spot trading</li>
-                    <li>Futures trading</li>
-                    <li>Options trading</li>
-                    <li>Wallet</li>
-                    <li>Instant swap</li>
-                    <li>P2P trading</li>
-                    <li>DeFi Staking</li>
-                    <li><span ><?=$domain_titleINIT?></span> Visa Card</li>
-                </ul>
-            </div>
-            <div class="footer-links__box">
-                <h3>Services</h3>
-                <ul>
-                    <li>24/7 support chat</li>
-                    <li>Copy trading</li>
-                    <li>Trading bots</li>
-                    <li>ETH 2.0 staking</li>
-                    <li>Launchpad</li>
-                    <li>Savings</li>
-                    <li><span ><?=$domain_titleINIT?></span> ventures</li>
-                    <li>Buy crypto</li>
-                </ul>
-            </div>
-            <div class="footer-links__box">
-                <h3>Information</h3>
-                <ul>
-                    <li>Fees</li>
-                    <li>Platform status</li>
-                    <li>Wallet security</li>
-                    <li>Token listing</li>
-                    <li>Referal system</li>
-                    <li>Trading API</li>
-                    <li>Buy Bountry</li>
-                </ul>
-            </div>
-            <div class="footer-links__box">
-                <h3>Legal</h3>
-                <ul>
-                    <li>Tearms of service</li>
-                    <li>Privacy notice</li>
-                    <li>Cookies policy</li>
-                    <li>AML & KYC policy</li>
-                    <li>Risk Disclosure Statement</li>
-                    <li>Regulatory License</li>
-                    <li>Special Treatment</li>
-                    <li>Law Enforcement Requests</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer_main_desc">
-            <p class="text-xs">
-                In acceding to or using the Platform and the Site, you represent and
-                warrant that you are fully aware of the risks associated with the
-                transactions involving Digital Assets or the use of Platform. You
-                agree and understand that you are solely responsible for determining
-                the nature, potential value, suitability, and appropriateness of these
-                risks for yourself, and that the Company does not give advice or
-                recommendations regarding any Digital Asset, including the suitability
-                and appropriateness of, and investment strategies for, any Digital
-                Asset. You agree and understand that you access and use the Platform
-                and the Site at your own risk. <span ><?=$domain_titleINIT?></span> 2023 © All right reserved
-            </p>
-        </div>
-    </footer>
+    <?=render_footer()?>
 </body>
 
 <script src="assets/scripts/main.js"></script>

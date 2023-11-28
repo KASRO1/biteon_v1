@@ -315,6 +315,7 @@ stroke: transparent;
 
 function render_footer()
 {
+    $domain_titleINIT = get_domain_title();
     return
         '
     <footer>
@@ -603,7 +604,7 @@ function render_p2p_users()
         </td>
         <td class='text-green-600 font-semibold '>$amount USD</td>
         <td>$limit</td>
-        <td><a class='btn-danger '><svg xmlns='http://www.w3.org/2000/svg' width='19' height='18' viewBox='0 0 19 18' fill='none'>
+        <td><a class='btn-danger open_error'><svg xmlns='http://www.w3.org/2000/svg' width='19' height='18' viewBox='0 0 19 18' fill='none'>
               <path d='M4.82324 13.125L14.7399 2.625' stroke='#A9656A' stroke-width='1.0625' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round' />
               <path d='M4.82324 5.42432V13.1268H12.0979' stroke='#A9656A' stroke-width='1.0625' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round' />
               <path opacity='0.4' d='M3.75879 16.4971H15.8005' stroke='#A9656A' stroke-width='1.0625' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round' />

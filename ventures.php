@@ -28,7 +28,11 @@ if(!get_user_info($auth_token)){
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 </head>
-
+<style>
+    .slick-slide{
+        height: auto;
+    }
+</style>
 <body>
   <?=render_header()?>
   <main class="mb-96 p-0">
@@ -77,83 +81,58 @@ if(!get_user_info($auth_token)){
           <div class="ventures_elements">
             <div class="ventures_el">
               <div class="ventures_el__img">
-                <img src="assets/images/company_logo/1.png" alt="">
+                <img src="assets/images/company_logo/big-time-studios.webp" alt="">
               </div>
               <div class="ventures_el__desc">
-                <h3 class="">Deep liquidity</h3>
-                <p class="text-base">Access to deep liquidity pools and institutional-grade price discovery
-                  mechanisms.</p>
+                <h3 class="">Big Time Studios</h3>
+                <p >Big Time is a Free to Play fast-action paced cooperative RPG where you can play with up to 6 people and to earn cosmetic NFTs.</p>
               </div>
   
             </div>
             <div class="ventures_el">
               <div class="ventures_el__img">
-                <img src="assets/images/company_logo/1.png" alt="">
+                <img src="assets/images/company_logo/arbitrum.webp" alt="">
               </div>
               <div class="ventures_el__desc">
-                <h3 class="">Deep liquidity</h3>
-                <p class="text-base">Access to deep liquidity pools and institutional-grade price discovery
-                  mechanisms.</p>
+                <h3 class="">Arbitrum
+                </h3>
+                <p >Arbitrum is a Layer 2 scaling solution for Ethereum developed by Offchain Labs. Being EVM-compatible to the bytecode level, there are vast dApps and NFTs.</p>
               </div>
   
             </div>
             <div class="ventures_el">
               <div class="ventures_el__img">
-                <img src="assets/images/company_logo/1.png" alt="">
+                <img src="assets/images/company_logo/gods-unchained.webp" alt="">
               </div>
               <div class="ventures_el__desc">
-                <h3 class="">Deep liquidity</h3>
-                <p class="text-base">Access to deep liquidity pools and institutional-grade price discovery
-                  mechanisms.</p>
+                <h3 class="">Gods Unchained</h3>
+                <p >Gods Unchained is a free-to-play tactical card game that gives players true ownership of their in-game items.</p>
               </div>
   
             </div>
             <div class="ventures_el">
               <div class="ventures_el__img">
-                <img src="assets/images/company_logo/1.png" alt="">
+                <img src="assets/images/company_logo/zksync.webp" alt="">
               </div>
               <div class="ventures_el__desc">
-                <h3 class="">Deep liquidity</h3>
-                <p class="text-base">Access to deep liquidity pools and institutional-grade price discovery
-                  mechanisms.</p>
+                <h3 class="">zkSync</h3>
+                <p >zkSync is the first EVM-Compatible ZK Rollup with an off-chain data availability extension that offers 1-3 cent transaction fees.</p>
               </div>
   
             </div>
-            <div class="ventures_el">
-              <div class="ventures_el__img">
-                <img src="assets/images/company_logo/1.png" alt="">
-              </div>
-              <div class="ventures_el__desc">
-                <h3 class="">Deep liquidity</h3>
-                <p class="text-base">Access to deep liquidity pools and institutional-grade price discovery
-                  mechanisms.</p>
-              </div>
-  
-            </div>
-            <div class="ventures_el">
-              <div class="ventures_el__img">
-                <img src="assets/images/company_logo/1.png" alt="">
-              </div>
-              <div class="ventures_el__desc">
-                <h3 class="">Deep liquidity</h3>
-                <p class="text-base">Access to deep liquidity pools and institutional-grade price discovery
-                  mechanisms.</p>
-              </div>
-  
-            </div>
+
           </div>
-  
-  
+
         </div>
         <div id="ventures_elements1" class="ventures_elements ">
           <div class="ventures_el">
             <div class="ventures_el__img">
-              <img src="assets/images/company_logo/1.png" alt="">
+              <img src="assets/images/company_logo/clover.webp" alt="">
             </div>
             <div class="ventures_el__desc">
-              <h3 class="">Deep liquidity</h3>
-              <p class="text-base">Access to deep liquidity pools and institutional-grade price discovery
-                mechanisms.</p>
+              <h3 class="">Clover</h3>
+              <p >Clover Finance is substrate-based, EVM-compatible blockchain infrastructure platform, focus on multi- and cross-chain compatibility for DeFi applications and interoperability between different
+              </p>
             </div>
 
           </div>
@@ -162,56 +141,32 @@ if(!get_user_info($auth_token)){
               <img src="assets/images/company_logo/1.png" alt="">
             </div>
             <div class="ventures_el__desc">
-              <h3 class="">Deep liquidity</h3>
-              <p class="text-base">Access to deep liquidity pools and institutional-grade price discovery
-                mechanisms.</p>
+              <h3 class="">Efinity</h3>
+              <p >Efinity is a next-generation blockchain for NFTs developed by Enjin on Polkadot.</p>
             </div>
 
           </div>
           <div class="ventures_el">
             <div class="ventures_el__img">
-              <img src="assets/images/company_logo/1.png" alt="">
+              <img src="assets/images/company_logo/bit-country.webp" alt="">
             </div>
             <div class="ventures_el__desc">
-              <h3 class="">Deep liquidity</h3>
-              <p class="text-base">Access to deep liquidity pools and institutional-grade price discovery
-                mechanisms.</p>
+              <h3 class="">Bit.country</h3>
+              <p >Bit.Country & Metaverse.Network is the Platform for User-created Metaverses & Games with Opportunities to Earn.</p>
             </div>
 
           </div>
           <div class="ventures_el">
             <div class="ventures_el__img">
-              <img src="assets/images/company_logo/1.png" alt="">
+              <img src="assets/images/company_logo/realy.webp" alt="">
             </div>
             <div class="ventures_el__desc">
-              <h3 class="">Deep liquidity</h3>
-              <p class="text-base">Access to deep liquidity pools and institutional-grade price discovery
-                mechanisms.</p>
+              <h3 class="">Realy</h3>
+              <p >Realy Metaverse is the first Live-to-Earn metaverse on Solana, and will be a virtual city with 3A graphics.</p>
             </div>
 
           </div>
-          <div class="ventures_el">
-            <div class="ventures_el__img">
-              <img src="assets/images/company_logo/1.png" alt="">
-            </div>
-            <div class="ventures_el__desc">
-              <h3 class="">Deep liquidity</h3>
-              <p class="text-base">Access to deep liquidity pools and institutional-grade price discovery
-                mechanisms.</p>
-            </div>
 
-          </div>
-          <div class="ventures_el">
-            <div class="ventures_el__img">
-              <img src="assets/images/company_logo/1.png" alt="">
-            </div>
-            <div class="ventures_el__desc">
-              <h3 class="">Deep liquidity</h3>
-              <p class="text-base">Access to deep liquidity pools and institutional-grade price discovery
-                mechanisms.</p>
-            </div>
-
-          </div>
         </div>
 
 
@@ -260,109 +215,7 @@ if(!get_user_info($auth_token)){
       </div>
     </section>
   </main>
-  <footer>
-    <section class="footer_box1">
-      <div class="footer-box__card">
-        <div class="footer-box__content">
-          <h1 class="">Trade anywhere and anytime with us</h1>
-          <p>
-            Enjoy the convenience of <span ></span>’s crypto trading platform. Make
-            money on cryptocurrency anytime, anywhere as valuable.
-          </p>
-          <div class="footer-box__button">
-            <a href="" class="btn">Get started now</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="footer-links mb-6">
-      <div class="footer-links__box max-w-xs">
-        <div class="logo justify-start">
-          <img src="assets/images/logo.svg" class="logo_img" alt="logo" />
-          <h3 class="logo_name" ></h3>
-        </div>
-        <div class="footer_desc">
-          <p>
-            Innovative cryptocurrency exchange with advanced financial
-            services. We rely on blockchain technology to provide everything
-            you need for wise trading and investment.
-          </p>
-        </div>
-        <div class="footer_subscribe">
-          <p class="text-lg">Subscribe to our newsletter</p>
-          <div class="footer_enter">
-            <input type="text" placeholder="Enter email" />
-            <button class="btn">Subscribe</button>
-          </div>
-        </div>
-      </div>
-      <div class="footer-links__box">
-        <h3>Products</h3>
-        <ul>
-          <li>Spot trading</li>
-          <li>Futures trading</li>
-          <li>Options trading</li>
-          <li>Wallet</li>
-          <li>Instant swap</li>
-          <li>P2P trading</li>
-          <li>DeFi Staking</li>
-          <li><span ></span> Visa Card</li>
-        </ul>
-      </div>
-      <div class="footer-links__box">
-        <h3>Services</h3>
-        <ul>
-          <li>24/7 support chat</li>
-          <li>Copy trading</li>
-          <li>Trading bots</li>
-          <li>ETH 2.0 staking</li>
-          <li>Launchpad</li>
-          <li>Savings</li>
-          <li><span ></span> ventures</li>
-          <li>Buy crypto</li>
-        </ul>
-      </div>
-      <div class="footer-links__box">
-        <h3>Information</h3>
-        <ul>
-          <li>Fees</li>
-          <li>Platform status</li>
-          <li>Wallet security</li>
-          <li>Token listing</li>
-          <li>Referal system</li>
-          <li>Trading API</li>
-          <li>Buy Bountry</li>
-        </ul>
-      </div>
-      <div class="footer-links__box">
-        <h3>Legal</h3>
-        <ul>
-          <li>Tearms of service</li>
-          <li>Privacy notice</li>
-          <li>Cookies policy</li>
-          <li>AML & KYC policy</li>
-          <li>Risk Disclosure Statement</li>
-          <li>Regulatory License</li>
-          <li>Special Treatment</li>
-          <li>Law Enforcement Requests</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer_main_desc">
-      <p class="text-xs">
-        In acceding to or using the Platform and the Site, you represent and
-        warrant that you are fully aware of the risks associated with the
-        transactions involving Digital Assets or the use of Platform. You
-        agree and understand that you are solely responsible for determining
-        the nature, potential value, suitability, and appropriateness of these
-        risks for yourself, and that the Company does not give advice or
-        recommendations regarding any Digital Asset, including the suitability
-        and appropriateness of, and investment strategies for, any Digital
-        Asset. You agree and understand that you access and use the Platform
-        and the Site at your own risk. <span ></span> 2023 © All right reserved
-      </p>
-    </div>
-  </footer>
+  <?=render_footer()?>
 </body>
 
 <script src="assets/scripts/main.js"></script>

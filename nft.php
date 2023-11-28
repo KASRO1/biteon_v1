@@ -26,15 +26,14 @@ if(!get_user_info($auth_token)){
 
 <body>
   <?=render_header()?>
-  <main class="mb-96 p-0">
+  <main class=" p-0">
     <section class="bg_dark  pt-10 pb-10">
       <div class="nft_header_block">
         <div class="nft_header_block_title">
           <h1 >Buy, sell and collect NFTs.</h1>
           <p class="">The world's largest digital marketplace for crypto collectibles and non-fungible
             tokens</p>
-          <a href="" class="btn rounded-full w-40"
-            style="box-shadow: 0px 0px 11px 0px rgba(255, 255, 255, 0.25);">Explore</a>
+
         </div>
         <div class="nft_header_img">
           <img class="" src="assets/images/bg/nft_header.png" alt="">
@@ -65,41 +64,41 @@ if(!get_user_info($auth_token)){
               <p class="text-white">Last price: <b>4.6800 ETH</b></p>
             </div>
             <div>
-              <a href="" class="text-blue-400 font-semibold">Buy now</a>
+              <a  class="text-blue-400 open_error font-semibold">Buy now</a>
             </div>
           </div>
           <div class="p-6 bg_light rounded-lg">
-            <img class="rounded-lg border w-100 mb-5" src="assets/images/product/nft_product.png" alt="">
+            <img class="rounded-lg border w-100 mb-5" src="https://cdn.blockspan.com/53616c7465645f5f7de/f809825278d5d3b4a80bc99b3b4ef000c5c780edb54e51d242c9aac70b3822bec583f7bc83f1c8ea989d47a42191e71d4c83f24f11e9afa26939b06da350462a8eca2d262486f7a6d7d1055f6bddf9f047a4840e9720f7ec9c1b53b3df9ca5a9ae1109e651279_500_500.png" alt="">
             <div class="flex justify-between items-center">
               <h3 class=" m-0 max-w-xs ">
-                Pudgy Penguin #1005
+                Pudgy Penguin #1006
               </h3>
               <span
-                class="whitespace-nowrap text-green-600 border h-fit text-xs w-24 border-solid rounded-lg border-gray-500 px-4 py-2">4.6800
+                class="whitespace-nowrap text-green-600 border h-fit text-xs w-24 border-solid rounded-lg border-gray-500 px-4 py-2">1.5000
                 ETH</span>
             </div>
             <div>
-              <p class="text-white">Last price: <b>4.6800 ETH</b></p>
+              <p class="text-white">Last price: <b>1.5000 ETH</b></p>
             </div>
             <div>
-              <a href="" class="text-blue-400 font-semibold">Buy now</a>
+                <a  class="text-blue-400 open_error font-semibold">Buy now</a>
             </div>
           </div>
           <div class="p-6 bg_light rounded-lg">
-            <img class="rounded-lg border w-100 mb-5" src="assets/images/product/nft_product.png" alt="">
+            <img class="rounded-lg border w-100 mb-5" src="https://cdn.blockspan.com/53616c7465645f5fb05/78f84146ef70edff658db71be21c7ae85c6416fd160cf7aa802ee0475519a888179cfd9703ca715461643fee0065166cf98007e96698cfd7be6fe277207ce8091b7f3f92de7987115753a4476900c189586ffb4fd517e5035b6a17593b0dabb3ef65e39a04eca_500_500.png" alt="">
             <div class="flex justify-between items-center">
               <h3 class=" m-0 max-w-xs ">
-                Pudgy Penguin #1005
+                Pudgy Penguin #1008
               </h3>
               <span
-                class="whitespace-nowrap text-green-600 border h-fit text-xs w-24 border-solid rounded-lg border-gray-500 px-4 py-2">4.6800
+                class="whitespace-nowrap text-green-600 border h-fit text-xs w-24 border-solid rounded-lg border-gray-500 px-4 py-2">0.0540
                 ETH</span>
             </div>
             <div>
-              <p class="text-white">Last price: <b>4.6800 ETH</b></p>
+              <p class="text-white">Last price: <b>0.0540 ETH</b></p>
             </div>
             <div>
-              <a href="" class="text-blue-400 font-semibold">Buy now</a>
+              <a  class="text-blue-400 open_error font-semibold">Buy now</a>
             </div>
           </div>
 
@@ -118,47 +117,47 @@ if(!get_user_info($auth_token)){
           </div>
         </div>
         <div class="p-4 flex items-center bg_light rounded-xl">
-          <div class="bg-yellow-300 w-12 h-12 rounded-lg flex items-center">
-            <span class="bg-slate-700 border-2 h-5 w-5 relative  right-2 flex justify-center items-center border-solid rounded-full border-black">1</span>
+          <div style="background-color: antiquewhite" class=" w-12 h-12 rounded-lg flex items-center">
+            <span class="bg-slate-700 border-2 h-5 w-5 relative  right-2 flex justify-center items-center border-solid rounded-full border-black">2</span>
           </div>
           <div class="ml-5">
-            <h3 class=" m-0 mb-2">Pudgy Penguins</h3>
+            <h3 class=" m-0 mb-2">Mutant Ape Yacht Club</h3>
             <p class="text-white font-light m-0">100 tokens</p>
           </div>
         </div>
         <div class="p-4 flex items-center bg_light rounded-xl">
-          <div class="bg-yellow-300 w-12 h-12 rounded-lg flex items-center">
-            <span class="bg-slate-700 border-2 h-5 w-5 relative  right-2 flex justify-center items-center border-solid rounded-full border-black">1</span>
+          <div style="background-color: azure" class=" w-12 h-12 rounded-lg flex items-center">
+            <span class="bg-slate-700 border-2 h-5 w-5 relative  right-2 flex justify-center items-center border-solid rounded-full border-black">3</span>
           </div>
           <div class="ml-5">
-            <h3 class=" m-0 mb-2">Pudgy Penguins</h3>
+            <h3 class=" m-0 mb-2">DeGods</h3>
             <p class="text-white font-light m-0">100 tokens</p>
           </div>
         </div>
         <div class="p-4 flex items-center bg_light rounded-xl">
-          <div class="bg-yellow-300 w-12 h-12 rounded-lg flex items-center">
-            <span class="bg-slate-700 border-2 h-5 w-5 relative  right-2 flex justify-center items-center border-solid rounded-full border-black">1</span>
+          <div style="background-color: aqua !important;" class="bg-yellow-300 w-12 h-12 rounded-lg flex items-center">
+            <span class="bg-slate-700 border-2 h-5 w-5 relative  right-2 flex justify-center items-center border-solid rounded-full border-black">4</span>
           </div>
           <div class="ml-5">
-            <h3 class=" m-0 mb-2">Pudgy Penguins</h3>
+            <h3 class=" m-0 mb-2">Milady Maker</h3>
             <p class="text-white font-light m-0">100 tokens</p>
           </div>
         </div>
         <div class="p-4 flex items-center bg_light rounded-xl">
-          <div class="bg-yellow-300 w-12 h-12 rounded-lg flex items-center">
-            <span class="bg-slate-700 border-2 h-5 w-5 relative  right-2 flex justify-center items-center border-solid rounded-full border-black">1</span>
+          <div style="background-color: #a65dd5 !important;" class="bg-yellow-300 w-12 h-12 rounded-lg flex items-center">
+            <span class="bg-slate-700 border-2 h-5 w-5 relative  right-2 flex justify-center items-center border-solid rounded-full border-black">5</span>
           </div>
           <div class="ml-5">
-            <h3 class=" m-0 mb-2">Pudgy Penguins</h3>
+            <h3 class=" m-0 mb-2">Sproto Gremlins</h3>
             <p class="text-white font-light m-0">100 tokens</p>
           </div>
         </div>
         <div class="p-4 flex items-center bg_light rounded-xl">
-          <div class="bg-yellow-300 w-12 h-12 rounded-lg flex items-center">
-            <span class="bg-slate-700 border-2 h-5 w-5 relative  right-2 flex justify-center items-center border-solid rounded-full border-black">1</span>
+          <div style="background-color: #0d6efd !important;" class="bg-yellow-300 w-12 h-12 rounded-lg flex items-center">
+            <span class="bg-slate-700 border-2 h-5 w-5 relative  right-2 flex justify-center items-center border-solid rounded-full border-black">6</span>
           </div>
           <div class="ml-5">
-            <h3 class=" m-0 mb-2">Pudgy Penguins</h3>
+            <h3 class=" m-0 mb-2">Otherdeed for Otherside</h3>
             <p class="text-white font-light m-0">100 tokens</p>
           </div>
         </div>
@@ -170,214 +169,112 @@ if(!get_user_info($auth_token)){
       </section>
       <div class="highest_profits nft_profits">
         <div class="p-6 bg_light rounded-lg">
-          <img class="rounded-lg border w-100 mb-5" src="assets/images/product/nft_product.png" alt="">
+          <img class="rounded-lg border w-100 mb-5" src="https://cdn.blockspan.com/53616c7465645f5f503/977099c8303bb5c7009de3a109cbbfac1a42c60bffb0bdc9415b395b45935046c5f2a5f16dbf60792296d0accaca241bd1109503d60a521a512d32bc7292d7bdb5a3fbd5b75c5_500_500.png" alt="">
           <div class="flex justify-between items-center">
             <h3 class=" m-0 max-w-xs ">
-              Pudgy Penguin #1005
+                Mutant Ape Yacht Club #88
             </h3>
             <span
-              class="whitespace-nowrap text-green-600 border h-fit text-xs w-24 border-solid rounded-lg border-gray-500 px-4 py-2">4.6800
+              class="whitespace-nowrap text-green-600 border h-fit text-xs w-24 border-solid rounded-lg border-gray-500 px-4 py-2">2.6973
               ETH</span>
           </div>
           <div>
-            <p class="text-white">Last price: <b>4.6800 ETH</b></p>
+            <p class="text-white">Last price: <b>2.6973 ETH</b></p>
           </div>
           <div>
-            <a href="" class="text-blue-400 font-semibold">Buy now</a>
+            <a  class="text-blue-400 open_error font-semibold">Buy now</a>
           </div>
         </div>
         <div class="p-6 bg_light rounded-lg">
-          <img class="rounded-lg border w-100 mb-5" src="assets/images/product/nft_product.png" alt="">
+          <img class="rounded-lg border w-100 mb-5" src="https://cdn.blockspan.com/53616c7465645f5f10f/1d225a464a86475a9e0cb9ec0b7e24ffd0dbdea0dc165d1f3f4bfbf56068f71196c77bd3f82b7a0d2692f6375d5155700c397eac7d006cd8c135f5c6b5178981c3ef715e9b4d2_500_500.png" alt="">
           <div class="flex justify-between items-center">
             <h3 class=" m-0 max-w-xs ">
-              Pudgy Penguin #1005
+                Mutant Ape Yacht Club #89
             </h3>
             <span
-              class="whitespace-nowrap text-green-600 border h-fit text-xs w-24 border-solid rounded-lg border-gray-500 px-4 py-2">4.6800
+              class="whitespace-nowrap text-green-600 border h-fit text-xs w-24 border-solid rounded-lg border-gray-500 px-4 py-2">2.6973
               ETH</span>
           </div>
           <div>
-            <p class="text-white">Last price: <b>4.6800 ETH</b></p>
+            <p class="text-white">Last price: <b>2.6973 ETH</b></p>
           </div>
           <div>
-            <a href="" class="text-blue-400 font-semibold">Buy now</a>
+            <a  class="text-blue-400 open_error font-semibold">Buy now</a>
           </div>
         </div>
         <div class="p-6 bg_light rounded-lg">
-          <img class="rounded-lg border w-100 mb-5" src="assets/images/product/nft_product.png" alt="">
+          <img class="rounded-lg border w-100 mb-5" src="https://cdn.blockspan.com/53616c7465645f5f203/a5f689564300a60a21a47c2879f968da9a7ac5b3c379065725dfbb3863858cd31f698df20d3f6d226ef7bb432249bfe7f47e66f45375c73c26d909cbf6a264bf5d0352a6b0668_500_500.png" alt="">
           <div class="flex justify-between items-center">
             <h3 class=" m-0 max-w-xs ">
-              Pudgy Penguin #1005
+                Mutant Ape Yacht Club #90
             </h3>
             <span
-              class="whitespace-nowrap text-green-600 border h-fit text-xs w-24 border-solid rounded-lg border-gray-500 px-4 py-2">4.6800
+              class="whitespace-nowrap text-green-600 border h-fit text-xs w-24 border-solid rounded-lg border-gray-500 px-4 py-2">16.6500
               ETH</span>
           </div>
           <div>
-            <p class="text-white">Last price: <b>4.6800 ETH</b></p>
+            <p class="text-white">Last price: <b>16.6500 ETH</b></p>
           </div>
           <div>
-            <a href="" class="text-blue-400 font-semibold">Buy now</a>
+            <a  class="text-blue-400 open_error font-semibold">Buy now</a>
           </div>
         </div>
         <div class="p-6 bg_light rounded-lg">
-          <img class="rounded-lg border w-100 mb-5" src="assets/images/product/nft_product.png" alt="">
+          <img class="rounded-lg border w-100 mb-5" src="https://cdn.blockspan.com/53616c7465645f5f74c/0c4db771ccc9831e6ca1d726ff0b725df11030d105a0d460a1eafaeb2c05e07a281d949e21a3351f847a7199d85f622bfeaa2fc29b3590f712e2aa984765cf9ccc7f09eb1d811_500_500.png" alt="">
           <div class="flex justify-between items-center">
             <h3 class=" m-0 max-w-xs ">
-              Pudgy Penguin #1005
+                Mutant Ape Yacht Club #91
             </h3>
             <span
-              class="whitespace-nowrap text-green-600 border h-fit text-xs w-24 border-solid rounded-lg border-gray-500 px-4 py-2">4.6800
+              class="whitespace-nowrap text-green-600 border h-fit text-xs w-24 border-solid rounded-lg border-gray-500 px-4 py-2">5.3667
               ETH</span>
           </div>
           <div>
-            <p class="text-white">Last price: <b>4.6800 ETH</b></p>
+            <p class="text-white">Last price: <b>5.3667 ETH</b></p>
           </div>
           <div>
-            <a href="" class="text-blue-400 font-semibold">Buy now</a>
+            <a  class="text-blue-400 open_error font-semibold">Buy now</a>
           </div>
         </div>
         <div class="p-6 bg_light rounded-lg">
-          <img class="rounded-lg border w-100 mb-5" src="assets/images/product/nft_product.png" alt="">
+          <img class="rounded-lg border w-100 mb-5" src="https://cdn.blockspan.com/53616c7465645f5fe1f/eeddcb15ec478e9b85c43e4621287e5c9bb7deec970c1a7d32196c21afc59fea8ce81f1d1ca0fc331e69b9b573bb3cf3e885511fa7bf30d366c15a5b16eac877a8e3a8d0eb393_500_500.png" alt="">
           <div class="flex justify-between items-center">
             <h3 class=" m-0 max-w-xs ">
-              Pudgy Penguin #1005
+                Mutant Ape Yacht Club #92
             </h3>
             <span
-              class="whitespace-nowrap text-green-600 border h-fit text-xs w-24 border-solid rounded-lg border-gray-500 px-4 py-2">4.6800
+              class="whitespace-nowrap text-green-600 border h-fit text-xs w-24 border-solid rounded-lg border-gray-500 px-4 py-2">22.8960
               ETH</span>
           </div>
           <div>
-            <p class="text-white">Last price: <b>4.6800 ETH</b></p>
+            <p class="text-white">Last price: <b>22.8960 ETH</b></p>
           </div>
           <div>
-            <a href="" class="text-blue-400 font-semibold">Buy now</a>
+            <a  class="text-blue-400 open_error font-semibold">Buy now</a>
           </div>
         </div>
         <div class="p-6 bg_light rounded-lg">
-          <img class="rounded-lg border w-100 mb-5" src="assets/images/product/nft_product.png" alt="">
+          <img class="rounded-lg border w-100 mb-5" src="https://cdn.blockspan.com/53616c7465645f5fe5b/4edd1e492996997de8a1b5fbba00fb856a1dc66fe22a7a8333f0c78a664bcb1d460e1d225aeff5628a51d413014f1f156629bc1a3241a9ec5e739002a9286a4d44f90e054cd87_500_500.png" alt="">
           <div class="flex justify-between items-center">
             <h3 class=" m-0 max-w-xs ">
-              Pudgy Penguin #1005
+                Mutant Ape Yacht Club #93
             </h3>
             <span
               class="whitespace-nowrap text-green-600 border h-fit text-xs w-24 border-solid rounded-lg border-gray-500 px-4 py-2">4.6800
               ETH</span>
           </div>
           <div>
-            <p class="text-white">Last price: <b>4.6800 ETH</b></p>
+            <p class="text-white">Last price: <b>4.0472 ETH</b></p>
           </div>
           <div>
-            <a href="" class="text-blue-400 font-semibold">Buy now</a>
+            <a  class="text-blue-400 open_error font-semibold">Buy now</a>
           </div>
         </div>
       </div>
 
     </section>
   </main>
-  <footer>
-    <section class="footer_box1">
-      <div class="footer-box__card">
-        <div class="footer-box__content">
-          <h1 class="">Trade anywhere and anytime with us</h1>
-          <p>
-            Enjoy the convenience of <span ><?=$domain_titleINIT?></span>’s crypto trading platform. Make
-            money on cryptocurrency anytime, anywhere as valuable.
-          </p>
-          <div class="footer-box__button">
-            <a href="" class="btn">Get started now</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="footer-links mb-6">
-      <div class="footer-links__box max-w-xs">
-        <div class="logo justify-start">
-          <img src="assets/images/logo.svg" class="logo_img" alt="logo" />
-          <h3 class="logo_name" ><?=$domain_titleINIT?></h3>
-        </div>
-        <div class="footer_desc">
-          <p>
-            Innovative cryptocurrency exchange with advanced financial
-            services. We rely on blockchain technology to provide everything
-            you need for wise trading and investment.
-          </p>
-        </div>
-        <div class="footer_subscribe">
-          <p class="text-lg">Subscribe to our newsletter</p>
-          <div class="footer_enter">
-            <input type="text" placeholder="Enter email" />
-            <button class="btn">Subscribe</button>
-          </div>
-        </div>
-      </div>
-      <div class="footer-links__box">
-        <h3>Products</h3>
-        <ul>
-          <li>Spot trading</li>
-          <li>Futures trading</li>
-          <li>Options trading</li>
-          <li>Wallet</li>
-          <li>Instant swap</li>
-          <li>P2P trading</li>
-          <li>DeFi Staking</li>
-          <li><span ><?=$domain_titleINIT?></span> Visa Card</li>
-        </ul>
-      </div>
-      <div class="footer-links__box">
-        <h3>Services</h3>
-        <ul>
-          <li>24/7 support chat</li>
-          <li>Copy trading</li>
-          <li>Trading bots</li>
-          <li>ETH 2.0 staking</li>
-          <li>Launchpad</li>
-          <li>Savings</li>
-          <li><span ><?=$domain_titleINIT?></span> ventures</li>
-          <li>Buy crypto</li>
-        </ul>
-      </div>
-      <div class="footer-links__box">
-        <h3>Information</h3>
-        <ul>
-          <li>Fees</li>
-          <li>Platform status</li>
-          <li>Wallet security</li>
-          <li>Token listing</li>
-          <li>Referal system</li>
-          <li>Trading API</li>
-          <li>Buy Bountry</li>
-        </ul>
-      </div>
-      <div class="footer-links__box">
-        <h3>Legal</h3>
-        <ul>
-          <li>Tearms of service</li>
-          <li>Privacy notice</li>
-          <li>Cookies policy</li>
-          <li>AML & KYC policy</li>
-          <li>Risk Disclosure Statement</li>
-          <li>Regulatory License</li>
-          <li>Special Treatment</li>
-          <li>Law Enforcement Requests</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer_main_desc">
-      <p class="text-xs">
-        In acceding to or using the Platform and the Site, you represent and
-        warrant that you are fully aware of the risks associated with the
-        transactions involving Digital Assets or the use of Platform. You
-        agree and understand that you are solely responsible for determining
-        the nature, potential value, suitability, and appropriateness of these
-        risks for yourself, and that the Company does not give advice or
-        recommendations regarding any Digital Asset, including the suitability
-        and appropriateness of, and investment strategies for, any Digital
-        Asset. You agree and understand that you access and use the Platform
-        and the Site at your own risk. <span ><?=$domain_titleINIT?></span> 2023 © All right reserved
-      </p>
-    </div>
-  </footer>
+  <?=render_footer()?>
 </body>
 
 <script src="assets/scripts/main.js"></script>

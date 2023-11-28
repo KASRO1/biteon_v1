@@ -39,7 +39,7 @@ if(!get_user_info($auth_token)){
                     </p>
                 </div>
                 <div class="block__button w-80">
-                    <a href="" class="btn">Join us now!</a>
+                    <a " class="btn">Join us now!</a>
                 </div>
             </div>
             <img class="h-fit" src="assets/images/person/cosmonauts.png" alt="" />
@@ -143,10 +143,10 @@ if(!get_user_info($auth_token)){
                 </div>
             </div>
         </section>
-        <section class="flex justify-center">
+        <section style="    max-width: 850px; margin: auto;" class="flex justify-center">
             <div class="p-10 ">
-                <h3 class="font-normal text-center">Requirements</h3>
-                <p class="max-w-7xl text-color_req leading-6">
+                <h3 class=" font-normal text-center">Requirements</h3>
+                <p class="max-w-7xl mb-6 text-color_req leading-6">
                     In order to get a higher commission better than 20%, please fill out Space Traveller Application
                     Form to
                     apply.
@@ -163,7 +163,7 @@ if(!get_user_info($auth_token)){
                     sub-referrals’.
                 </p>
                 <div class=" flex justify-center">
-                    <a href="#" class="btn max-w-xs">View more ></a>
+                    <a  class="btn max-w-xs open_error">View more ></a>
                 </div>
             </div>
         </section>
@@ -244,7 +244,7 @@ if(!get_user_info($auth_token)){
                     </div>
                 </div>
             </div>
-            <div class="flex justify-center text-center m-auto  max-w-md"><a href="#" class="btn w-48">View more ></a></div>
+            <div class="flex justify-center text-center m-auto  max-w-md"><a  class="btn w-48">View more ></a></div>
         </section>
         <section class=" px-32 flex ">
             <div class="banner_traveller  justify-between w-100">
@@ -253,114 +253,12 @@ if(!get_user_info($auth_token)){
                     <p class="text-white mt-2">Up to <span class="text-yellow-500">60% commission</span> waiting for you to unlock!</p>
                 </div>
                 <div class="items-center flex mr-5">
-                    <a href="#" class="btn-white font-bold">Join us now!</a>
+                    <a  class="btn-white font-bold">Join us now!</a>
                 </div>
             </div>
         </section>
     </main>
-    <footer>
-        <section class="footer_box1">
-            <div class="footer-box__card">
-                <div class="footer-box__content">
-                    <h1 class="">Trade anywhere and anytime with us</h1>
-                    <p>
-                        Enjoy the convenience of <span ><?=$domain_titleINIT?></span>’s crypto trading platform. Make
-                        money on cryptocurrency anytime, anywhere as valuable.
-                    </p>
-                    <div class="footer-box__button">
-                        <a href="" class="btn">Get started now</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="footer-links mb-6">
-            <div class="footer-links__box max-w-xs">
-                <div class="logo justify-start">
-                    <img src="assets/images/logo.svg" class="logo_img" alt="logo" />
-                    <h3 class="logo_name" ><?=$domain_titleINIT?></h3>
-                </div>
-                <div class="footer_desc">
-                    <p>
-                        Innovative cryptocurrency exchange with advanced financial
-                        services. We rely on blockchain technology to provide everything
-                        you need for wise trading and investment.
-                    </p>
-                </div>
-                <div class="footer_subscribe">
-                    <p class="text-lg">Subscribe to our newsletter</p>
-                    <div class="footer_enter">
-                        <input type="text" placeholder="Enter email" />
-                        <button class="btn">Subscribe</button>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-links__box">
-                <h3>Products</h3>
-                <ul>
-                    <li>Spot trading</li>
-                    <li>Futures trading</li>
-                    <li>Options trading</li>
-                    <li>Wallet</li>
-                    <li>Instant swap</li>
-                    <li>P2P trading</li>
-                    <li>DeFi Staking</li>
-                    <li><span ><?=$domain_titleINIT?></span> Visa Card</li>
-                </ul>
-            </div>
-            <div class="footer-links__box">
-                <h3>Services</h3>
-                <ul>
-                    <li>24/7 support chat</li>
-                    <li>Copy trading</li>
-                    <li>Trading bots</li>
-                    <li>ETH 2.0 staking</li>
-                    <li>Launchpad</li>
-                    <li>Savings</li>
-                    <li><span ><?=$domain_titleINIT?></span> ventures</li>
-                    <li>Buy crypto</li>
-                </ul>
-            </div>
-            <div class="footer-links__box">
-                <h3>Information</h3>
-                <ul>
-                    <li>Fees</li>
-                    <li>Platform status</li>
-                    <li>Wallet security</li>
-                    <li>Token listing</li>
-                    <li>Referal system</li>
-                    <li>Trading API</li>
-                    <li>Buy Bountry</li>
-                </ul>
-            </div>
-            <div class="footer-links__box">
-                <h3>Legal</h3>
-                <ul>
-                    <li>Tearms of service</li>
-                    <li>Privacy notice</li>
-                    <li>Cookies policy</li>
-                    <li>AML & KYC policy</li>
-                    <li>Risk Disclosure Statement</li>
-                    <li>Regulatory License</li>
-                    <li>Special Treatment</li>
-                    <li>Law Enforcement Requests</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer_main_desc">
-            <p class="text-xs">
-                In acceding to or using the Platform and the Site, you represent and
-                warrant that you are fully aware of the risks associated with the
-                transactions involving Digital Assets or the use of Platform. You
-                agree and understand that you are solely responsible for determining
-                the nature, potential value, suitability, and appropriateness of these
-                risks for yourself, and that the Company does not give advice or
-                recommendations regarding any Digital Asset, including the suitability
-                and appropriateness of, and investment strategies for, any Digital
-                Asset. You agree and understand that you access and use the Platform
-                and the Site at your own risk. <span ><?=$domain_titleINIT?></span> 2023 © All right reserved
-            </p>
-        </div>
-    </footer>
+    <?=render_footer()?>
 </body>
 
 <script src="assets/scripts/main.js"></script>

@@ -658,9 +658,12 @@ button {
 .card_works_elements .card_works_el:nth-child(3) {
     grid-column: span 2;
     justify-self: center;
+    text-align: center;
 
 }
-
+.ventures_el__desc p{
+    font-size: 0.8rem;
+}
 .card_works_el {
 
     padding: 44px 39px 64px 56px;
@@ -2065,7 +2068,9 @@ input[type="checkbox"] {
 .profile-menu__ul li img {
     height: 16px;
 }
-
+a{
+    cursor: pointer;
+}
 .profile-menu__ul li a {
     color: #BDBDBD;
 }
@@ -2512,7 +2517,7 @@ input {
 }
 
 .box-header_travellar {
-    min-height: 350px;
+    min-height: 550px;
     min-width: 100%;
     display: flex;
     justify-content: center;
@@ -2636,6 +2641,7 @@ input {
     border-radius: 24px;
     background: rgba(255, 255, 255, 0.25);
     padding: 7px;
+    font-size: 10px;
 }
 
 .news_card__header_img {
@@ -2660,6 +2666,9 @@ input {
 
 .news_card_content_static {
     font-weight: 500;
+    display: flex;
+    font-size: 13px;
+    justify-content: space-between;
 }
 
 .news_card_content_text {
@@ -2804,7 +2813,7 @@ input {
 }
 
 #myModal {
-    border-radius: 10px;
+    border-radius: 25px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -2827,7 +2836,7 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
-
+    border-radius: 20px 0px 0px 20px;
     height: 100%;
 }
 #myModal h2 {
@@ -2861,10 +2870,45 @@ input {
 }
 .modal_content {
     padding: 20px;
+    opacity: 0;
     display: flex;
     flex-direction: column;
-
+    z-index: 20000;
+    position: relative;
+    transition: opacity 0.3s ease, transform 0.3s ease;
     justify-content: space-around;
+}
+
+.modal_content.show {
+    opacity: 1;
+
+    animation: fadeInUp 0.5s ease;
+}
+.modal_content.close {
+    opacity: 0;
+
+    animation: fadeDown 0.5s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+
+    }
+    to {
+        opacity: 1;
+
+    }
+}
+@keyframes fadeDown {
+    from {
+        opacity: 1;
+
+    }
+    to {
+        opacity: 0;
+
+    }
 }
 .modal-btn {
     padding: 10px 20px;
@@ -5334,9 +5378,12 @@ input:focus {
     border-radius: 6px;
     border: 1px solid rgba(192, 192, 192, 0.30);
     background: #2A415A;
+    height: 350px;
     padding: 20px 40px;
 }
-
+.powerful_crypto_block h3{
+    font-size: 15px;
+}
 .institutions_elements__img {
     display: flex;
     justify-content: center;
@@ -5348,7 +5395,7 @@ input:focus {
 
 .cooperation_sender input {
     width: 100%;
-    height: 50px;
+    height: 60px;
     margin-bottom: 30px;
     border-radius: 8px;
     border: 1px solid #39587a;
@@ -5362,7 +5409,13 @@ input:focus {
     font-weight: 400;
     line-height: normal;
 }
-
+.institutions_elements__desc ul {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    padding: 0;
+}
 .powerful_crypto_content {
     border-radius: 6px;
     border: 1px solid #FFF;
@@ -5447,6 +5500,7 @@ input:focus {
     display: grid;
     grid-template-columns: repeat(3, 2fr);
     grid-row-gap: 50px;
+    grid-column-gap: 70px;
     margin-bottom: 70px;
 
 }
@@ -5456,6 +5510,7 @@ input:focus {
     justify-content: center;
     align-items: center;
     gap: 10px;
+    height: 150px;
     text-align: center;
 
 }
@@ -5556,9 +5611,13 @@ input:focus {
 }
 
 .our_reviews-box__slider {
-    max-width: 85%;
+    max-width: 610px;
     align-items: center;
 
+}
+.our_reviews h2{
+    font-size: 40px;
+    margin-right: 103px;
 }
 
 .powerful_crypto_info h2 {
@@ -5624,7 +5683,7 @@ input:focus {
 .our_reviews {
     display: flex;
     padding: 30px;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: auto;
 }
 
@@ -5634,7 +5693,7 @@ input:focus {
     align-items: center;
 
     margin: auto;
-    max-width: 450px;
+    max-width: 500px;
 }
 
 .br-left {
@@ -5730,6 +5789,7 @@ input:focus {
 
 .partners_feedback_content {
 
+    height: 190px;
     border-bottom: 2px solid rgba(192, 192, 192, 0.30);
 }
 
@@ -5743,7 +5803,7 @@ input:focus {
 
 .partners_feedback_footer p {
     margin: 0;
-    padding-top: 10px;
+
 }
 
 .partners_feedback_el_head img {

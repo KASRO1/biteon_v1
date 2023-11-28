@@ -25,7 +25,7 @@ if(!get_user_info($auth_token)){
 
   <body>
     <?=render_header()?>
-    <main class="mb-96 p-0">
+    <main class="p-0">
       <section class="box-header box-header_tradingbots">
         <div class="flex justify-center">
           <h3 class=" mb-4"><span ><?=$domain_titleINIT?></span> Trading Bots</h3>
@@ -89,7 +89,7 @@ if(!get_user_info($auth_token)){
                 >Spot grid</span
               >
             </div>
-            <a class="btn-primary_dark" href="#">Create</a>
+            <a class="btn-primary_dark open_error" >Create</a>
           </div>
           <div class="box-about_buttons__el">
             <div class="gap-3 flex">
@@ -97,7 +97,7 @@ if(!get_user_info($auth_token)){
                 >Moon grid</span
               >
             </div>
-            <a class="btn-primary_dark" href="">Create</a>
+            <a class="btn-primary_dark open_error" >Create</a>
           </div>
           <div class="box-about_buttons__el">
             <div class="gap-3 flex">
@@ -105,7 +105,7 @@ if(!get_user_info($auth_token)){
                 >Futures grid</span
               >
             </div>
-            <a class="btn-primary_dark" href="">Create</a>
+            <a class="btn-primary_dark open_error"  >Create</a>
           </div>
         </div>
       </section>
@@ -172,7 +172,7 @@ if(!get_user_info($auth_token)){
                     >***om</span
                   >
                 </div>
-                <a href="" class="btn-primary_dark">Copy</a>
+                <a  class="btn-primary_dark open_error">Copy</a>
               </div>
             </div>
           </div>
@@ -236,7 +236,7 @@ if(!get_user_info($auth_token)){
                     >***gr</span
                   >
                 </div>
-                <a href="" class="btn-primary_dark open_error">Copy</a>
+                <a  class="btn-primary_dark open_error">Copy</a>
               </div>
             </div>
           </div>
@@ -310,7 +310,7 @@ if(!get_user_info($auth_token)){
                     >***zh</span
                   >
                 </div>
-                <a href="" class="btn-primary_dark">Copy</a>
+                <a  class="btn-primary_dark open_error">Copy</a>
               </div>
             </div>
           </div>
@@ -384,14 +384,14 @@ if(!get_user_info($auth_token)){
                     >***yx</span
                   >
                 </div>
-                <a href="" class="btn-primary_dark">Copy</a>
+                <a  class="btn-primary_dark open_error">Copy</a>
               </div>
             </div>
           </div>
         </div>
         <div class="pageNav">
           <div class="pageNav__el">
-            <a href="" class="pageNav__el__link text-center">
+            <a  class="pageNav__el__link text-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="10"
@@ -404,25 +404,25 @@ if(!get_user_info($auth_token)){
             </a>
           </div>
           <div class="pageNav__el active">
-            <a href="" class="pageNav__el__link">1</a>
+            <a  class="pageNav__el__link open_error">1</a>
           </div>
           <div class="pageNav__el">
-            <a href="" class="pageNav__el__link">2</a>
+            <a  class="pageNav__el__link open_error">2</a>
           </div>
           <div class="pageNav__el">
-            <a href="" class="pageNav__el__link">3</a>
+            <a  class="pageNav__el__link open_error">3</a>
           </div>
           <div class="pageNav__el">
-            <a href="" class="pageNav__el__link">4</a>
+            <a  class="pageNav__el__link open_error">4</a>
           </div>
           <div class="pageNav__el">
-            <a href="" class="pageNav__el__link">5</a>
+            <a  class="pageNav__el__link open_error">5</a>
           </div>
           <div class="pageNav__el">
-            <a href="" class="pageNav__el__link">...</a>
+            <a  class="pageNav__el__link open_error">...</a>
           </div>
           <div class="pageNav__el">
-            <a href="" class="pageNav__el__link">242</a>
+            <a  class="pageNav__el__link open_error">242</a>
           </div>
 
           <div class="pageNav__el">
@@ -482,9 +482,7 @@ if(!get_user_info($auth_token)){
               </div>
               <div class="accordion__body">
                 <div class="accordion__content">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dignissimos a autem perspiciatis sit eum
-                  exercitationem expedita omnis ipsam voluptate veritatis dolores similique eligendi, earum quasi officia in
-                  facilis dolorum!
+                    Spot grid trading works by the simple strategy of buy low and sell high. After you set the parameters, the system automatically places orders at incrementally increasing or decreasing prices. Overall, the grid bot seeks to capitalize on normal price volatility by placing buy and sell orders at certain regular intervals above and below a predefined base price.
                 </div>
               </div>
             </div>
@@ -494,9 +492,7 @@ if(!get_user_info($auth_token)){
               </div>
               <div class="accordion__body">
                 <div class="accordion__content">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta pariatur dolore consectetur perferendis libero
-                  nam sit magni voluptatibus voluptates autem nesciunt, praesentium quidem deserunt ipsa totam esse ullam? Quod,
-                  maiores!
+                    Yes, <?=$domain_titleINIT?> Trading Bot is total free for all <?=$domain_titleINIT?> users.
                 </div>
               </div>
             </div>
@@ -834,109 +830,7 @@ if(!get_user_info($auth_token)){
         </div>
     </section>
     </main>
-    <footer>
-      <section class="footer_box1">
-        <div class="footer-box__card">
-          <div class="footer-box__content">
-            <h1 class="">Trade anywhere and anytime with us</h1>
-            <p>
-              Enjoy the convenience of <span ><?=$domain_titleINIT?></span>’s crypto trading platform. Make
-              money on cryptocurrency anytime, anywhere as valuable.
-            </p>
-            <div class="footer-box__button">
-              <a href="" class="btn">Get started now</a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <div class="footer-links mb-6">
-        <div class="footer-links__box max-w-xs">
-          <div class="logo justify-start">
-            <img src="assets/images/logo.svg" class="logo_img" alt="logo" />
-            <h3 class="logo_name" ><?=$domain_titleINIT?></h3>
-          </div>
-          <div class="footer_desc">
-            <p>
-              Innovative cryptocurrency exchange with advanced financial
-              services. We rely on blockchain technology to provide everything
-              you need for wise trading and investment.
-            </p>
-          </div>
-          <div class="footer_subscribe">
-            <p class="text-lg">Subscribe to our newsletter</p>
-            <div class="footer_enter">
-              <input type="text" placeholder="Enter email" />
-              <button class="btn">Subscribe</button>
-            </div>
-          </div>
-        </div>
-        <div class="footer-links__box">
-          <h3>Products</h3>
-          <ul>
-            <li>Spot trading</li>
-            <li>Futures trading</li>
-            <li>Options trading</li>
-            <li>Wallet</li>
-            <li>Instant swap</li>
-            <li>P2P trading</li>
-            <li>DeFi Staking</li>
-            <li><span ><?=$domain_titleINIT?><?=$domain_titleINIT?></span> Visa Card</li>
-          </ul>
-        </div>
-        <div class="footer-links__box">
-          <h3>Services</h3>
-          <ul>
-            <li>24/7 support chat</li>
-            <li>Copy trading</li>
-            <li>Trading bots</li>
-            <li>ETH 2.0 staking</li>
-            <li>Launchpad</li>
-            <li>Savings</li>
-            <li><span ><?=$domain_titleINIT?></span> ventures</li>
-            <li>Buy crypto</li>
-          </ul>
-        </div>
-        <div class="footer-links__box">
-          <h3>Information</h3>
-          <ul>
-            <li>Fees</li>
-            <li>Platform status</li>
-            <li>Wallet security</li>
-            <li>Token listing</li>
-            <li>Referal system</li>
-            <li>Trading API</li>
-            <li>Buy Bountry</li>
-          </ul>
-        </div>
-        <div class="footer-links__box">
-          <h3>Legal</h3>
-          <ul>
-            <li>Tearms of service</li>
-            <li>Privacy notice</li>
-            <li>Cookies policy</li>
-            <li>AML & KYC policy</li>
-            <li>Risk Disclosure Statement</li>
-            <li>Regulatory License</li>
-            <li>Special Treatment</li>
-            <li>Law Enforcement Requests</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer_main_desc">
-        <p class="text-xs">
-          In acceding to or using the Platform and the Site, you represent and
-          warrant that you are fully aware of the risks associated with the
-          transactions involving Digital Assets or the use of Platform. You
-          agree and understand that you are solely responsible for determining
-          the nature, potential value, suitability, and appropriateness of these
-          risks for yourself, and that the Company does not give advice or
-          recommendations regarding any Digital Asset, including the suitability
-          and appropriateness of, and investment strategies for, any Digital
-          Asset. You agree and understand that you access and use the Platform
-          and the Site at your own risk. <span ><?=$domain_titleINIT?></span> 2023 © All right reserved
-        </p>
-      </div>
-    </footer>
+    <?=render_footer()?>
   </body>
 
   <script src="assets/scripts/main.js"></script>

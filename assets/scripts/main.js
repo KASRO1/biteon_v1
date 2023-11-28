@@ -84,7 +84,7 @@ function validateInput_numbers(input) {
     input.value = input.value.replace(/[^0-9.]/g, '');
 }
 
-var openErrorButton = document.querySelectorAll('.open_error');
+
 
 
 var openErrorButtons = document.querySelectorAll('.open_error');
@@ -125,7 +125,7 @@ openErrorButtons.forEach(function(openErrorButton) {
                 <rect width="1.82812" height="19.5" rx="0.914062" transform="matrix(-0.707107 0.707107 0.707107 0.707107 125.666 124.951)" fill="#0D0938"></rect>
             </svg>
         </div>
-        <div class="modal_content">
+        <div class="modal_content show">
             <div class="modal_content_block1">
                 <div style="width: fit-content;">
                     <h2>Error occurred</h2>
@@ -146,13 +146,20 @@ openErrorButtons.forEach(function(openErrorButton) {
 
 
         document.body.appendChild(modalContent);
+        modalContent.classList.add("show")
     });
 });
 
 
 
 function closeModal() {
-    document.getElementById('myModal').remove();
+    const modal_content = document.querySelector(".modal_content");
+    modal_content.classList.remove('show');
+    modal_content.classList.add('close');
+    setTimeout(function () {
+        document.getElementById('myModal').remove();
+        modal_content.remove();
+    }, 450);
 }
 var listItems = document.querySelectorAll('.submenu li');
 
