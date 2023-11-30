@@ -7,7 +7,7 @@ if (isset($_POST['email'])) {
     $email = $_POST['email'];
     $user_info = get_user_info_by_email_or_name_or_id($email);
     if($user_info){
-        $gen_code = generate_code("reset_password", $user_info['id']);
+        $gen_code = generate_code("reset_password", $user_info['id'])[0];
         if($gen_code !== false){
            
             send_reset_password($email, $gen_code, $user_info['id']);

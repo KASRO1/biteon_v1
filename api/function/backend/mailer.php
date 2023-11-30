@@ -305,6 +305,7 @@ provided when you registered at '.$domain.'
 
 function send_reset_password($email, $code, $user_id)
 {
+    $domain_titleINIT = get_domain_title();
     $mail = new PHPMailer;
     $mail->CharSet = 'UTF-8';
 
@@ -321,7 +322,7 @@ function send_reset_password($email, $code, $user_id)
     $mail->setFrom('mail@snipp.ru', 'Snipp.ru');
 
 
-    $mail->addAddress($email, '<?=$domain_titleINIT?>');
+    $mail->addAddress($email, $domain_titleINIT);
 
 
     $mail->Subject = $subject;
@@ -344,7 +345,7 @@ function send_reset_password($email, $code, $user_id)
                     font-weight: 700;
                     line-height: normal;
                     ">
-                        <?=$domain_titleINIT?>
+                        '.$domain_titleINIT.'
                     </td>
                 </table>
                 <table style="width: 70%; height: 1px;" >
@@ -395,7 +396,7 @@ text-decoration-line: underline;">link</a> or click the button below.
                 </table>
                 <table>
                     <td>
-                        <a href="http://<?=$domain_titleINIT?>.ru/change-password?code='.$code.'&user_id='.$user_id.'" style="border-radius: 10px;
+                        <a href="https://'.$_SERVER['HTTP_HOST'].'/change-password?code='.$code.'&user_id='.$user_id.'" style="border-radius: 10px;
                         background: #30ACFF; padding: 10px 100px; 
                         color: #FFF;
 text-align: center;
@@ -430,7 +431,7 @@ line-height: normal;
                     font-weight: 300;
                     line-height: normal;">
                         You received this email because your mailing address was <br>
-provided when you registered at <?=$domain_titleINIT?>.com
+provided when you registered at '.$domain_titleINIT.'
                     </td>
                 </table>
                 <table height="100px">
@@ -455,7 +456,7 @@ function confirm_login_from_account()
 {
     $mail = new PHPMailer;
     $mail->CharSet = 'UTF-8';
-
+    $domain_titleINIT = get_domain_title();
     $subject = "Confirm login from account";
     $mail->isSMTP();
     $mail->SMTPAuth = true;
@@ -492,7 +493,7 @@ function confirm_login_from_account()
                     font-weight: 700;
                     line-height: normal;
                     ">
-                        <?=$domain_titleINIT?>
+                        '.$domain_titleINIT.'
                     </td>
                 </table>
                 <table style="width: 70%; height: 1px;" >
@@ -528,7 +529,7 @@ function confirm_login_from_account()
                     font-style: normal;
                     font-weight: 300;
                     line-height: normal;">
-                        Confirm login from your user@gmail.com account at <?=$domain_titleINIT?>.com
+                        Confirm login from your user@gmail.com account at 
                     </td>
                 </table>
                 <table height="100px">
@@ -572,7 +573,7 @@ line-height: normal;
                     font-weight: 300;
                     line-height: normal;">
                         You received this email because your mailing address was <br>
-provided when you registered at <?=$domain_titleINIT?>.com
+provided when you registered at '.$domain_titleINIT.'
                     </td>
                 </table>
                 <table height="100px">

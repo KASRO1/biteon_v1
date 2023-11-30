@@ -1,3 +1,7 @@
+<?php
+require $_SERVER['DOCUMENT_ROOT'].'/api/init.php';
+$domain_titleINIT = get_domain_title();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,12 +22,12 @@
     <header>
         <div class="logo">
             <img src="assets/images/logo.svg" class="logo_img" alt="logo">
-            <h3 ></h3>
+            <h3 ><?=$domain_titleINIT?></h3>
         </div>
 
         <div class="login_block1">
 
-            <a href="#" class="login">← Go back </a>
+            <a href="/" class="login">← Go back </a>
 
 
         </div>
@@ -32,7 +36,7 @@
     <main class="login_main">
 
         <section class="login_section">
-            <h1>Sign in</h1>
+            <h1>Reset password</h1>
             <p class="details mb-5">Welcome! Please enter your details</p>
             <form action="" novalidate  id="login_form" method="post">
                 <div class="login_content" novalidate>

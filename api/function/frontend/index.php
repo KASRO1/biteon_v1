@@ -45,9 +45,9 @@ stroke: transparent;
 }
 </style>
         <header>
-        <div class="logo">
+        <div  onclick="window.location.href = \'/\'" class="logo">
             <img src="assets/images/logo.svg" class="logo_img" alt="logo">
-            <h3 >'.$domain_titleINIT.'</h3>
+            <h3 >' . $domain_titleINIT . '</h3>
         </div>
         <div class="menu">
             <ul>
@@ -176,7 +176,7 @@ stroke: transparent;
                             <span>Value-added product for flexible returns</span>
                             </div>
                         </li>
-                        <li data-href="/staking">
+                        <li data-href="/participate">
                          <div >
                             <img src="assets/images/header/eth20.png" alt="" srcset="">
                             </div>
@@ -231,7 +231,7 @@ stroke: transparent;
                             </div>
                             <div>
                             <a >Institutional home</a>
-                            <span>'.$domain_titleINIT.' offers the worlds most powerful suite of institutional crypto trading solutions</span>
+                            <span>' . $domain_titleINIT . ' offers the worlds most powerful suite of institutional crypto trading solutions</span>
                             </div>
                         </li>
                          <li data-href="/future_payment">
@@ -239,7 +239,7 @@ stroke: transparent;
                             <img src="assets/images/header/card.svg" alt="" srcset="">
                             </div>
                             <div>
-                            <a >'.$domain_titleINIT.' Card</a>
+                            <a >' . $domain_titleINIT . ' Card</a>
                             <span>Order and ise your card anywhere Visa® debit cards are accepted, at 40M+ merchants worldwide.</span>
                             </div>
                         </li>
@@ -248,8 +248,8 @@ stroke: transparent;
                             <img src="assets/images/header/ventures.png" alt="" srcset="">
                             </div>
                             <div>
-                            <a >'.$domain_titleINIT.' Ventures</a>
-                            <span>'.$domain_titleINIT.' Ventures is a fund focused on exploring high-quality projects with great potential</span>
+                            <a >' . $domain_titleINIT . ' Ventures</a>
+                            <span>' . $domain_titleINIT . ' Ventures is a fund focused on exploring high-quality projects with great potential</span>
                             </div>
                         </li>
                         
@@ -260,9 +260,26 @@ stroke: transparent;
             </ul>
         </div>
         <div class="login_block gap-0" id="login_block">
-            <a href="#" id="profile" class="autorized_user">' . $user['username'] . '</a>
+            <div class="flex items-center" id="profile">
+            <a href="#" id="" class="autorized_user">' . $user['username'] . '</a>
             <img src="' . $user['avatar'] . '" class="image_profile" alt="">
-            <a href="" class="burger_menu"> <img src="assets/images/burger.svg" alt=""></a>
+            </div>
+            <a href="#" class="burger_menu" id="burgerToggle">
+              <img src="assets/images/burger.svg" alt="">
+            </a>
+            <nav class="mobile-menu" id="mobileMenu">
+            <button class="close-btn" id="closeBtn">&times;</button>
+        <div class="logo">
+            <img src="assets/images/logo.svg" class="logo_img" alt="logo">
+            <h3 >' . $domain_titleINIT . '</h3>
+        </div>
+              <ul>
+                <li><a href="#" class="menu-item">Главная</a></li>
+                <li><a href="#" class="menu-item">О нас</a></li>
+                <li><a href="#" class="menu-item">Услуги</a></li>
+                <li><a href="#" class="menu-item">Контакты</a></li>
+              </ul>
+            </nav>
             <div id="profileMenu" class="profile-menu">
                 <div class="profile-menu__balance">
                     <div class="profile-menu__balance__title">
@@ -274,8 +291,8 @@ stroke: transparent;
                     </div>
 
                     <div class="profile-menu__balance__buttons">
-                        <button class="btn"><img src="assets/images/icons/deposit.svg" alt="">Deposit</button>
-                        <button class="btn"><img src="assets/images/icons/withdraw.svg" alt="">Withdraw</button>
+                        <button onclick="window.location.href = \'/deposit\'" class="btn"><img src="assets/images/icons/deposit.svg" alt="">Deposit</button>
+                        <button onclick="window.location.href = \'/withdraw\'"  class="btn"><img src="assets/images/icons/withdraw.svg" alt="">Withdraw</button>
                     </div>
                     <div class="line mb-4"></div>
                     <ul class="profile-menu__ul">
@@ -284,7 +301,7 @@ stroke: transparent;
                         <li><img src="assets/images/icons/verif.svg" alt=""><a href="/settings_kyc">Verification</a></li>
                         <li><img src="assets/images/icons/gift.svg" alt=""><a href="/settings_gift">Gift codes</a></li>
                         <li><img src="assets/images/icons/support.svg" alt=""><a href="/support">Support</a></li>
-                        '.$worker_submenu.'
+                        ' . $worker_submenu . '
                     </ul>
                     <div class="line mb-4"></div>
                     <div class="user_logout">
@@ -544,8 +561,8 @@ function render_wallet_overview()
         <td>0 <span>$coin_name_s</span></td>
         <td>$balance_to_usd <span>USD</span></td>
         <td><div class='table__buttons_dep_with'>
-            <a href='#'>Deposit</a>
-            <a href='#'>Withdraw</a>
+            <a href='/deposit?coin=$coin_name_s'>Deposit</a>
+            <a href='/withdraw?coin=$coin_name_s'>Withdraw</a>
 
         </div>
         </td>

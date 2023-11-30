@@ -11,6 +11,14 @@ if(!get_user_info($auth_token)){
 $user_info = get_user_info($auth_token);
 $total_balance = get_total_balance();
 $static_procent = get_procent_to_balance($total_balance);
+$static_procent_display = "";
+if($static_procent['BTC'] == 0 && $static_procent['ETH'] == 0 && $static_procent['Other'] == 0){
+    $static_procent_display = "100";
+
+}
+else{
+    $static_procent_display = $static_procent['BTC'].",".$static_procent['ETH'].",". $static_procent['Other'];
+}
 
 ?>
 <!DOCTYPE html>
@@ -35,9 +43,9 @@ $static_procent = get_procent_to_balance($total_balance);
                 </div>
             </div>
             <div class="subtitle_buttons">
-                <a  class="btn-dark"><img src="assets/images/icons/deposit.svg" alt="">Deposit</a>
-                <a  class="btn-dark"><img src="assets/images/icons/withdraw.svg" alt="">Withdraw</a>
-                <a class="btn-dark"><img src="assets/images/icons/transfer.svg" alt="">Transfer</a>
+                <button onclick="window.location.href='/deposit'" class="btn-dark"><img src="assets/images/icons/deposit.svg" alt="">Deposit</button>
+                <button onclick="window.location.href='/withdraw'" class="btn-dark"><img src="assets/images/icons/withdraw.svg" alt="">Withdraw</button>
+                <button onclick="window.location.href='/transfer'" class="btn-dark"><img src="assets/images/icons/transfer.svg" alt="">Transfer</button>
                 <a class="btn-dark"><img src="assets/images/icons/history.svg" alt="">History</a>
             </div>
         </div>
@@ -53,7 +61,7 @@ $static_procent = get_procent_to_balance($total_balance);
                         <path d="M1.6123 2.32849C1.78461 2.62694 2.21539 2.62694 2.3877 2.32849L3.34435 0.671511C3.51666 0.373062 3.30128 0 2.95666 0H1.04334C0.698724 0 0.483337 0.373062 0.655647 0.671512L1.6123 2.32849Z" fill="white" fill-opacity="0.8"/>
                       </svg></span></h3>
                     <h2><?=$total_balance?> $</h2>
-                    <span>~ 0.0000000 BTC</span>
+                    <span>~ <?=number_format(convertCryptoPrice($total_balance, 192, 189), 2)?> BTC</span>
                 </div>
                 <div class="swap_card_chart">
 
@@ -109,10 +117,13 @@ $static_procent = get_procent_to_balance($total_balance);
                     <div class="swap_card_profile_tags">
                         <h3 class="red_tag_full"><span class="red_tag"><svg xmlns="http://www.w3.org/2000/svg"viewBox="0 0 3 4" fill="none">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M1.07773 1.54682L0.0621246 2.56731L0.572484 3.07523L1.58809 2.05473L2.60913 3.07088L3.11704 2.56052L2.096 1.54437L3.11206 0.523429L2.6017 0.0155137L1.58565 1.03646L0.565244 0.020945L0.057329 0.531304L1.07773 1.54682Z" fill="white"/>
-                          </svg></span>PREMIUM</h3>
+                          </svg></span>UNVERIFIED</h3>
                           <h3 class="red_tag_full"><span class="red_tag"><svg xmlns="http://www.w3.org/2000/svg"viewBox="0 0 3 4" fill="none">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M1.07773 1.54682L0.0621246 2.56731L0.572484 3.07523L1.58809 2.05473L2.60913 3.07088L3.11704 2.56052L2.096 1.54437L3.11206 0.523429L2.6017 0.0155137L1.58565 1.03646L0.565244 0.020945L0.057329 0.531304L1.07773 1.54682Z" fill="white"/>
                           </svg></span>PREMIUM</h3>
+                        <h3 class="red_tag_full"><span class="red_tag"><svg xmlns="http://www.w3.org/2000/svg"viewBox="0 0 3 4" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.07773 1.54682L0.0621246 2.56731L0.572484 3.07523L1.58809 2.05473L2.60913 3.07088L3.11704 2.56052L2.096 1.54437L3.11206 0.523429L2.6017 0.0155137L1.58565 1.03646L0.565244 0.020945L0.057329 0.531304L1.07773 1.54682Z" fill="white"/>
+                          </svg></span>V.I.P</h3>
                     </div>
                 </div>
             </div>
@@ -220,8 +231,8 @@ new Chart(document.getElementById("doughnut-chart"), {
       datasets: [
         {
 
-          backgroundColor: ["#DAA520","#00BFFF","#ff0000"],
-          data: [<?=$static_procent['BTC'].",".$static_procent['ETH'].",".$static_procent['Other']?>],
+          backgroundColor: ["#ffe29e","#b2ebff","#caffb9"],
+          data: [<?=$static_procent_display?>],
           borderWidth: 0,
          
         }

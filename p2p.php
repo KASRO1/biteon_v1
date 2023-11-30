@@ -125,7 +125,7 @@ $user_info = get_user_info($auth_token);
               <div id="select-payment"></div>
             </div>
           </div>
-          <div>
+          <div style="height: 40px" class="flex justify-center">
             <button  style="padding: 12px 30px; color: #FFF;
 font-family: Roboto;
 font-size: 16px;

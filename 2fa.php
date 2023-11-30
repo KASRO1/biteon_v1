@@ -36,7 +36,7 @@ if(!$info_token && $info_token['type'] !== '2fa'){
 
         <div class="login_block1">
 
-            <a href="#" class="login">← Go back </a>
+            <a href="/" class="login">← Go back </a>
 
 
         </div>
@@ -52,8 +52,8 @@ if(!$info_token && $info_token['type'] !== '2fa'){
                     <input type="text" minlength="5" required data-pristine-type="email" name="code" class="inpt" placeholder="Enter your 2fa code">
                
 
-                    <button type="submit" class="btn">Reset password</button>
-                    <p>Remembered your password? <a href="register">Sign in now</a></p>
+                    <button type="submit" class="btn">Login</button>
+
                 </div>
             </form>
         </section>
@@ -89,7 +89,7 @@ if(!$info_token && $info_token['type'] !== '2fa'){
                     if (data.status === 'success') {
                         new Notify({
                             title: 'Success',
-                            text: "Auth success
+                            text: "Auth success",
                             status: 'success',
                             autoclose: true,
                             autotimeout: 3000

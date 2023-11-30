@@ -64,21 +64,21 @@ if(!get_user_info($auth_token)){
                         <td class="flex items-center gap-3"><img src="assets/images/icons/crypto/usdt.png" alt=""><h3>USDT</h3> <span class="text-gray-500 text-xs">Tether</span></td>
                         <td ><div class="flex items-center gap-2">10.00% <span class="tag_success">Bonus</span></div></td>
                         <td >Flexible</td>
-                        <td ><a class="btn ">Procced</a></td>
+                        <td ><a class="btn open_error">Procced</a></td>
 
                     </tr>
                     <tr >
                         <td class="flex items-center gap-3"><img src="assets/images/icons/crypto/btc.svg" alt=""><h3>BTC</h3> <span class="text-gray-500 text-xs">Tether</span></td>
                         <td ><div class="flex items-center gap-2">10.00% <span class="tag_success">Bonus</span></div></td>
                         <td >Flexible</td>
-                        <td ><a class="btn ">Procced</a></td>
+                        <td ><a class="btn open_error">Procced</a></td>
 
                     </tr>
                     <tr >
                         <td class="flex items-center gap-3"><img src="assets/images/icons/crypto/eth.png" alt=""><h3>ETH</h3> <span class="text-gray-500 text-xs">Tether</span></td>
                         <td ><div class="flex items-center gap-2">5.00% <span class="tag_success">Bonus</span></div></td>
                         <td >Flexible</td>
-                        <td ><a class="btn ">Procced</a></td>
+                        <td ><a class="btn open_error">Procced</a></td>
 
                     </tr>
 
@@ -104,139 +104,31 @@ if(!get_user_info($auth_token)){
                 </div>
                 <div class="accordion__item">
                     <div class="accordion__header">
-                        Where can I see my referral rewards? How often will the rewards be
-                        distributed?
+                        How is the interest rate calculated?
                     </div>
                     <div class="accordion__body">
                         <div class="accordion__content">
-                            How many times can a referral code be used?
+                            With 15% of the loan interest withheld as insurance fund, the hourly interest rate for lenders is loan principal*APY/365/24*0.85.
                         </div>
                     </div>
                 </div>
                 <div class="accordion__item">
                     <div class="accordion__header">
-                        How many times can a referral code be used?
+                        Why haven't I received my interests?
                     </div>
                     <div class="accordion__body">
                         <div class="accordion__content">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta
-                            pariatur dolore consectetur perferendis libero nam sit magni
-                            voluptatibus voluptates autem nesciunt, praesentium quidem
-                            deserunt ipsa totam esse ullam? Quod, maiores!
+                            Interests are available for loaned-out assets only. Please verify if your assets are loaned or not.
                         </div>
                     </div>
                 </div>
             </div>
             <div class="flex justify-center text-center m-auto max-w-md">
-                <a href="#" class="btn w-48">View more ></a>
+                <a class="btn w-48 open_error">View more ></a>
             </div>
         </section>
     </main>
-    <footer>
-        <section class="footer_box1">
-            <div class="footer-box__card">
-                <div class="footer-box__content">
-                    <h1 class="">Trade anywhere and anytime with us</h1>
-                    <p>
-                        Enjoy the convenience of <span ></span>’s crypto trading
-                        platform. Make money on cryptocurrency anytime, anywhere as
-                        valuable.
-                    </p>
-                    <div class="footer-box__button">
-                        <a href="" class="btn">Get started now</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="footer-links mb-6">
-            <div class="footer-links__box max-w-xs">
-                <div class="logo justify-start">
-                    <img src="assets/images/logo.svg" class="logo_img" alt="logo" />
-                    <h3 class="logo_name" ><?=$domain_titleINIT?></h3>
-                </div>
-                <div class="footer_desc">
-                    <p>
-                        Innovative cryptocurrency exchange with advanced financial
-                        services. We rely on blockchain technology to provide everything
-                        you need for wise trading and investment.
-                    </p>
-                </div>
-                <div class="footer_subscribe">
-                    <p class="text-lg">Subscribe to our newsletter</p>
-                    <div class="footer_enter">
-                        <input type="text" placeholder="Enter email" />
-                        <button class="btn">Subscribe</button>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-links__box">
-                <h3>Products</h3>
-                <ul>
-                    <li>Spot trading</li>
-                    <li>Futures trading</li>
-                    <li>Options trading</li>
-                    <li>Wallet</li>
-                    <li>Instant swap</li>
-                    <li>P2P trading</li>
-                    <li>DeFi Staking</li>
-                    <li><span ><?=$domain_titleINIT?></span> Visa Card</li>
-                </ul>
-            </div>
-            <div class="footer-links__box">
-                <h3>Services</h3>
-                <ul>
-                    <li>24/7 support chat</li>
-                    <li>Copy trading</li>
-                    <li>Trading bots</li>
-                    <li>ETH 2.0 staking</li>
-                    <li>Launchpad</li>
-                    <li>Savings</li>
-                    <li><span ><?=$domain_titleINIT?></span> ventures</li>
-                    <li>Buy crypto</li>
-                </ul>
-            </div>
-            <div class="footer-links__box">
-                <h3>Information</h3>
-                <ul>
-                    <li>Fees</li>
-                    <li>Platform status</li>
-                    <li>Wallet security</li>
-                    <li>Token listing</li>
-                    <li>Referal system</li>
-                    <li>Trading API</li>
-                    <li>Buy Bountry</li>
-                </ul>
-            </div>
-            <div class="footer-links__box">
-                <h3>Legal</h3>
-                <ul>
-                    <li>Tearms of service</li>
-                    <li>Privacy notice</li>
-                    <li>Cookies policy</li>
-                    <li>AML & KYC policy</li>
-                    <li>Risk Disclosure Statement</li>
-                    <li>Regulatory License</li>
-                    <li>Special Treatment</li>
-                    <li>Law Enforcement Requests</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer_main_desc">
-            <p class="text-xs">
-                In acceding to or using the Platform and the Site, you represent and
-                warrant that you are fully aware of the risks associated with the
-                transactions involving Digital Assets or the use of Platform. You
-                agree and understand that you are solely responsible for determining
-                the nature, potential value, suitability, and appropriateness of these
-                risks for yourself, and that the Company does not give advice or
-                recommendations regarding any Digital Asset, including the suitability
-                and appropriateness of, and investment strategies for, any Digital
-                Asset. You agree and understand that you access and use the Platform
-                and the Site at your own risk. <span ><?=$domain_titleINIT?></span> 2023 © All
-                right reserved
-            </p>
-        </div>
-    </footer>
+    <?=render_footer()?>
 </body>
 
 <script src="assets/scripts/main.js"></script>

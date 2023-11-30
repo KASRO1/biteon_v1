@@ -547,7 +547,7 @@ $TRX = get_assets_coin("TRX_USDT");
                     <p>Enjoy the convenience of <span ><?=$domain_titleINIT?></span>’s crypto trading platform.
                         Make money on cryptocurrency anytime, anywhere as valuable.</p>
                     <div class="footer-box__button">
-                        <a href="" class="btn">Get started now</a>
+                        <a href="/register" class="btn">Get started now</a>
                     </div>
                 </div>
             </div>

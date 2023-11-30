@@ -309,7 +309,7 @@ table.dataTable {
   clear: both;
   border-collapse: separate;
   border-spacing: 0;
-  border-top: white solid 1px;
+  border-top: #393939 solid 1px;
   
 }
 
@@ -321,7 +321,7 @@ table.dataTable tfoot th {
 table.dataTable>thead>tr>th,
 table.dataTable>thead>tr>td {
   padding: 10px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #393939;
 }
 
 table.dataTable>thead>tr>th:active,
@@ -519,7 +519,7 @@ table.dataTable.display tbody tr:hover.selected>.sorting_3, table.dataTable.orde
 }
 
 table.dataTable.no-footer {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #393939;
 }
 
 table.dataTable.compact thead th,

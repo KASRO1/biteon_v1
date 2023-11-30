@@ -3,7 +3,8 @@
 require($_SERVER['DOCUMENT_ROOT'] . '/api/init.php');
 if (isset($_GET['code']) && isset($_GET['user_id'])) {
     if(!check_code($_GET['code'],"reset_password", $_GET['user_id'])){
-       header("Location: /login?error=Invalid_code"); 
+
+        header("Location: /login?error=Invalid_code");
     }
 }
 
@@ -43,15 +44,14 @@ if (isset($_GET['code']) && isset($_GET['user_id'])) {
     <main class="login_main">
 
         <section class="login_section">
-            <h1>Sign in</h1>
-            <p class="details mb-5">Welcome! Please enter your details</p>
+            <h1>Reset password</h1>
+            <p class="details mb-5">Please enter your details</p>
             <form action="" id="login_form" method="post">
                 <div class="login_content" novalidate>
-                    <input type="email" minlength="5" name="email" class="inpt" placeholder="Enter your Email">
+                    <input type="password" id="pass1" minlength="5" name="new_password" class="inpt" placeholder="Enter your new password">
+                    <input type="password"  id="pass2" minlength="5" name="repeat_password" class="inpt" placeholder="Repeat password">
 
-
-                    <button type="submit" class="btn">Reset password</button>
-                    <p>Remembered your password? <a href="register">Sign in now</a></p>
+                    <button type="submit" class="btn">Change</button>
                 </div>
             </form>
         </section>
@@ -69,35 +69,46 @@ if (isset($_GET['code']) && isset($_GET['user_id'])) {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         var valid = pristine.validate();
-        console.log(valid)
-        if (valid) {
+
+        const value_pass1 = document.getElementById('pass1').value;
+
+        const value_pass2 = document.getElementById('pass2').value;
+
+        if (valid && value_pass1 === value_pass2) {
             const formData = new FormData(form);
+            formData.append("user_id", "<?=$_GET['user_id']?>")
 
             $.ajax({
-                url: '/api/ajax/auth.php',
+                url: '/api/ajax/change_password.php',
                 method: 'POST',
                 data: formData,
                 processData: false,
                 contentType: false,
                 success: function(data) {
-                    console.log(data)
+                    console.log(data + "2")
                     if (data.status === 'success') {
                         new Notify({
                             title: 'Success',
-                            text: 'Authorization was successful',
+                            text: 'Password changed successfully',
                             status: 'success',
                             autoclose: true,
                             autotimeout: 3000
                         })
+                        setTimeout(() => {
+                            window.location.href = '/login'
+                        }, 1000)
                     } else {
                         new Notify({
                             title: 'Error',
-                            text: 'No user with this data was found',
+                            text: 'Error',
                             status: 'error',
                             autoclose: true,
                             autotimeout: 3000
                         })
                     }
+                },
+                error: function(data) {
+                    console.log(data)
                 }
             })
         } else {

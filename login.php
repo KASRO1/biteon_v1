@@ -51,7 +51,7 @@ if(get_user_info($auth_token)){
                             <input type="checkbox" id="checkbox_rules">
                             <label for="checkbox_rules">Remember me </label>
                         </div>
-                        <a href="#" class="link gray">Forgot password</a>
+                        <a href="/forgot-password" class="link gray">Forgot password</a>
                     </div>
                     <button type="submit" class="btn">Sign in</button>
                     <p>Don’t have an account? <a href="register">Sign up for free</a></p>

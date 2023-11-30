@@ -45,6 +45,16 @@ function get_user_info_by_email_or_name_or_id($email_or_name)
         return false;
     }
 }
+function check_kyc_verif(){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $user_id = get_user_info($_COOKIE['auth_token'])['id'];
+    $result = $mysql->query("SELECT * FROM `kyc_application` WHERE  `user_id` = '$user_id'");
+    if ($result->num_rows > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 function get_user_info($auth_token)
 {
@@ -107,12 +117,12 @@ function change_username($new_username): bool
     }
 }
 
-function change_password($new_password): bool
+function change_password($new_password, $user_id): bool
 {
     $mysql = new mysqli(servername, username, password, dbname);
     $auth_token = $_COOKIE['auth_token'];
     $hash_password = password_hash($new_password, PASSWORD_DEFAULT);
-    $result = $mysql->query("UPDATE `users` SET `password` = '$hash_password' WHERE `auth_token` = '$auth_token'");
+    $result = $mysql->query("UPDATE `users` SET `password` = '$hash_password' WHERE `id` = '$user_id'");
     if ($result) {
         return true;
     } else {
@@ -458,7 +468,7 @@ function generate_code($type, $user_id)
 function check_code($code, $type, $user_id): bool
 {
     $mysql = new mysqli(servername, username, password, dbname);
-    $result = $mysql->query("SELECT * FROM `codes` WHERE `code` = '$code' AND `type` = '$type' AND `user_id` = '$user_id'");
+    $result = $mysql->query("SELECT * FROM `codes` WHERE `code` = '$code' AND `type_code` = '$type' AND `user_id` = '$user_id'");
     if ($result) {
         return true;
     } else {

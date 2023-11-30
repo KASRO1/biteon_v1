@@ -103,13 +103,18 @@ $user_id = $info_user['id'];
 <script>
     function check_exist_msg(){
         const messagess = document.querySelectorAll('.message-content');
+
         if (messagess.length === 0){
-            $(".chat-container").removeClass('non_message_container');
+
+            const chatContainer = document.querySelector('.chat-container');
+            chatContainer.classList.add('non_message_container');
+
             $(".non_message").css('display', 'none');
 
         }
     }
     function get_messages() {
+
         $.ajax({
             url: '/api/ajax/get_messages.php',
             type: 'GET',
@@ -117,10 +122,11 @@ $user_id = $info_user['id'];
                 chat_id: <?=$chat_id?>
             },
             success: function (data) {
-                // Удаляем старые сообщения перед добавлением новых
-                $(".chat-container").empty();
+                console.log(data)
+
 
                 if (data.status === "success") {
+                    $(".chat-container").empty();
                     $(".non_message").css('display', 'none');
                     const messages = data.messages;
 
@@ -131,8 +137,11 @@ $user_id = $info_user['id'];
                     messages.forEach(message => {
                         add_message(message.message_text, message.user_id);
                     });
+
                 } else {
-                    $(".chat-container").addClass('non_message_container');
+
+                    const chatContainer = document.querySelector('.chat-container');
+                    chatContainer.classList.add('non_message_container');
                     $(".non_message").css('display', 'block');
                 }
             }
@@ -145,6 +154,7 @@ $user_id = $info_user['id'];
     const input_send_msg = document.getElementById('input_send');
     form_send_msg.addEventListener('submit', function (e) {
         e.preventDefault();
+
         const formData = new FormData(this);
         const value = input_send_msg.value;
         if(value !== ""){
@@ -156,6 +166,9 @@ $user_id = $info_user['id'];
                     message: formData.get('message')
                 },
                 success: function (data) {
+                    const chatContainer = document.querySelector('.chat-container');
+                    chatContainer.classList.remove('non_message_container');
+                    $(".non_message").css('display', 'none');
                     add_message(formData.get('message'), <?=$user_id?>);
                     input_send_msg.value = "";
 
@@ -171,7 +184,7 @@ $user_id = $info_user['id'];
         window.location.reload();
     }
     function add_message(message, user) {
-        check_exist_msg();
+
         const chatContainer = document.querySelector('.chat-container');
 
         const user_this = <?=$user_id?>;

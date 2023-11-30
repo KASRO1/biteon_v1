@@ -78,7 +78,8 @@ if(get_user_info($auth_token)){
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         const checkbox_rules = document.getElementById("checkbox_rules").checked;
-        if(checkbox_rules !== "true"){
+
+        if(checkbox_rules !== true){
             new Notify({
                         title: 'Error',
                         text: 'You must agree to the terms of service',

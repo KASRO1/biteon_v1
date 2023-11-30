@@ -10,7 +10,7 @@ foreach ($all_orders as $value){
     $actual_price = get_price_coin($full_name);
     $date_open = $value['date'];
     $date_close_plus_ten_minutes = $date_open + 10800;
-    if ($actual_price >= $value['close_order_price']){
+    if ($actual_price <= $value['close_order_price']){
         if ($value['type_order'] === 'buy')
             swap_balance_coin($value['coin_id'], 192, $value['amount']);
         else

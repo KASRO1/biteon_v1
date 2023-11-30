@@ -846,9 +846,18 @@ button {
     border: 2px solid #A84545;
     padding: 5px 10px;
     gap: 10px;
+    width: fit-content;
     color: #A84545;
 }
+.user_logout__info{
+    max-width: 80px;
 
+}
+.user_logout__info p{
+    white-space: nowrap; /* Отменяем перенос текста */
+    overflow: hidden; /* Обрезаем содержимое */
+    text-overflow: ellipsis;
+}
 .red_tag svg {
     height: 8px;
     width: 8px;
@@ -1565,6 +1574,7 @@ header section {
 .logo {
     display: flex;
     align-items: center;
+    cursor: pointer;
     justify-content: center;
     height: 100px;
 }
@@ -2004,7 +2014,7 @@ input[type="checkbox"] {
     padding: 15px;
     background-color: #101A23;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1;
+    z-index: 10;
     transition: left 0.3s ease;
     overflow: hidden;
     animation: slideDown_hide 0.3s ease forwards;
@@ -2719,6 +2729,7 @@ input {
 
 .payment_card_content_el {
     display: grid;
+    gap: 10px;
 }
 
 .news_cards {
@@ -2727,6 +2738,7 @@ input {
 
 .payment_card_header {
     display: flex;
+    gap: 30px;
     align-items: center;
 }
 
@@ -4288,6 +4300,10 @@ input:focus {
     justify-content: center;
 
 }
+.swipper_el_traders img:nth-child(1){
+    height: 55px;
+    width: 55px;
+}
 
 #table_p2p_wrapper table.dataTable > thead > tr > th, table.dataTable > thead > tr > td {
     border-bottom: 1px solid #243B54 !important;
@@ -5211,7 +5227,10 @@ input:focus {
     border: 1px solid #667085;
     padding: 2px 10px;
     border-radius: 4px;
-    font-size: 11px;
+    font-size: 11px !important;
+}
+.span_tag{
+    font-size: 11px !important;
 }
 
 .swipper_el_traders_content {
@@ -6450,11 +6469,106 @@ input:focus {
     overflow-x: auto;
 }
 
+.burger_menu {
+    cursor: pointer;
+    display: block;
+    padding: 10px;
+}
+
+.mobile-menu {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: -100%;
+    background-color: #141F2A;
+    color: #fff;
+    transition: right 0.3s ease-in-out;
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mobile-menu li {
+
+    margin-bottom: 10px;
+    justify-content: center;
+    display: flex;
+}
+
+.mobile-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+}
+
+.content {
+    padding: 20px;
+}
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+    .burger_menu {
+        display: block;
+    }
+
+    .mobile-menu.show {
+        right: 0;
+    }
+
+    .mobile-menu li {
+
+        margin-right: 0;
+    }
+
+
+    .content {
+        padding: 10px;
+    }
+}
+.burger_menu{
+    display: none !important;
+}
 @media (max-width: 767px) {
     .choise_picker_el {
         justify-content: center;
     }
+    .burger_menu{
+        display: flex !important;
+    }
+    .profile-menu{
 
+        left: -180px;
+    }
+    .modal_aside {
+        display: none;
+    }
+    .p2p_inputs_amount{
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    #select-p2p{
+        margin: auto;
+        width: 100px;
+    }
+    .autorized_user{
+        display: none;
+    }
     body {
         padding: 0;
         margin: 0;
@@ -6869,7 +6983,7 @@ input:focus {
     .p2p_inputs_amount {
         justify-content: center;
         margin: auto;
-        gap: 0;
+       ;
     }
 
     .crypto_coins {
@@ -7553,9 +7667,7 @@ input:focus {
         display: none;
     }
 
-    .logo_name {
-        display: none;
-    }
+
 
     .footer-box__button {
         width: 100%;

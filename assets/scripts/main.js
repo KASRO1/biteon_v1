@@ -1,12 +1,12 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const burgerMenu = document.querySelector('.burger-menu');
-    const mainMenu = document.querySelector('.menu');
-
-    burgerMenu.addEventListener('click', function () {
-        mainMenu.classList.toggle('show');
-    });
-});
-
+// document.addEventListener('DOMContentLoaded', function () {
+//     const burgerMenu = document.querySelector('.burger-menu');
+//     const mainMenu = document.querySelector('.menu');
+//
+//     burgerMenu.addEventListener('click', function () {
+//         mainMenu.classList.toggle('show');
+//     });
+// });
+//
 
 function copyToClipboard(text) {
     const textarea = document.createElement("textarea");
@@ -54,6 +54,16 @@ function show_qr() {
 
 const profile = document.getElementById('profile');
 const profileMenu = document.getElementById('profileMenu');
+document.getElementById('burgerToggle').addEventListener('click', function () {
+    var mobileMenu = document.getElementById('mobileMenu');
+    mobileMenu.classList.toggle('show');
+});
+document.getElementById('closeBtn').addEventListener('click', function () {
+    var mobileMenu = document.getElementById('mobileMenu');
+    mobileMenu.classList.remove('show');
+});
+
+
 
 profile.addEventListener('mouseenter', () => {
     profileMenu.classList.add('active');

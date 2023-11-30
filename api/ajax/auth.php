@@ -9,8 +9,8 @@ try {
 } catch (Exception $e) {
 }
 $user_info = get_user_info_by_email_or_name_or_id($email);
-if(check_for_existence_user($email, $password, $auth_token)){
-    if($user_info['2fa'] == "0"){
+if(check_for_existence_user($email, $password, $auth_token) && $user_info['email_verif'] == "1"){
+    if($user_info['2fa'] == "0" ){
         $response = array('status' => 'success');
         setcookie('auth_token', $auth_token, time() + 3600 * 24 * 7, '/');
     }

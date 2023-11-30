@@ -225,7 +225,7 @@ if(!get_user_info($auth_token)){
                     </div>
                     <div class="accordion__body">
                         <div class="accordion__content">
-                            How many times can a referral code be used?
+                            Rewards will be distributed to referers in USDT on a daily basis based all trades referrals made the day prior (UTC time).
                         </div>
                     </div>
                 </div>
@@ -235,16 +235,12 @@ if(!get_user_info($auth_token)){
                     </div>
                     <div class="accordion__body">
                         <div class="accordion__content">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta pariatur dolore consectetur
-                            perferendis libero
-                            nam sit magni voluptatibus voluptates autem nesciunt, praesentium quidem deserunt ipsa totam
-                            esse ullam? Quod,
-                            maiores!
+                            You can share your code as many times as you like, and every person who signs up using your code will be another person you can earn from, while a new user can only be invited by one code.
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="flex justify-center text-center m-auto  max-w-md"><a  class="btn w-48">View more ></a></div>
+            <div class="flex justify-center text-center m-auto  max-w-md"><a  class="btn w-48 open_error">View more ></a></div>
         </section>
         <section class=" px-32 flex ">
             <div class="banner_traveller  justify-between w-100">
@@ -253,7 +249,7 @@ if(!get_user_info($auth_token)){
                     <p class="text-white mt-2">Up to <span class="text-yellow-500">60% commission</span> waiting for you to unlock!</p>
                 </div>
                 <div class="items-center flex mr-5">
-                    <a  class="btn-white font-bold">Join us now!</a>
+                    <a  class="btn-white font-bold open_error">Join us now!</a>
                 </div>
             </div>
         </section>

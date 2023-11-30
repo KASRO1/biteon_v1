@@ -543,7 +543,7 @@ $staking_per_string = implode(",", $staking_per);
             </div>
         </section>
     </main>
-    <footer></footer>
+
 </body>
 <script src="assets/scripts/main.js"></script>
 <script>

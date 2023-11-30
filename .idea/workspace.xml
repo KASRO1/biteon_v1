@@ -6,18 +6,33 @@
   <component name="ChangeListManager">
     <list default="true" id="48de03d6-5035-48b3-82d5-9edc4dfb2797" name="Changes" comment="last">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2fa.php" beforeDir="false" afterPath="$PROJECT_DIR$/2fa.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/activate_promo.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/activate_promo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/change_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/change_password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/close_limit_order.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/close_limit_order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/forgot_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/forgot_password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/function/backend/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/function/backend/mailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/mailer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/function/frontend/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/frontend/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/function/frontend/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/frontend/test.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/DataTables/datatables.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/DataTables/datatables.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/scripts/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scripts/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/output.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/output.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/change-password.php" beforeDir="false" afterPath="$PROJECT_DIR$/change-password.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/copyTrading.php" beforeDir="false" afterPath="$PROJECT_DIR$/copyTrading.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/future_payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/future_payment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moon.php" beforeDir="false" afterPath="$PROJECT_DIR$/moon.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nft.php" beforeDir="false" afterPath="$PROJECT_DIR$/nft.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forgot-password.php" beforeDir="false" afterPath="$PROJECT_DIR$/forgot-password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/p2p.php" beforeDir="false" afterPath="$PROJECT_DIR$/p2p.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart_money.php" beforeDir="false" afterPath="$PROJECT_DIR$/smart_money.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tradingBots.php" beforeDir="false" afterPath="$PROJECT_DIR$/tradingBots.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ventures.php" beforeDir="false" afterPath="$PROJECT_DIR$/ventures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/participate.php" beforeDir="false" afterPath="$PROJECT_DIR$/participate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savings.php" beforeDir="false" afterPath="$PROJECT_DIR$/savings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings_kyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_kyc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staking.php" beforeDir="false" afterPath="$PROJECT_DIR$/staking.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/support.php" beforeDir="false" afterPath="$PROJECT_DIR$/support.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/traveller.php" beforeDir="false" afterPath="$PROJECT_DIR$/traveller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet.php" beforeDir="false" afterPath="$PROJECT_DIR$/wallet.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,28 +83,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/OSPanel/domains/tima",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/OSPanel/domains/tima&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\OSPanel\domains\BITEON\api\ajax" />
@@ -152,6 +167,10 @@
       <workItem from="1701111975887" duration="1502000" />
       <workItem from="1701114563333" duration="4526000" />
       <workItem from="1701195013636" duration="13687000" />
+      <workItem from="1701212442244" duration="1673000" />
+      <workItem from="1701259035169" duration="8518000" />
+      <workItem from="1701304217366" duration="820000" />
+      <workItem from="1701340533854" duration="8683000" />
     </task>
     <task id="LOCAL-00001" summary="last">
       <option name="closed" value="true" />
@@ -225,7 +244,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701116296709</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="last">
+      <option name="closed" value="true" />
+      <created>1701214107798</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1701214107798</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -204,7 +204,12 @@ $user_info = get_user_info($auth_token);
                         </div>
                     </div>
                 </div>
-
+                <?php if(check_kyc_verif()):?>
+                    <div class="blue_button kyc low-opacity">
+                        <img src="assets/images/icons/upload_kyc.svg" alt="">
+                        <span>Upgrade</span>
+                    </div>
+                <?php else:?>
                 <form id="upload-form" method="post" enctype="multipart/form-data">
                     <label  id="label_upload" for="file-upload">
                         <div class="blue_button kyc" id="uploadButton">
@@ -215,7 +220,7 @@ $user_info = get_user_info($auth_token);
                     </label>
                     <input type="file" style="display: none" name="kyc_images[]" id="file-upload" accept="image/*" class="custom-file-input">
                 </form>
-
+                <?php endif;?>
             </div>
             <div class="wrapper__col">
                 <div class="col_content">
@@ -365,7 +370,7 @@ $user_info = get_user_info($auth_token);
                 if (response.status == "success") {
                     new Notify({
                         title: 'Success',
-                        text: 'Avatar uploaded successfully',
+                        text: 'Documents uploaded successfully',
                         status: 'success',
                         autoclose: true,
                         autotimeout: 3000
