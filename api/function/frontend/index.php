@@ -274,10 +274,238 @@ stroke: transparent;
             <h3 >' . $domain_titleINIT . '</h3>
         </div>
               <ul>
-                <li><a href="#" class="menu-item">Главная</a></li>
-                <li><a href="#" class="menu-item">О нас</a></li>
-                <li><a href="#" class="menu-item">Услуги</a></li>
-                <li><a href="#" class="menu-item">Контакты</a></li>
+                <li><a href="#" class="menu-item">Spot trading</a></li>
+                <li><a href="#" class="menu-item">Swap 
+                
+                </a></li>
+  <li class="submenu-item">
+    <a href="#" class="menu-item toggle">
+      Derivatives
+      <svg xmlns="http://www.w3.org/2000/svg" width="11" height="8" viewBox="0 0 11 8" fill="none">
+        <path d="M0.675037 3.35642L4.28204 7.30416C4.82518 7.89861 5.70255 7.89861 6.24569 7.30416L9.85272 3.35642C10.73 2.39616 10.1033 0.75 8.8639 0.75H1.64991C0.410437 0.75 -0.202339 2.39616 0.675037 3.35642Z" fill="white"/>
+      </svg>
+    </a>
+    <ul class="submenu">
+                        <li class="open_error">
+                            <div >
+                            <img src="assets/images/header/futures.png" alt="" srcset="">
+                            </div>
+                            <div >
+                            <a >Futures trading</a>
+                            <span>Perpetual or Quarterly Contracts settled in Crypto</span>
+                            </div>
+                        </li>
+                        <li class="open_error">
+                         <div >
+                            <img src="assets/images/header/futures.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a >Options trading</a>
+                            <span>Trade European-style Vanilla Options</span>
+                            </div>
+                        </li>
+    </ul>
+  </li>
+  
+  <li class="submenu-item">
+    <a href="#" class="menu-item toggle">
+      Tools
+      <svg xmlns="http://www.w3.org/2000/svg" width="11" height="8" viewBox="0 0 11 8" fill="none">
+        <path d="M0.675037 3.35642L4.28204 7.30416C4.82518 7.89861 5.70255 7.89861 6.24569 7.30416L9.85272 3.35642C10.73 2.39616 10.1033 0.75 8.8639 0.75H1.64991C0.410437 0.75 -0.202339 2.39616 0.675037 3.35642Z" fill="white"/>
+      </svg>
+    </a>
+<ul class="submenu">
+                        <li data-href="/market-cap">
+                            <div>
+                            <img src="assets/images/header/cap.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a>Market cap</a>
+                            <span>Most of the available crypto assets and sorts them based on the market capitalization</span>
+                            </div>
+                        </li>
+                        <li data-href="/market-screener">
+                         <div>
+                            <img src="assets/images/header/screener.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a>Market screener</a>
+                            <span>Powerful tool that allows to filter instruments based on fundamental data and various technical indicators</span>
+                            </div>
+                        </li>
+                                                <li data-href="/technical-analysis">
+                         <div>
+                            <img src="assets/images/header/tech.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a>Technical analysis</a>
+                            <span>Advanced tool that displays ratings based on technical indicators</span>
+                            </div>
+                        </li>
+                          <li data-href="/cross-rates">
+                         <div>
+                            <img src="assets/images/header/rates.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a>Cross rates</a>
+                            <span>Real-time quotes of the selected currencies in comparison to the other major currencies at a glance</span>
+                            </div>
+                        </li>
+                         <li data-href="/heat-map">
+                         <div>
+                            <img src="assets/images/header/heat.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a>Currency heat map</a>
+                            <span>Quick overview of action in the currency markets. It lets you spot strong and weak currencies in real-time and how strong they are in relation to one another</span>
+                            </div>
+                        </li>
+                    </ul>
+  </li>
+                <li><a href="#" class="menu-item">Staking
+                </a></li>
+              <li class="submenu-item">
+                <a href="#" class="menu-item toggle">
+                  Earn
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="8" viewBox="0 0 11 8" fill="none">
+                    <path d="M0.675037 3.35642L4.28204 7.30416C4.82518 7.89861 5.70255 7.89861 6.24569 7.30416L9.85272 3.35642C10.73 2.39616 10.1033 0.75 8.8639 0.75H1.64991C0.410437 0.75 -0.202339 2.39616 0.675037 3.35642Z" fill="white"/>
+                  </svg>
+                </a>
+            <ul class="submenu">
+                                    <li data-href="/copyTrading">
+                                        <div>
+                                        <img src="assets/images/header/copy.png" alt="" srcset="">
+                                        </div>
+                                        <div>
+                                        <a>Copy trading</a>
+                                        <span>Automate your trading by copying top traders strategies</span>
+                                        </div>
+                                    </li>
+                                    <li data-href="/tradingBots">
+                                     <div>
+                                        <img src="assets/images/header/bots.png" alt="" srcset="">
+                                        </div>
+                                        <div>
+                                        <a>Trading bots</a>
+                                        <span>Intelligent pre-built trading bots help you auto-trade and earn all-day-long</span>
+                                        </div>
+                                    </li>
+                                                            <li data-href="/launchpad">
+                                     <div>
+                                        <img src="assets/images/header/launchpad.png" alt="" srcset="">
+                                        </div>
+                                        <div>
+                                        <a>Launchpad</a>
+                                        <span>Early easy access to new, high-quality crypto projects</span>
+                                        </div>
+                                    </li>
+                                      <li data-href="/traveller">
+                                     <div>
+                                        <img src="assets/images/header/space.png" alt="" srcset="">
+                                        </div>
+                                        <div>
+                                        <a>Space traveller</a>
+                                        <span>Earn with your referral code</span>
+                                        </div>
+                                    </li>
+                                     <li data-href="/savings">
+                                     <div>
+                                        <img src="assets/images/header/savings.png" alt="" srcset="">
+                                        </div>
+                                        <div>
+                                        <a>Savings</a>
+                                        <span>Value-added product for flexible returns</span>
+                                        </div>
+                                    </li>
+                                    <li data-href="/participate">
+                                     <div>
+                                        <img src="assets/images/header/eth20.png" alt="" srcset="">
+                                        </div>
+                                        <div>
+                                        <a>ETH 2.0 Staking</a>
+                                        <span>Dont just hold. Earn an additional 5%-20% locking return</span>
+                                        </div>
+                                    </li>
+                                </ul>
+              </li>
+                            <li class="submenu-item">
+                <a href="#" class="menu-item toggle">
+                  More
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="8" viewBox="0 0 11 8" fill="none">
+                    <path d="M0.675037 3.35642L4.28204 7.30416C4.82518 7.89861 5.70255 7.89861 6.24569 7.30416L9.85272 3.35642C10.73 2.39616 10.1033 0.75 8.8639 0.75H1.64991C0.410437 0.75 -0.202339 2.39616 0.675037 3.35642Z" fill="white"/>
+                  </svg>
+                </a>
+            <ul class="submenu">
+                        <li data-href="/nft">
+                            <div>
+                            <img src="assets/images/header/nft.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a>NFT marketplace</a>
+                            <span>Explore NFTs from creators worldwide</span>
+                            </div>
+                        </li>
+                        <li data-href="/p2p">
+                         <div>
+                            <img src="assets/images/header/p2p.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a>P2P trading</a>
+                            <span>Buy crypto from verified merchants</span>
+                            </div>
+                        </li>
+                         <li data-href="/card">
+                         <div>
+                            <img src="assets/images/header/card.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a>Buy crypto with card</a>
+                            <span>Buy crypto via Card, Apple Pay, Google Pay</span>
+                            </div>
+                        </li>
+                          <li data-href="/moon">
+                         <div>
+                            <img src="assets/images/header/tokenlist.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a>Token listing</a>
+                            <span>We can list your project on our exchange within 48 hours</span>
+                            </div>
+                        </li>
+                         <li data-href="/smart_money">
+                         <div>
+                            <img src="assets/images/header/savings.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a>Institutional home</a>
+                            <span>KASRO offers the worlds most powerful suite of institutional crypto trading solutions</span>
+                            </div>
+                        </li>
+                         <li data-href="/future_payment">
+                         <div>
+                            <img src="assets/images/header/card.svg" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a>KASRO Card</a>
+                            <span>Order and ise your card anywhere Visa® debit cards are accepted, at 40M+ merchants worldwide.</span>
+                            </div>
+                        </li>
+                        <li data-href="/ventures">
+                         <div>
+                            <img src="assets/images/header/ventures.png" alt="" srcset="">
+                            </div>
+                            <div>
+                            <a>KASRO Ventures</a>
+                            <span>KASRO Ventures is a fund focused on exploring high-quality projects with great potential</span>
+                            </div>
+                        </li>
+                        
+                    </ul>
+              </li>
+                <li><a href="#" class="menu-item">Support</a></li>
+                <li><a href="#" class="menu-item">
+                    Wallet: ' . $balance . ' USD
+                </a></li>
               </ul>
             </nav>
             <div id="profileMenu" class="profile-menu">
@@ -578,7 +806,7 @@ function render_custom_select_coin()
     $result = "";
     foreach ($data as $value) {
         $id_coin = $value['id_coin'];
-        $coin_name_s = $value['simple_name'];
+        $coin_name_s = strtolower($value['simple_name']);
         $coin_name_f = $value['full_name'];
         $id_coin_s = $id_coin . "_" . $coin_name_f;
         $result .= "        

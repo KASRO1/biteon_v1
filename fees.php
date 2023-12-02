@@ -135,7 +135,7 @@ if(!get_user_info($auth_token)){
             </table>
         </section>
     </main>
-    <footer></footer>
+    <?=render_footer()?>
 </body>
 <script src="assets/scripts/main.js"></script>
 <script>

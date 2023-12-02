@@ -7,6 +7,17 @@
 //     });
 // });
 //
+document.addEventListener('DOMContentLoaded', function () {
+    const toggleItems = document.querySelectorAll('.toggle');
+
+    toggleItems.forEach(item => {
+        item.addEventListener('click', function () {
+            const submenu = this.nextElementSibling;
+            submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
+        });
+    });
+});
+
 
 function copyToClipboard(text) {
     const textarea = document.createElement("textarea");

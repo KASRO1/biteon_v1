@@ -180,7 +180,7 @@ else{
     <div class="mobile_settings">
         <ul>
             <li class="active">
-                <a settings.html"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
+                <a href="/deposit" "><svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
                     <path d="M12.1651 12.8652H7.99841" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M10.0817 10.832V14.9987" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M10.8302 2.0978L10.8052 2.15614L8.38858 7.76447H6.01358C5.44691 7.76447 4.90524 7.88114 4.41357 8.08947L5.87191 4.60614L5.90524 4.5228L5.96358 4.38947C5.98024 4.33947 5.99691 4.28947 6.02191 4.2478C7.11358 1.7228 8.34691 1.1478 10.8302 2.0978Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -191,7 +191,7 @@ else{
                   </svg>
                     <span>Deposit</span></a>
             </li>
-            <li><a settings_password.html"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 22 20" fill="none">
+            <li><a href="/withdraw""><svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 22 20" fill="none">
                 <path d="M11.8851 12.8652H7.71838" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M10.5502 2.0978L10.5252 2.15614L8.10855 7.76447H5.73355C5.16688 7.76447 4.62521 7.88114 4.13354 8.08947L5.59188 4.60614L5.62521 4.5228L5.68355 4.38947C5.70021 4.33947 5.71688 4.28947 5.74188 4.2478C6.83355 1.7228 8.06689 1.1478 10.5502 2.0978Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M15.0419 7.931C14.6669 7.81433 14.2669 7.76433 13.8669 7.76433H8.10852L10.5252 2.156L10.5502 2.09766C10.6752 2.13933 10.7919 2.19766 10.9169 2.24766L12.7585 3.02266C13.7835 3.44766 14.5002 3.88933 14.9335 4.42266C15.0169 4.52266 15.0835 4.61433 15.1419 4.72266C15.2169 4.83933 15.2752 4.956 15.3085 5.081C15.3419 5.156 15.3669 5.231 15.3835 5.29766C15.6085 5.99766 15.4752 6.856 15.0419 7.931Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -200,7 +200,7 @@ else{
                 <path d="M17.9324 9.39037V11.832C17.9324 9.9987 16.7157 8.44037 15.0491 7.94037C15.4824 6.85703 15.6074 6.00703 15.3991 5.2987C15.3824 5.2237 15.3574 5.1487 15.3241 5.08203C16.8741 5.88203 17.9324 7.5237 17.9324 9.39037Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
                 <span>Withdraw</span></a></li>
-            <li><a settings_2fa.html"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 22 20" fill="none">
+            <li><a href="/transfer"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 22 20" fill="none">
                 <path d="M7.5002 18.3327H12.5002C16.6669 18.3327 18.3335 16.666 18.3335 12.4993V7.49936C18.3335 3.33269 16.6669 1.66602 12.5002 1.66602H7.5002C3.33354 1.66602 1.66687 3.33269 1.66687 7.49936V12.4993C1.66687 16.666 3.33354 18.3327 7.5002 18.3327Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M14.292 11.5156L11.7587 14.0489" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M5.70862 11.5156H14.292" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>

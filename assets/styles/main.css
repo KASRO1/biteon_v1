@@ -1647,18 +1647,18 @@ a:hover svg {
     color: #F6465D !important
 }
 
-.submenu::before {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 10px solid var(--color-blue-dark);
-}
+/*.submenu::before {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    top: -10px;*/
+/*    left: 50%;*/
+/*    transform: translateX(-50%);*/
+/*    width: 0;*/
+/*    height: 0;*/
+/*    border-left: 5px solid transparent;*/
+/*    border-right: 5px solid transparent;*/
+/*    border-bottom: 10px solid var(--color-blue-dark);*/
+/*}*/
 
 .login_block a:last-child {
     display: none;
@@ -1841,7 +1841,9 @@ input[type="checkbox"] {
 .details {
     text-align: left !important;
 }
-
+main{
+    overflow-x: hidden;
+}
 #chat_main {
     display: block;
     max-width: 1100px;
@@ -6481,6 +6483,7 @@ input:focus {
     position: fixed;
     z-index: 1000;
     top: 0;
+    overflow: auto;
     right: -100%;
     background-color: #141F2A;
     color: #fff;
@@ -6490,7 +6493,7 @@ input:focus {
 .mobile-menu ul {
     list-style: none;
     padding: 0;
-
+    gap: 5px;
     flex-direction: column;
     justify-content: center;
 }
@@ -6540,12 +6543,43 @@ input:focus {
         padding: 10px;
     }
 }
+
 .burger_menu{
     display: none !important;
 }
+.menu-item{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 @media (max-width: 767px) {
+    .submenu {
+        display: none;
+    }
+    .submenu li{
+        width: 180px;
+        justify-content: left;
+        align-items: center;
+        border-bottom: none;
+
+
+    }
+
+    .submenu-item{
+        flex-direction: column;
+        align-items: center;
+    }
+    .submenu-item:hover .submenu {
+        display: block;
+    }
     .choise_picker_el {
         justify-content: center;
+    }
+    .box-4_content{
+        padding: 15px;
+    }
+    .box-7 div:nth-child(1){
+        padding: 0 10px;
     }
     .burger_menu{
         display: flex !important;

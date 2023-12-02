@@ -88,16 +88,16 @@ $user_info = get_user_info($auth_token);
     </main>
     <div class="mobile_settings">
         <ul>
-            <li class="active">
-                <a settings.html"><img src="assets/images/icons/settings.svg" alt="" width="30" height="30">
+            <li class="">
+                <a href="settings"><img src="assets/images/icons/settings.svg" alt="" width="30" height="30">
                     <span>Account settings</span></a>
             </li>
-            <li><a settings_password.html"><img src="assets/images/icons/password_profile.svg" alt="" width="30" height="30">
-                <span>Password</span></a></li>
-            <li><a settings_2fa.html"><img src="assets/images/icons/password_account_profile.svg" alt="" width="30" height="30">
-                <span>2FA Auth</span></a></li>
-            <li><a href=""><img src="assets/images/icons/mobile_menu.svg" alt="" width="30" height="30">
-                <span>Menu</span></a></li>
+            <li class="active"><a  href="settings_password"><img src="assets/images/icons/password_profile.svg" alt="" width="30" height="30">
+                    <span>Password</span></a></li>
+            <li><a  href="settings_2fa"><img src="assets/images/icons/password_account_profile.svg" alt="" width="30" height="30">
+                    <span>2FA Auth</span></a></li>
+            <li><a ><img src="assets/images/icons/mobile_menu.svg" alt="" width="30" height="30">
+                    <span>Menu</span></a></li>
         </ul>
     </div>
 </body>

@@ -26,6 +26,18 @@ $TRX = get_assets_coin("TRX_USDT");
     .footer-links__box a:hover{
         color: white;
     }
+    @media (max-width: 767px) {
+
+        .submenu li span{
+            text-align: center;
+        }
+        .submenu li {
+            flex-direction: column;
+            margin-top:10px;
+
+
+        }
+    }
 </style>
 <body>
     <header>
@@ -78,7 +90,77 @@ $TRX = get_assets_coin("TRX_USDT");
             <a href="/login" class="login">Log in</a>
             <a href="/register" class="register">Open Free Account</a>
             <?php endif;?>
-            <a href=""><img src="assets/images/burger.svg" alt=""></a>
+            <a href="#" class="burger_menu" id="burgerToggle">
+                <img src="assets/images/burger.svg" alt="">
+            </a>
+            <nav class="mobile-menu" id="mobileMenu">
+                <button class="close-btn" id="closeBtn">&times;</button>
+                <div class="logo">
+                    <img src="assets/images/logo.svg" class="logo_img" alt="logo">
+                    <h3 ><?=$domain_titleINIT?></h3>
+                </div>
+                <ul>
+                    <?php if(!isAuth()):?>
+                    <li><a href="/register" class="menu-item">Register</a></li>
+                    <li><a href="/login" class="menu-item">Login</a></li>
+                    <?php else:?>
+                    <li><a href="/wallet" class="menu-item">My wallet</a></li>
+                    <?php endif;?>
+
+                    <li class="submenu-item">
+                        <a href="#" class="menu-item toggle">
+                            Buy crypto
+                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="8" viewBox="0 0 11 8" fill="none">
+                                <path d="M0.675037 3.35642L4.28204 7.30416C4.82518 7.89861 5.70255 7.89861 6.24569 7.30416L9.85272 3.35642C10.73 2.39616 10.1033 0.75 8.8639 0.75H1.64991C0.410437 0.75 -0.202339 2.39616 0.675037 3.35642Z" fill="white"/>
+                            </svg>
+                        </a>
+                        <ul class="submenu">
+                            <li onclick="window.location.href = '/deposit'">
+                                <a href="/deposit">Credit / debit card</a>
+                                <span>Quick purchase of crypto</span>
+                            </li>
+                            <li onclick="window.location.href = '/p2p'">
+                                <a href="/p2p">P2P trade</a>
+                                <span>Trade with real users</span>
+                            </li>
+                            <li onclick="window.location.href = '/swap'">
+                                <a href="swap">Refill with cryptocurrency</a>
+                                <span>Deposit in minutes</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="submenu-item">
+                        <a href="#" class="menu-item toggle">
+                            Trade
+                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="8" viewBox="0 0 11 8" fill="none">
+                                <path d="M0.675037 3.35642L4.28204 7.30416C4.82518 7.89861 5.70255 7.89861 6.24569 7.30416L9.85272 3.35642C10.73 2.39616 10.1033 0.75 8.8639 0.75H1.64991C0.410437 0.75 -0.202339 2.39616 0.675037 3.35642Z" fill="white"/>
+                            </svg>
+                        </a>
+                        <ul class="submenu">
+                            <li data-href="/deposit" >
+                                <div >
+                                    <a >Credit / debit card</a>
+                                    <span>Quick purchase of crypto</span>
+                                </div>
+                            </li>
+                            <li data-href="/p2p">
+                                <div>
+                                    <a >P2P trade</a>
+                                    <span>Trade with real users</span>
+                                </div>
+                            </li>
+                            <li data-href="/deposit">
+                                <div>
+                                    <a >Refill with cryptocurrency</a>
+                                    <span>Deposit in minutes</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><a href="/support" class="menu-item">Support</a></li>
+                </ul>
+            </nav>
         </div>
 
     </header>
@@ -249,7 +331,7 @@ $TRX = get_assets_coin("TRX_USDT");
                 <h2 class="">
                     Don't miss new opportunities
                 </h2>
-                <a href="" class="text-gray-400"> See All Markets → </a>
+                <a href="/spot" class="text-gray-400"> See All Markets → </a>
             </div>
             <div class="pretable">
 

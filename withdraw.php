@@ -269,7 +269,7 @@ $balance_coin = get_balance_coin_this_user($get_coin['id_coin'])
         <?php foreach ($coins as $coin):?>
         [
             "<?=$coin['simple_name']?>",
-            "<div class='coin_item' > <img class='priceimg' src='/assets/images/icons/crypto/<?=$coin['simple_name']?>.png'/> <?=$coin['simple_name']?> <div class='price-box-price'></div></div>",
+            "<div class='coin_item' > <img class='priceimg' src='/assets/coin_icons/<?=strtolower($coin['simple_name'])?>.svg'/> <?=$coin['simple_name']?> <div class='price-box-price'></div></div>",
         ],
         <?php endforeach;?>
 
