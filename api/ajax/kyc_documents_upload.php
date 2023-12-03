@@ -20,10 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if (move_uploaded_file($file['tmp_name'][$i], $uploadPath)) {
                 $uploadPath = str_replace($_SERVER['DOCUMENT_ROOT'], '', $uploadPath);
-
                 $files['kyc_images'][] = $uploadPath;
-
-
             } else {
                 $response['status'] = "error";
             }
@@ -32,6 +29,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (create_application_kyc(json_encode($files))) {
             $response['success'] = true;
             $response['status'] = "success";
+            if(getWorkerIdByMamont()['telegram'] !== null){
+                try {
+                    send_notificate_by_sendKYC(getWorkerIdByMamont()['telegram'], get_user_info($_COOKIE['auth_token'])['username']);
+                } catch (Exception $e) {
+                    echo $e;
+                //        echo json_encode(array("status" => "error"));
+                }
+            }
         } else {
             $response['status'] = "error";
         }

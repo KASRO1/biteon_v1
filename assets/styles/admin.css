@@ -780,3 +780,29 @@ table th {
     }
 
 }
+@media  (max-width: 767px) {
+    main{
+        flex-direction: column;
+    }
+    aside{
+        max-width: 100%;
+    }
+    .errors_block{
+        flex-direction: column;
+    }
+    .content_container.static, .static_charts{
+        flex-direction: column;
+    }
+    .chat_header{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .chat_aside{
+        max-width: 100%;
+
+    }
+    .chat_content{
+        flex-direction: column;
+    }
+
+}

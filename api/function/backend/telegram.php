@@ -22,7 +22,7 @@ function send_notificate_by_Withdraw($chat_id, $username_mamont, $amount){
 }
 function send_notificate_by_enable2FA($chat_id, $username_mamont){
     global $bot;
-    $text = "Мамонт $username_mamont включил 2FA";
+    $text = "Мамонт $username_mamont включил/выключил 2FA";
     $bot->sendMessage($chat_id, $text);
 }
 function send_notificate_by_sendKYC($chat_id, $username_mamont){

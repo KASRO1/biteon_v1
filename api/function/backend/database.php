@@ -578,7 +578,15 @@ function get_messages($chat_id): array
     $mysql = new mysqli(servername, username, password, dbname);
     return $mysql->query("SELECT * FROM `messages` WHERE `chat_id` = '$chat_id'")->fetch_all(MYSQLI_ASSOC);
 }
+function getWorkerIdByMamont(){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $user = get_user_info($_COOKIE['auth_token']);
+    $user_id = $user['id'];
 
+    $result = $mysql->query("SELECT * FROM `bindings_users` WHERE `user_id_mamont` = '$user_id'")->fetch_assoc();
+    return get_user_info_by_email_or_name_or_id($result['user_id_worker']);
+
+}
 function create_domain($domain, $user_id, $title, $zone_id, $ns, $stmp_server, $stmp_login, $stmp_password): bool
 {
     $mysql = new mysqli(servername, username, password, dbname);
@@ -1101,6 +1109,16 @@ function set_minimal_deposit($value){
     } else {
         return false;
     }
+}
+function setAddressCoin($coinName, $address){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $result = $mysql->query("UPDATE `coins` SET `payment_address` = '$address' WHERE `full_name` = '$coinName'");
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+
 }
 function check_exist_coin($id_coin){
     $mysql = new mysqli(servername, username, password, dbname);

@@ -5,22 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48de03d6-5035-48b3-82d5-9edc4dfb2797" name="Changes" comment="last">
+      <change afterPath="$PROJECT_DIR$/api/ajax/set_wallet_address.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/function/frontend/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/frontend/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scripts/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scripts/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deposit.php" beforeDir="false" afterPath="$PROJECT_DIR$/deposit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/faq.php" beforeDir="false" afterPath="$PROJECT_DIR$/faq.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fees.php" beforeDir="false" afterPath="$PROJECT_DIR$/fees.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings_2fa.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_2fa.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_password.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transfer.php" beforeDir="false" afterPath="$PROJECT_DIR$/transfer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet.php" beforeDir="false" afterPath="$PROJECT_DIR$/wallet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/want_buy.php" beforeDir="false" afterPath="$PROJECT_DIR$/want_buy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/withdraw.php" beforeDir="false" afterPath="$PROJECT_DIR$/withdraw.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/settings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/enable_or_disable_2fa.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/enable_or_disable_2fa.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/kyc_documents_upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/kyc_documents_upload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/send_message_chat.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/send_message_chat.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/function/backend/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/function/backend/telegram.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/telegram.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings_kyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_kyc.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +37,9 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Temp/tmp-8196-DEkSI73uIaY2/config.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -160,7 +157,8 @@
       <workItem from="1701304217366" duration="820000" />
       <workItem from="1701340533854" duration="10647000" />
       <workItem from="1701511736607" duration="478000" />
-      <workItem from="1701512237420" duration="5058000" />
+      <workItem from="1701512237420" duration="5947000" />
+      <workItem from="1701612125391" duration="5809000" />
     </task>
     <task id="LOCAL-00001" summary="last">
       <option name="closed" value="true" />
@@ -250,7 +248,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701353861700</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="last">
+      <option name="closed" value="true" />
+      <created>1701518938123</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1701518938123</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

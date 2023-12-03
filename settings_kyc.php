@@ -289,16 +289,16 @@ $user_info = get_user_info($auth_token);
                             <li><span>Spot trading</span><img src="assets/images/icons/ul_success.svg" alt=""
                                     width="20"></li>
                             <li class="line_dotted"></li>
-                            <li><span>Copy trading</span><img src="assets/images/icons/ul_error.svg" alt="" width="20">
+                            <li><span>Copy trading</span><img src="assets/images/icons/ul_success.svg" alt="" width="20">
                             </li>
                             <li class="line_dotted"></li>
-                            <li><span>Futures trading</span><img src="assets/images/icons/ul_error.svg" alt=""
+                            <li><span>Futures trading</span><img src="assets/images/icons/ul_success.svg" alt=""
                                     width="20"></li>
                             <li class="line_dotted"></li>
-                            <li><span>P2P trading</span><img src="assets/images/icons/ul_error.svg" alt="" width="20">
+                            <li><span>P2P trading</span><img src="assets/images/icons/ul_success.svg" alt="" width="20">
                             </li>
                             <li class="line_dotted"></li>
-                            <li><span>Deposit fiat</span><img src="assets/images/icons/ul_error.svg" alt="" width="20">
+                            <li><span>Deposit fiat</span><img src="assets/images/icons/ul_success.svg" alt="" width="20">
                             </li>
 
                         </ul>
