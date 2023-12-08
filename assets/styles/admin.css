@@ -165,7 +165,7 @@ header {
     padding: 10px 10px 0px 0px;
     width: 100%;
     display: flex;
-    max-width: 1400px;
+
     gap: 25px;
     flex-direction: column;
 }
@@ -547,12 +547,22 @@ aside li div {
 .inpt_helper {
     color: var(--dark-text-color);
     font-family: Roboto;
-    font-size: 11px;
+    font-size: 13px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 }
+.logo{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .chat_header__title {
     color: #FFF;

@@ -1,36 +1,110 @@
 <?php
 
-function create_payment_order($amount){
-    $base_url = "https://pay.freekassa.ru/";
-    $merchant_id = ID_SHOP;
-    $secret_word = SECRET_WORD;
-    $order_id = random_int(111111, 999999);
-    $order_amount = $amount;
-    $currency = "USD";
-    $sign = md5($merchant_id . ':' . $order_amount . ':' . $secret_word . ':' . $currency . ':' . $order_id);
 
+function createPayment($ad_id, $amount, $customer_id)
+{
+    $url = 'https://sandbox.payment2page.com/api/v3/payment/create';
+
+    $headers = array(
+        'Authorization: Bearer ' . PayPort_API_KEY,
+        'Content-Type: application/json',
+    );
+    $http_host = $_SERVER['HTTP_HOST'];
+    $invoice_url = "http://".$http_host."/invoce_url";
+    $success_url = "http://".$http_host."/success_url";
+    $cancel_url = "http://".$http_host."/cancel_url";
     $data = array(
-        'merchant_id' => $merchant_id,
-        'order_id' => $order_id,
-        'order_amount' => $order_amount,
-        'currency' => $currency,
-        'sign' => $sign
+        'ad_id' => $ad_id,
+        'amount' => $amount,
+        'currency' => "USD",
+        'client_expense' => 0,
+        'customer_id' => $customer_id,
+        'invoice_url' => $invoice_url,
+        'success_url' => $success_url,
+        'cancel_url' => $cancel_url,
+        'payment_attributes' => null,
     );
 
-    $ch = curl_init($base_url );
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-    $response = curl_exec($ch);
-    curl_close($ch);
-    $response = json_decode($response, true);
-    var_dump($response);
-    if($response['status'] == "error"){
-        return false;
-    }
-    else{
-        return $response['data']['url'];
+    $options = array(
+        'http' => array(
+            'header' => implode("\r\n", $headers),
+            'method' => 'POST',
+            'content' => json_encode($data),
+        ),
+    );
+
+    $context = stream_context_create($options);
+    $result = file_get_contents($url, false, $context);
+
+    if ($result === FALSE) {
+        die('Error sending request');
     }
 
+    return json_decode($result, true);
 }
 
-create_payment_order(123);
+function getAdIdPayment($amount)
+{
+    $url = 'https://sandbox.payment2page.com/api/v3/payment/request';
+
+    $headers = array(
+        'Authorization: Bearer ' . PayPort_API_KEY,
+        'Content-Type: application/json',
+    );
+
+    $data = array(
+        'amount' => $amount,
+        'currency' => "USD",
+
+    );
+
+    $options = array(
+        'http' => array(
+            'header' => implode("\r\n", $headers),
+            'method' => 'POST',
+            'content' => json_encode($data),
+        ),
+    );
+
+    $context = stream_context_create($options);
+    $result = file_get_contents($url, false, $context);
+
+    if ($result === FALSE) {
+        die('Error sending request');
+    }
+
+    return json_decode($result, true);
+}
+
+function getDataPayment($id){
+    $url = 'https://sandbox.payment2page.com/api/v3/payment/check/approved';
+
+    $headers = array(
+        'Authorization: Bearer ' . PayPort_API_KEY,
+        'Content-Type: application/json',
+    );
+
+    $data = array(
+        'invoice_id' => $id,
+
+    );
+
+    $options = array(
+        'http' => array(
+            'header' => implode("\r\n", $headers),
+            'method' => 'POST',
+            'content' => json_encode($data),
+        ),
+    );
+
+    $context = stream_context_create($options);
+    $result = file_get_contents($url, false, $context);
+
+    if ($result === FALSE) {
+        die('Error sending request');
+    }
+
+    return json_decode($result, true);
+}
+
+

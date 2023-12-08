@@ -5,16 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48de03d6-5035-48b3-82d5-9edc4dfb2797" name="Changes" comment="last">
-      <change afterPath="$PROJECT_DIR$/api/ajax/set_wallet_address.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/add_domain.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/add_domain.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/binding.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/deposit.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/deposit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/kyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/kyc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/settings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/ajax/enable_or_disable_2fa.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/enable_or_disable_2fa.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/ajax/kyc_documents_upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/kyc_documents_upload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/ajax/send_message_chat.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/send_message_chat.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/function/backend/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/function/backend/telegram.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/telegram.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/static.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/support.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/support.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/swap_settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/swap_settings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/usersList.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/usersList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/withdrawal.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/withdrawal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/function/backend/payment_api.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/payment_api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/function/frontend/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/frontend/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/function/frontend/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/frontend/test.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/init.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings_kyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_kyc.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +81,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/OSPanel/domains/tima&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/OSPanel/domains/casino&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -158,7 +165,12 @@
       <workItem from="1701340533854" duration="10647000" />
       <workItem from="1701511736607" duration="478000" />
       <workItem from="1701512237420" duration="5947000" />
-      <workItem from="1701612125391" duration="5809000" />
+      <workItem from="1701612125391" duration="8272000" />
+      <workItem from="1701847903889" duration="1069000" />
+      <workItem from="1701880509462" duration="3756000" />
+      <workItem from="1701948387264" duration="670000" />
+      <workItem from="1701949538528" duration="2813000" />
+      <workItem from="1701962136883" duration="2088000" />
     </task>
     <task id="LOCAL-00001" summary="last">
       <option name="closed" value="true" />
@@ -256,7 +268,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701518938123</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="last">
+      <option name="closed" value="true" />
+      <created>1701624067606</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1701624067606</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

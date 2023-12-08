@@ -24,17 +24,20 @@ $user_info = get_user_info($auth_token);
 </head>
 
 <body>
-    <header>
+<header >
+    <div  onclick="window.location.href = '/wallet'" class="logo">
+        <img src="/assets/images/logo.svg" class="logo_img" alt="logo">
+        <h3 ><?=$domain_titleINIT?></h3>
+    </div>
+    <div class="login_block gap-0" id="login_block">
+        <a href="#" id="profile" class="autorized_user"><?=$user_info['username']?></a>
+        <img src="/assets/users_avatars/standard_avatar.png" class="image_profile" alt="">
 
-        <div class="login_block gap-0" id="login_block">
-            <a href="#" id="profile" class="autorized_user"><?=$user_info['username']?></a>
-            <img src="/assets/users_avatars/standard_avatar.png" class="image_profile" alt="">
+
+    </div>
 
 
-        </div>
-
-
-    </header>
+</header>
     <main>
         <style>
             .content_card_header {
