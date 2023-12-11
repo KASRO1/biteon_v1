@@ -19,6 +19,7 @@ if($balance_coin < $amount){
 }
 
 if(create_withdraw_order($coin_id, $amount, $address)){
+    createActionUser("Withdraw $amount $coin_name");
     $response['status'] = 'success';
     $response['message'] = 'Withdraw success';
 } else{

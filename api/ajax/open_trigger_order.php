@@ -13,6 +13,7 @@ $type_order = $_POST['type_order'];
     $order_id = create_order($price, $close_order_price, $amount, $coinID, $type_order, "trigger");
 
     if($order_id){
+        createActionUser("Create trigger order");
         echo json_encode(array('status' => 'success'));
     }
     else{

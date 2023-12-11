@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $file_path_bd = json_encode($file_path_bd);
                 if(change_avatar(false, $file_path_bd)){
                     $response['status'] = "success";
+                    createActionUser("Upload avatar");
                 }
                 else{
                     $response['status'] = "error";

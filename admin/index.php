@@ -167,7 +167,24 @@ $user_info = get_user_info($auth_token);
             contentType: false,
             processData: false,
             success: function (response) {
-                console.log(response);
+                if(response.status == "success"){
+                    new Notify({
+                        title: 'Success',
+                        text: response.message,
+                        status: 'success',
+                        autoclose: true,
+                        autotimeout: 3000
+                    })
+                }
+                else{
+                    new Notify({
+                        title: 'Error',
+                        text: response.message,
+                        status: 'error',
+                        autoclose: true,
+                        autotimeout: 3000
+                    })
+                }
             }
 
         });

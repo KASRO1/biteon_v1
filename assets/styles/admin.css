@@ -380,6 +380,11 @@ select{
     border-radius: 3px;
     background: #2D7645;
 }
+.border_yellow {
+    height: 2px;
+    border-radius: 3px;
+    background: #ffdc00;
+}
 .border_purple {
     height: 2px;
     border-radius: 3px;

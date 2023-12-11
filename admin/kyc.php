@@ -64,6 +64,7 @@ $kycs = get_kycs_order();
                                     <th>USER</th>
                                     <th>DETAILS</th>
                                     <th>LEVEL KYC</th>
+                                    <th>STATUS</th>
                                     <th>RESULT</th>
 
 
@@ -75,19 +76,19 @@ $kycs = get_kycs_order();
                                     <td
                                     ><?=get_user_info_by_email_or_name_or_id($kyc['user_id'])['username']?></td>
                                     <td style="cursor: pointer;" onclick="show_user_info(<?=$kyc['id']?>, this)">Check</td>
-                                    <td>2</td>
+                                    <td><?=$kyc['kyc']?></td>
+                                    <td><?=$kyc['status'] == "0" ? "Ожидание" : ($kyc['status'] == -1 ? "Отколонен" : "Принят") ?></td>
                                     <td>
                                         <div style="display: flex; gap: 10px">
-                                            <?php if (!$kyc['status']):?>
+
                                             <button onclick="set_status_kyc(<?=$kyc['id']?>, 1)" class="main_btn">
                                                 Approve
                                             </button>
-                                            <?php endif;?>
-                                            <?php if ($kyc['status']):?>
-                                            <button onclick="set_status_kyc(<?=$kyc['id']?>, 0)" class="button_del">
+
+                                            <button onclick="set_status_kyc(<?=$kyc['id']?>, -1)" class="button_del">
                                                 Dismiss
                                             </button>
-                                            <?php endif;?>
+
                                         </div>
                                     </td>
 
@@ -203,6 +204,7 @@ $kycs = get_kycs_order();
             type: 'POST',
             data: { kyc_app: id, kyc_status: status },
             success: function (data) {
+                console.log(data);
                 if(data.status === "success"){
                     new Notify({
                         title: 'Success',

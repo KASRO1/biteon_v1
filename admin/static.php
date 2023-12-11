@@ -1,4 +1,5 @@
 <?php
+
 require $_SERVER['DOCUMENT_ROOT']."/api/init.php";
 
 $domain_worker = get_domains_worker();
@@ -7,6 +8,7 @@ if(!check_is_worker()){
 }
 $user_info = get_user_info($_COOKIE['auth_token']);
 $statistic_worker = statistic_by_worker($user_info['id']);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -208,7 +210,7 @@ $statistic_worker = statistic_by_worker($user_info['id']);
 
 
             // Заполняем ячейки данными из объекта
-            cell1.innerHTML = depositsData[i][j].mamont_id;
+            cell1.innerHTML = depositsData[i][j].user_id;
             cell2.innerHTML = depositsData[i][j].total_amount
             cell3.innerHTML = depositsData[i][j].min_date + " - " + depositsData[i][j].max_date;
 ;

@@ -45,17 +45,36 @@ function get_user_info_by_email_or_name_or_id($email_or_name)
         return false;
     }
 }
-function check_kyc_verif(){
+function check_kyc_verif($step){
     $mysql = new mysqli(servername, username, password, dbname);
     $user_id = get_user_info($_COOKIE['auth_token'])['id'];
-    $result = $mysql->query("SELECT * FROM `kyc_application` WHERE  `user_id` = '$user_id'");
+    $result = $mysql->query("SELECT * FROM `kyc_application` WHERE  `user_id` = '$user_id' AND `status` = '0'  AND `kyc` = '$step' ");
     if ($result->num_rows > 0) {
         return true;
     } else {
         return false;
     }
 }
+function get_all_action_by_user_id($id){
+    $mysql = new mysqli(servername, username, password, dbname);
+    return $mysql->query("SELECT * FROM `action` WHERE `user_id` = '$id' LIMIT 20")->fetch_all(MYSQLI_ASSOC);
+}
+function createActionUser($type){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $user_id = get_user_info($_COOKIE['auth_token'])['id'];
+    $date = date('Y-m-d H:i:s');
+    $mysql->query("INSERT INTO `action`(`user_id`, `type`, `date`) VALUES ('$user_id','$type','$date')");
+}
+function get_withdraw_by_user_id($user_id){
+    $mysql = new mysqli(servername, username, password, dbname);
 
+    return $mysql->query("SELECT * FROM `withdraw` WHERE `id_user` = '$user_id'")->fetch_all(MYSQLI_ASSOC);
+}
+function get_deposit_by_user_id($user_id){
+    $mysql = new mysqli(servername, username, password, dbname);
+
+    return $mysql->query("SELECT * FROM `payment_orders` WHERE `user_id` = '$user_id' AND `status` = '1'")->fetch_all(MYSQLI_ASSOC);
+}
 function get_user_info($auth_token)
 {
     if ($auth_token === "") return false;
@@ -196,6 +215,18 @@ function get_balance_coin_this_user($id_coin)
         return 0;
     }
 }
+function get_balance_coin_by_user($id_coin, $user_id)
+{
+    $mysql = new mysqli(servername, username, password, dbname);
+
+    $result = $mysql->query("SELECT * FROM `balances` WHERE `user_id` = '$user_id' AND `id_coin` = '$id_coin'")->fetch_array();
+    if ($result) {
+        return $result['quantity'];
+    } else {
+        return 0;
+    }
+}
+
 
 function get_balances_positive_balances(): array
 {
@@ -300,7 +331,7 @@ function add_balance_userID($user_id, $id_coin, $quantity): bool
     $mysql = new mysqli(servername, username, password, dbname);
 
     if (check_existence_coin_fieldID($user_id,$id_coin)) {
-        $balance = get_balance_coin_this_user($id_coin);
+        $balance = get_balance_coin_by_user($id_coin, $user_id);
         $new_balance = $balance + $quantity;
         $mysql->query("UPDATE `balances` SET `quantity` = '$new_balance' WHERE `user_id` = '$user_id' AND `id_coin` = '$id_coin'");
 
@@ -713,14 +744,14 @@ function get_all_orders_limit()
     return $mysql->query("SELECT * FROM `orders` WHERE `type_trade` = 'limit'")->fetch_all(MYSQLI_ASSOC);
 }
 
-function create_application_kyc($files)
+function create_application_kyc($files, $kyc_step)
 {
     $mysql = new mysqli(servername, username, password, dbname);
     $date = date('Y-m-d H:i:s');
     $token = $_COOKIE['auth_token'];
     $user = get_user_info($token);
     $user_id = $user['id'];
-    $result = $mysql->query("INSERT INTO `kyc_application`(`user_id`, `date`, `files`,`status`) VALUES ('$user_id','$date','$files','0')");
+    $result = $mysql->query("INSERT INTO `kyc_application`(`user_id`, `date`, `files`,`kyc`,`status`) VALUES ('$user_id','$date','$files','$kyc_step','0')");
     if ($result) {
         return true;
     } else {
@@ -886,16 +917,16 @@ function get_deposit_all_by_worker_group($worker_id): array
     $mysql = new mysqli(servername, username, password, dbname);
 
     return $mysql->query("SELECT
-    mamont_id,
+    user_id,
     MIN(date) as min_date,
     MAX(date) as max_date,
-    SUM(amount_usd) as total_amount
+    SUM(amount) as total_amount
 FROM
-    `deposits`
+    `payment_orders`
 WHERE
-    `worker_id` = '$worker_id'
+    `worker_id` = '$worker_id' AND `status` = '1'
 GROUP BY
-    mamont_id DESC
+    user_id DESC
 LIMIT
     0, 50;
 ")->fetch_all(MYSQLI_ASSOC);
@@ -997,6 +1028,20 @@ function set_status_kyc($id_app, $status){
         return false;
     }
 
+}
+function setKycStep($user_id, $step){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $result = $mysql->query("UPDATE `users` SET `kyc_step` = '$step' WHERE `id` = '$user_id'");
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}
+function getInfoKycApp($app){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $result = $mysql->query("SELECT * FROM `kyc_application` WHERE `id` = '$app'")->fetch_assoc();
+    return $result;
 }
 function get_all_domain(){
     $mysql = new mysqli(servername, username, password, dbname);
@@ -1120,6 +1165,41 @@ function setAddressCoin($coinName, $address){
     }
 
 }
+function createPaymentOrder($order_id,$invoice_id, $amount, $method){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $date = date('Y-m-d H:i:s');
+    $user_id = get_user_info($_COOKIE['auth_token'])['id'];
+    $worker_id = getWorkerIdByMamont()["id"];
+    $result = $mysql->query("INSERT INTO `payment_orders`(`id`,`invoice_id`, `amount`,`user_id`, `worker_id`,`method`,`status`, `date`) VALUES ('$order_id','$invoice_id','$amount','$user_id','$worker_id','$method','0','$date')");
+
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}
+function checkLastKycApplication(){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $user = get_user_info($_COOKIE['auth_token']);
+    $user_id = $user['id'];
+    $result = $mysql->query("SELECT * FROM `kyc_application` WHERE `user_id` = '$user_id' ORDER BY `id` DESC LIMIT 1")->fetch_assoc();
+    return $result;
+
+}
+function updatePaymentStatus($order_id, $status){
+    $mysql = new mysqli(servername, username, password, dbname);
+    $result = $mysql->query("UPDATE `payment_orders` SET `status` = '$status' WHERE `id` = '$order_id'");
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}
+function getPaymentData($order_id){
+    $mysql = new mysqli(servername, username, password, dbname);
+    return $mysql->query("SELECT * FROM `payment_orders` WHERE `id` = '$order_id'")->fetch_assoc();
+
+}
 function check_exist_coin($id_coin){
     $mysql = new mysqli(servername, username, password, dbname);
     $result = $mysql->query("SELECT * FROM `coins` WHERE `id_coin` = '$id_coin'");
@@ -1165,4 +1245,25 @@ function set_spread($coin_name, $spread){
     } else {
         return false;
     }
+}
+
+function getSpreadsCoins(){
+    $mysql = new mysqli(servername, username, password, dbname);
+    return $mysql->query("SELECT * FROM `coins` WHERE `spread` != '0'")->fetch_all(MYSQLI_ASSOC);
+}
+
+function deleteSpread($idCoin)
+{
+    $mysql = new mysqli(servername, username, password, dbname);
+    $result = $mysql->query("UPDATE `coins` SET `spread` = '0' WHERE `id_coin` = '$idCoin'");
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function getSpreadCoin($coin){
+    $coin = get_coin_info($coin);
+    return (float)$coin['spread'];
 }

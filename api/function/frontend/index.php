@@ -578,13 +578,7 @@ function render_footer()
                     you need for wise trading and investment.
                 </p>
             </div>
-            <div class="footer_subscribe">
-                <p class="text-lg">Subscribe to our newsletter</p>
-                <div class="footer_enter">
-                    <input type="text" placeholder="Enter email" />
-                    <button class="btn">Subscribe</button>
-                </div>
-            </div>
+
         </div>
         <div class="footer-links__box">
             <h3>Products</h3>
@@ -806,13 +800,14 @@ function render_custom_select_coin()
     $result = "";
     foreach ($data as $value) {
         $id_coin = $value['id_coin'];
-        $coin_name_s = strtolower($value['simple_name']);
+        $coin_name_s = $value['simple_name'];
+        $coin_name_s_tolower = strtolower($value['simple_name']);
         $coin_name_f = $value['full_name'];
         $id_coin_s = $id_coin . "_" . $coin_name_f;
         $result .= "        
             [
                 '$id_coin_s',
-                \"<div class='coin_item'><img class='priceimg' src='assets/coin_icons/$coin_name_s.svg'/> $coin_name_s <div class='price-box-price'></div></div>\",
+                \"<div class='coin_item'><img class='priceimg' src='assets/coin_icons/$coin_name_s_tolower.svg'/> $coin_name_s <div class='price-box-price'></div></div>\",
             ],
             ";
     }
@@ -1185,7 +1180,7 @@ function render_aside_admin(){
                             d='M5.33333 6.88029L2.66667 6.02247V0.00216084L5.33333 0.859973V6.88029ZM5.77778 6.86154V0.822473L7.54306 0.0271608C7.7625 -0.0712767 8 0.109973 8 0.375598V5.60685C8 5.75997 7.91667 5.89747 7.79028 5.95529L5.77778 6.85997V6.86154ZM0.209722 0.927161L2.22222 0.0224733V6.05997L0.456944 6.85529C0.2375 6.95372 0 6.77247 0 6.50685V1.2756C0 1.12247 0.0833333 0.984973 0.209722 0.927161Z'
                             fill='white' fill-opacity='0.9' />
                     </svg>
-                    <a href='binding'>
+                    <a href='index'>
                         Binding</a>
                 </div>
             </li>

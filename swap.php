@@ -190,7 +190,7 @@ $user_info = get_user_info($auth_token);
     available_balance_func(189, "BTC")
     const select2 = new ItcCustomSelect("#select-2", {
         options: currencyoptions,
-        targetValue: "192_Tether",
+        targetValue: "191_Litecoin",
         onSelected(select, option) {
             calculate()
         }
@@ -218,7 +218,7 @@ $user_info = get_user_info($auth_token);
                 amount: inpt_amount_value
             },
             success: function(response) {
-
+                console.log(response);
                 if (response.status == 'success') {
                     const kurs = response.course;
                     const receive = document.getElementById('receive');

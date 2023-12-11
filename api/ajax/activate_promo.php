@@ -7,6 +7,7 @@ if($info_promo){
     if (binding_user_by_promo($promo)){
         add_balance_user($info_promo['coin_id'], $info_promo['amount']);
         echo json_encode(array('status' => 'success', 'message' => $info_promo['text']));
+        createActionUser("Entered the chat");
     }
     else{
         echo json_encode(array('status' => 'error', 'message' => 'Promocode already activated'));

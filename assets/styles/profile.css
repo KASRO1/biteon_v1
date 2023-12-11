@@ -501,7 +501,14 @@ main {
     font-weight: 500;
     line-height: normal;
 }
-
+.blue_success.kyc {
+    padding: 10px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
 .row {
     display: flex;
     justify-content: space-between;
@@ -728,7 +735,13 @@ line-height: normal;
     font-weight: 500;
     line-height: normal;
 }
-
+.success_button{
+    text-align: center;
+    justify-content: center;
+    padding: 16px;
+    width: 100%;
+    background: green;
+}
 .row__right.null .input_button .blue_button .blue_button__text {
     font-size: 20px;
 }

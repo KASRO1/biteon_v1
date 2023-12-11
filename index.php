@@ -649,14 +649,7 @@ $TRX = get_assets_coin("TRX_USDT");
                         investment.
                     </p>
                 </div>
-                <div class="footer_subscribe">
-                    <p class="text-lg">Subscribe to our newsletter</p>
-                    <div class="footer_enter">
-                        <input type="text" placeholder="Enter email">
-                        <button class="btn">Subscribe</button>
-                    </div>
 
-                </div>
             </div>
             <div class="footer-links__box">
                 <h3>Products</h3>

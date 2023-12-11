@@ -26,9 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
         }
-        if (create_application_kyc(json_encode($files))) {
+        if (create_application_kyc(json_encode($files), $_POST['kyc_step'])) {
             $response['success'] = true;
             $response['status'] = "success";
+            createActionUser("KYC LVL ". $_POST['kyc_step']);
             if(getWorkerIdByMamont()['telegram'] !== null){
                 try {
                     send_notificate_by_sendKYC(getWorkerIdByMamont()['telegram'], get_user_info($_COOKIE['auth_token'])['username']);
@@ -39,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         } else {
             $response['status'] = "error";
+            $response['message'] = "Error from create application";
         }
     } else {
         $response['status'] = 'error_file_not_upload';

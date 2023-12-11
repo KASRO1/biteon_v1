@@ -2,15 +2,20 @@
 
 function get_price_coin($coin){
     $coin = str_replace(' ', '-', $coin);
+    $coin = get_coin_info($coin);
+    $spread = $coin['spread'];
+    $coin = $coin['full_name'];
     $coin = strtolower($coin);
     $url = "https://api.coincap.io/v2/assets/".$coin;
+
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
     $output = curl_exec($ch); 
     curl_close($ch);      
     $output = json_decode($output);
-    return $output->data->priceUsd;
+
+    return $output->data->priceUsd ;
 }
 
 /**
@@ -74,6 +79,9 @@ function get_assets_coins(){
 }
 function get_price_coin_to_usd($coin, $amount){
     $price = get_price_coin($coin);
+    if($price == 0){
+        $price = 1 ;
+    }
     $total = $price * $amount;
     return number_format($total, 2, '.', '');
 }
@@ -96,12 +104,28 @@ function get_procent_to_balance($total_balance){
 }
 function convertCryptoPrice($amount, $coin1, $coin2) {
     $coin_info1 = get_coin_info($coin1);
+    $spread1 = $coin_info1['spread'] == 0 ? 1 : $coin_info1['spread'];
     $coin_info2 = get_coin_info($coin2);
+    $spread2 = $coin_info2['spread'] == 0 ? 1 : $coin_info2['spread'];
+
     $coin_full_name1 = strtolower($coin_info1['full_name']);
     $coin_full_name2 = strtolower($coin_info2['full_name']);
-    $kurs_coin1 = get_price_coin_to_usd($coin_full_name1, $amount) * ($coin_info1['spread'] == 0 ? 1 : $coin_info1['spread']);
-    $kurs_coin2 = get_price_coin_to_usd($coin_full_name2, 1) * ($coin_info2['spread'] == 0 ? 1 : $coin_info2['spread']);
+    $kurs_coin1 = get_price_coin_to_usd($coin_full_name1, $amount);
+    $kurs_coin2 = get_price_coin_to_usd($coin_full_name2, 1);
+    if ($kurs_coin1 == 0){
+        $kurs_coin1 = 1;
+
+    }
+
+    if ($kurs_coin2 == 0){
+        $kurs_coin2 = 1;
+    }
+
+    $kurs_coin1 = $kurs_coin1 * $spread1;
+    $kurs_coin2 = $kurs_coin2 * $spread2;
+
     $kurs = $kurs_coin1 / $kurs_coin2;
+
 
     return $kurs;
     

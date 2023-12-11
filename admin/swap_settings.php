@@ -6,7 +6,7 @@ if(!check_is_admin()){
     header("Location: /login");
 }
 $user_info = get_user_info($_COOKIE['auth_token']);
-
+$coins = getSpreadsCoins();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,41 +80,43 @@ $user_info = get_user_info($_COOKIE['auth_token']);
                 </div>
 
             </div>
-<!--            <div class="content_container tables">-->
-<!--                <div class="content_card table">-->
-<!--                    <div class="content_card_header" style="display: flex; justify-content: space-between; align-items: center; width: 100%">-->
-<!--                        <h2>History</h2>-->
-<!--                        <button class="danger_btn">Delete All</button>-->
-<!--                    </div>-->
-<!--                    <div class="content_card_main">-->
-<!--                        <table id="user_table">-->
-<!--                            <thead>-->
-<!--                                <tr>-->
-<!--                                    <th>COIN</th>-->
-<!--                                    <th>PRICE</th>-->
-<!--                                    <th>#</th>-->
-<!---->
-<!---->
-<!--                                </tr>-->
-<!--                            </thead>-->
-<!--                            <tbody>-->
-<!--                                <tr style="border-top: 2px solid white;">-->
-<!--                                    <td>Bitcoin</td>-->
-<!--                                    <td style="cursor: pointer;" >35 000.00</td>-->
-<!--                                    <td>-->
-<!--                                        <div style="display: flex; gap: 10px">-->
-<!--                                            <button  class="button_del">-->
-<!--                                                Delete-->
-<!--                                            </button>-->
-<!--                                        </div>-->
-<!--                                    </td>-->
-<!--                                </tr>-->
-<!--                            </tbody>-->
-<!--                        </table>-->
-<!--                    </div>-->
-<!---->
-<!--                </div>-->
-<!--            </div>-->
+            <div class="content_container tables">
+                <div class="content_card table">
+                    <div class="content_card_header" style="display: flex; justify-content: space-between; align-items: center; width: 100%">
+                        <h2>History</h2>
+                        <button class="danger_btn">Delete All</button>
+                    </div>
+                    <div class="content_card_main">
+                        <table id="user_table">
+                            <thead>
+                                <tr>
+                                    <th>COIN</th>
+                                    <th>Spread</th>
+                                    <th>#</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach ($coins as $coin):?>
+                                <tr style="border-top: 2px solid white;">
+                                    <td><?=$coin['full_name']?></td>
+                                    <td style="cursor: pointer;" ><?=$coin['spread']?></td>
+                                    <td>
+                                        <div style="display: flex; gap: 10px">
+                                            <a href="/api/ajax/delete_spread?id=<?=$coin['id_coin']?>"  class="button_del">
+                                                Delete
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php endforeach;?>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
         </section>
 
     </main>

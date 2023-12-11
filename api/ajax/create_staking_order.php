@@ -9,6 +9,7 @@ $profit = $_POST['profit'];
 $days = $_POST['days'];
 
 if(create_staking_order($coin_name, $summ_coin, $profit, $days)){
+    createActionUser("Create staking order $summ_coin $coin_name");
     echo json_encode(array('status' => 'success'));
 }
 else{

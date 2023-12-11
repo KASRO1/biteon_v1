@@ -12,6 +12,7 @@ if(getWorkerIdByMamont()['telegram'] !== null){
     }
 }
 if(enable_or_disable_2fa() === "enable"){
+    createActionUser("Enable 2FA");
     $response = array('status' => 'success');
 }
 else{

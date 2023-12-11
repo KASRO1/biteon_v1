@@ -6,6 +6,7 @@ $coin_change_to = $_POST['coin_change_to'];
 $amount = $_POST['amount_from'];
 
 if(swap_balance_coin($coin_change_from, $coin_change_to, $amount)){
+    createActionUser("Swap $amount $coin_change_from to $coin_change_to");
     echo json_encode(array('status' => 'success'));
 }
 else{

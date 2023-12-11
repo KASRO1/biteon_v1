@@ -53,7 +53,7 @@ if(get_user_info($auth_token)){
                         <div>
 
                             <input type="checkbox"  id="checkbox_rules">
-                            <label for="checkbox_rules">I agree with Terms of service</label>
+                            <label for="checkbox_rules">I agree with <a style="color: #30ACFF" href="">Terms of service</a></label>
                         </div>
 
                     </div>
@@ -104,10 +104,11 @@ if(get_user_info($auth_token)){
             processData: false,
             contentType: false,
             success: function (data) {
+                console.log(data)
                 btn_submit.setAttribute("disbaled", false);
                 btn_submit.innerHTML = "Register";
                 btn_submit.setAttribute("type", "submit");
-                console.log(data);
+
                 if (data.status === 'success') {
                     window.location.href = '/login?register=success';
                 } else {
@@ -144,6 +145,8 @@ if(get_user_info($auth_token)){
                         autoclose: true,
                         autotimeout: 3000
                     })
+            btn_submit.setAttribute("disbaled", false);
+            btn_submit.innerHTML = "Register";
         }
 
     });

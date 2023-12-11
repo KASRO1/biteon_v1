@@ -1,16 +1,20 @@
 <?php 
 
 require($_SERVER['DOCUMENT_ROOT'] . '/api/init.php');
+//
+//$apiKey = '1cWRePZaIt5zKavIfHfEU5KkJdYbQijSPlI4JMV0zV1QDToTETQCKQJU7pJMIeDupzTeq0i9hbomWHtngjGoXU0buVFVekIprJbnOiOvS5xNrYzioeCX1OKo7FSLRdcJ';
+//$amount = 1000;
+//$adId = getAdIdPayment($amount)['data'][0]['ad_id'];
+//$orderId = rand(1111111111, 999999999999999);
+//
+$customerId = get_user_info($_COOKIE['auth_token'])['id'] .  1111;
+// ;
 
-$apiKey = '1cWRePZaIt5zKavIfHfEU5KkJdYbQijSPlI4JMV0zV1QDToTETQCKQJU7pJMIeDupzTeq0i9hbomWHtngjGoXU0buVFVekIprJbnOiOvS5xNrYzioeCX1OKo7FSLRdcJ';
-$amount = 1000;
-$adId = getAdIdPayment($amount)['data'][0]['ad_id'];
-$orderId = rand(1111111111, 999999999999999);
+$result = createPayment(rand(111111, 99999999), 1000, $customerId);
+var_dump($result);
 
-$customerId = 'customer123111';
- ;
-//var_dump(createPayment($adId, $amount, $customerId));
-var_dump(getDataPayment(79769));
+
+//var_dump(getDataPayment(79769));
 // $result = "[";
 // foreach($coins as $value){
 //     $full_name = strtolower($value['full_name']);

@@ -5,23 +5,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48de03d6-5035-48b3-82d5-9edc4dfb2797" name="Changes" comment="last">
+      <change afterPath="$PROJECT_DIR$/api/ajax/delete_spread.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/ajax/update_statusPayment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/coin_icons/usdt(erc20).svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/coin_icons/usdt(trc20).svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/add_domain.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/add_domain.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/binding.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/deposit.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/deposit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/kyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/kyc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/settings.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/static.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/support.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/support.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/swap_settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/swap_settings.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/usersList.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/usersList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/withdrawal.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/withdrawal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/activate_promo.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/activate_promo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/change_username.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/change_username.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/create_api.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/create_api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/create_staking_order.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/create_staking_order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/delete_api.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/delete_api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/enable_or_disable_2fa.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/enable_or_disable_2fa.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/get_history.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/get_history.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/get_info_user.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/get_info_user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/get_messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/get_messages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/kyc_documents_upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/kyc_documents_upload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/open_limit_order.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/open_limit_order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/open_trigger_order.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/open_trigger_order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/remove_avatar.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/remove_avatar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/set_status_kyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/set_status_kyc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/swap.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/swap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/upload_avatar.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/upload_avatar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/withdraw.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/withdraw.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/function/backend/course.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/course.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/function/backend/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/database.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/function/backend/payment_api.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/payment_api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/function/frontend/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/frontend/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/function/frontend/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/frontend/test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/init.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/coin_icons/usdt.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/coin_icons/usdt(bep20).svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings_kyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_kyc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swap.php" beforeDir="false" afterPath="$PROJECT_DIR$/swap.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,30 +102,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/OSPanel/domains/casino&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/OSPanel/domains/BITEON/assets/coin_icons",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\OSPanel\domains\BITEON\assets\coin_icons" />
       <recent name="D:\OSPanel\domains\BITEON\api\ajax" />
       <recent name="D:\OSPanel\domains\BITEON" />
       <recent name="D:\OSPanel\domains\BITEON\admin" />
@@ -171,6 +199,11 @@
       <workItem from="1701948387264" duration="670000" />
       <workItem from="1701949538528" duration="2813000" />
       <workItem from="1701962136883" duration="2088000" />
+      <workItem from="1702014636471" duration="306000" />
+      <workItem from="1702035728366" duration="4000" />
+      <workItem from="1702122269512" duration="1405000" />
+      <workItem from="1702126564810" duration="3163000" />
+      <workItem from="1702286647273" duration="29607000" />
     </task>
     <task id="LOCAL-00001" summary="last">
       <option name="closed" value="true" />
@@ -276,7 +309,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701624067606</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="last">
+      <option name="closed" value="true" />
+      <created>1702014668591</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1702014668591</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

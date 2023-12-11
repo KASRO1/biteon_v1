@@ -114,40 +114,77 @@ $userlist = get_static_userList($user_info['id']);
                     <tbody>
                         <tr>
                             <td>
-                                <table class="table_logs">
-                                    <thead>
+
+                                <div style="display: flex">
+
+                                    <table class="table_logs">
+                                        <thead>
                                         <tr>
                                             <th class="text_blue">AMOUNT</th>
                                             <th class="text_blue">DATE</th>
+
+
+                                        </tr>
+
+                                        </thead>
+                                        <tbody id="logs_deposit">
+                                        <tr>
+                                            <td>$100.00</td>
+                                            <td>2023-10-26
+                                                14:36:01</td>
+
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                    <table class="table_logs">
+                                        <thead>
+                                        <tr>
+
                                             <th class="text_orange">AMOUNT</th>
                                             <th class="text_orange">DATE</th>
+
+
+                                        </tr>
+
+                                        </thead>
+                                        <tbody id="logs_withdraw">
+                                        <tr>
+                                            <td>$100.00</td>
+                                            <td>2023-10-26
+                                                14:36:01</td>
+
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                    <table class="table_logs">
+                                        <thead>
+                                        <tr>
+
                                             <th class="text_success">ACTION</th>
                                             <th class="text_success">DATE</th>
 
                                         </tr>
 
-                                    </thead>
-                                    <tbody id="user_history_action">
+                                        </thead>
+                                        <tbody id="all_logs">
                                         <tr>
                                             <td>$100.00</td>
                                             <td>2023-10-26
                                                 14:36:01</td>
-                                            <td>$100.00</td>
-                                            <td>2023-10-26
-                                                14:36:01</td>
-                                            <td>REGISTERED</td>
-                                            <td>2023-10-26
-                                                14:36:01</td>
+
                                         </tr>
 
-                                    </tbody>
-                                </table>
+                                        </tbody>
+                                    </table>
+                                </div>
 
                             </td>
                             <td id="kyc_lvl">LVL 2</td>
                             <td id="register_date">2023-10-26 14:36:01</td>
                             <td id="balance_user">$ 100.00</td>
-                            <td id="promos" class="td_text">https://<?=$domain_titleINIT?>.com/signup?promo=12345</td>
+                            <td class="td_text">https://<?=$_SERVER['HTTP_HOST']?>/signup?promo=<span id="promos"></span></td>
 
                         </tr>
                     </tbody>
@@ -195,6 +232,13 @@ $userlist = get_static_userList($user_info['id']);
                         $('#kyc_lvl').text("LVL " + data.data.kyc_step);
                         $('#register_date').text(data.data.created_date);
                         $('#balance_user').text("$ " + data.data.balance);
+                        $('#promos').text(data.data.ref_code);
+                        const all_logs = document.getElementById("all_logs")
+                        const logs_deposit = document.getElementById("logs_deposit")
+                        const logs_withdraw = document.getElementById("logs_withdraw")
+                        all_logs.innerHTML = data.data.tables.allLogs;
+                        logs_deposit.innerHTML = data.data.tables.deposit;
+                        logs_withdraw.innerHTML = data.data.tables.withdraw;
                         status = false;
 
                     }
