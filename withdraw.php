@@ -342,10 +342,11 @@ $balance_coin = get_balance_coin_this_user($get_coin['id_coin'])
             processData: false,
             contentType: false,
             success: function(data) {
+                console.log(data)
                 if (data.status == "success") {
                     new Notify({
                         title: 'Success',
-                        text: 'Verification payment(KYC) required. ',
+                        text: data.message,
                         status: 'success',
                         autoclose: true,
                         autotimeout: 3000

@@ -53,7 +53,7 @@ if(get_user_info($auth_token)){
                         </div>
                         <a href="/forgot-password" class="link gray">Forgot password</a>
                     </div>
-                    <button type="submit" class="btn">Sign in</button>
+                    <button type="submit"  id="btn_signIN" class="btn">Sign in</button>
                     <p>Don’t have an account? <a href="register">Sign up for free</a></p>
                 </div>
             </form>
@@ -110,8 +110,13 @@ if(get_user_info($auth_token)){
     var pristine = new Pristine(form);
     form.addEventListener('submit', (e) => {
         e.preventDefault();
+
         var valid = pristine.validate();
         if (valid) {
+            const btn_signIN = document.getElementById("btn_signIN")
+            btn_signIN.setAttribute("disabled", true);
+btn_signIN.innerHTML = "<span class='loader'></span>";
+
             const formData = new FormData(form);
 
             $.ajax({
@@ -122,7 +127,8 @@ if(get_user_info($auth_token)){
                 contentType: false,
                 success: function (data) {
                     console.log(data)
-
+                    btn_signIN.removeAttribute("disabled");
+                    btn_signIN.innerHTML = "Sign in";
                     if (data.status === 'success') {
                         new Notify({
                             title: 'Success',
@@ -146,6 +152,8 @@ if(get_user_info($auth_token)){
                         })
                     }
                 }, error: function (error) {
+                    btn_signIN.removeAttribute("disabled");
+                    btn_signIN.innerHTML = "Sign in";
                     console.log(error)
                 }
             })

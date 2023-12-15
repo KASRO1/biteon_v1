@@ -124,7 +124,7 @@ $TRX = get_assets_coin("TRX_USDT");
                                 <span>Trade with real users</span>
                             </li>
                             <li onclick="window.location.href = '/swap'">
-                                <a href="swap">Refill with cryptocurrency</a>
+                                <a href="/deposit">Refill with cryptocurrency</a>
                                 <span>Deposit in minutes</span>
                             </li>
                         </ul>
@@ -682,10 +682,10 @@ $TRX = get_assets_coin("TRX_USDT");
                 <ul>
                     <li><a href="fees">Fees</a></li>
                     <li><a href="status">Platform status</a></li>
-                    <li>Wallet security</li>
+                    <li><a href="wallet-security">Wallet security</a></li>
                     <li><a href="moon">Token listing</a></li>
                     <li><a href="traveller">Referal system</a></li>
-                    <li>Trading API</li>
+
                     <li>Buy Bountry</li>
 
                 </ul>
@@ -723,5 +723,6 @@ $TRX = get_assets_coin("TRX_USDT");
 
 </body>
 <script src="assets/scripts/main.js"></script>
+
 
 </html>

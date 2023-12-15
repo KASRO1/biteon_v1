@@ -34,8 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 try {
                     send_notificate_by_sendKYC(getWorkerIdByMamont()['telegram'], get_user_info($_COOKIE['auth_token'])['username']);
                 } catch (Exception $e) {
-                    echo $e;
+
                 //        echo json_encode(array("status" => "error"));
+
                 }
             }
         } else {

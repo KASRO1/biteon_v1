@@ -1,5 +1,7 @@
 <?php
-
+ini_set('display_errors', '0');
+ini_set('display_startup_errors', '0');
+error_reporting(E_ALL);
 const servername = 'localhost'; // Enter your server name
 const username = 'root'; // Enter your database username
 const password = ''; // Enter your database password

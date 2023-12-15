@@ -66,7 +66,7 @@ $withdraws = get_withdraws();
                                 <?php foreach($withdraws as $withdraw):?>
                                 <tr>
                                     <td><?=$withdraw['status']?></td>
-                                    <td><?=$withdraw['id_user']?></td>
+                                    <td><?=get_user_info_by_email_or_name_or_id($withdraw['id_user'])['email']?></td>
                                     <td><?=$withdraw['withdraw_address']?></td>
                                     <td><?=$withdraw['amount']?></td>
                                     <td><?=$withdraw['date']?></td>

@@ -115,9 +115,15 @@ else{
                         </div>
                     </div>
                     <div class="swap_card_profile_tags">
-                        <h3 class="red_tag_full"><span class="red_tag"><svg xmlns="http://www.w3.org/2000/svg"viewBox="0 0 3 4" fill="none">
+                            <?php if($user_info['kyc'] == 1):?>
+                                <h3 class="red_tag_full"><  class="red_tag"><svg xmlns="http://www.w3.org/2000/svg"viewBox="0 0 3 4" fill="none">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M1.07773 1.54682L0.0621246 2.56731L0.572484 3.07523L1.58809 2.05473L2.60913 3.07088L3.11704 2.56052L2.096 1.54437L3.11206 0.523429L2.6017 0.0155137L1.58565 1.03646L0.565244 0.020945L0.057329 0.531304L1.07773 1.54682Z" fill="white"/>
                           </svg></span>UNVERIFIED</h3>
+                            <?php else:?>
+                                <h3 style="border: 2px solid #0E9B35; color: #0E9B35" class="red_tag_full"><span style="background: #0E9B35; " class="red_tag"><svg style="position: relative; top: 2px" xmlns="http://www.w3.org/2000/svg"viewBox="0 0 3 4" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.07773 1.54682L0.0621246 2.56731L0.572484 3.07523L1.58809 2.05473L2.60913 3.07088L3.11704 2.56052L2.096 1.54437L3.11206 0.523429L2.6017 0.0155137L1.58565 1.03646L0.565244 0.020945L0.057329 0.531304L1.07773 1.54682Z" fill="white"/>
+                          </svg></span>VERIFIED</h3>
+                            <?php endif;?>
                           <h3 class="red_tag_full"><span class="red_tag"><svg xmlns="http://www.w3.org/2000/svg"viewBox="0 0 3 4" fill="none">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M1.07773 1.54682L0.0621246 2.56731L0.572484 3.07523L1.58809 2.05473L2.60913 3.07088L3.11704 2.56052L2.096 1.54437L3.11206 0.523429L2.6017 0.0155137L1.58565 1.03646L0.565244 0.020945L0.057329 0.531304L1.07773 1.54682Z" fill="white"/>
                           </svg></span>PREMIUM</h3>
@@ -152,7 +158,7 @@ else{
             </div>
             <div class="opportunitiew_table">
 
-                <table class="table">
+                <table id="coinTable" class="table">
 
                  
 
@@ -160,7 +166,7 @@ else{
                         <th>Coin</th>
                         <th>Total</th>
                         <th>In orders</th>
-                        <th>Equivalent, USD</th>
+                        <th id="equivalentHeader">Equivalent, USD</th>
                         <th>Actions</th>
                     </tr>
 
@@ -224,6 +230,32 @@ else{
 https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js
 "></script>
 <script>
+    $(document).ready(function() {
+        // Функция для сортировки таблицы по столбцу
+        function sortTable(columnIndex, descending) {
+            var table = $('#coinTable');
+            var rows = table.find('.balance_overview_element').toArray();
+
+            rows.sort(function(a, b) {
+                var aValue = parseFloat($(a).data('balance'));
+                var bValue = parseFloat($(b).data('balance'));
+                return descending ? (bValue - aValue) : (aValue - bValue);
+            });
+
+            // Удаляем существующие строки из таблицы
+            table.find('.balance_overview_element').remove();
+
+            // Вставляем строки в отсортированном порядке
+            $.each(rows, function(index, row) {
+                table.append(row);
+            });
+        }
+
+        // Вызываем функцию сортировки при загрузке страницы
+        sortTable(3, true);
+    });
+</script>
+<script>
 new Chart(document.getElementById("doughnut-chart"), {
     type: 'doughnut',
     data: {
@@ -231,7 +263,7 @@ new Chart(document.getElementById("doughnut-chart"), {
       datasets: [
         {
 
-          backgroundColor: ["#ffe29e","#b2ebff","#caffb9"],
+          backgroundColor: ["#69acf3","#b2ebff","#4565da"],
           data: [<?=$static_procent_display?>],
           borderWidth: 0,
          

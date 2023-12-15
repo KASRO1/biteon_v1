@@ -363,7 +363,7 @@ $staking_percents = json_decode($settings['staking_percents'], true);
             }
         });
     });
-
+    <?php if(check_is_admin()):?>
     const changeWalletsDeposit_binding_form = document.getElementById("changeWalletsDeposit_binding_form");
     changeWalletsDeposit_binding_form.addEventListener("submit", function(e) {
         e.preventDefault();
@@ -395,6 +395,7 @@ $staking_percents = json_decode($settings['staking_percents'], true);
             }
         });
     });
+    <?php endif; ?>
     const paymentAddress_binding_form = document.getElementById("paymentAddress_binding_form");
     paymentAddress_binding_form.addEventListener("submit", function(e) {
         e.preventDefault();

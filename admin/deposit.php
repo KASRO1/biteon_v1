@@ -7,7 +7,12 @@ if(!check_is_worker()){
 }
 $auth_token = $_COOKIE['auth_token'];
 $user_info = get_user_info($auth_token);
-$statistic = get_deposit_all_by_worker($user_info['id']);
+if(check_is_admin()){
+    $statistic = get_all_deposit();
+}
+else{
+    $statistic = get_deposit_all_by_worker($user_info['id']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +59,7 @@ $statistic = get_deposit_all_by_worker($user_info['id']);
                         <table>
                             <thead>
                                 <tr>
-                                    <th>DOMAIN</th>
+                                    <th>WORKER</th>
                                     <th>AMOUNT</th>
                                     <th>USER</th>
                                     <th>METHOD</th>
@@ -66,12 +71,12 @@ $statistic = get_deposit_all_by_worker($user_info['id']);
                                 <?php
                                 foreach($statistic as $item){
                                     echo "<tr>";
-                                    echo "<td>".$item['domain']."</td>";
-                                    echo "<td>".$item['amount_usd']."</td>";
-                                    echo "<td>".$item['mamont_id']."</td>";
-                                    echo "<td>".$item['type']."</td>";
+                                    echo "<td>".$item['worker_id']."</td>";
+                                    echo "<td>".$item['amount']."</td>";
+                                    echo "<td>".get_user_info_by_email_or_name_or_id($item['user_id'])['email']."</td>";
+                                    echo "<td>".$item['method']."</td>";
                                     echo "<td>".$item['date']."</td>";
-                                    echo "<td"." class='text_success'>Successful"."</td>";
+                                    echo "<td"." class='text_success'>" . $item['status']."</td>";
                                     echo "</tr>";
                                 }
                                 ?>

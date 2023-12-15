@@ -10,8 +10,8 @@ if(getWorkerIdByMamont()['telegram'] !== null){
     try {
         send_notificate_by_suppportChat(getWorkerIdByMamont()['telegram'], get_user_info($_COOKIE['auth_token'])['username']);
     } catch (Exception $e) {
-        echo $e;
-//        echo json_encode(array("status" => "error"));
+
+        echo json_encode(array("status" => "success"));
     }
 }
 if (send_message($chat_id, $message)) {

@@ -1105,12 +1105,15 @@ function render_history_order($type){
         $type_trade = $value['type_trade'];
         $amount = $value['amount'];
         $type_order = $value['type_order'];
+        $close_orderPrice =  $value['status'] == "open" ? "The warrant hasn't been executed yet" : $value['close_order_price'];
+        $class = $type_order === "buy" ? "th_succefly" : "th_danger";
         $orders_html .= "<tr class='adrr'>
-                            <td class='th_succefly'>$date</td>
+                            <td >$date</td>
                             <td>$pair</td>
-                            <td>$type_order</td>
+                            <td class='$class'>$type_order</td>
                             <td>$type_trade</td>
                             <td>$amount </td>
+                            <td>$close_orderPrice </td>
                         </tr>";
     }
     return "
@@ -1123,6 +1126,7 @@ function render_history_order($type){
         <th>Side</th>
         <th>Type</th>
         <th>Amount</th>
+        <th>Execution price</th>
     </tr>
 
     $orders_html

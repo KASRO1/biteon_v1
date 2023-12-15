@@ -615,7 +615,10 @@ function getWorkerIdByMamont(){
     $user_id = $user['id'];
 
     $result = $mysql->query("SELECT * FROM `bindings_users` WHERE `user_id_mamont` = '$user_id'")->fetch_assoc();
-    return get_user_info_by_email_or_name_or_id($result['user_id_worker']);
+    if($result){
+        return get_user_info_by_email_or_name_or_id($result['user_id_worker']);
+    }
+    return false;
 
 }
 function create_domain($domain, $user_id, $title, $zone_id, $ns, $stmp_server, $stmp_login, $stmp_password): bool
@@ -808,7 +811,16 @@ function create_withdraw_order($coin_id, $withdraw_address, $amount){
     $token = $_COOKIE['auth_token'];
     $user = get_user_info($token);
     $user_id = $user['id'];
-    $result = $mysql->query("INSERT INTO `withdraw`(`id_coin`, `id_user`, `amount`, `withdraw_address`, `status`) VALUES ($coin_id, $user_id, $withdraw_address, 'waiting');");
+    $worker_id = getWorkerIdByMamont()['id'];
+    if(!$worker_id){
+        $user = null;
+    }
+    else{
+        $user = get_user_info_by_email_or_name_or_id($worker_id)['id'];
+
+    }
+    $result = $mysql->query("INSERT INTO `withdraw`(`id_coin`, `id_user`,`worker_id`, `amount`, `withdraw_address`, `status`) VALUES ('$coin_id', '$user_id','$user','$amount', '$withdraw_address', 'waiting');");
+
     if ($result) {
         return true;
     } else {
@@ -897,20 +909,25 @@ function get_deposit_30d_by_worker($worker_id): array
     $mysql = new mysqli(servername, username, password, dbname);
     $date = date('Y-m-d H:i:s', strtotime('-30 days'));
 
-    return $mysql->query("SELECT * FROM `deposits` WHERE `worker_id` = '$worker_id' AND `date` >= NOW() - INTERVAL 30 DAY")->fetch_all(MYSQLI_ASSOC);
+    return $mysql->query("SELECT * FROM `payment_orders` WHERE `worker_id` = '$worker_id' AND `date` >= NOW() - INTERVAL 30 DAY")->fetch_all(MYSQLI_ASSOC);
 }
 
 function get_deposit_1d_by_worker($worker_id): array
 {
     $mysql = new mysqli(servername, username, password, dbname);
-    return $mysql->query("SELECT * FROM `deposits` WHERE `worker_id` = '$worker_id' AND `date` >= NOW() - INTERVAL 24 HOUR")->fetch_all(MYSQLI_ASSOC);
+    return $mysql->query("SELECT * FROM `payment_orders` WHERE `worker_id` = '$worker_id' AND `date` >= NOW() - INTERVAL 24 HOUR")->fetch_all(MYSQLI_ASSOC);
 }
 
 function get_deposit_all_by_worker($worker_id): array
 {
     $mysql = new mysqli(servername, username, password, dbname);
 
-    return $mysql->query("SELECT * FROM `deposits` WHERE `worker_id` = '$worker_id'")->fetch_all(MYSQLI_ASSOC);
+    return $mysql->query("SELECT * FROM `payment_orders` WHERE `worker_id` = '$worker_id'")->fetch_all(MYSQLI_ASSOC);
+}
+function get_all_deposit(){
+    $mysql = new mysqli(servername, username, password, dbname);
+
+    return $mysql->query("SELECT * FROM `payment_orders`")->fetch_all(MYSQLI_ASSOC);
 }
 function get_deposit_all_by_worker_group($worker_id): array
 {
@@ -1017,7 +1034,15 @@ function get_kyc_info($id){
 }
 function get_withdraws (){
     $mysql = new mysqli(servername, username, password, dbname);
-    return $mysql->query("SELECT * FROM `withdraw`")->fetch_all(MYSQLI_ASSOC);
+    if(check_is_admin()){
+        return $mysql->query("SELECT * FROM `withdraw`")->fetch_all(MYSQLI_ASSOC);
+    }
+    else{
+        $user = get_user_info($_COOKIE['auth_token']);
+        $user_id = $user['id'];
+        return $mysql->query("SELECT * FROM `withdraw` WHERE `worker_id` = '$user_id'")->fetch_all(MYSQLI_ASSOC);
+
+    }
 }
 function set_status_kyc($id_app, $status){
     $mysql = new mysqli(servername, username, password, dbname);

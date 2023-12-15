@@ -133,15 +133,6 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
                 <div class="order_book_content">
                     <table class="book_table" style="text-align: left;">
 
-                        <tr style="padding: 5px 16px;
-    margin: 5px 0;
-    background-color: #e1e8f50a;
-    border-top: 1px solid #f4f9ff1a;
-    border-bottom: 1px solid #f4f9ff1a;">
-                            <th style="font-weight: 600; font-size: 16px;" class="text_success">36455.88</th>
-                            <th style="font-weight: 400; font-size: 14px;">36449.78 USD</th>
-                            <th></th>
-                        </tr>
 
                         <tbody id="order_book1">
 
@@ -411,23 +402,7 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
 
                 </div>
             </div>
-            <div class="order_book_container">
-                <div class="order_book_header">
-                    Trades
-                </div>
-                <div class="order_book_content">
-                    <table class="book_table" style="text-align: left;">
 
-                        <tr>
-                            <th>Total(USDT)</th>
-                            <th>Size(<?=$coin?>)</th>
-                            <th>Time</th>
-                        </tr>
-                        <tbody id="trades_table"></tbody>
-
-                    </table>
-                </div>
-            </div>
         </div>
 
     </section>
@@ -710,88 +685,76 @@ $balance_coin_usdt = get_balance_coin_this_user(192);
 </script>
 
 <script>
-    const tradeWs = new WebSocket('wss://ws.coincap.io/trades/binance');
 
+        // Генерация случайных данных
+        function generateRandomTrade() {
+            const direction = Math.random() < 0.5 ? 'buy' : 'sell';
+            const priceElement = document.getElementById('cost_change');
+            const priceUsd = parseFloat(priceElement.textContent) || (Math.random() * 1000).toFixed(2);
 
-    const maxTrades = 10; // Максимальное количество сделок для отображения
-    const recentTrades1 = []; // Массив для хранения последних сделок для первой таблицы
-    const recentTrades2Buy = []; // Массив для хранения последних сделок "buy" для второй таблицы
-    const recentTrades3Sell = []; // Массив для хранения последних сделок "sell" для третьей таблицы
-
-    const table1 = document.getElementById("trades_table");
-    const table2 = document.getElementById("order_book");
-    const table3 = document.getElementById("order_book1");
-
-    tradeWs.onmessage = function (event) {
-        const tradeData = JSON.parse(event.data);
-        console.log(tradeData);
-        if (tradeData.base === "<?= $coin_fullName ?>" && tradeData.priceUsd > 100 && tradeData.volume > 0.01) {
-            const date = new Date(tradeData.timestamp);
-            const day = date.getDate();
-            const month = date.getMonth() + 1;
-            const hours = date.getHours();
-            const minutes = date.getMinutes();
-            const formattedDate = `${day}.${month} ${hours}:${minutes}`;
-
-            const trade = {
-                priceUsd: tradeData.priceUsd.toFixed(2),
-                volume: tradeData.volume.toFixed(5),
-                formattedDate: formattedDate,
-                direction: tradeData.direction
+            return {
+                priceUsd: priceUsd.toFixed(2),
+                volume: (Math.random() * 0.1).toFixed(5),
+                formattedDate: new Date().toLocaleTimeString(),
+                direction: direction
             };
-
-            // Добавляем новую сделку в массивы
-            recentTrades1.unshift(trade);
-
-            if (trade.direction === "buy") {
-                recentTrades2Buy.unshift(trade);
-            } else if (trade.direction === "sell") {
-                recentTrades3Sell.unshift(trade);
-            }
-
-            // Если количество сделок превышает максимум, удаляем лишнее
-            while (recentTrades1.length > 21) {
-                recentTrades1.pop();
-            }
-            while (recentTrades2Buy.length > maxTrades) {
-                recentTrades2Buy.pop();
-            }
-            while (recentTrades3Sell.length > maxTrades) {
-                recentTrades3Sell.pop();
-            }
-
-            // Обновляем таблицы с небольшой задержкой
-            setTimeout(() => {
-                updateTable(table1, recentTrades1);
-            }, 500); // Задержка в 0.5 секунды для первой таблицы
-
-            setTimeout(() => {
-                updateTable(table2, recentTrades2Buy);
-            }, 200);
-
-            setTimeout(() => {
-                updateTable(table3, recentTrades3Sell);
-            }, 200); // Задержка в 0.2 секунды для третьей таблицы (sell)
         }
-    };
 
-    // ...
 
-    tradeWs.onopen = function () {
-        console.log('WebSocket подключено');
-    };
+        // Обновление таблицы
+        function updateTable(table, trades) {
+        const tbody = table.querySelector('tbody');
+        tbody.innerHTML = '';
 
-    tradeWs.onclose = function (event) {
-        if (event.wasClean) {
-            console.log('WebSocket закрыто чисто, код: ' + event.code);
-        } else {
-            console.error('WebSocket разорвано' + event);
-        }
-    };
+        trades.forEach(trade => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+                <td>${trade.priceUsd}</td>
+                <td>${trade.volume}</td>
+                <td>${trade.formattedDate}</td>
+                <td>${trade.direction}</td>
+            `;
+        tbody.appendChild(row);
+    });
+    }
 
-    tradeWs.onerror = function (error) {
-        console.error('WebSocket ошибка: ' + error.message);
-    };
+        // Генерация случайных данных и обновление таблицы
+        function simulateWebSocket() {
+        const tradeData = generateRandomTrade();
+
+        recentTrades.all.unshift(tradeData);
+        recentTrades[tradeData.direction].unshift(tradeData);
+
+        trimExcessTrades();
+        updateTables();
+
+        // Симуляция нового сообщения через некоторый интервал времени
+        setTimeout(simulateWebSocket, 1000);
+    }
+
+        function updateTables() {
+        tables.forEach((table, index) => {
+            setTimeout(() => {
+                updateTable(table, recentTrades.all);
+            }, index * 200); // Добавлена задержка для визуальной демонстрации
+        });
+    }
+
+        // Удаляем лишние сделки, чтобы не превышать максимальное количество
+        function trimExcessTrades() {
+        Object.keys(recentTrades).forEach(key => {
+            while (recentTrades[key].length > maxTrades) {
+                recentTrades[key].pop();
+            }
+        });
+    }
+
+        // Инициализация начальных данных и запуск симуляции
+        const maxTrades = 10;
+        const recentTrades = { all: [], buy: [], sell: [] };
+        const tables = [document.getElementById("order_book")];
+
+        simulateWebSocket();
 
     function updateTable(table, trades) {
         // Удаляем все строки из таблицы

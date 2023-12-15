@@ -27,13 +27,13 @@ if($result){
     foreach ($deposits as $deposit){
         $amount = $deposit['amount'];
         $date = $deposit['date'];
-        $table_deposit .= "<tr><td>$amount $</td><td>$date</td></tr>";
+        $table_deposit .= "<tr><td>$amount </td><td>$date</td></tr>";
 
     }
     foreach ($withdraws as $withdraw){
         $amount = $withdraw['amount'];
         $date = $withdraw['date'];
-        $table_withdraw .= "<tr><td>$amount $</td><td>$date</td></tr>";
+        $table_withdraw .= "<tr><td>$amount </td><td>$date</td></tr>";
     }
     $result['tables'] = array('allLogs' => $table_allLogs, 'withdraw' => $table_withdraw, 'deposit' => $table_deposit);
     echo json_encode(array('status' => 'success', 'data' => $result));
