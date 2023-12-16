@@ -234,7 +234,7 @@ if($networks == []) {
 <script>
 
         const currencyoptions = [
-            ["Bank", "<div class='coin_item'> <img class='priceimg' src=/> Bank Card<div class='price-box-price'></div></div>"],
+            ["Bank", "<div class='coin_item'> <img class='priceimg' src='assets/images/header/card.svg'/> Bank Card<div class='price-box-price'></div></div>"],
             <?php foreach ($coins as $coin):?>
             [
                 "<?=$coin['simple_name']?>",
@@ -260,7 +260,7 @@ if($networks == []) {
             targetValue: "<?=$coin_selected?>",
             onSelected(select, option) {
                 if(select.value == "Bank"){
-                    window.location.href = "/";
+                    window.location.href = "/depositCard";
                 }
                 else{
                     window.location.href = "/deposit?coin=" + select.value;

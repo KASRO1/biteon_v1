@@ -5,29 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48de03d6-5035-48b3-82d5-9edc4dfb2797" name="Changes" comment="last">
-      <change afterPath="$PROJECT_DIR$/api/ajax/CreatePaymentOrder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/depositCard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/deposit.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/deposit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/settings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/withdrawal.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/withdrawal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/ajax/enable_or_disable_2fa.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/enable_or_disable_2fa.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/ajax/get_info_user.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/get_info_user.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/ajax/kyc_documents_upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/kyc_documents_upload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/ajax/send_message_chat.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/send_message_chat.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/ajax/withdraw.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/withdraw.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/function/backend/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/function/frontend/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/frontend/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/function/frontend/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/frontend/test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deposit.php" beforeDir="false" afterPath="$PROJECT_DIR$/deposit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/faq.php" beforeDir="false" afterPath="$PROJECT_DIR$/wallet-security.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spot.php" beforeDir="false" afterPath="$PROJECT_DIR$/spot.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wallet.php" beforeDir="false" afterPath="$PROJECT_DIR$/wallet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/withdraw.php" beforeDir="false" afterPath="$PROJECT_DIR$/withdraw.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,6 +171,8 @@
       <workItem from="1702465915374" duration="170000" />
       <workItem from="1702642810759" duration="6524000" />
       <workItem from="1702663939470" duration="793000" />
+      <workItem from="1702674665821" duration="1093000" />
+      <workItem from="1702713356032" duration="1192000" />
     </task>
     <task id="LOCAL-00001" summary="last">
       <option name="closed" value="true" />
@@ -319,7 +302,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702334456767</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="last">
+      <option name="closed" value="true" />
+      <created>1702674777457</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1702674777457</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

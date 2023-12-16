@@ -50,7 +50,7 @@ $TRX = get_assets_coin("TRX_USDT");
                 <li class="has-submenu"><a href="#">Buy crypto</a>
                     <ul class="submenu">
                         <li onclick="window.location.href = '/deposit'">
-                            <a href="/deposit">Credit / debit card</a>
+                            <a href="/depositCard.php">Credit / debit card</a>
                             <span>Quick purchase of crypto</span>
                         </li>
                         <li onclick="window.location.href = '/p2p'">
@@ -58,7 +58,7 @@ $TRX = get_assets_coin("TRX_USDT");
                             <span>Trade with real users</span>
                         </li>
                         <li onclick="window.location.href = '/swap'">
-                            <a href="swap">Refill with cryptocurrency</a>
+                            <a href="/deposit">Refill with cryptocurrency</a>
                             <span>Deposit in minutes</span>
                         </li>
                     </ul>
@@ -674,7 +674,7 @@ $TRX = get_assets_coin("TRX_USDT");
                     <li><a href="launchpad">Launchpad</a></li>
                     <li><a href="savings">Savings</a></li>
                     <li><a href="ventures"><span ><?=$domain_titleINIT?></span> ventures</a></li>
-                    <li>Buy crypto</li>
+                    <li><a href="deposit">Buy crypto</a></li>
                 </ul>
             </div>
             <div class="footer-links__box">
