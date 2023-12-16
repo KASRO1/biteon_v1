@@ -347,7 +347,7 @@ $lastKycApp = checkLastKycApplication();
 
                         <span>Your data is being verified</span>
                     </div>
-                <?php elseif($user_info['kyc_step'] == 1): ?>
+                <?php elseif($user_info['kyc_step'] < 2): ?>
                     <div class="blue_button kyc low-opacity">
 
                         <span>pass 2nd level KYC</span>

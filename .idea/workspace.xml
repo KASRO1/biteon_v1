@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="48de03d6-5035-48b3-82d5-9edc4dfb2797" name="Changes" comment="last">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deposit.php" beforeDir="false" afterPath="$PROJECT_DIR$/deposit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet.php" beforeDir="false" afterPath="$PROJECT_DIR$/wallet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings_kyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_kyc.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +170,7 @@
       <workItem from="1702642810759" duration="6524000" />
       <workItem from="1702663939470" duration="793000" />
       <workItem from="1702674665821" duration="1093000" />
-      <workItem from="1702713356032" duration="1192000" />
+      <workItem from="1702713356032" duration="1761000" />
     </task>
     <task id="LOCAL-00001" summary="last">
       <option name="closed" value="true" />
@@ -310,7 +308,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702674777457</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="last">
+      <option name="closed" value="true" />
+      <created>1702714740144</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1702714740144</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
