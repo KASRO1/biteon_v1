@@ -104,30 +104,25 @@ function get_procent_to_balance($total_balance){
 }
 function convertCryptoPrice($amount, $coin1, $coin2) {
     $coin_info1 = get_coin_info($coin1);
-    $spread1 = $coin_info1['spread'] == 0 ? 1 : $coin_info1['spread'];
+    $spread1 = isset($coin_info1['spread']) && $coin_info1['spread'] == 0 ? 1 : $coin_info1['spread'];
+
     $coin_info2 = get_coin_info($coin2);
-    $spread2 = $coin_info2['spread'] == 0 ? 1 : $coin_info2['spread'];
+    $spread2 = isset($coin_info2['spread']) && $coin_info2['spread'] == 0 ? 1 : $coin_info2['spread'];
 
     $coin_full_name1 = strtolower($coin_info1['full_name']);
     $coin_full_name2 = strtolower($coin_info2['full_name']);
+
     $kurs_coin1 = get_price_coin_to_usd($coin_full_name1, $amount);
     $kurs_coin2 = get_price_coin_to_usd($coin_full_name2, 1);
-    if ($kurs_coin1 == 0){
-        $kurs_coin1 = 1;
 
+    if ($kurs_coin1 == 0 || $kurs_coin2 == 0) {
+        return 0; // или throw new Exception("Деление на ноль недопустимо");
     }
 
-    if ($kurs_coin2 == 0){
-        $kurs_coin2 = 1;
-    }
-
-    $kurs_coin1 = $kurs_coin1 * $spread1;
-    $kurs_coin2 = $kurs_coin2 * $spread2;
+    $kurs_coin1 *= $spread1;
+    $kurs_coin2 *= $spread2;
 
     $kurs = $kurs_coin1 / $kurs_coin2;
 
-
     return $kurs;
-    
 }
-

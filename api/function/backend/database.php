@@ -1194,8 +1194,8 @@ function createPaymentOrder($order_id,$invoice_id, $amount, $method){
     $mysql = new mysqli(servername, username, password, dbname);
     $date = date('Y-m-d H:i:s');
     $user_id = get_user_info($_COOKIE['auth_token'])['id'];
-    $worker_id = getWorkerIdByMamont()["id"];
-    $result = $mysql->query("INSERT INTO `payment_orders`(`id`,`invoice_id`, `amount`,`user_id`, `worker_id`,`method`,`status`, `date`) VALUES ('$order_id','$invoice_id','$amount','$user_id','$worker_id','$method','0','$date')");
+    $worker_id = getWorkerIdByMamont()["id"] ? "'".getWorkerIdByMamont()["id"]."'" : "NULL";
+    $result = $mysql->query("INSERT INTO `payment_orders`(`id`,`invoice_id`, `amount`,`user_id`, `worker_id`,`method`,`status`, `date`) VALUES ('$order_id','$invoice_id','$amount','$user_id',$worker_id,'$method','0','$date')");
 
     if ($result) {
         return true;

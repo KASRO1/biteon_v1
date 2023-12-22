@@ -41,7 +41,9 @@ function createPayment($order_id, $amount, $customer_id) {
     $response = curl_exec($ch);
     curl_close($ch);
     $json_data = json_decode($response, true);
+
     if (!isset($json_data['error'])){
+
         createPaymentOrder($order_id, $json_data['invoice_id'], $amount, "P2P");
     }
 

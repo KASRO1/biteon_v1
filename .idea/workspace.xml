@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="48de03d6-5035-48b3-82d5-9edc4dfb2797" name="Changes" comment="last">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings_kyc.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings_kyc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ajax/CreatePaymentOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/ajax/CreatePaymentOrder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/function/backend/course.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/course.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/function/backend/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/function/backend/payment_api.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/function/backend/payment_api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +34,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$USER_HOME$/AppData/Local/Temp/tmp-8196-DEkSI73uIaY2/config.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Temp/tmp-10460-oEfi9yiZfKaD/config.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -170,7 +173,12 @@
       <workItem from="1702642810759" duration="6524000" />
       <workItem from="1702663939470" duration="793000" />
       <workItem from="1702674665821" duration="1093000" />
-      <workItem from="1702713356032" duration="1761000" />
+      <workItem from="1702713356032" duration="2742000" />
+      <workItem from="1702752227467" duration="1880000" />
+      <workItem from="1702802352129" duration="40000" />
+      <workItem from="1702802717512" duration="1331000" />
+      <workItem from="1702919353375" duration="681000" />
+      <workItem from="1703245062941" duration="4420000" />
     </task>
     <task id="LOCAL-00001" summary="last">
       <option name="closed" value="true" />
@@ -316,7 +324,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702714740144</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="last">
+      <option name="closed" value="true" />
+      <created>1702715143450</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1702715143450</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,6 +363,11 @@
           <url>file://$PROJECT_DIR$/fees.php</url>
           <line>8</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/api/function/backend/course.php</url>
+          <line>98</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
